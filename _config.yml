@@ -1,0 +1,55 @@
+# Basic
+title: Mizuha Ki
+# subtitle: To be or not to be, that is a question.
+# welcome_message: <a href="https://github.com/MizuhaKi/mizuhaki.github.io" target="_blank">Download the theme</a>
+description: To be or not to be, that is a question.
+# creator: <a href="http://onev.cat">@onevcat</a>
+
+url: "http://vno.onevcat.com"
+
+permalink: /:year/:month/:title/
+
+# Format
+highlighter: rouge
+
+# supported colors: blue, green, purple, red, orange or slate. If you need clear, leave it empty.
+# cover_color: red
+
+# The blog button should not be removed.
+blog_button:
+    title: Blog
+    description: Visit blog
+
+# The cv button should not be removed
+#nav:
+#    - {title: CV, description: Visit CV}
+#    - {title: About, description: About}
+
+
+# Navigation buttons in the front page.
+#nav:
+#    - {title: Projects, description: My Projects, url: 'http://project.onevcat.com'}
+#    # - {title: Another Button, description: A button, url: 'http://example.com'}
+
+# Pagination
+plugins: [jekyll-paginate]
+paginate: 10
+paginate_path: "page/:num/"
+
+# Comment
+comment:
+    disqus: mizuhaki
+    # duoshuo: 
+    
+# Social
+social:
+    weibo: mizuhaki
+    github: mizuhaki
+    twitter: mizuhaki
+    gplus: 107108267983477358170
+    mail: onev@onevcat.com
+
+# Google Analytics
+ga:
+    # id: your_ga_id
+    # host: your_host
