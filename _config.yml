@@ -3,9 +3,9 @@ title: Mizuha Ki
 # subtitle: To be or not to be, that is a question.
 # welcome_message: <a href="https://github.com/MizuhaKi/mizuhaki.github.io" target="_blank">Download the theme</a>
 description: To be or not to be, that is a question.
-# creator: <a href="http://onev.cat">@onevcat</a>
+creator: <a href="http://github.com/MizuhaKi">@mizuhaki</a>
 
-url: "http://vno.onevcat.com"
+url: "http://github.com/MizuhaKi/mizuhaki.github.io"
 
 permalink: /:year/:month/:title/
 
@@ -45,11 +45,12 @@ comment:
 social:
     #weibo: mizuhaki
     github: mizuhaki
-    twitter: mizuhaki_
+    twitter: mizuha_ki
     facebook: mizuhaki1
+    instagram: mizuha_ki
     mail: xx@gmail.com
 
 # Google Analytics
-ga:
+# ga:
     # id: your_ga_id
     # host: your_host
