@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <title>graph visualization</title>
+  <meta name="description" content="a code example```pythonimport networkx as nximport matplotlib.pyplot as pltimport scipy.io as sioimport numpy as np">
+  <meta name="author" content="Mizuha Ki">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="graph visualization">
+  <meta name="twitter:description" content="a code example```pythonimport networkx as nximport matplotlib.pyplot as pltimport scipy.io as sioimport numpy as np">
+  
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="graph visualization">
+  <meta property="og:description" content="a code example```pythonimport networkx as nximport matplotlib.pyplot as pltimport scipy.io as sioimport numpy as np">
+  
+  <link rel="icon" type="image/png" href="/assets/images/favicon.png" />
+  <link href="/assets/images/favicon.png" rel="shortcut icon" type="image/png">
+  
+  <link rel="stylesheet" href="/css/main.css">
+  <link href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+
+  <link rel="canonical" href="http://localhost:4000/2018/07/graph-visualization/">
+  <link rel="alternate" type="application/rss+xml" title="Mizuha Ki" href="http://localhost:4000/feed.xml">
+  
+  <meta name="google-site-verification" content="1-1ZlHoRvM0T2FqPbW2S-qLgYXN6rsn52kErlMPd_gw" />
+  
+</head>
+
+
+  <body>
+
+    <span class="mobile btn-mobile-menu">
+        <i class="fa fa-list btn-mobile-menu__icon"></i>
+        <i class="fa fa-angle-up btn-mobile-close__icon hidden"></i>
+    </span>
+    
+    <header class="panel-cover panel-cover--collapsed" style="background-image: url('/assets/images/background-cover.jpg')">
+  <div class="panel-main">
+
+    <div class="panel-main__inner panel-inverted">
+    <div class="panel-main__content">
+
+        <a href="/#blog" title="go Mizuha Ki's homepage" class="blog-button"><img src="/assets/images/avatar.jpg" width="80" alt="Mizuha Ki logo" class="panel-cover__logo logo" /></a>
+        <h1 class="panel-cover__title panel-title"><a href="/#blog" title="link to homepage for Mizuha Ki" class="blog-button">Mizuha Ki</a></h1>
+        
+        <hr class="panel-cover__divider" />
+        <p class="panel-cover__description">To be or not to be, that is a question.</p>
+        <hr class="panel-cover__divider panel-cover__divider--secondary" />
+        
+        
+        
+        <div class="navigation-wrapper">
+          <div>
+            <nav class="cover-navigation cover-navigation--primary">
+              <ul class="navigation">
+                <li class="navigation__item"><a href="/#blog" title="Visit blog" class="blog-button">Blog</a></li>
+                
+              </ul>
+            </nav>
+          </div>
+          
+          <div><nav class="cover-navigation navigation--social">
+  <ul class="navigation">
+
+  
+
+  
+  <!-- Github -->
+  <li class="navigation__item">
+          <a href="https://github.com/mizuhaki" title="@mizuhaki's github" target="_blank">
+      <i class='social fa fa-github'></i>
+      <span class="label">Github</span>
+    </a>
+  </li>
+  
+  
+  
+  <!-- Twitter -->
+  <li class="navigation__item">
+    <a href="http://twitter.com/mizuha_ki" title="@mizuha_ki" target="_blank">
+      <i class='social fa fa-twitter'></i>
+      <span class="label">Twitter</span>
+    </a>
+  </li>
+  
+
+  
+  <!-- Facebook -->
+  <li class="navigation__item">
+    <a href="http://facebook.com/mizuhaki1" title="@mizuhaki1" target="_blank">
+      <i class='social fa fa-facebook-square'></i>
+      <span class="label">Facebook</span>
+    </a>
+  </li>
+  
+
+  
+  <!-- Instagram -->
+  <li class="navigation__item">
+    <a href="http://instagram.com/mizuha_ki" title="@mizuha_ki" target="_blank">
+      <i class='social fa fa-instagram'></i>
+      <span class="label">Instagram</span>
+    </a>
+  </li>
+  
+
+  <!-- RSS -->
+  <li class="navigation__item">
+    <a href="/feed.xml" rel="author" title="RSS" target="_blank">
+      <i class='social fa fa-rss'></i>
+      <span class="label">RSS</span>
+    </a>
+  </li>
+
+  
+  <!-- Email -->
+  <li class="navigation__item">
+    <a href="mailto:xx@gmail.com" title="Contact me">
+      <i class='social fa fa-envelope'></i>
+      <span class="label">Email</span>
+    </a>
+  </li>
+  
+
+  </ul>
+</nav>
+</div>
+        </div>
+      </div>
+    </div>
+    
+    
+    <div class="panel-cover--overlay cover-disabled"></div>
+    
+  </div>
+</header>
+
+
+    <div class="content-wrapper">
+        <div class="content-wrapper__inner">
+            <article class="post-container post-container--single" itemscope itemtype="http://schema.org/BlogPosting">
+  <header class="post-header">
+    <div class="post-meta">
+      <time datetime="2018-07-20 00:00:00 +0800" itemprop="datePublished" class="post-meta__date date">2018-07-20</time> &#8226; <span class="post-meta__tags tags">computer science deep learning python blog</span>
+    </div>
+    <h1 class="post-title">graph visualization</h1>
+  </header>
+
+  <section class="post">
+    <h2 id="a-code-example">a code example</h2>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">networkx</span> <span class="k">as</span> <span class="n">nx</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+<span class="kn">import</span> <span class="nn">scipy.io</span> <span class="k">as</span> <span class="n">sio</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="n">np</span>
+
+<span class="n">graph</span> <span class="o">=</span> <span class="n">sio</span><span class="o">.</span><span class="n">loadmat</span><span class="p">(</span><span class="s">'./graph_sub_obj.mat'</span><span class="p">)</span>
+<span class="n">classes</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">graph</span><span class="p">[</span><span class="s">'classes'</span><span class="p">],</span> <span class="n">dtype</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="nb">str</span><span class="p">)</span>
+<span class="n">graph_obj</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">graph</span><span class="p">[</span><span class="s">'graph_obj'</span><span class="p">],</span> <span class="n">dtype</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="nb">float</span><span class="p">)</span>
+<span class="n">graph_obj</span> <span class="o">=</span> <span class="n">graph_obj</span><span class="p">[:,</span> <span class="p">:,</span> <span class="mi">27</span><span class="p">]</span>
+<span class="n">graph_sub</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">graph</span><span class="p">[</span><span class="s">'graph_sub'</span><span class="p">],</span> <span class="n">dtype</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="nb">float</span><span class="p">)</span>
+<span class="n">graph_sub</span> <span class="o">=</span> <span class="n">graph_sub</span><span class="p">[:,</span> <span class="p">:,</span> <span class="mi">27</span><span class="p">]</span>
+
+<span class="n">G</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">Graph</span><span class="p">()</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">graph_obj</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]):</span>
+    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">graph_obj</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]):</span>
+        <span class="k">if</span> <span class="n">graph_obj</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">G</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="n">classes</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">classes</span><span class="p">[</span><span class="n">j</span><span class="p">],</span> <span class="n">weight</span> <span class="o">=</span> <span class="n">graph_obj</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">])</span>
+
+<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">gcf</span><span class="p">()</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">set_size_inches</span><span class="p">(</span><span class="mf">8.5</span><span class="p">,</span> <span class="mf">8.5</span><span class="p">)</span>
+<span class="n">colors</span> <span class="o">=</span> <span class="p">[</span><span class="s">'r'</span><span class="p">,</span> <span class="s">'g'</span><span class="p">,</span> <span class="s">'b'</span><span class="p">,</span> <span class="s">'y'</span><span class="p">,</span> <span class="s">'purple'</span><span class="p">]</span>
+<span class="n">pos</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">spring_layout</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">iterations</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">scale</span> <span class="o">=</span> <span class="mf">0.1</span><span class="p">)</span>
+<span class="n">edgewidth</span><span class="o">=</span><span class="p">[]</span>
+<span class="k">for</span> <span class="p">(</span><span class="n">u</span><span class="p">,</span><span class="n">v</span><span class="p">,</span><span class="n">d</span><span class="p">)</span> <span class="ow">in</span> <span class="n">G</span><span class="o">.</span><span class="n">edges</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="bp">True</span><span class="p">):</span>
+     <span class="n">edgewidth</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="n">G</span><span class="o">.</span><span class="n">get_edge_data</span><span class="p">(</span><span class="n">u</span><span class="p">,</span><span class="n">v</span><span class="p">)</span><span class="o">.</span><span class="n">values</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="mi">20</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
+<span class="n">nx</span><span class="o">.</span><span class="n">draw_networkx</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">pos</span><span class="p">,</span> <span class="n">node_color</span><span class="o">=</span><span class="n">colors</span><span class="p">,</span> <span class="n">node_size</span><span class="o">=</span><span class="mi">800</span><span class="p">,</span> <span class="n">font_size</span><span class="o">=</span><span class="mi">18</span><span class="p">,</span> <span class="n">with_labels</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">width</span> <span class="o">=</span> <span class="n">edgewidth</span><span class="p">)</span> 
+<span class="c1">#nx.draw_networkx(G,pos=nx.spring_layout(G),node_color=colors) 
+#nx.draw_networkx(G,pos=nx.circular_layout(G),node_color=colors)
+#nx.draw_networkx(G,pos=nx.random_layout(G),node_color=colors) 
+#nx.draw_networkx(G,pos=nx.shell_layout(G),node_color=colors) 
+</span><span class="n">plt</span><span class="o">.</span><span class="n">tick_params</span><span class="p">(</span><span class="n">labelbottom</span><span class="o">=</span><span class="s">'off'</span><span class="p">,</span> <span class="n">labelleft</span><span class="o">=</span><span class="s">'off'</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s">'off'</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">subplots_adjust</span><span class="p">(</span><span class="n">top</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="n">bottom</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">left</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">right</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">hspace</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">wspace</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s">'graph_obj.png'</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="n">G</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">Graph</span><span class="p">()</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">graph_sub</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]):</span>
+    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">graph_sub</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]):</span>
+        <span class="k">if</span> <span class="n">graph_sub</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">G</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="n">classes</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">classes</span><span class="p">[</span><span class="n">j</span><span class="p">],</span> <span class="n">weight</span> <span class="o">=</span> <span class="n">graph_sub</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">])</span>
+
+<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">gcf</span><span class="p">()</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">set_size_inches</span><span class="p">(</span><span class="mf">8.5</span><span class="p">,</span> <span class="mf">8.5</span><span class="p">)</span>
+<span class="n">colors</span> <span class="o">=</span> <span class="p">[</span><span class="s">'r'</span><span class="p">,</span> <span class="s">'g'</span><span class="p">,</span> <span class="s">'b'</span><span class="p">,</span> <span class="s">'y'</span><span class="p">,</span> <span class="s">'purple'</span><span class="p">]</span>
+<span class="n">pos</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">spring_layout</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">iterations</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">scale</span> <span class="o">=</span> <span class="mf">0.1</span><span class="p">)</span>
+<span class="n">edgewidth</span><span class="o">=</span><span class="p">[]</span>
+<span class="k">for</span> <span class="p">(</span><span class="n">u</span><span class="p">,</span><span class="n">v</span><span class="p">,</span><span class="n">d</span><span class="p">)</span> <span class="ow">in</span> <span class="n">G</span><span class="o">.</span><span class="n">edges</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="bp">True</span><span class="p">):</span>
+     <span class="n">edgewidth</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="n">G</span><span class="o">.</span><span class="n">get_edge_data</span><span class="p">(</span><span class="n">u</span><span class="p">,</span><span class="n">v</span><span class="p">)</span><span class="o">.</span><span class="n">values</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="mi">20</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
+<span class="n">nx</span><span class="o">.</span><span class="n">draw_networkx</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">pos</span><span class="p">,</span> <span class="n">node_color</span><span class="o">=</span><span class="n">colors</span><span class="p">,</span> <span class="n">node_size</span><span class="o">=</span><span class="mi">800</span><span class="p">,</span> <span class="n">font_size</span><span class="o">=</span><span class="mi">18</span><span class="p">,</span> <span class="n">with_labels</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">width</span> <span class="o">=</span> <span class="n">edgewidth</span><span class="p">)</span> 
+<span class="c1">#nx.draw_networkx(G,pos=nx.spring_layout(G),node_color=colors) 
+#nx.draw_networkx(G,pos=nx.circular_layout(G),node_color=colors)
+#nx.draw_networkx(G,pos=nx.random_layout(G),node_color=colors) 
+#nx.draw_networkx(G,pos=nx.shell_layout(G),node_color=colors) 
+</span><span class="n">plt</span><span class="o">.</span><span class="n">tick_params</span><span class="p">(</span><span class="n">labelbottom</span><span class="o">=</span><span class="s">'off'</span><span class="p">,</span> <span class="n">labelleft</span><span class="o">=</span><span class="s">'off'</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s">'off'</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">subplots_adjust</span><span class="p">(</span><span class="n">top</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="n">bottom</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">left</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">right</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">hspace</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">wspace</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s">'graph_sub.png'</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</code></pre></div></div>
+
+  </section>
+</article>
+
+<section class="read-more">
+   
+   
+   <div class="read-more-item">
+       <span class="read-more-item-dim">recent article</span>
+       <h2 class="post-list__post-title post-title"><a href="/2018/07/image-visualization/" title="link to image visualization">image visualization</a></h2>
+       <p class="excerpt">a code exampleimport cPickleimport numpy as npimport matplotlib.pyplot as pltfrom matplotlib.patches import Rectangle#from src import api as vgfrom PIL import Image as PIL_Imageimport requestsfrom StringIO import StringIOobj = []  # 201rel = []  #...&hellip;</p>
+       <div class="post-list__meta"><time datetime="2018-07-20 00:00:00 +0800" class="post-list__meta--date date">2018-07-20</time> &#8226; <span class="post-list__meta--tags tags">computer science deep learning python blog</span><a class="btn-border-small" href=/2018/07/image-visualization/>read</a></div>
+   </div>
+   
+   
+   
+   
+   <div class="read-more-item">
+       <span class="read-more-item-dim">previous article</span>
+       <h2 class="post-list__post-title post-title"><a href="/2018/07/cmder-config/" title="link to cmder config">cmder config</a></h2>
+       <p class="excerpt">Cmder是款解压即可用的软件，解压后将cmder文件夹放到你想放的位置，直接进入文件夹双击Cmder.exe即可使用。ls命令不支持中文  Cmder右下角下拉列表中，打开settings面板，找到Startup -&gt; Envrioment选项  在下面的文本框里添加一行：set LANG=zh_CN.UTF-8  然后重启cmder，使用ls命令查看目录下的文件，带中文的文件名都能正常显示了。添加 Cmder 到右键菜单  以管理员身份打开Cmder，在Cmder命令窗口中使用快...&hellip;</p>
+       <div class="post-list__meta"><time datetime="2018-07-20 00:00:00 +0800" class="post-list__meta--date date">2018-07-20</time> &#8226; <span class="post-list__meta--tags tags">computer science tool cmder blog</span><a class="btn-border-small" href=/2018/07/cmder-config/>read</a></div>
+   </div>
+   
+</section>
+
+<section class="post-comments">
+  
+    <div id="disqus_thread"></div>
+    <script>
+    
+    var disqus_config = function () {
+        this.page.url = "http://localhost:4000/2018/07/graph-visualization/";
+        this.page.identifier = "/2018/07/graph-visualization/";
+    };
+
+    var disqus_shortname = 'mizuhaki';
+    
+    (function() { // DON'T EDIT BELOW THIS LINE
+        var d = document, s = d.createElement('script');
+        s.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+            (d.head || d.body).appendChild(s);
+        })();
+    </script>
+    <noscript>要查看<a href="http://disqus.com/?ref_noscript"> Disqus </a>评论，请启用 JavaScript</noscript>
+    
+  
+  
+  
+  
+</section>
+
+
+            <section class="footer">
+    <footer>
+    	<span class="footer__copyright">本站点采用<a href="http://creativecommons.org/licenses/by-nc-sa/4.0/">知识共享 署名-非商业性使用-相同方式共享 4.0 国际 许可协议</a></span>
+        <span class="footer__copyright">由 <a href="https://jekyllrb.com">Jekyll</a> 于 2019-04-28 生成，感谢 <a href="https://www.digitalocean.com/?refcode=30ed2d146762">Digital Ocean</a> 为本站提供稳定的 VPS 服务</span>
+        <span class="footer__copyright">本站由 <a href="http://github.com/MizuhaKi">@mizuhaki</a> 创建，采用 <a href="https://github.com/onevcat/vno-jekyll">Vno - Jekyll</a> 作为主题，您可以在 GitHub 找到<a href="https://github.com/onevcat/OneV-s-Den">本站源码</a> - &copy; 2019</span>
+    </footer>
+</section>
+
+        </div>
+    </div>
+    
+    <script type="text/javascript" src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+
+<script type="text/javascript" src="/js/main.js"></script>
+
+
+
+    
+  </body>
+
+</html>

@@ -17,6 +17,14 @@
     } ,
   
     {
+      "title"    : "embedding representation visualization",
+      "category" : "",
+      "tags"     : "computer science, deep learning, python, blog",
+      "url"      : "/2019/04/embedding-representation-visualization/",
+      "date"     : "2019-04-18 00:00:00 +0800"
+    } ,
+  
+    {
       "title"    : "git commands",
       "category" : "",
       "tags"     : "computer science, tool, git, blog",
@@ -190,6 +198,94 @@
       "tags"     : "computer science, markdown, blog",
       "url"      : "/2018/07/markdown-editor/",
       "date"     : "2018-07-29 00:00:00 +0800"
+    } ,
+  
+    {
+      "title"    : "Vundle + Vim",
+      "category" : "",
+      "tags"     : "computer science, tool, vim, blog",
+      "url"      : "/2018/07/vundle-vim/",
+      "date"     : "2018-07-20 00:00:00 +0800"
+    } ,
+  
+    {
+      "title"    : "visualization for error",
+      "category" : "",
+      "tags"     : "computer science, deep learning, matlab, blog",
+      "url"      : "/2018/07/visualization-for-error/",
+      "date"     : "2018-07-20 00:00:00 +0800"
+    } ,
+  
+    {
+      "title"    : "Vim Setting",
+      "category" : "",
+      "tags"     : "computer science, tool, vim, blog",
+      "url"      : "/2018/07/vim-setting/",
+      "date"     : "2018-07-20 00:00:00 +0800"
+    } ,
+  
+    {
+      "title"    : "frequent software on windows",
+      "category" : "",
+      "tags"     : "computer science, tool, software",
+      "url"      : "/2018/07/software-on-windows/",
+      "date"     : "2018-07-20 00:00:00 +0800"
+    } ,
+  
+    {
+      "title"    : "read .PFM images",
+      "category" : "",
+      "tags"     : "computer science, deep learning, matlab, blog",
+      "url"      : "/2018/07/read-.pfm-images/",
+      "date"     : "2018-07-20 00:00:00 +0800"
+    } ,
+  
+    {
+      "title"    : "Jupyter Notebook In Docker for Server",
+      "category" : "",
+      "tags"     : "computer science, deep learning, jupyter notebook, blog",
+      "url"      : "/2018/07/jupyter-notebook-for-docker-on-server/",
+      "date"     : "2018-07-20 00:00:00 +0800"
+    } ,
+  
+    {
+      "title"    : "image visualization",
+      "category" : "",
+      "tags"     : "computer science, deep learning, python, blog",
+      "url"      : "/2018/07/image-visualization/",
+      "date"     : "2018-07-20 00:00:00 +0800"
+    } ,
+  
+    {
+      "title"    : "graph visualization",
+      "category" : "",
+      "tags"     : "computer science, deep learning, python, blog",
+      "url"      : "/2018/07/graph-visualization/",
+      "date"     : "2018-07-20 00:00:00 +0800"
+    } ,
+  
+    {
+      "title"    : "cmder config",
+      "category" : "",
+      "tags"     : "computer science, tool, cmder, blog",
+      "url"      : "/2018/07/cmder-config/",
+      "date"     : "2018-07-20 00:00:00 +0800"
+    } ,
+  
+    {
+      "title"    : "check CUDA and CUDNN version",
+      "category" : "",
+      "tags"     : "computer science, ubuntu, check version, blog",
+      "url"      : "/2018/07/check-CUDA-and-CUDNN-version/",
+      "date"     : "2018-07-20 00:00:00 +0800"
+    } ,
+  
+    {
+      "title"    : "cmake high version on linux",
+      "category" : "",
+      "tags"     : "computer science, ubuntu, cmake, blog",
+      "url"      : "/2018/07/Cmake-high-version-on-linux/",
+      "date"     : "2018-07-20 00:00:00 +0800"
     } 
   
 ]

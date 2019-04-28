@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <title>Vim Setting</title>
+  <meta name="description" content="a vim config``` vimsource $VIMRUNTIME/vimrc_example.vimsource $VIMRUNTIME/mswin.vimbehave mswin">
+  <meta name="author" content="Mizuha Ki">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Vim Setting">
+  <meta name="twitter:description" content="a vim config``` vimsource $VIMRUNTIME/vimrc_example.vimsource $VIMRUNTIME/mswin.vimbehave mswin">
+  
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Vim Setting">
+  <meta property="og:description" content="a vim config``` vimsource $VIMRUNTIME/vimrc_example.vimsource $VIMRUNTIME/mswin.vimbehave mswin">
+  
+  <link rel="icon" type="image/png" href="/assets/images/favicon.png" />
+  <link href="/assets/images/favicon.png" rel="shortcut icon" type="image/png">
+  
+  <link rel="stylesheet" href="/css/main.css">
+  <link href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+
+  <link rel="canonical" href="http://localhost:4000/2018/07/vim-setting/">
+  <link rel="alternate" type="application/rss+xml" title="Mizuha Ki" href="http://localhost:4000/feed.xml">
+  
+  <meta name="google-site-verification" content="1-1ZlHoRvM0T2FqPbW2S-qLgYXN6rsn52kErlMPd_gw" />
+  
+</head>
+
+
+  <body>
+
+    <span class="mobile btn-mobile-menu">
+        <i class="fa fa-list btn-mobile-menu__icon"></i>
+        <i class="fa fa-angle-up btn-mobile-close__icon hidden"></i>
+    </span>
+    
+    <header class="panel-cover panel-cover--collapsed" style="background-image: url('/assets/images/background-cover.jpg')">
+  <div class="panel-main">
+
+    <div class="panel-main__inner panel-inverted">
+    <div class="panel-main__content">
+
+        <a href="/#blog" title="go Mizuha Ki's homepage" class="blog-button"><img src="/assets/images/avatar.jpg" width="80" alt="Mizuha Ki logo" class="panel-cover__logo logo" /></a>
+        <h1 class="panel-cover__title panel-title"><a href="/#blog" title="link to homepage for Mizuha Ki" class="blog-button">Mizuha Ki</a></h1>
+        
+        <hr class="panel-cover__divider" />
+        <p class="panel-cover__description">To be or not to be, that is a question.</p>
+        <hr class="panel-cover__divider panel-cover__divider--secondary" />
+        
+        
+        
+        <div class="navigation-wrapper">
+          <div>
+            <nav class="cover-navigation cover-navigation--primary">
+              <ul class="navigation">
+                <li class="navigation__item"><a href="/#blog" title="Visit blog" class="blog-button">Blog</a></li>
+                
+              </ul>
+            </nav>
+          </div>
+          
+          <div><nav class="cover-navigation navigation--social">
+  <ul class="navigation">
+
+  
+
+  
+  <!-- Github -->
+  <li class="navigation__item">
+          <a href="https://github.com/mizuhaki" title="@mizuhaki's github" target="_blank">
+      <i class='social fa fa-github'></i>
+      <span class="label">Github</span>
+    </a>
+  </li>
+  
+  
+  
+  <!-- Twitter -->
+  <li class="navigation__item">
+    <a href="http://twitter.com/mizuha_ki" title="@mizuha_ki" target="_blank">
+      <i class='social fa fa-twitter'></i>
+      <span class="label">Twitter</span>
+    </a>
+  </li>
+  
+
+  
+  <!-- Facebook -->
+  <li class="navigation__item">
+    <a href="http://facebook.com/mizuhaki1" title="@mizuhaki1" target="_blank">
+      <i class='social fa fa-facebook-square'></i>
+      <span class="label">Facebook</span>
+    </a>
+  </li>
+  
+
+  
+  <!-- Instagram -->
+  <li class="navigation__item">
+    <a href="http://instagram.com/mizuha_ki" title="@mizuha_ki" target="_blank">
+      <i class='social fa fa-instagram'></i>
+      <span class="label">Instagram</span>
+    </a>
+  </li>
+  
+
+  <!-- RSS -->
+  <li class="navigation__item">
+    <a href="/feed.xml" rel="author" title="RSS" target="_blank">
+      <i class='social fa fa-rss'></i>
+      <span class="label">RSS</span>
+    </a>
+  </li>
+
+  
+  <!-- Email -->
+  <li class="navigation__item">
+    <a href="mailto:xx@gmail.com" title="Contact me">
+      <i class='social fa fa-envelope'></i>
+      <span class="label">Email</span>
+    </a>
+  </li>
+  
+
+  </ul>
+</nav>
+</div>
+        </div>
+      </div>
+    </div>
+    
+    
+    <div class="panel-cover--overlay cover-disabled"></div>
+    
+  </div>
+</header>
+
+
+    <div class="content-wrapper">
+        <div class="content-wrapper__inner">
+            <article class="post-container post-container--single" itemscope itemtype="http://schema.org/BlogPosting">
+  <header class="post-header">
+    <div class="post-meta">
+      <time datetime="2018-07-20 00:00:00 +0800" itemprop="datePublished" class="post-meta__date date">2018-07-20</time> &#8226; <span class="post-meta__tags tags">computer science tool vim blog</span>
+    </div>
+    <h1 class="post-title">Vim Setting</h1>
+  </header>
+
+  <section class="post">
+    <h2 id="a-vim-config">a vim config</h2>
+<div class="language-vim highlighter-rouge"><div class="highlight"><pre class="highlight"><code>source $VIMRUNTIME/vimrc_example<span class="p">.</span><span class="k">vim</span>
+source $VIMRUNTIME/mswin<span class="p">.</span><span class="k">vim</span>
+behave mswin
+
+<span class="k">set</span> diffexpr<span class="p">=</span>MyDiff<span class="p">()</span>
+<span class="k">function</span> MyDiff<span class="p">()</span>
+  <span class="k">let</span> <span class="k">opt</span> <span class="p">=</span> <span class="s1">'-a --binary '</span>
+  <span class="k">if</span> &amp;diffopt <span class="p">=~</span> <span class="s1">'icase'</span> <span class="p">|</span> <span class="k">let</span> <span class="k">opt</span> <span class="p">=</span> <span class="k">opt</span> <span class="p">.</span> <span class="s1">'-i '</span> <span class="p">|</span> <span class="k">endif</span>
+  <span class="k">if</span> &amp;diffopt <span class="p">=~</span> <span class="s1">'iwhite'</span> <span class="p">|</span> <span class="k">let</span> <span class="k">opt</span> <span class="p">=</span> <span class="k">opt</span> <span class="p">.</span> <span class="s1">'-b '</span> <span class="p">|</span> <span class="k">endif</span>
+  <span class="k">let</span> arg1 <span class="p">=</span> <span class="k">v</span><span class="p">:</span>fname_in
+  <span class="k">if</span> arg1 <span class="p">=~</span> <span class="s1">' '</span> <span class="p">|</span> <span class="k">let</span> arg1 <span class="p">=</span> <span class="s1">'"'</span> <span class="p">.</span> arg1 <span class="p">.</span> <span class="s1">'"'</span> <span class="p">|</span> <span class="k">endif</span>
+  <span class="k">let</span> arg2 <span class="p">=</span> <span class="k">v</span><span class="p">:</span>fname_new
+  <span class="k">if</span> arg2 <span class="p">=~</span> <span class="s1">' '</span> <span class="p">|</span> <span class="k">let</span> arg2 <span class="p">=</span> <span class="s1">'"'</span> <span class="p">.</span> arg2 <span class="p">.</span> <span class="s1">'"'</span> <span class="p">|</span> <span class="k">endif</span>
+  <span class="k">let</span> arg3 <span class="p">=</span> <span class="k">v</span><span class="p">:</span>fname_out
+  <span class="k">if</span> arg3 <span class="p">=~</span> <span class="s1">' '</span> <span class="p">|</span> <span class="k">let</span> arg3 <span class="p">=</span> <span class="s1">'"'</span> <span class="p">.</span> arg3 <span class="p">.</span> <span class="s1">'"'</span> <span class="p">|</span> <span class="k">endif</span>
+  <span class="k">if</span> $VIMRUNTIME <span class="p">=~</span> <span class="s1">' '</span>
+    <span class="k">if</span> &amp;<span class="k">sh</span> <span class="p">=~</span> <span class="s1">'\&lt;cmd'</span>
+      <span class="k">if</span> empty<span class="p">(</span>&amp;shellxquote<span class="p">)</span>
+        <span class="k">let</span> <span class="k">l</span><span class="p">:</span>shxq_sav <span class="p">=</span> <span class="s1">''</span>
+        <span class="k">set</span> shellxquote&amp;
+      <span class="k">endif</span>
+      <span class="k">let</span> cmd <span class="p">=</span> <span class="s1">'"'</span> <span class="p">.</span> $VIMRUNTIME <span class="p">.</span> <span class="s1">'\diff"'</span>
+    <span class="k">else</span>
+      <span class="k">let</span> cmd <span class="p">=</span> substitute<span class="p">(</span>$VIMRUNTIME<span class="p">,</span> <span class="s1">' '</span><span class="p">,</span> <span class="s1">'" '</span><span class="p">,</span> <span class="s1">''</span><span class="p">)</span> <span class="p">.</span> <span class="s1">'\diff"'</span>
+    <span class="k">endif</span>
+  <span class="k">else</span>
+    <span class="k">let</span> cmd <span class="p">=</span> $VIMRUNTIME <span class="p">.</span> <span class="s1">'\diff'</span>
+  <span class="k">endif</span>
+  <span class="k">silent</span> execute <span class="s1">'!'</span> <span class="p">.</span> cmd <span class="p">.</span> <span class="s1">' '</span> <span class="p">.</span> <span class="k">opt</span> <span class="p">.</span> arg1 <span class="p">.</span> <span class="s1">' '</span> <span class="p">.</span> arg2 <span class="p">.</span> <span class="s1">' &gt; '</span> <span class="p">.</span> arg3
+  <span class="k">if</span> exists<span class="p">(</span><span class="s1">'l:shxq_sav'</span><span class="p">)</span>
+    <span class="k">let</span> &amp;shellxquote<span class="p">=</span><span class="k">l</span><span class="p">:</span>shxq_sav
+  <span class="k">endif</span>
+<span class="k">endfunction</span>
+
+
+<span class="k">filetype</span> off  
+<span class="c">" Vundle path </span>
+<span class="k">set</span> rtp<span class="p">+=</span>$VIM<span class="sr">/vimfiles/</span>bundle<span class="sr">/vundle/</span>  
+<span class="k">call</span> vundle#rc<span class="p">(</span><span class="s1">'$VIM/vimfiles/bundle/'</span><span class="p">)</span>  
+Bundle <span class="s1">'gmarik/vundle'</span>  
+<span class="k">filetype</span> plugin indent <span class="k">on</span>  
+  
+<span class="c">" usr add</span>
+Bundle <span class="s1">'Solarized'</span>
+<span class="c">" set the menu &amp; the message to English</span>
+<span class="k">set</span> langmenu<span class="p">=</span>en_US
+<span class="k">let</span> $LANG<span class="p">=</span> <span class="s1">'en_US'</span>
+source $VIMRUNTIME/delmenu<span class="p">.</span><span class="k">vim</span>
+source $VIMRUNTIME/menu<span class="p">.</span><span class="k">vim</span>
+<span class="k">colorscheme</span> solarized
+<span class="k">set</span> <span class="k">filetype</span><span class="p">=</span>python  
+<span class="k">au</span> <span class="nb">BufNewFile</span><span class="p">,</span><span class="nb">BufRead</span> *<span class="p">.</span><span class="k">py</span><span class="p">,</span>*<span class="p">.</span>pyw <span class="k">setf</span> python  
+syntax enable  
+syntax <span class="k">on</span> " 自动语法高亮  
+<span class="k">set</span> <span class="k">number</span>"显示行号  
+<span class="k">set</span> tabstop<span class="p">=</span><span class="m">4</span> "表示Tab代表<span class="m">4</span>个空格的宽度  
+<span class="k">set</span> expandtab "表示Tab自动转换成空格  
+<span class="k">set</span> autoindent "表示换行后自动缩进  
+<span class="k">set</span> autoread " 当文件在外部被修改时，自动重新读取  
+<span class="k">set</span> <span class="k">history</span><span class="p">=</span><span class="m">400</span> "vim记住的历史操作的数量，默认的是<span class="m">20</span>  
+<span class="k">set</span> nocompatible"使用vim自己的键盘模式<span class="p">,</span>而不是兼容vi的模式  
+<span class="k">set</span> <span class="k">confirm</span>"处理未保存或者只读文件时<span class="p">,</span>给出提示  
+<span class="k">set</span> smartindent"智能对齐  
+<span class="k">set</span> shiftwidth<span class="p">=</span><span class="m">4</span>  
+<span class="k">set</span> nobackup
+<span class="k">set</span> noundofile
+<span class="k">if</span> has<span class="p">(</span><span class="s1">'gui_running'</span><span class="p">)</span>
+    <span class="k">set</span> guioptions<span class="p">-=</span>T  " no toolbar
+    <span class="k">set</span> lines<span class="p">=</span><span class="m">55</span> columns<span class="p">=</span><span class="m">108</span> linespace<span class="p">=</span><span class="m">0</span>
+    <span class="k">if</span> has<span class="p">(</span><span class="s1">'gui_win32'</span><span class="p">)</span>
+      <span class="k">set</span> guifont<span class="p">=</span>Consolas<span class="p">:</span>h12<span class="p">:</span>cANSI
+    <span class="k">else</span>
+      <span class="k">set</span> guifont<span class="p">=</span>Consolas\ <span class="m">12</span>
+    <span class="k">endif</span>
+  <span class="k">endif</span>
+
+<span class="k">filetype</span> plugin indent <span class="k">on</span>     " required<span class="p">!</span>   
+</code></pre></div></div>
+
+  </section>
+</article>
+
+<section class="read-more">
+   
+   
+   <div class="read-more-item">
+       <span class="read-more-item-dim">recent article</span>
+       <h2 class="post-list__post-title post-title"><a href="/2018/07/visualization-for-error/" title="link to visualization for error">visualization for error</a></h2>
+       <p class="excerpt">matlab code% error visualizationclear all; clc;C = [80.72, 81.17, 80.45, 81.17, 80.81];C_idx = [1, 2, 3, 4, 5];C_e = [2.35, 3.25, 3.04, 2.14, 2.79];figure(1)errorbar(C_idx, C, C_e, '-s', 'LineWidth', 2, 'MarkerSize', 10, ...    'MarkerEdgeColor', ...&hellip;</p>
+       <div class="post-list__meta"><time datetime="2018-07-20 00:00:00 +0800" class="post-list__meta--date date">2018-07-20</time> &#8226; <span class="post-list__meta--tags tags">computer science deep learning matlab blog</span><a class="btn-border-small" href=/2018/07/visualization-for-error/>read</a></div>
+   </div>
+   
+   
+   
+   
+   <div class="read-more-item">
+       <span class="read-more-item-dim">previous article</span>
+       <h2 class="post-list__post-title post-title"><a href="/2018/07/software-on-windows/" title="link to frequent software on windows">frequent software on windows</a></h2>
+       <p class="excerpt">software  AutoHotKey: 神器！神器！神器！当然也得看使用者咯(^__^) 嘻嘻……详情请参看：Win下最爱效率神器:AutoHotKey。  Listary： 本地搜索神器，当然还有别的作用，More&amp;More。  Launchy : 快速启动安装的应用程序，老而弥坚，有丝Mac下Spotlight之风；  Wox ： Windows下一款最接近 Alfred 的软件启动/文件搜索利器；可参见Listary Everything Wox Launch。  Chr...&hellip;</p>
+       <div class="post-list__meta"><time datetime="2018-07-20 00:00:00 +0800" class="post-list__meta--date date">2018-07-20</time> &#8226; <span class="post-list__meta--tags tags">computer science tool software</span><a class="btn-border-small" href=/2018/07/software-on-windows/>read</a></div>
+   </div>
+   
+</section>
+
+<section class="post-comments">
+  
+    <div id="disqus_thread"></div>
+    <script>
+    
+    var disqus_config = function () {
+        this.page.url = "http://localhost:4000/2018/07/vim-setting/";
+        this.page.identifier = "/2018/07/vim-setting/";
+    };
+
+    var disqus_shortname = 'mizuhaki';
+    
+    (function() { // DON'T EDIT BELOW THIS LINE
+        var d = document, s = d.createElement('script');
+        s.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+            (d.head || d.body).appendChild(s);
+        })();
+    </script>
+    <noscript>要查看<a href="http://disqus.com/?ref_noscript"> Disqus </a>评论，请启用 JavaScript</noscript>
+    
+  
+  
+  
+  
+</section>
+
+
+            <section class="footer">
+    <footer>
+    	<span class="footer__copyright">本站点采用<a href="http://creativecommons.org/licenses/by-nc-sa/4.0/">知识共享 署名-非商业性使用-相同方式共享 4.0 国际 许可协议</a></span>
+        <span class="footer__copyright">由 <a href="https://jekyllrb.com">Jekyll</a> 于 2019-04-28 生成，感谢 <a href="https://www.digitalocean.com/?refcode=30ed2d146762">Digital Ocean</a> 为本站提供稳定的 VPS 服务</span>
+        <span class="footer__copyright">本站由 <a href="http://github.com/MizuhaKi">@mizuhaki</a> 创建，采用 <a href="https://github.com/onevcat/vno-jekyll">Vno - Jekyll</a> 作为主题，您可以在 GitHub 找到<a href="https://github.com/onevcat/OneV-s-Den">本站源码</a> - &copy; 2019</span>
+    </footer>
+</section>
+
+        </div>
+    </div>
+    
+    <script type="text/javascript" src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+
+<script type="text/javascript" src="/js/main.js"></script>
+
+
+
+    
+  </body>
+
+</html>

@@ -6,17 +6,17 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-  <title>docker command</title>
-  <meta name="description" content="images import and export  sudo docker images  sudo docker save -o **.tar image_name  sudo docker load –input **.tar">
+  <title>Jupyter Notebook In Docker for Server</title>
+  <meta name="description" content="生成jupyter配置文件，这个会生成配置文件.~/.jupyter/jupyter_notebook_config.pyjupyter notebook –allow-root –generate-config">
   <meta name="author" content="Mizuha Ki">
 
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="docker command">
-  <meta name="twitter:description" content="images import and export  sudo docker images  sudo docker save -o **.tar image_name  sudo docker load –input **.tar">
+  <meta name="twitter:title" content="Jupyter Notebook In Docker for Server">
+  <meta name="twitter:description" content="生成jupyter配置文件，这个会生成配置文件.~/.jupyter/jupyter_notebook_config.pyjupyter notebook –allow-root –generate-config">
   
   <meta property="og:type" content="article">
-  <meta property="og:title" content="docker command">
-  <meta property="og:description" content="images import and export  sudo docker images  sudo docker save -o **.tar image_name  sudo docker load –input **.tar">
+  <meta property="og:title" content="Jupyter Notebook In Docker for Server">
+  <meta property="og:description" content="生成jupyter配置文件，这个会生成配置文件.~/.jupyter/jupyter_notebook_config.pyjupyter notebook –allow-root –generate-config">
   
   <link rel="icon" type="image/png" href="/assets/images/favicon.png" />
   <link href="/assets/images/favicon.png" rel="shortcut icon" type="image/png">
@@ -24,7 +24,7 @@
   <link rel="stylesheet" href="/css/main.css">
   <link href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
 
-  <link rel="canonical" href="http://localhost:4000/2019/04/docker-command/">
+  <link rel="canonical" href="http://localhost:4000/2018/07/jupyter-notebook-for-docker-on-server/">
   <link rel="alternate" type="application/rss+xml" title="Mizuha Ki" href="http://localhost:4000/feed.xml">
   
   <meta name="google-site-verification" content="1-1ZlHoRvM0T2FqPbW2S-qLgYXN6rsn52kErlMPd_gw" />
@@ -146,43 +146,30 @@
             <article class="post-container post-container--single" itemscope itemtype="http://schema.org/BlogPosting">
   <header class="post-header">
     <div class="post-meta">
-      <time datetime="2019-04-18 00:00:00 +0800" itemprop="datePublished" class="post-meta__date date">2019-04-18</time> &#8226; <span class="post-meta__tags tags">computer science ubuntu docker blog</span>
+      <time datetime="2018-07-20 00:00:00 +0800" itemprop="datePublished" class="post-meta__date date">2018-07-20</time> &#8226; <span class="post-meta__tags tags">computer science deep learning jupyter notebook blog</span>
     </div>
-    <h1 class="post-title">docker command</h1>
+    <h1 class="post-title">Jupyter Notebook In Docker for Server</h1>
   </header>
 
   <section class="post">
-    <h2 id="images-import-and-export">images import and export</h2>
-<ul>
-  <li>sudo docker images</li>
-  <li>sudo docker save -o **.tar image_name</li>
-  <li>sudo docker load –input **.tar</li>
-</ul>
+    <h2 id="生成jupyter配置文件这个会生成配置文件jupyterjupyter_notebook_configpy">生成jupyter配置文件，这个会生成配置文件.~/.jupyter/jupyter_notebook_config.py</h2>
+<p>jupyter notebook –allow-root –generate-config</p>
 
-<h2 id="new-docker">new docker</h2>
-<ul>
-  <li>sudo docker images</li>
-  <li>sudo docker run ….</li>
-</ul>
+<h2 id="使用ipython生成密码">使用ipython生成密码</h2>
+<p>In [1]: from notebook.auth import passwd
+In [2]: passwd()
+Enter password: 
+Verify password: 
+Out[2]: ‘sha1:XXX’</p>
 
-<h2 id="enter-container">enter container</h2>
-<ul>
-  <li>docker exec -ti container_name bash (recommend)</li>
-  <li>docker attach container_name</li>
-</ul>
+<h2 id="去配置文件jupyterjupyter_notebook_configpy中修改以下参数">去配置文件.~/.jupyter/jupyter_notebook_config.py中修改以下参数</h2>
+<p>c.NotebookApp.ip=’*‘                          #绑定所有地址
+c.NotebookApp.password = u’sha1:XXX’
+c.NotebookApp.open_browser = False            #启动后是否在浏览器中自动打开</p>
 
-<h2 id="frequent-command">frequent command</h2>
-<ul>
-  <li>docker images</li>
-  <li>docker ps -a</li>
-  <li>docker tag image_id image_name</li>
-  <li>docker rmi image_name</li>
-  <li>docker container rm</li>
-  <li>docker container kill</li>
-  <li>docker container start</li>
-  <li>docker container stop</li>
-  <li>docker container rename</li>
-</ul>
+<p>c.NotebookApp.port = 8888                      #指定一个访问端口，默认8888，注意和映射的docker端口对应</p>
+
+<p>start jupyter notebook –allow-root</p>
 
   </section>
 </article>
@@ -192,9 +179,9 @@
    
    <div class="read-more-item">
        <span class="read-more-item-dim">recent article</span>
-       <h2 class="post-list__post-title post-title"><a href="/2019/04/switchyomega-ss/" title="link to SwitchyOmega + SS">SwitchyOmega + SS</a></h2>
-       <p class="excerpt">a tool script forShadowSocksA secure socks5 proxy, designed to protect your Internet traffic. Support Windows, Mac OS X, Linux, Android, IOS.SwitchyOmegaManage and switch between multiple proxies quickly &amp; easily. Changing proxy settings has n...&hellip;</p>
-       <div class="post-list__meta"><time datetime="2019-04-22 00:00:00 +0800" class="post-list__meta--date date">2019-04-22</time> &#8226; <span class="post-list__meta--tags tags">computer science tool shadowsocks blog</span><a class="btn-border-small" href=/2019/04/switchyomega-ss/>read</a></div>
+       <h2 class="post-list__post-title post-title"><a href="/2018/07/read-.pfm-images/" title="link to read .PFM images">read .PFM images</a></h2>
+       <p class="excerpt">matlab codefunction D = pfmread(filename_pfm) fid = fopen(filename_pfm); fscanf(fid,'%c',[1,3]);cols = fscanf(fid,'%f',1);rows = fscanf(fid,'%f',1);fscanf(fid,'%f',1);fscanf(fid,'%c',1);D = fread(fid,[cols,rows],'single');D(D == Inf) = 0;D = rot90...&hellip;</p>
+       <div class="post-list__meta"><time datetime="2018-07-20 00:00:00 +0800" class="post-list__meta--date date">2018-07-20</time> &#8226; <span class="post-list__meta--tags tags">computer science deep learning matlab blog</span><a class="btn-border-small" href=/2018/07/read-.pfm-images/>read</a></div>
    </div>
    
    
@@ -202,9 +189,9 @@
    
    <div class="read-more-item">
        <span class="read-more-item-dim">previous article</span>
-       <h2 class="post-list__post-title post-title"><a href="/2019/04/embedding-representation-visualization/" title="link to embedding representation visualization">embedding representation visualization</a></h2>
-       <p class="excerpt">a code exampleimport numpy as npfrom sklearn.manifold import TSNEimport matplotlib.pyplot as plt#embedding = np.loadtxt('word_embedding.txt', skiprows = 1)with open('word_embedding.txt', 'r') as fin:    firstline = fin.readline().strip().split()  ...&hellip;</p>
-       <div class="post-list__meta"><time datetime="2019-04-18 00:00:00 +0800" class="post-list__meta--date date">2019-04-18</time> &#8226; <span class="post-list__meta--tags tags">computer science deep learning python blog</span><a class="btn-border-small" href=/2019/04/embedding-representation-visualization/>read</a></div>
+       <h2 class="post-list__post-title post-title"><a href="/2018/07/image-visualization/" title="link to image visualization">image visualization</a></h2>
+       <p class="excerpt">a code exampleimport cPickleimport numpy as npimport matplotlib.pyplot as pltfrom matplotlib.patches import Rectangle#from src import api as vgfrom PIL import Image as PIL_Imageimport requestsfrom StringIO import StringIOobj = []  # 201rel = []  #...&hellip;</p>
+       <div class="post-list__meta"><time datetime="2018-07-20 00:00:00 +0800" class="post-list__meta--date date">2018-07-20</time> &#8226; <span class="post-list__meta--tags tags">computer science deep learning python blog</span><a class="btn-border-small" href=/2018/07/image-visualization/>read</a></div>
    </div>
    
 </section>
@@ -215,8 +202,8 @@
     <script>
     
     var disqus_config = function () {
-        this.page.url = "http://localhost:4000/2019/04/docker-command/";
-        this.page.identifier = "/2019/04/docker-command/";
+        this.page.url = "http://localhost:4000/2018/07/jupyter-notebook-for-docker-on-server/";
+        this.page.identifier = "/2018/07/jupyter-notebook-for-docker-on-server/";
     };
 
     var disqus_shortname = 'mizuhaki';

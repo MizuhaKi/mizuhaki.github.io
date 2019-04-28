@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <title>Vundle + Vim</title>
+  <meta name="description" content="安装 Vim在 Ubuntu 上安装 Vim 很简单，在终端敲入如下命令即可sudo apt-get install vim">
+  <meta name="author" content="Mizuha Ki">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Vundle + Vim">
+  <meta name="twitter:description" content="安装 Vim在 Ubuntu 上安装 Vim 很简单，在终端敲入如下命令即可sudo apt-get install vim">
+  
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Vundle + Vim">
+  <meta property="og:description" content="安装 Vim在 Ubuntu 上安装 Vim 很简单，在终端敲入如下命令即可sudo apt-get install vim">
+  
+  <link rel="icon" type="image/png" href="/assets/images/favicon.png" />
+  <link href="/assets/images/favicon.png" rel="shortcut icon" type="image/png">
+  
+  <link rel="stylesheet" href="/css/main.css">
+  <link href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+
+  <link rel="canonical" href="http://localhost:4000/2018/07/vundle-vim/">
+  <link rel="alternate" type="application/rss+xml" title="Mizuha Ki" href="http://localhost:4000/feed.xml">
+  
+  <meta name="google-site-verification" content="1-1ZlHoRvM0T2FqPbW2S-qLgYXN6rsn52kErlMPd_gw" />
+  
+</head>
+
+
+  <body>
+
+    <span class="mobile btn-mobile-menu">
+        <i class="fa fa-list btn-mobile-menu__icon"></i>
+        <i class="fa fa-angle-up btn-mobile-close__icon hidden"></i>
+    </span>
+    
+    <header class="panel-cover panel-cover--collapsed" style="background-image: url('/assets/images/background-cover.jpg')">
+  <div class="panel-main">
+
+    <div class="panel-main__inner panel-inverted">
+    <div class="panel-main__content">
+
+        <a href="/#blog" title="go Mizuha Ki's homepage" class="blog-button"><img src="/assets/images/avatar.jpg" width="80" alt="Mizuha Ki logo" class="panel-cover__logo logo" /></a>
+        <h1 class="panel-cover__title panel-title"><a href="/#blog" title="link to homepage for Mizuha Ki" class="blog-button">Mizuha Ki</a></h1>
+        
+        <hr class="panel-cover__divider" />
+        <p class="panel-cover__description">To be or not to be, that is a question.</p>
+        <hr class="panel-cover__divider panel-cover__divider--secondary" />
+        
+        
+        
+        <div class="navigation-wrapper">
+          <div>
+            <nav class="cover-navigation cover-navigation--primary">
+              <ul class="navigation">
+                <li class="navigation__item"><a href="/#blog" title="Visit blog" class="blog-button">Blog</a></li>
+                
+              </ul>
+            </nav>
+          </div>
+          
+          <div><nav class="cover-navigation navigation--social">
+  <ul class="navigation">
+
+  
+
+  
+  <!-- Github -->
+  <li class="navigation__item">
+          <a href="https://github.com/mizuhaki" title="@mizuhaki's github" target="_blank">
+      <i class='social fa fa-github'></i>
+      <span class="label">Github</span>
+    </a>
+  </li>
+  
+  
+  
+  <!-- Twitter -->
+  <li class="navigation__item">
+    <a href="http://twitter.com/mizuha_ki" title="@mizuha_ki" target="_blank">
+      <i class='social fa fa-twitter'></i>
+      <span class="label">Twitter</span>
+    </a>
+  </li>
+  
+
+  
+  <!-- Facebook -->
+  <li class="navigation__item">
+    <a href="http://facebook.com/mizuhaki1" title="@mizuhaki1" target="_blank">
+      <i class='social fa fa-facebook-square'></i>
+      <span class="label">Facebook</span>
+    </a>
+  </li>
+  
+
+  
+  <!-- Instagram -->
+  <li class="navigation__item">
+    <a href="http://instagram.com/mizuha_ki" title="@mizuha_ki" target="_blank">
+      <i class='social fa fa-instagram'></i>
+      <span class="label">Instagram</span>
+    </a>
+  </li>
+  
+
+  <!-- RSS -->
+  <li class="navigation__item">
+    <a href="/feed.xml" rel="author" title="RSS" target="_blank">
+      <i class='social fa fa-rss'></i>
+      <span class="label">RSS</span>
+    </a>
+  </li>
+
+  
+  <!-- Email -->
+  <li class="navigation__item">
+    <a href="mailto:xx@gmail.com" title="Contact me">
+      <i class='social fa fa-envelope'></i>
+      <span class="label">Email</span>
+    </a>
+  </li>
+  
+
+  </ul>
+</nav>
+</div>
+        </div>
+      </div>
+    </div>
+    
+    
+    <div class="panel-cover--overlay cover-disabled"></div>
+    
+  </div>
+</header>
+
+
+    <div class="content-wrapper">
+        <div class="content-wrapper__inner">
+            <article class="post-container post-container--single" itemscope itemtype="http://schema.org/BlogPosting">
+  <header class="post-header">
+    <div class="post-meta">
+      <time datetime="2018-07-20 00:00:00 +0800" itemprop="datePublished" class="post-meta__date date">2018-07-20</time> &#8226; <span class="post-meta__tags tags">computer science tool vim blog</span>
+    </div>
+    <h1 class="post-title">Vundle + Vim</h1>
+  </header>
+
+  <section class="post">
+    <h2 id="安装-vim">安装 Vim</h2>
+<p>在 Ubuntu 上安装 Vim 很简单，在终端敲入如下命令即可</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>apt-get <span class="nb">install </span>vim
+</code></pre></div></div>
+
+<h2 id="安装-vundle">安装 Vundle</h2>
+<p>由于 vim 缺乏默认的插件管理器，所有插件的文件都散布在 ~/.vim 下的几个文件夹中，这样导致各种插件的安装、更新、删除都需要自己手动处理，既麻烦费事，又可能出现错误。所以我们需要插件管理器的帮忙，常见的插件管理器有 vundle、pathogen 等等，我们这里使用 vundle。
+Vundle 托管在 Github 上，所以使用 git 下载 vundle ，并将其存放于 /etc/vim/bundle/vundle 即可。使用如下命令直接将源代码检出到该目录： </p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git clone https://github.com/gmarik/vundle.git /etc/vim/bundle/vundle
+</code></pre></div></div>
+<p>下载完了 vundle 后，还需要配置 .vimrc 文件。 </p>
+
+<p>配置vundle插件：
+可以在终端通过vim打开~/.vimrc文件，</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>vim /etc/vim/.vimrc
+</code></pre></div></div>
+<p>也可以直接在目录中打开（快捷键ctrl+H显示隐藏文件）。 
+将以下加在.vimrc文件中，加入之后保存之后就可以使用vundle了。</p>
+<div class="language-vim highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">" Define bundles via Github repos "</span>
+Bundle <span class="s1">'christoomey/vim-run-interactive'</span>
+Bundle <span class="s1">'Valloric/YouCompleteMe'</span>
+Bundle <span class="s1">'croaky/vim-colors-github'</span>
+Bundle <span class="s1">'danro/rename.vim'</span>
+Bundle <span class="s1">'majutsushi/tagbar'</span>
+Bundle <span class="s1">'kchmck/vim-coffee-script'</span>
+Bundle <span class="s1">'kien/ctrlp.vim'</span>
+Bundle <span class="s1">'pbrisbin/vim-mkdir'</span>
+Bundle <span class="s1">'scrooloose/syntastic'</span>
+Bundle <span class="s1">'slim-template/vim-slim'</span>
+Bundle <span class="s1">'thoughtbot/vim-rspec'</span>
+Bundle <span class="s1">'tpope/vim-bundler'</span>
+Bundle <span class="s1">'tpope/vim-endwise'</span>
+Bundle <span class="s1">'tpope/vim-fugitive'</span>
+Bundle <span class="s1">'tpope/vim-rails'</span>
+Bundle <span class="s1">'tpope/vim-surround'</span>
+Bundle <span class="s1">'vim-ruby/vim-ruby'</span>
+Bundle <span class="s1">'vim-scripts/ctags.vim'</span>
+Bundle <span class="s1">'vim-scripts/matchit.zip'</span>
+Bundle <span class="s1">'vim-scripts/tComment'</span>
+Bundle <span class="s1">'mattn/emmet-vim'</span>
+Bundle <span class="s1">'scrooloose/nerdtree'</span>
+Bundle <span class="s1">'Lokaltog/vim-powerline'</span>
+Bundle <span class="s1">'godlygeek/tabular'</span>
+Bundle <span class="s1">'msanders/snipmate.vim'</span>
+Bundle <span class="s1">'jelera/vim-javascript-syntax'</span>
+Bundle <span class="s1">'altercation/vim-colors-solarized'</span>
+Bundle <span class="s1">'othree/html5.vim'</span>
+Bundle <span class="s1">'xsbeats/vim-blade'</span>
+Bundle <span class="s1">'Raimondi/delimitMate'</span>
+Bundle <span class="s1">'groenewege/vim-less'</span>
+Bundle <span class="s1">'evanmiller/nginx-vim-syntax'</span>
+Bundle <span class="s1">'Lokaltog/vim-easymotion'</span>
+Bundle <span class="s1">'tomasr/molokai'</span>
+Bundle <span class="s1">'klen/python-mode'</span>
+</code></pre></div></div>
+
+<h2 id="安装需要的插件">安装需要的插件</h2>
+<p>将想要安装的插件，按照地址填写方法，将地址填写在vundle#begin和vundle#end之间就可以
+保存之后，有两种方法安装插件。 
+(1) 运行 vim ,再运行 :PluginInstall</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>vim
+:PluginInstall
+</code></pre></div></div>
+<p>(2) 通过命令行直接安装 vim +PluginInstall +qall</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>vim +PluginInstall +qall
+</code></pre></div></div>
+<p>安装完成之后，插件就可以使用。</p>
+
+<h2 id="移除不需要的插件">移除不需要的插件</h2>
+<p>编辑.vimrc文件移除的你要移除的插件所对应的plugin那一行。
+保存退出当前的vim
+重新打开vim，输入命令BundleClean。
+其他常用命令
+更新插件BundleUpdate
+列出所有插件BundleList
+查找插件BundleSearch
+YouCompleteMe —— 代码补全
+Syntastic —— 语法检查
+SuperTab —— 使 Tab 快捷键具有更快捷的上下文提示功能
+Ctags —— 实现变量名、函数名的跳转（需遍历源代码文件生成 tags 文件）
+Cscope —— 升级版 Ctags
+TagList —— 显示当前文件中的宏、全局变量、函数等 tag（类似于 SourceInsight 的功能）
+Tagbar —— TagList 的替代品（更适合于 C++）
+AutoPairs —— 自动插入和格式化括号
+Powerline —— 状态栏
+Vim-airline —— Powerline 的替代品
+Echofunc —— 自动显示函数声明
+Snipmate —— 自动插入代码（代码重用工具）
+NERDTree —— 文件浏览器（树形目录）
+Ctrlp —— 文件浏览器（重新定义打开目录和文件的方式，更适用于大规模项目文件的浏览）
+MiniBufferExplorer —— 缓冲区文件管理器
+NERDCommenter —— 快速注释
+Undotree —— 支持 undo 和 redo
+Gdbmgr —— 调试器
+Molokai —— 颜色主题</p>
+
+
+  </section>
+</article>
+
+<section class="read-more">
+   
+   
+   <div class="read-more-item">
+       <span class="read-more-item-dim">recent article</span>
+       <h2 class="post-list__post-title post-title"><a href="/2018/07/markdown-editor/" title="link to Markdown Editor">Markdown Editor</a></h2>
+       <p class="excerpt">欢迎使用Markdown编辑器写博客本Markdown编辑器使用StackEdit修改而来，用它写博客，将会带来全新的体验哦：  Markdown和扩展Markdown简洁的语法  代码块高亮  图片链接和图片上传  LaTex数学公式  UML序列图和流程图  离线写博客  导入导出Markdown文件  丰富的快捷键快捷键  加粗    Ctrl + B  斜体    Ctrl + I  引用    Ctrl + Q  插入链接    Ctrl + L  插入代码    Ctrl + ...&hellip;</p>
+       <div class="post-list__meta"><time datetime="2018-07-29 00:00:00 +0800" class="post-list__meta--date date">2018-07-29</time> &#8226; <span class="post-list__meta--tags tags">computer science markdown blog</span><a class="btn-border-small" href=/2018/07/markdown-editor/>read</a></div>
+   </div>
+   
+   
+   
+   
+   <div class="read-more-item">
+       <span class="read-more-item-dim">previous article</span>
+       <h2 class="post-list__post-title post-title"><a href="/2018/07/visualization-for-error/" title="link to visualization for error">visualization for error</a></h2>
+       <p class="excerpt">matlab code% error visualizationclear all; clc;C = [80.72, 81.17, 80.45, 81.17, 80.81];C_idx = [1, 2, 3, 4, 5];C_e = [2.35, 3.25, 3.04, 2.14, 2.79];figure(1)errorbar(C_idx, C, C_e, '-s', 'LineWidth', 2, 'MarkerSize', 10, ...    'MarkerEdgeColor', ...&hellip;</p>
+       <div class="post-list__meta"><time datetime="2018-07-20 00:00:00 +0800" class="post-list__meta--date date">2018-07-20</time> &#8226; <span class="post-list__meta--tags tags">computer science deep learning matlab blog</span><a class="btn-border-small" href=/2018/07/visualization-for-error/>read</a></div>
+   </div>
+   
+</section>
+
+<section class="post-comments">
+  
+    <div id="disqus_thread"></div>
+    <script>
+    
+    var disqus_config = function () {
+        this.page.url = "http://localhost:4000/2018/07/vundle-vim/";
+        this.page.identifier = "/2018/07/vundle-vim/";
+    };
+
+    var disqus_shortname = 'mizuhaki';
+    
+    (function() { // DON'T EDIT BELOW THIS LINE
+        var d = document, s = d.createElement('script');
+        s.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+            (d.head || d.body).appendChild(s);
+        })();
+    </script>
+    <noscript>要查看<a href="http://disqus.com/?ref_noscript"> Disqus </a>评论，请启用 JavaScript</noscript>
+    
+  
+  
+  
+  
+</section>
+
+
+            <section class="footer">
+    <footer>
+    	<span class="footer__copyright">本站点采用<a href="http://creativecommons.org/licenses/by-nc-sa/4.0/">知识共享 署名-非商业性使用-相同方式共享 4.0 国际 许可协议</a></span>
+        <span class="footer__copyright">由 <a href="https://jekyllrb.com">Jekyll</a> 于 2019-04-28 生成，感谢 <a href="https://www.digitalocean.com/?refcode=30ed2d146762">Digital Ocean</a> 为本站提供稳定的 VPS 服务</span>
+        <span class="footer__copyright">本站由 <a href="http://github.com/MizuhaKi">@mizuhaki</a> 创建，采用 <a href="https://github.com/onevcat/vno-jekyll">Vno - Jekyll</a> 作为主题，您可以在 GitHub 找到<a href="https://github.com/onevcat/OneV-s-Den">本站源码</a> - &copy; 2019</span>
+    </footer>
+</section>
+
+        </div>
+    </div>
+    
+    <script type="text/javascript" src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+
+<script type="text/javascript" src="/js/main.js"></script>
+
+
+
+    
+  </body>
+
+</html>

@@ -6,17 +6,17 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-  <title>docker command</title>
-  <meta name="description" content="images import and export  sudo docker images  sudo docker save -o **.tar image_name  sudo docker load –input **.tar">
+  <title>cmake high version on linux</title>
+  <meta name="description" content="uninstall older versionsudo apt-get udpatesudo apt-get autoremove cmake">
   <meta name="author" content="Mizuha Ki">
 
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="docker command">
-  <meta name="twitter:description" content="images import and export  sudo docker images  sudo docker save -o **.tar image_name  sudo docker load –input **.tar">
+  <meta name="twitter:title" content="cmake high version on linux">
+  <meta name="twitter:description" content="uninstall older versionsudo apt-get udpatesudo apt-get autoremove cmake">
   
   <meta property="og:type" content="article">
-  <meta property="og:title" content="docker command">
-  <meta property="og:description" content="images import and export  sudo docker images  sudo docker save -o **.tar image_name  sudo docker load –input **.tar">
+  <meta property="og:title" content="cmake high version on linux">
+  <meta property="og:description" content="uninstall older versionsudo apt-get udpatesudo apt-get autoremove cmake">
   
   <link rel="icon" type="image/png" href="/assets/images/favicon.png" />
   <link href="/assets/images/favicon.png" rel="shortcut icon" type="image/png">
@@ -24,7 +24,7 @@
   <link rel="stylesheet" href="/css/main.css">
   <link href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
 
-  <link rel="canonical" href="http://localhost:4000/2019/04/docker-command/">
+  <link rel="canonical" href="http://localhost:4000/2018/07/Cmake-high-version-on-linux/">
   <link rel="alternate" type="application/rss+xml" title="Mizuha Ki" href="http://localhost:4000/feed.xml">
   
   <meta name="google-site-verification" content="1-1ZlHoRvM0T2FqPbW2S-qLgYXN6rsn52kErlMPd_gw" />
@@ -146,43 +146,29 @@
             <article class="post-container post-container--single" itemscope itemtype="http://schema.org/BlogPosting">
   <header class="post-header">
     <div class="post-meta">
-      <time datetime="2019-04-18 00:00:00 +0800" itemprop="datePublished" class="post-meta__date date">2019-04-18</time> &#8226; <span class="post-meta__tags tags">computer science ubuntu docker blog</span>
+      <time datetime="2018-07-20 00:00:00 +0800" itemprop="datePublished" class="post-meta__date date">2018-07-20</time> &#8226; <span class="post-meta__tags tags">computer science ubuntu cmake blog</span>
     </div>
-    <h1 class="post-title">docker command</h1>
+    <h1 class="post-title">cmake high version on linux</h1>
   </header>
 
   <section class="post">
-    <h2 id="images-import-and-export">images import and export</h2>
-<ul>
-  <li>sudo docker images</li>
-  <li>sudo docker save -o **.tar image_name</li>
-  <li>sudo docker load –input **.tar</li>
-</ul>
+    <h2 id="uninstall-older-version">uninstall older version</h2>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>apt-get udpate
+<span class="nb">sudo </span>apt-get autoremove cmake
+</code></pre></div></div>
 
-<h2 id="new-docker">new docker</h2>
-<ul>
-  <li>sudo docker images</li>
-  <li>sudo docker run ….</li>
-</ul>
+<h2 id="download-files">download files</h2>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>wget <span class="o">[</span>cmake]<span class="o">(</span>https://cmake.org/files/v3.9/cmake-3.9.1-Linux-x86_64.tar.gz<span class="o">)</span>
+</code></pre></div></div>
 
-<h2 id="enter-container">enter container</h2>
-<ul>
-  <li>docker exec -ti container_name bash (recommend)</li>
-  <li>docker attach container_name</li>
-</ul>
+<h2 id="unzip">unzip</h2>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">tar </span>zxvf cmake-3.9.1-Linux-x86_64.tar.gz
+</code></pre></div></div>
 
-<h2 id="frequent-command">frequent command</h2>
-<ul>
-  <li>docker images</li>
-  <li>docker ps -a</li>
-  <li>docker tag image_id image_name</li>
-  <li>docker rmi image_name</li>
-  <li>docker container rm</li>
-  <li>docker container kill</li>
-  <li>docker container start</li>
-  <li>docker container stop</li>
-  <li>docker container rename</li>
-</ul>
+<h2 id="create-soft-url">create soft url</h2>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">mv </span>cmake-3.9.1-Linux-x86_64 /opt/cmake-3.9.1
+<span class="nb">ln</span> <span class="nt">-sf</span> /opt/cmake-3.9.1/bin/<span class="k">*</span>  /usr/bin/
+</code></pre></div></div>
 
   </section>
 </article>
@@ -192,20 +178,12 @@
    
    <div class="read-more-item">
        <span class="read-more-item-dim">recent article</span>
-       <h2 class="post-list__post-title post-title"><a href="/2019/04/switchyomega-ss/" title="link to SwitchyOmega + SS">SwitchyOmega + SS</a></h2>
-       <p class="excerpt">a tool script forShadowSocksA secure socks5 proxy, designed to protect your Internet traffic. Support Windows, Mac OS X, Linux, Android, IOS.SwitchyOmegaManage and switch between multiple proxies quickly &amp; easily. Changing proxy settings has n...&hellip;</p>
-       <div class="post-list__meta"><time datetime="2019-04-22 00:00:00 +0800" class="post-list__meta--date date">2019-04-22</time> &#8226; <span class="post-list__meta--tags tags">computer science tool shadowsocks blog</span><a class="btn-border-small" href=/2019/04/switchyomega-ss/>read</a></div>
+       <h2 class="post-list__post-title post-title"><a href="/2018/07/check-CUDA-and-CUDNN-version/" title="link to check CUDA and CUDNN version">check CUDA and CUDNN version</a></h2>
+       <p class="excerpt">check commandcuda 版本 cat /usr/local/cuda/version.txtcudnn 版本 cat /usr/local/cuda/include/cudnn.h | grep CUDNN_MAJOR -A 2&hellip;</p>
+       <div class="post-list__meta"><time datetime="2018-07-20 00:00:00 +0800" class="post-list__meta--date date">2018-07-20</time> &#8226; <span class="post-list__meta--tags tags">computer science ubuntu check version blog</span><a class="btn-border-small" href=/2018/07/check-CUDA-and-CUDNN-version/>read</a></div>
    </div>
    
    
-   
-   
-   <div class="read-more-item">
-       <span class="read-more-item-dim">previous article</span>
-       <h2 class="post-list__post-title post-title"><a href="/2019/04/embedding-representation-visualization/" title="link to embedding representation visualization">embedding representation visualization</a></h2>
-       <p class="excerpt">a code exampleimport numpy as npfrom sklearn.manifold import TSNEimport matplotlib.pyplot as plt#embedding = np.loadtxt('word_embedding.txt', skiprows = 1)with open('word_embedding.txt', 'r') as fin:    firstline = fin.readline().strip().split()  ...&hellip;</p>
-       <div class="post-list__meta"><time datetime="2019-04-18 00:00:00 +0800" class="post-list__meta--date date">2019-04-18</time> &#8226; <span class="post-list__meta--tags tags">computer science deep learning python blog</span><a class="btn-border-small" href=/2019/04/embedding-representation-visualization/>read</a></div>
-   </div>
    
 </section>
 
@@ -215,8 +193,8 @@
     <script>
     
     var disqus_config = function () {
-        this.page.url = "http://localhost:4000/2019/04/docker-command/";
-        this.page.identifier = "/2019/04/docker-command/";
+        this.page.url = "http://localhost:4000/2018/07/Cmake-high-version-on-linux/";
+        this.page.identifier = "/2018/07/Cmake-high-version-on-linux/";
     };
 
     var disqus_shortname = 'mizuhaki';
