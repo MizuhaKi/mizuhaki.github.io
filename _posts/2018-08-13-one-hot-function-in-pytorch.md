@@ -13,8 +13,7 @@ tags:
 - blog
 ---
 
-# One-hot function implementation in [PyTorch](https://pytorch.org/docs/stable/index.html)
-
+Some frequent one-hot method in [PyTorch](https://pytorch.org/docs/stable/index.html)
 ## use scatter_ function
 ```python
 labels = [0, 1, 4, 7, 3, 2]
@@ -34,7 +33,7 @@ emb = nn.Embedding(8, 8)
 emb.weight.data = torch.eye(8)
 ```
 then we can get
-```
+```bash
 emb(Variable(torch.LongTensor([1, 2], [3, 4])))
 Variable containing:
 (0,.,.) = 
