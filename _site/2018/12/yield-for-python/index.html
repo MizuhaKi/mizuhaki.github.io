@@ -6,17 +6,17 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-  <title>func</title>
-  <meta name="description" content="def add(x, y, z):	return x + y + zprint('Hello World!')">
+  <title>yield for python</title>
+  <meta name="description" content="a example of code```pythondef fun():    for i in range(20):        x = yield i        print(‘good’, x, i)">
   <meta name="author" content="Mizuha Ki">
 
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="func">
-  <meta name="twitter:description" content="def add(x, y, z):	return x + y + zprint('Hello World!')">
+  <meta name="twitter:title" content="yield for python">
+  <meta name="twitter:description" content="a example of code```pythondef fun():    for i in range(20):        x = yield i        print(‘good’, x, i)">
   
   <meta property="og:type" content="article">
-  <meta property="og:title" content="func">
-  <meta property="og:description" content="def add(x, y, z):	return x + y + zprint('Hello World!')">
+  <meta property="og:title" content="yield for python">
+  <meta property="og:description" content="a example of code```pythondef fun():    for i in range(20):        x = yield i        print(‘good’, x, i)">
   
   <link rel="icon" type="image/png" href="/assets/images/favicon.png" />
   <link href="/assets/images/favicon.png" rel="shortcut icon" type="image/png">
@@ -24,7 +24,7 @@
   <link rel="stylesheet" href="/css/main.css">
   <link href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
 
-  <link rel="canonical" href="http://localhost:4000/2019/03/func11/">
+  <link rel="canonical" href="http://localhost:4000/2018/12/yield-for-python/">
   <link rel="alternate" type="application/rss+xml" title="Mizuha Ki" href="http://localhost:4000/feed.xml">
   
   <meta name="google-site-verification" content="1-1ZlHoRvM0T2FqPbW2S-qLgYXN6rsn52kErlMPd_gw" />
@@ -146,17 +146,40 @@
             <article class="post-container post-container--single" itemscope itemtype="http://schema.org/BlogPosting">
   <header class="post-header">
     <div class="post-meta">
-      <time datetime="2019-03-21 10:11:11 +0800" itemprop="datePublished" class="post-meta__date date">2019-03-21</time> &#8226; <span class="post-meta__tags tags">Github</span>
+      <time datetime="2018-12-14 00:00:00 +0800" itemprop="datePublished" class="post-meta__date date">2018-12-14</time> &#8226; <span class="post-meta__tags tags">computer science deep learning python blog</span>
     </div>
-    <h1 class="post-title">func</h1>
+    <h1 class="post-title">yield for python</h1>
   </header>
 
   <section class="post">
-    <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">add</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">):</span>
-	<span class="k">return</span> <span class="n">x</span> <span class="o">+</span> <span class="n">y</span> <span class="o">+</span> <span class="n">z</span>
-<span class="k">print</span><span class="p">(</span><span class="s">'Hello World!'</span><span class="p">)</span>
+    <h2 id="a-example-of-code">a example of code</h2>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">fun</span><span class="p">():</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">20</span><span class="p">):</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="k">yield</span> <span class="n">i</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">'good'</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">i</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">'__main__'</span><span class="p">:</span>
+    <span class="n">a</span> <span class="o">=</span> <span class="n">fun</span><span class="p">()</span>
+    <span class="n">a</span><span class="o">.</span><span class="n">__next__</span><span class="p">()</span>
+    <span class="n">a</span><span class="o">.</span><span class="n">__next__</span><span class="p">()</span>
+    <span class="n">x1</span> <span class="o">=</span> <span class="n">a</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+    <span class="n">x2</span> <span class="o">=</span> <span class="n">a</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+    <span class="nb">next</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+    <span class="nb">next</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">x1</span><span class="p">,</span> <span class="n">x2</span><span class="p">)</span>
 </code></pre></div></div>
 
+<h2 id="results">results</h2>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">good</span> <span class="bp">None</span> <span class="mi">0</span>
+<span class="n">good</span> <span class="mi">5</span> <span class="mi">1</span>
+<span class="n">good</span> <span class="mi">3</span> <span class="mi">2</span>
+<span class="n">good</span> <span class="bp">None</span> <span class="mi">3</span>
+<span class="n">good</span> <span class="bp">None</span> <span class="mi">4</span>
+<span class="mi">2</span> <span class="mi">3</span>
+</code></pre></div></div>
+
+<h2 id="description">description</h2>
+<p><a href="https://wiki.python.org/moin/Generators"><strong>yield</strong></a> generator functions allow you to declare a function that behaves like an iterator.</p>
 
   </section>
 </article>
@@ -166,9 +189,9 @@
    
    <div class="read-more-item">
        <span class="read-more-item-dim">recent article</span>
-       <h2 class="post-list__post-title post-title"><a href="/2019/04/func/" title="link to func">func</a></h2>
-       <p class="excerpt">def add(x, y, z):	return x + y + zprint('Hello World!')&hellip;</p>
-       <div class="post-list__meta"><time datetime="2019-04-21 10:11:11 +0800" class="post-list__meta--date date">2019-04-21</time> &#8226; <span class="post-list__meta--tags tags">Github</span><a class="btn-border-small" href=/2019/04/func/>read</a></div>
+       <h2 class="post-list__post-title post-title"><a href="/2019/01/beamer/" title="link to beamer for powerpoint">beamer for powerpoint</a></h2>
+       <p class="excerpt">example for beamer\documentclass{beamer}\usepackage[english]{babel}   \%如果去掉，中英混合会出错\usepackage[noindent]{ctex}   \%可使用 \usepackage{CJK}\usepackage{beamerthemesplit}\% Or whatever. Note that the encoding and the font should match. If T1\% does not...&hellip;</p>
+       <div class="post-list__meta"><time datetime="2019-01-10 00:00:00 +0800" class="post-list__meta--date date">2019-01-10</time> &#8226; <span class="post-list__meta--tags tags">computer science tool beamer blog</span><a class="btn-border-small" href=/2019/01/beamer/>read</a></div>
    </div>
    
    
@@ -176,9 +199,9 @@
    
    <div class="read-more-item">
        <span class="read-more-item-dim">previous article</span>
-       <h2 class="post-list__post-title post-title"><a href="/2018/03/func111/" title="link to func">func</a></h2>
-       <p class="excerpt">def add(x, y, z):	return x + y + zprint('Hello World!')&hellip;</p>
-       <div class="post-list__meta"><time datetime="2018-03-21 10:11:11 +0800" class="post-list__meta--date date">2018-03-21</time> &#8226; <span class="post-list__meta--tags tags">Github</span><a class="btn-border-small" href=/2018/03/func111/>read</a></div>
+       <h2 class="post-list__post-title post-title"><a href="/2018/12/A-script-for-download-all-papers/" title="link to A script for download all papers on ICML conference">A script for download all papers on ICML conference</a></h2>
+       <p class="excerpt">script code# coding=utf-8from multiprocessing import Poolimport requestsfrom bs4 import BeautifulSoupimport tracebackimport reimport osimport pdbprefix = 'http://proceedings.mlr.press/v80/'save_dir = 'icml2018'def get_pdf(data):    href, title = d...&hellip;</p>
+       <div class="post-list__meta"><time datetime="2018-12-13 00:00:00 +0800" class="post-list__meta--date date">2018-12-13</time> &#8226; <span class="post-list__meta--tags tags">computer science tool script blog</span><a class="btn-border-small" href=/2018/12/A-script-for-download-all-papers/>read</a></div>
    </div>
    
 </section>
@@ -189,8 +212,8 @@
     <script>
     
     var disqus_config = function () {
-        this.page.url = "http://localhost:4000/2019/03/func11/";
-        this.page.identifier = "/2019/03/func11/";
+        this.page.url = "http://localhost:4000/2018/12/yield-for-python/";
+        this.page.identifier = "/2018/12/yield-for-python/";
     };
 
     var disqus_shortname = 'mizuhaki';
@@ -214,7 +237,7 @@
             <section class="footer">
     <footer>
     	<span class="footer__copyright">本站点采用<a href="http://creativecommons.org/licenses/by-nc-sa/4.0/">知识共享 署名-非商业性使用-相同方式共享 4.0 国际 许可协议</a></span>
-        <span class="footer__copyright">由 <a href="https://jekyllrb.com">Jekyll</a> 于 2019-04-23 生成，感谢 <a href="https://www.digitalocean.com/?refcode=30ed2d146762">Digital Ocean</a> 为本站提供稳定的 VPS 服务</span>
+        <span class="footer__copyright">由 <a href="https://jekyllrb.com">Jekyll</a> 于 2019-04-28 生成，感谢 <a href="https://www.digitalocean.com/?refcode=30ed2d146762">Digital Ocean</a> 为本站提供稳定的 VPS 服务</span>
         <span class="footer__copyright">本站由 <a href="http://github.com/MizuhaKi">@mizuhaki</a> 创建，采用 <a href="https://github.com/onevcat/vno-jekyll">Vno - Jekyll</a> 作为主题，您可以在 GitHub 找到<a href="https://github.com/onevcat/OneV-s-Den">本站源码</a> - &copy; 2019</span>
     </footer>
 </section>

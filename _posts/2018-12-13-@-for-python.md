@@ -1,16 +1,16 @@
 ---
 layout: post
-title: @ for python
+title: \@ for python
 author: Mizuha Ki
 date: 2018-12-13
 categories:
 - computer science
 - deep learning
-- @
+- \@
 tags:
 - computer science
 - deep learning
-- @
+- \@
 - blog
 ---
 

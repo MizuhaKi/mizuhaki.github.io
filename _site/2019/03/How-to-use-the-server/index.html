@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <title>How to use the ubuntu for GPU server</title>
+  <meta name="description" content="窗口操作：创建窗口： screen -S xxx (screen’s name)激活窗口： screen -r xxx (screen’s name)查看窗口序列： screen -ls退出窗口： Ctrl + A + Dkill窗口：  screen -S screenname -X quit  screen ...">
+  <meta name="author" content="Mizuha Ki">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="How to use the ubuntu for GPU server">
+  <meta name="twitter:description" content="窗口操作：创建窗口： screen -S xxx (screen’s name)激活窗口： screen -r xxx (screen’s name)查看窗口序列： screen -ls退出窗口： Ctrl + A + Dkill窗口：  screen -S screenname -X quit  screen ...">
+  
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="How to use the ubuntu for GPU server">
+  <meta property="og:description" content="窗口操作：创建窗口： screen -S xxx (screen’s name)激活窗口： screen -r xxx (screen’s name)查看窗口序列： screen -ls退出窗口： Ctrl + A + Dkill窗口：  screen -S screenname -X quit  screen ...">
+  
+  <link rel="icon" type="image/png" href="/assets/images/favicon.png" />
+  <link href="/assets/images/favicon.png" rel="shortcut icon" type="image/png">
+  
+  <link rel="stylesheet" href="/css/main.css">
+  <link href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+
+  <link rel="canonical" href="http://localhost:4000/2019/03/How-to-use-the-server/">
+  <link rel="alternate" type="application/rss+xml" title="Mizuha Ki" href="http://localhost:4000/feed.xml">
+  
+  <meta name="google-site-verification" content="1-1ZlHoRvM0T2FqPbW2S-qLgYXN6rsn52kErlMPd_gw" />
+  
+</head>
+
+
+  <body>
+
+    <span class="mobile btn-mobile-menu">
+        <i class="fa fa-list btn-mobile-menu__icon"></i>
+        <i class="fa fa-angle-up btn-mobile-close__icon hidden"></i>
+    </span>
+    
+    <header class="panel-cover panel-cover--collapsed" style="background-image: url('/assets/images/background-cover.jpg')">
+  <div class="panel-main">
+
+    <div class="panel-main__inner panel-inverted">
+    <div class="panel-main__content">
+
+        <a href="/#blog" title="go Mizuha Ki's homepage" class="blog-button"><img src="/assets/images/avatar.jpg" width="80" alt="Mizuha Ki logo" class="panel-cover__logo logo" /></a>
+        <h1 class="panel-cover__title panel-title"><a href="/#blog" title="link to homepage for Mizuha Ki" class="blog-button">Mizuha Ki</a></h1>
+        
+        <hr class="panel-cover__divider" />
+        <p class="panel-cover__description">To be or not to be, that is a question.</p>
+        <hr class="panel-cover__divider panel-cover__divider--secondary" />
+        
+        
+        
+        <div class="navigation-wrapper">
+          <div>
+            <nav class="cover-navigation cover-navigation--primary">
+              <ul class="navigation">
+                <li class="navigation__item"><a href="/#blog" title="Visit blog" class="blog-button">Blog</a></li>
+                
+              </ul>
+            </nav>
+          </div>
+          
+          <div><nav class="cover-navigation navigation--social">
+  <ul class="navigation">
+
+  
+
+  
+  <!-- Github -->
+  <li class="navigation__item">
+          <a href="https://github.com/mizuhaki" title="@mizuhaki's github" target="_blank">
+      <i class='social fa fa-github'></i>
+      <span class="label">Github</span>
+    </a>
+  </li>
+  
+  
+  
+  <!-- Twitter -->
+  <li class="navigation__item">
+    <a href="http://twitter.com/mizuha_ki" title="@mizuha_ki" target="_blank">
+      <i class='social fa fa-twitter'></i>
+      <span class="label">Twitter</span>
+    </a>
+  </li>
+  
+
+  
+  <!-- Facebook -->
+  <li class="navigation__item">
+    <a href="http://facebook.com/mizuhaki1" title="@mizuhaki1" target="_blank">
+      <i class='social fa fa-facebook-square'></i>
+      <span class="label">Facebook</span>
+    </a>
+  </li>
+  
+
+  
+  <!-- Instagram -->
+  <li class="navigation__item">
+    <a href="http://instagram.com/mizuha_ki" title="@mizuha_ki" target="_blank">
+      <i class='social fa fa-instagram'></i>
+      <span class="label">Instagram</span>
+    </a>
+  </li>
+  
+
+  <!-- RSS -->
+  <li class="navigation__item">
+    <a href="/feed.xml" rel="author" title="RSS" target="_blank">
+      <i class='social fa fa-rss'></i>
+      <span class="label">RSS</span>
+    </a>
+  </li>
+
+  
+  <!-- Email -->
+  <li class="navigation__item">
+    <a href="mailto:xx@gmail.com" title="Contact me">
+      <i class='social fa fa-envelope'></i>
+      <span class="label">Email</span>
+    </a>
+  </li>
+  
+
+  </ul>
+</nav>
+</div>
+        </div>
+      </div>
+    </div>
+    
+    
+    <div class="panel-cover--overlay cover-disabled"></div>
+    
+  </div>
+</header>
+
+
+    <div class="content-wrapper">
+        <div class="content-wrapper__inner">
+            <article class="post-container post-container--single" itemscope itemtype="http://schema.org/BlogPosting">
+  <header class="post-header">
+    <div class="post-meta">
+      <time datetime="2019-03-12 00:00:00 +0800" itemprop="datePublished" class="post-meta__date date">2019-03-12</time> &#8226; <span class="post-meta__tags tags">computer science ubuntu command blog</span>
+    </div>
+    <h1 class="post-title">How to use the ubuntu for GPU server</h1>
+  </header>
+
+  <section class="post">
+    <h2 id="窗口操作">窗口操作：</h2>
+<p>创建窗口： screen -S xxx (screen’s name)
+激活窗口： screen -r xxx (screen’s name)
+查看窗口序列： screen -ls
+退出窗口： Ctrl + A + D
+kill窗口：</p>
+<ul>
+  <li>screen -S screenname -X quit</li>
+  <li>screen -S yourname -&gt; 新建一个叫yourname的session</li>
+  <li>screen -ls -&gt; 列出当前所有的session</li>
+  <li>screen -r yourname -&gt; 回到yourname这个session</li>
+  <li>screen -d yourname -&gt; 远程detach某个session</li>
+  <li>screen -d -r yourname -&gt; 结束当前session并回到yourname这个session</li>
+</ul>
+
+<h2 id="常用文件操作指令">常用文件操作指令：</h2>
+<p>显示当前目录下的文件列表：ls
+显示当前目录下的隐藏文件列表：ls -a
+拷贝文件夹：  cp -r 文件夹 目标路径
+拷贝文件夹：  cp 文件 目标路径
+删除文件： rm 文件
+删除文件夹：</p>
+<ul>
+  <li>rm -r 文件夹</li>
+  <li>rm -rf 文件夹</li>
+</ul>
+
+<p>新建文件夹：mkdir 文件夹名
+移动文件：mv
+显示当前路径：pwd
+显示文件大小： du -sh *
+显示问价夹大小：du -sh */</p>
+
+<p>如何修改文件为可执行状态：chmod 777 文件名</p>
+
+<p>查询GPU状态: nvidia-smi</p>
+
+<p>查看内存和gpu消耗情况：nvidia-smi
+查看文件大小 du –sh 文件夹   或者 du -sh *      sudo du -h –max-depth=1 xxxx    du -h  –max-depth=1
+百分比： df
+编译： make  make -j8
+清空编译：make clean</p>
+
+<p>定位文件名，直接gf，即可直接打开另外一个文件。</p>
+
+<p>查找文件：locate filename
+查找文件：</p>
+<ul>
+  <li>查找当前目录下的指定的core文件 find . -name “core”</li>
+  <li>查找根目录下的指定的core文件 find / -name “core”</li>
+  <li>查找根目录下的指定的大小core文件 find / -name “core” - size +1024c</li>
+  <li>查找文件中是否含有指定的字符 “10.71.110.89” find / -name “*.tar.gz” - type f -exec rm -rf {} /;</li>
+</ul>
+
+<h2 id="vim常用快捷键">vim常用快捷键</h2>
+<ul>
+  <li>打开文件：vim 文件名</li>
+  <li>进入编辑模式：i</li>
+  <li>编辑文件：Esc ：wq</li>
+  <li>退出文件： Esc :q</li>
+  <li>退出文件，不编辑： Esc :q!</li>
+  <li>h 每次按下光标就会向左移动</li>
+  <li>l 每次按下光标就会向右移动</li>
+  <li>j 每次按下光标就会向下移动</li>
+  <li>k 每次按下光标就会向上移动</li>
+  <li>dd 删除一行</li>
+  <li>de 删除到空格前的词</li>
+  <li>dw 删除知道空格的词</li>
+  <li>gg 光标到行文件首</li>
+  <li>G 光标到文件尾</li>
+  <li>:!command 用于执行一个外部命令 command</li>
+</ul>
+
+<h2 id="ubuntu终端常用命令">ubuntu终端常用命令</h2>
+<ul>
+  <li>ctrl + l - 清屏</li>
+  <li>ctrl + c - 终止命令</li>
+  <li>ctrl + d - 退出 shell,好像也可以表示EOF</li>
+  <li>ctrl + z - 将当前进程置于后台，fg还原。</li>
+  <li>ctrl + r - 从命令历史中找</li>
+  <li>ctrl + a - 光标移到行首</li>
+  <li>ctrl + e - 光标移到行尾</li>
+  <li>ctrl + u - 清除光标到行首的字符</li>
+  <li>ctrl + w - 清除光标之前一个单词</li>
+  <li>ctrl + k - 清除光标到行尾的字符</li>
+  <li>ctrl + t - 交换光标前两个字符</li>
+  <li>ctrl + y - 粘贴前一ctrl+u类命令删除的字符</li>
+  <li>ctrl + p - 上一条命令</li>
+  <li>ctrl + n - 下一条命令</li>
+  <li>ctrl + v - 输入控制字符 如ctrl+v <ENTER> ,会输入^M</ENTER></li>
+  <li>ctrl + f - 光标后移一个字符</li>
+  <li>ctrl + b - 光标前移一个字符</li>
+  <li>ctrl + h - 删除光标前一个字符</li>
+  <li>N+<ESC>+f - 光标后移N个单词，N为1时可省略</ESC></li>
+  <li>N+<ESC>+b - 光标前移N个单词，N为1时可省略</ESC></li>
+  <li>ctrl + s - 挂起当前shell</li>
+  <li>ctrl + q - 重新启用</li>
+  <li>
+    <ESC>+d 从光标开始处删除到行尾。挂起的shell
+</ESC>
+  </li>
+  <li>!! - 上一条命令</li>
+  <li>!-n - 倒数第N条历史命令</li>
+  <li>!-n:p - 打印上一条命令（不执行）</li>
+  <li>!?string?- 最新一条含有”string”的命令 # !-n:gs/str1/str2/ - 将倒数第N条命令的str1替换为str2,并执行（若不加g,则仅替换第一个）</li>
+</ul>
+
+
+  </section>
+</article>
+
+<section class="read-more">
+   
+   
+   <div class="read-more-item">
+       <span class="read-more-item-dim">recent article</span>
+       <h2 class="post-list__post-title post-title"><a href="/2019/03/Office-software/" title="link to Office software">Office software</a></h2>
+       <p class="excerpt">commercial software  Microsoft OfficeMicrosoft Office is a family of client software, server software, and services developed by Microsoft. It was first announced by Bill Gates on August 1, 1988, at COMDEX in Las Vegas. Initially a marketing term ...&hellip;</p>
+       <div class="post-list__meta"><time datetime="2019-03-12 00:00:00 +0800" class="post-list__meta--date date">2019-03-12</time> &#8226; <span class="post-list__meta--tags tags">computer science tool office blog</span><a class="btn-border-small" href=/2019/03/Office-software/>read</a></div>
+   </div>
+   
+   
+   
+   
+   <div class="read-more-item">
+       <span class="read-more-item-dim">previous article</span>
+       <h2 class="post-list__post-title post-title"><a href="/2019/01/beamer/" title="link to beamer for powerpoint">beamer for powerpoint</a></h2>
+       <p class="excerpt">example for beamer\documentclass{beamer}\usepackage[english]{babel}   \%如果去掉，中英混合会出错\usepackage[noindent]{ctex}   \%可使用 \usepackage{CJK}\usepackage{beamerthemesplit}\% Or whatever. Note that the encoding and the font should match. If T1\% does not...&hellip;</p>
+       <div class="post-list__meta"><time datetime="2019-01-10 00:00:00 +0800" class="post-list__meta--date date">2019-01-10</time> &#8226; <span class="post-list__meta--tags tags">computer science tool beamer blog</span><a class="btn-border-small" href=/2019/01/beamer/>read</a></div>
+   </div>
+   
+</section>
+
+<section class="post-comments">
+  
+    <div id="disqus_thread"></div>
+    <script>
+    
+    var disqus_config = function () {
+        this.page.url = "http://localhost:4000/2019/03/How-to-use-the-server/";
+        this.page.identifier = "/2019/03/How-to-use-the-server/";
+    };
+
+    var disqus_shortname = 'mizuhaki';
+    
+    (function() { // DON'T EDIT BELOW THIS LINE
+        var d = document, s = d.createElement('script');
+        s.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+            (d.head || d.body).appendChild(s);
+        })();
+    </script>
+    <noscript>要查看<a href="http://disqus.com/?ref_noscript"> Disqus </a>评论，请启用 JavaScript</noscript>
+    
+  
+  
+  
+  
+</section>
+
+
+            <section class="footer">
+    <footer>
+    	<span class="footer__copyright">本站点采用<a href="http://creativecommons.org/licenses/by-nc-sa/4.0/">知识共享 署名-非商业性使用-相同方式共享 4.0 国际 许可协议</a></span>
+        <span class="footer__copyright">由 <a href="https://jekyllrb.com">Jekyll</a> 于 2019-04-28 生成，感谢 <a href="https://www.digitalocean.com/?refcode=30ed2d146762">Digital Ocean</a> 为本站提供稳定的 VPS 服务</span>
+        <span class="footer__copyright">本站由 <a href="http://github.com/MizuhaKi">@mizuhaki</a> 创建，采用 <a href="https://github.com/onevcat/vno-jekyll">Vno - Jekyll</a> 作为主题，您可以在 GitHub 找到<a href="https://github.com/onevcat/OneV-s-Den">本站源码</a> - &copy; 2019</span>
+    </footer>
+</section>
+
+        </div>
+    </div>
+    
+    <script type="text/javascript" src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+
+<script type="text/javascript" src="/js/main.js"></script>
+
+
+
+    
+  </body>
+
+</html>

@@ -1,6 +1,6 @@
 ---
 layout: post
-title: *args and **kwargs for python
+title: \*args and \*\*kwargs for python
 author: Mizuha Ki
 date: 2018-12-05
 categories:

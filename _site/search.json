@@ -1,35 +1,195 @@
 [
   
     {
-      "title"    : "func",
+      "title"    : "SwitchyOmega + SS",
       "category" : "",
-      "tags"     : "Github",
-      "url"      : "/2019/04/func1/",
-      "date"     : "2019-04-21 10:11:11 +0800"
+      "tags"     : "computer science, tool, shadowsocks, blog",
+      "url"      : "/2019/04/switchyomega-ss/",
+      "date"     : "2019-04-22 00:00:00 +0800"
     } ,
   
     {
-      "title"    : "func",
+      "title"    : "docker command",
       "category" : "",
-      "tags"     : "Github",
-      "url"      : "/2019/04/func/",
-      "date"     : "2019-04-21 10:11:11 +0800"
+      "tags"     : "computer science, ubuntu, docker, blog",
+      "url"      : "/2019/04/docker-command/",
+      "date"     : "2019-04-18 00:00:00 +0800"
     } ,
   
     {
-      "title"    : "func",
+      "title"    : "git commands",
       "category" : "",
-      "tags"     : "Github",
-      "url"      : "/2019/03/func11/",
-      "date"     : "2019-03-21 10:11:11 +0800"
+      "tags"     : "computer science, tool, git, blog",
+      "url"      : "/2019/03/git-commands/",
+      "date"     : "2019-03-28 00:00:00 +0800"
     } ,
   
     {
-      "title"    : "func",
+      "title"    : "Grammarly for writing",
       "category" : "",
-      "tags"     : "Github",
-      "url"      : "/2018/03/func111/",
-      "date"     : "2018-03-21 10:11:11 +0800"
+      "tags"     : "computer science, tool, grammarly, blog",
+      "url"      : "/2019/03/Grammarly-for-writing/",
+      "date"     : "2019-03-19 00:00:00 +0800"
+    } ,
+  
+    {
+      "title"    : "Office software",
+      "category" : "",
+      "tags"     : "computer science, tool, office, blog",
+      "url"      : "/2019/03/Office-software/",
+      "date"     : "2019-03-12 00:00:00 +0800"
+    } ,
+  
+    {
+      "title"    : "How to use the ubuntu for GPU server",
+      "category" : "",
+      "tags"     : "computer science, ubuntu, command, blog",
+      "url"      : "/2019/03/How-to-use-the-server/",
+      "date"     : "2019-03-12 00:00:00 +0800"
+    } ,
+  
+    {
+      "title"    : "beamer for powerpoint",
+      "category" : "",
+      "tags"     : "computer science, tool, beamer, blog",
+      "url"      : "/2019/01/beamer/",
+      "date"     : "2019-01-10 00:00:00 +0800"
+    } ,
+  
+    {
+      "title"    : "yield for python",
+      "category" : "",
+      "tags"     : "computer science, deep learning, python, blog",
+      "url"      : "/2018/12/yield-for-python/",
+      "date"     : "2018-12-14 00:00:00 +0800"
+    } ,
+  
+    {
+      "title"    : "A script for download all papers on ICML conference",
+      "category" : "",
+      "tags"     : "computer science, tool, script, blog",
+      "url"      : "/2018/12/A-script-for-download-all-papers/",
+      "date"     : "2018-12-13 00:00:00 +0800"
+    } ,
+  
+    {
+      "title"    : "\@ for python",
+      "category" : "",
+      "tags"     : "computer science, deep learning, \@, blog",
+      "url"      : "/2018/12/@-for-python/",
+      "date"     : "2018-12-13 00:00:00 +0800"
+    } ,
+  
+    {
+      "title"    : "curl",
+      "category" : "",
+      "tags"     : "computer science, ubuntu, curl, blog",
+      "url"      : "/2018/12/curl/",
+      "date"     : "2018-12-11 00:00:00 +0800"
+    } ,
+  
+    {
+      "title"    : "GNU Wget",
+      "category" : "",
+      "tags"     : "computer science, ubuntu, wget, blog",
+      "url"      : "/2018/12/GNU-Wget/",
+      "date"     : "2018-12-11 00:00:00 +0800"
+    } ,
+  
+    {
+      "title"    : "\*args and \*\*kwargs for python",
+      "category" : "",
+      "tags"     : "computer science, deep learning, python, blog",
+      "url"      : "/2018/12/args-and-kwargs/",
+      "date"     : "2018-12-05 00:00:00 +0800"
+    } ,
+  
+    {
+      "title"    : "math symbol for latex",
+      "category" : "",
+      "tags"     : "computer science, tool, latex, blog",
+      "url"      : "/2018/11/Math-Symbol-in-LaTex/",
+      "date"     : "2018-11-14 00:00:00 +0800"
+    } ,
+  
+    {
+      "title"    : "math font for latex",
+      "category" : "",
+      "tags"     : "computer science, tool, latex, blog",
+      "url"      : "/2018/11/Math-Font-in-LaTex/",
+      "date"     : "2018-11-14 00:00:00 +0800"
+    } ,
+  
+    {
+      "title"    : "some tricks on jupyter notebook",
+      "category" : "",
+      "tags"     : "computer science, deep learning, jupyter notebook, blog",
+      "url"      : "/2018/11/Some-tricks-on-Jupyter-Notebook/",
+      "date"     : "2018-11-02 00:00:00 +0800"
+    } ,
+  
+    {
+      "title"    : "some websit for latex presenation",
+      "category" : "",
+      "tags"     : "computer science, tool, websit, blog",
+      "url"      : "/2018/11/LaTex-presentation/",
+      "date"     : "2018-11-02 00:00:00 +0800"
+    } ,
+  
+    {
+      "title"    : "convert image format",
+      "category" : "",
+      "tags"     : "computer science, deep learning, python, blog",
+      "url"      : "/2018/10/convert-image-format/",
+      "date"     : "2018-10-12 00:00:00 +0800"
+    } ,
+  
+    {
+      "title"    : "list method for python",
+      "category" : "",
+      "tags"     : "computer science, deep learning, python, blog",
+      "url"      : "/2018/10/python-function-for-list-remove-del-pop/",
+      "date"     : "2018-10-09 00:00:00 +0800"
+    } ,
+  
+    {
+      "title"    : "check g++ and gcc version in Ubuntu",
+      "category" : "",
+      "tags"     : "computer science, ubuntu, check version, blog",
+      "url"      : "/2018/08/g++-and-gcc-version/",
+      "date"     : "2018-08-20 00:00:00 +0800"
+    } ,
+  
+    {
+      "title"    : "One-hot function implementation in Pytorch",
+      "category" : "",
+      "tags"     : "computer science, deep learning, pytorch, blog",
+      "url"      : "/2018/08/one-hot/",
+      "date"     : "2018-08-13 00:00:00 +0800"
+    } ,
+  
+    {
+      "title"    : "tf.app.flags",
+      "category" : "",
+      "tags"     : "computer science, deep learning, tensorflow, blog",
+      "url"      : "/2018/08/tf.app.flags/",
+      "date"     : "2018-08-04 00:00:00 +0800"
+    } ,
+  
+    {
+      "title"    : "argparse",
+      "category" : "",
+      "tags"     : "computer science, deep learning, python, blog",
+      "url"      : "/2018/08/argparse/",
+      "date"     : "2018-08-04 00:00:00 +0800"
+    } ,
+  
+    {
+      "title"    : "Markdown Editor",
+      "category" : "",
+      "tags"     : "computer science, markdown, blog",
+      "url"      : "/2018/07/markdown-editor/",
+      "date"     : "2018-07-29 00:00:00 +0800"
     } 
   
 ]

@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <title>\*args and \*\*kwargs for python</title>
+  <meta name="description" content="an example```pythondef func(*args, **kwargs):    print (‘args =’, args)    print (‘kwargs = ‘, kwargs)    print (‘———–’, flush = True)">
+  <meta name="author" content="Mizuha Ki">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="\*args and \*\*kwargs for python">
+  <meta name="twitter:description" content="an example```pythondef func(*args, **kwargs):    print (‘args =’, args)    print (‘kwargs = ‘, kwargs)    print (‘———–’, flush = True)">
+  
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="\*args and \*\*kwargs for python">
+  <meta property="og:description" content="an example```pythondef func(*args, **kwargs):    print (‘args =’, args)    print (‘kwargs = ‘, kwargs)    print (‘———–’, flush = True)">
+  
+  <link rel="icon" type="image/png" href="/assets/images/favicon.png" />
+  <link href="/assets/images/favicon.png" rel="shortcut icon" type="image/png">
+  
+  <link rel="stylesheet" href="/css/main.css">
+  <link href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+
+  <link rel="canonical" href="http://localhost:4000/2018/12/args-and-kwargs/">
+  <link rel="alternate" type="application/rss+xml" title="Mizuha Ki" href="http://localhost:4000/feed.xml">
+  
+  <meta name="google-site-verification" content="1-1ZlHoRvM0T2FqPbW2S-qLgYXN6rsn52kErlMPd_gw" />
+  
+</head>
+
+
+  <body>
+
+    <span class="mobile btn-mobile-menu">
+        <i class="fa fa-list btn-mobile-menu__icon"></i>
+        <i class="fa fa-angle-up btn-mobile-close__icon hidden"></i>
+    </span>
+    
+    <header class="panel-cover panel-cover--collapsed" style="background-image: url('/assets/images/background-cover.jpg')">
+  <div class="panel-main">
+
+    <div class="panel-main__inner panel-inverted">
+    <div class="panel-main__content">
+
+        <a href="/#blog" title="go Mizuha Ki's homepage" class="blog-button"><img src="/assets/images/avatar.jpg" width="80" alt="Mizuha Ki logo" class="panel-cover__logo logo" /></a>
+        <h1 class="panel-cover__title panel-title"><a href="/#blog" title="link to homepage for Mizuha Ki" class="blog-button">Mizuha Ki</a></h1>
+        
+        <hr class="panel-cover__divider" />
+        <p class="panel-cover__description">To be or not to be, that is a question.</p>
+        <hr class="panel-cover__divider panel-cover__divider--secondary" />
+        
+        
+        
+        <div class="navigation-wrapper">
+          <div>
+            <nav class="cover-navigation cover-navigation--primary">
+              <ul class="navigation">
+                <li class="navigation__item"><a href="/#blog" title="Visit blog" class="blog-button">Blog</a></li>
+                
+              </ul>
+            </nav>
+          </div>
+          
+          <div><nav class="cover-navigation navigation--social">
+  <ul class="navigation">
+
+  
+
+  
+  <!-- Github -->
+  <li class="navigation__item">
+          <a href="https://github.com/mizuhaki" title="@mizuhaki's github" target="_blank">
+      <i class='social fa fa-github'></i>
+      <span class="label">Github</span>
+    </a>
+  </li>
+  
+  
+  
+  <!-- Twitter -->
+  <li class="navigation__item">
+    <a href="http://twitter.com/mizuha_ki" title="@mizuha_ki" target="_blank">
+      <i class='social fa fa-twitter'></i>
+      <span class="label">Twitter</span>
+    </a>
+  </li>
+  
+
+  
+  <!-- Facebook -->
+  <li class="navigation__item">
+    <a href="http://facebook.com/mizuhaki1" title="@mizuhaki1" target="_blank">
+      <i class='social fa fa-facebook-square'></i>
+      <span class="label">Facebook</span>
+    </a>
+  </li>
+  
+
+  
+  <!-- Instagram -->
+  <li class="navigation__item">
+    <a href="http://instagram.com/mizuha_ki" title="@mizuha_ki" target="_blank">
+      <i class='social fa fa-instagram'></i>
+      <span class="label">Instagram</span>
+    </a>
+  </li>
+  
+
+  <!-- RSS -->
+  <li class="navigation__item">
+    <a href="/feed.xml" rel="author" title="RSS" target="_blank">
+      <i class='social fa fa-rss'></i>
+      <span class="label">RSS</span>
+    </a>
+  </li>
+
+  
+  <!-- Email -->
+  <li class="navigation__item">
+    <a href="mailto:xx@gmail.com" title="Contact me">
+      <i class='social fa fa-envelope'></i>
+      <span class="label">Email</span>
+    </a>
+  </li>
+  
+
+  </ul>
+</nav>
+</div>
+        </div>
+      </div>
+    </div>
+    
+    
+    <div class="panel-cover--overlay cover-disabled"></div>
+    
+  </div>
+</header>
+
+
+    <div class="content-wrapper">
+        <div class="content-wrapper__inner">
+            <article class="post-container post-container--single" itemscope itemtype="http://schema.org/BlogPosting">
+  <header class="post-header">
+    <div class="post-meta">
+      <time datetime="2018-12-05 00:00:00 +0800" itemprop="datePublished" class="post-meta__date date">2018-12-05</time> &#8226; <span class="post-meta__tags tags">computer science deep learning python blog</span>
+    </div>
+    <h1 class="post-title">\*args and \*\*kwargs for python</h1>
+  </header>
+
+  <section class="post">
+    <h2 id="an-example">an example</h2>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">func</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="k">print</span> <span class="p">(</span><span class="s">'args ='</span><span class="p">,</span> <span class="n">args</span><span class="p">)</span>
+    <span class="k">print</span> <span class="p">(</span><span class="s">'kwargs = '</span><span class="p">,</span> <span class="n">kwargs</span><span class="p">)</span>
+    <span class="k">print</span> <span class="p">(</span><span class="s">'-----------'</span><span class="p">,</span> <span class="n">flush</span> <span class="o">=</span> <span class="bp">True</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">'__main__'</span><span class="p">:</span>
+    <span class="n">func</span><span class="p">(</span><span class="s">'name'</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="s">'a'</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+    <span class="n">func</span><span class="p">(</span><span class="n">a</span> <span class="o">=</span> <span class="s">'name'</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="mi">11</span><span class="p">,</span> <span class="n">c</span> <span class="o">=</span> <span class="s">'a'</span><span class="p">,</span>  <span class="n">d</span> <span class="o">=</span> <span class="mi">4</span><span class="p">)</span>
+    <span class="n">func</span><span class="p">(</span><span class="s">'name'</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="s">'a'</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="n">a</span> <span class="o">=</span> <span class="s">'name'</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="mi">11</span><span class="p">,</span> <span class="n">c</span> <span class="o">=</span> <span class="s">'a'</span><span class="p">,</span>  <span class="n">d</span> <span class="o">=</span> <span class="mi">4</span><span class="p">)</span>
+    <span class="n">func</span><span class="p">(</span><span class="s">'name'</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="s">'a'</span><span class="p">,</span> <span class="bp">None</span><span class="p">,</span> <span class="n">a</span> <span class="o">=</span> <span class="s">'name'</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="mi">11</span><span class="p">,</span> <span class="n">c</span> <span class="o">=</span> <span class="s">'a'</span><span class="p">,</span>  <span class="n">d</span> <span class="o">=</span> <span class="bp">None</span><span class="p">)</span>
+</code></pre></div></div>
+
+<h2 id="output">output</h2>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">args</span> <span class="o">=</span> <span class="p">(</span><span class="s">'name'</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="s">'a'</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+<span class="n">kwargs</span> <span class="o">=</span>  <span class="p">{}</span>
+<span class="o">-----------</span>
+<span class="n">args</span> <span class="o">=</span> <span class="p">()</span>
+<span class="n">kwargs</span> <span class="o">=</span>  <span class="p">{</span><span class="s">'a'</span><span class="p">:</span> <span class="s">'name'</span><span class="p">,</span> <span class="s">'b'</span><span class="p">:</span> <span class="mi">11</span><span class="p">,</span> <span class="s">'c'</span><span class="p">:</span> <span class="s">'a'</span><span class="p">,</span> <span class="s">'d'</span><span class="p">:</span> <span class="mi">4</span><span class="p">}</span>
+<span class="o">-----------</span>
+<span class="n">args</span> <span class="o">=</span> <span class="p">(</span><span class="s">'name'</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="s">'a'</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+<span class="n">kwargs</span> <span class="o">=</span>  <span class="p">{</span><span class="s">'a'</span><span class="p">:</span> <span class="s">'name'</span><span class="p">,</span> <span class="s">'b'</span><span class="p">:</span> <span class="mi">11</span><span class="p">,</span> <span class="s">'c'</span><span class="p">:</span> <span class="s">'a'</span><span class="p">,</span> <span class="s">'d'</span><span class="p">:</span> <span class="mi">4</span><span class="p">}</span>
+<span class="o">-----------</span>
+<span class="n">args</span> <span class="o">=</span> <span class="p">(</span><span class="s">'name'</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="s">'a'</span><span class="p">,</span> <span class="bp">None</span><span class="p">)</span>
+<span class="n">kwargs</span> <span class="o">=</span>  <span class="p">{</span><span class="s">'a'</span><span class="p">:</span> <span class="s">'name'</span><span class="p">,</span> <span class="s">'b'</span><span class="p">:</span> <span class="mi">11</span><span class="p">,</span> <span class="s">'c'</span><span class="p">:</span> <span class="s">'a'</span><span class="p">,</span> <span class="s">'d'</span><span class="p">:</span> <span class="bp">None</span><span class="p">}</span>
+<span class="o">-----------</span>
+<span class="o">-----------</span>
+</code></pre></div></div>
+
+<h2 id="description">description</h2>
+<ul>
+  <li><strong>*args</strong> and <strong>**kwargs</strong> are changeable function parameters</li>
+  <li><strong>*args</strong> is a tuple</li>
+  <li><strong>**kwargs</strong> is a dict</li>
+</ul>
+
+
+  </section>
+</article>
+
+<section class="read-more">
+   
+   
+   <div class="read-more-item">
+       <span class="read-more-item-dim">recent article</span>
+       <h2 class="post-list__post-title post-title"><a href="/2018/12/GNU-Wget/" title="link to GNU Wget">GNU Wget</a></h2>
+       <p class="excerpt">Introduction to GNU WgetGNU Wget is a free software package for retrieving files using HTTP, HTTPS, FTP and FTPS the most widely-used Internet protocols. It is a non-interactive commandline tool, so it may easily be called from scripts, cron jobs,...&hellip;</p>
+       <div class="post-list__meta"><time datetime="2018-12-11 00:00:00 +0800" class="post-list__meta--date date">2018-12-11</time> &#8226; <span class="post-list__meta--tags tags">computer science ubuntu wget blog</span><a class="btn-border-small" href=/2018/12/GNU-Wget/>read</a></div>
+   </div>
+   
+   
+   
+   
+   <div class="read-more-item">
+       <span class="read-more-item-dim">previous article</span>
+       <h2 class="post-list__post-title post-title"><a href="/2018/11/Math-Symbol-in-LaTex/" title="link to math symbol for latex">math symbol for latex</a></h2>
+       <p class="excerpt">1234&hellip;</p>
+       <div class="post-list__meta"><time datetime="2018-11-14 00:00:00 +0800" class="post-list__meta--date date">2018-11-14</time> &#8226; <span class="post-list__meta--tags tags">computer science tool latex blog</span><a class="btn-border-small" href=/2018/11/Math-Symbol-in-LaTex/>read</a></div>
+   </div>
+   
+</section>
+
+<section class="post-comments">
+  
+    <div id="disqus_thread"></div>
+    <script>
+    
+    var disqus_config = function () {
+        this.page.url = "http://localhost:4000/2018/12/args-and-kwargs/";
+        this.page.identifier = "/2018/12/args-and-kwargs/";
+    };
+
+    var disqus_shortname = 'mizuhaki';
+    
+    (function() { // DON'T EDIT BELOW THIS LINE
+        var d = document, s = d.createElement('script');
+        s.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+            (d.head || d.body).appendChild(s);
+        })();
+    </script>
+    <noscript>要查看<a href="http://disqus.com/?ref_noscript"> Disqus </a>评论，请启用 JavaScript</noscript>
+    
+  
+  
+  
+  
+</section>
+
+
+            <section class="footer">
+    <footer>
+    	<span class="footer__copyright">本站点采用<a href="http://creativecommons.org/licenses/by-nc-sa/4.0/">知识共享 署名-非商业性使用-相同方式共享 4.0 国际 许可协议</a></span>
+        <span class="footer__copyright">由 <a href="https://jekyllrb.com">Jekyll</a> 于 2019-04-28 生成，感谢 <a href="https://www.digitalocean.com/?refcode=30ed2d146762">Digital Ocean</a> 为本站提供稳定的 VPS 服务</span>
+        <span class="footer__copyright">本站由 <a href="http://github.com/MizuhaKi">@mizuhaki</a> 创建，采用 <a href="https://github.com/onevcat/vno-jekyll">Vno - Jekyll</a> 作为主题，您可以在 GitHub 找到<a href="https://github.com/onevcat/OneV-s-Den">本站源码</a> - &copy; 2019</span>
+    </footer>
+</section>
+
+        </div>
+    </div>
+    
+    <script type="text/javascript" src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+
+<script type="text/javascript" src="/js/main.js"></script>
+
+
+
+    
+  </body>
+
+</html>
