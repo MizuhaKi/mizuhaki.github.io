@@ -1,14 +1,19 @@
 ---
 layout: post
-title: One-hot function implementation in [PyTorch](https://pytorch.org/docs/stable/index.html)
+title: One-hot function implementation in Pytorch
 date: 2018-08-13
 categories:
 - computer science
 - deep learning
 - pytorch
 tags:
+- computer science
+- deep learning
+- pytorch
 - blog
 ---
+
+# One-hot function implementation in [PyTorch](https://pytorch.org/docs/stable/index.html)
 
 ## use scatter_ function
 ```python
