@@ -1,21 +1,7 @@
----
-layout: post
-title:  tf.app.flags
-author: Mizuha ki
-date: 2018-08-04
-categories:
-- computer science
-- deep learning
-- tensorflow
-tags:
-- computer science
-- deep learning
-- tensorflow
-- blog
----
+﻿# tf.app.flags
+tf.app.flags defines some parameter. A simple example:
 
-[tf.app.flags](https://www.tensorflow.org/api_docs) defines some parameter. A simple example:
-```python
+```
 import tensorflow as tf
 FLAGS = tf.app.flags.FLAGS
 
@@ -27,7 +13,7 @@ tf.app.flags.DEFINE_boolean('log_device_placement', False, 'Whether to log devic
 print(FLAGS.max_steps)  
 ```
 or
-```python
+```
 from tensorflow import flags
 flags.DEFINE_float('threshold', 0.1, 'detection threshold')
 flags.DEFINE_string('model', 'cnn', 'configuration of choice')
@@ -37,7 +23,6 @@ FLAGS = flags.FLAGS
 print(FLAGS.threshold)   
 ```
 
-```bash
+```
 [root@...]# python test.py --threshold 10e-2 --model mlp
 ```
-

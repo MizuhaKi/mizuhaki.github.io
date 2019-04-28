@@ -1,39 +1,25 @@
+﻿# One-hot function implementation in [PyTorch](https://pytorch.org/docs/stable/index.html)
 ---
-layout: post
-title: One-hot function implementation in Pytorch
-date: 2018-08-13
-categories:
-- computer science
-- deep learning
-- pytorch
-tags:
-- computer science
-- deep learning
-- pytorch
-- blog
----
-
-Some frequent one-hot method in [PyTorch](https://pytorch.org/docs/stable/index.html)
-## use scatter_ function
+## Method1: use scatter_ function
 ```python
 labels = [0, 1, 4, 7, 3, 2]
 one_hot = torch.zeros(6, 8).scatter_(dim = 1, index = labels, value = 1)
 ```
 
-## use index_select() funtion
+## Method2: use index_select() funtion
 ```python
 labels = [0, 1, 4, 7, 3, 2]
 index = torch.eye(8)
 one_hot = torch.index_select(index, dim = 0, index = labels)
 ```
 
-## use Embedding module
+## Method3: use Embedding module
 ```python
 emb = nn.Embedding(8, 8)
 emb.weight.data = torch.eye(8)
 ```
 then we can get
-```bash
+```
 emb(Variable(torch.LongTensor([1, 2], [3, 4])))
 Variable containing:
 (0,.,.) = 
@@ -44,7 +30,7 @@ Variable containing:
 0 0 0 0 1 0 0 0
 ```
 
-## create  a module
+## Method4: create  a module
 ```python
 class One_Hot(nn.Module):
     def __init__(self, depth):
@@ -57,4 +43,3 @@ class One_Hot(nn.Module):
     def __repr__(self):
         return self.__class__.__name__ + "({})".format(self.depth)
 ```
-

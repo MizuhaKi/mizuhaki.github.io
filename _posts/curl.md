@@ -1,0 +1,25 @@
+﻿# curl
+command line tool and library for transferring data with URLs
+
+## Supports
+DICT, FILE, FTP, FTPS, Gopher, HTTP, HTTPS, IMAP, IMAPS, LDAP, LDAPS, POP3, POP3S, RTMP, RTSP, SCP, SFTP, SMB, SMBS, SMTP, SMTPS, Telnet and TFTP. curl supports SSL certificates, HTTP POST, HTTP PUT, FTP uploading, HTTP form based upload, proxies, HTTP/2, cookies, user+password authentication (Basic, Plain, Digest, CRAM-MD5, NTLM, Negotiate and Kerberos), file transfer resume, proxy tunneling and more.
+
+## What's curl used for?
+curl is used in command lines or scripts to transfer data. It is also used in cars, television sets, routers, printers, audio equipment, mobile phones, tablets, settop boxes, media players and is the internet transfer backbone for thousands of software applications affecting billions of humans daily.
+
+## Who makes curl?
+curl is free and open source software and exists thanks to thousands of contributors and our awesome sponsors. The curl project follows well established open source best practices. You too can help us improve!
+
+## What's the latest curl?
+The most recent stable version is 7.62.0, released on 31st of October 2018. Currently, 84 of the listed [downloads](https://curl.haxx.se/download.html) are of the latest version.
+
+## Where's the code?
+Check out the latest [source code from github](https://github.com/curl/curl).
+
+## Documentation Overview
+The main documentation is sub divided into several categories. Each category holds a number of documentation pages.
+
+### The book: Everything curl
+This is a detailed and totally free book, available in [ebook formats](https://www.gitbook.com/book/bagder/everything-curl/details), [PDF](https://www.gitbook.com/download/pdf/book/bagder/everything-curl) and [online](https://ec.haxx.se/) that explains everything there is to know about curl, libcurl and the associated project.
+Learn how to use curl. How to use libcurl. How to build them from source or perhaps how the curl project accepts contributions. There's something for everyone in this, from the casual first-time users to the experienced libcurl hackers.
+

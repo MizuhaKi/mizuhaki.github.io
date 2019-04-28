@@ -1,22 +1,6 @@
----
-layout: post
-title: argparse
-author: Mizuha Ki
-date: 2018-08-04
-categories:
-- computer science
-- deep learning
-- python
-tags:
-- computer science
-- deep learning
-- python
-- blog
----
-
-## Some examples
-The following is a simple usage example that sums integers from the command-line and writes the result to a file:
-```python
+﻿# python package: argparse
+The following is a simple usage example that sums integers from the command-line and writes the result to a file::
+```
 parser = argparse.ArgumentParser(description='sum the integers at the command line')
 parser.add_argument('integers', metavar='int', nargs='+', type=int, help='an integer to be summed')
 parser.add_argument('--log', default=sys.stdout, type=argparse.FileType('w'),
@@ -26,7 +10,6 @@ args.log.write('%s' % sum(args.integers))
 args.log.close()
 ```
 
-## Descriptions
 The module contains the following public classes:
 - ArgumentParser -- The main entry point for command-line parsing. As the example above shows, the add_argument() method is used to populate the parser with actions for optional and positional arguments. Then the parse_args() method is invoked to convert the args at the command-line into an object with attributes.
 - ArgumentError -- The exception raised by ArgumentParser objects when there are errors with the parser's actions. Errors raised while parsing the command-line are caught by ArgumentParser and emitted as command-line messages.
@@ -34,9 +17,8 @@ The module contains the following public classes:
 - Action -- The base class for parser actions. Typically actions are  selected by passing strings like 'store_true' or 'append_const' to  the action= argument of add_argument(). However, for greater customization of ArgumentParser actions, subclasses of Action may be defined and passed as the action= argument. 
 - HelpFormatter, RawDescriptionHelpFormatter, RawTextHelpFormatter, ArgumentDefaultsHelpFormatter -- Formatter classes which may be passed as the formatter_class= argument to the ArgumentParser constructor. HelpFormatter is the default, RawDescriptionHelpFormatter and RawTextHelpFormatter tell the parser not to change the formatting for help text, and ArgumentDefaultsHelpFormatter adds information about argument defaults to the help.
 
-## Another example
 A simple example:
-```python
+```
 import argparse
 import sys
 if __name__ == "__main__":
@@ -84,6 +66,6 @@ if __name__ == "__main__":
   FLAGS, unparsed = parser.parse_known_args()
 ```
 
-```bash
+```
 [root@...]# python test.py --max_steps 100 --train_batchsize 128
 ```

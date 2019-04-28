@@ -1,17 +1,4 @@
----
-layout: post
-title: Markdown Editor
-date: 2018-07-29
-categories:
-- computer science
-- markdown
-tags:
-- computer science
-- markdown
-- blog
----
-
-# 欢迎使用Markdown编辑器写博客
+﻿# 欢迎使用Markdown编辑器写博客
 
 本Markdown编辑器使用[StackEdit][6]修改而来，用它写博客，将会带来全新的体验哦：
 
@@ -84,7 +71,7 @@ Pipe     | $1
 
 ### 代码块
 代码块语法遵循标准markdown代码，例如：
-```python
+``` python
 @requires_authorization
 def somefunc(param1='', param2=0):
     '''A docstring'''
@@ -99,13 +86,13 @@ class SomeClass:
 
 ###脚注
 生成一个脚注[^footnote].
-
-[^footnote]: 这里是 **脚注** 的 *内容*.
-
+  [^footnote]: 这里是 **脚注** 的 *内容*.
+  
 ### 目录
 用 `[TOC]`来生成目录：
 
-@[toc]
+[TOC]
+
 ### 数学公式
 使用MathJax渲染*LaTex* 数学公式，详见[math.stackexchange.com][1].
 
@@ -120,17 +107,15 @@ $$	x = \dfrac{-b \pm \sqrt{b^2 - 4ac}}{2a} $$
 
 可以渲染序列图：
 
-```mermaid
-sequenceDiagram
-张三->>李四: 嘿，小四儿, 写博客了没?
+```sequence
+张三->李四: 嘿，小四儿, 写博客了没?
 Note right of 李四: 李四愣了一下，说：
-李四-->>张三: 忙得吐血，哪有时间写。
+李四-->张三: 忙得吐血，哪有时间写。
 ```
 
 或者流程图：
 
-```mermaid
-flowchat
+```flow
 st=>start: 开始
 e=>end: 结束
 op=>operation: 我的操作
@@ -156,7 +141,7 @@ cond(no)->op
 
 > **注意：**虽然浏览器存储大部分时候都比较可靠，但为了您的数据安全，在联网后，**请务必及时发表或者保存到服务器草稿箱**。
 
-## 浏览器兼容
+##浏览器兼容
 
  1. 目前，本编辑器对Chrome浏览器支持最为完整。建议大家使用较新版本的Chrome。
  3. IE９以下不支持
@@ -173,4 +158,3 @@ cond(no)->op
 [4]: http://bramp.github.io/js-sequence-diagrams/
 [5]: http://adrai.github.io/flowchart.js/
 [6]: https://github.com/benweet/stackedit
-

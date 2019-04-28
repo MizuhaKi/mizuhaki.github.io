@@ -1,0 +1,911 @@
+﻿<div class="htmledit_views">
+                
+<h1><a name="t0"></a><a href="http://liuchengxu.org/pelican-blog/jupyter-notebook-tips.html" rel="nofollow" title="Permalink to [译]27 个Jupyter Notebook的小提示与技巧" target="_blank">27 个Jupyter Notebook的小提示与技巧
+</a></h1>
+<p></p>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Jupyter notebook, 前身是 IPython notebook, 它是一个非常灵活的工具，有助于帮助你构建很多可读的分析，你可以在里面同时保留代码，图片，评论，公式和绘制的图像。</p>
+<p><img alt="screenshot" src="http://liuchengxu.org/pelican-blog/images/jupyter_screenshot.png"></p>
+<p>Jupyter具有非常强的可扩展性，支持很多编程语言，并且易于部署到你的个人电脑和几乎所有的服务器上 -- 你只需要使用ssh或http接入即可。最重要的是，它完全免费。</p>
+<p>Jupyter默认设置使用 Python kernel，正因此以前叫做 IPython notebook. Jupyter notebook 源自于 Jupyter 项目, Jupyter这个名字是它被设计所支持三个核心编程语言的缩写词：<strong>JU</strong>lia,<strong>PYT</strong>hon, 和
+<strong>R</strong>, 启发自木星这个词：Jupiter.</p>
+<p>接下来的内容将向你展示27个让 Jupyter 用的更加舒心的建议与技巧。</p>
+<h3 id="1.-Keyboard-Shortcuts"><a name="t1"></a>1. Keyboard Shortcuts</h3>
+<p>每一个进阶用户都知道，键盘快捷键将会为我们节省许多时间。Jupyter在顶部的菜单里保留了许多快捷键：<code>Help &gt; keyboard Shortcuts</code>. 每次更新Jupyter时，都值得再次进行查看，因为新的快捷键总是不断被添加进来。</p>
+<p>另一个查看快捷键的方式是使用命令面板：<code>Cmd + Shift + P</code>(或者Linux和Windows上 <code>Ctrl + Shift + P</code>)。这个对话框将会帮助你通过名称运行任何命令 -- 这非常有用，尤其当你不知道一个命令的快捷键或者你想要执行的命令没有快捷键时。这个功能非常类似与Mac上的Spotlight搜索，一旦你开始使用这个功能，你就会发现没有它的日子该怎么办！</p>
+<p><img alt="command_pannel" src="http://liuchengxu.org/pelican-blog/images/command_pannel.gif"></p>
+<p>这里是一些我喜欢的快捷键：</p>
+<ul><li>
+<p><code>Esc + F</code> 查找和替换你的代码，但不包括代码的输出内容。</p>
+</li><li>
+<p><code>Esc + o</code> 打开代码块输出。</p>
+</li><li>
+<p>选择多个 cell。 <code>Shift + J</code> 或 <code>Shift + Down</code> 向下选中下一个cell. 你可以通过
+<code>Shift + K</code> 或 <code>Shift + Up</code> 向上选中 cell。(译者：jk，与vim的移动方式一致)</p>
+<ul><li>
+<p>一旦 cell 被选中，接着你可以进行批量删除/复制/剪切/粘贴.当你需要移动一部分notebook时，这非常有用。</p>
+</li><li>
+<p>你也可以执行 <code>Shift + M</code> (译者：m记为merge)对多个cell进行合并。</p>
+<p><img alt="merge" src="http://liuchengxu.org/pelican-blog/images/merge.gif"></p>
+</li></ul></li></ul></div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"></div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="2.-Pretty-Display-of-Varibles"><a name="t2"></a>2. Pretty Display of Varibles</h3>
+<p>这部分内容可能很多人都知道。如果对带有一个变量或是未赋值语句的cell执行操作，Jupyter 将会自动打印该变量而无需一个输出语句。这非常有用，尤其是使用 Pandas DataFrames 进行处理时，因为输出将会被整齐地格式化为一个表格。</p>
+<p>接下来的内容可能没那么人知道：你可以选择修改 <code>ast_note_iteractively</code> kernal 选项来使得 Jupyter 为每一行的变量或语句执行这个操作，以便你可以立即看到多条语句一起输出。</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input"></div>
+</div>
+<div class="input">
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-ipython3">
+<pre><span></span><span class="n">line1</span> <span class="o">=</span> <span class="s2">"this is from line 1"</span>
+<span class="n">line2</span> <span class="o">=</span> <span class="s2">"this is from line 2"</span>
+
+<span class="n">line1</span>
+<span class="n">line2</span>
+</pre>
+</div>
+</div>
+</div>
+</div>
+<div class="output_wrapper">
+<div class="output"></div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="output_text output_subarea output_execute_result">
+<pre>'this is from line 2'</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input"></div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-ipython3">
+<pre><span></span><span class="kn">from</span> <span class="nn">IPython.core.interactiveshell</span> <span class="k">import</span> <span class="n">InteractiveShell</span>
+<span class="n">InteractiveShell</span><span class="o">.</span><span class="n">ast_node_interactivity</span> <span class="o">=</span> <span class="s2">"all"</span>
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input"></div>
+</div>
+<div class="input">
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-ipython3">
+<pre><span></span><span class="n">line1</span>
+<span class="n">line2</span>
+</pre>
+</div>
+</div>
+</div>
+</div>
+<div class="output_wrapper">
+<div class="output"></div>
+</div>
+<div class="output_area">
+<div class="output_text output_subarea output_execute_result">
+<pre>'this is from line 1'</pre>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="output_text output_subarea output_execute_result">
+<pre>'this is from line 2'</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"></div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>如果你想要所有的Jupyter实例（Notebook和Console）都设置该选项，只需创建 <code>~/.ipython/profile_default/ipython_config.py</code> 文件并写入一下内容：</p>
+<div class="highlight">
+<pre><span></span><span class="n">c</span> <span class="o">=</span> <span class="n">get_config</span><span class="p">()</span>
+<span class="c1"># Run all nodes interactively</span>
+<span class="n">c</span><span class="o">.</span><span class="n">InteractiveShell</span><span class="o">.</span><span class="n">ast_node_interactivity</span> <span class="o">=</span> <span class="s2">"all"</span>
+</pre>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"></div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="3.-Easy-links-to-documentation"><a name="t3"></a>3. Easy links to documentation</h3>
+<p>在 <code>Help</code> 菜单你可以找到一些常用库文档的连接，包括 NumPy, Pandas, SciPy 和 Matplotlib.</p>
+<p>同时别忘了在一个库，方法或变量前加上 <code>?</code>，你可以获得它的一个快速语法说明。</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input"></div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-ipython3">
+<pre><span></span><span class="o">?</span>sum<span class="p">()</span>
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"></div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="4.-Plotting-in-notebooks"><a name="t4"></a>4. Plotting in notebooks</h3>
+<p>在 notebook 中生成绘图有许多选项：</p>
+<ul><li>
+<p><a href="http://liuchengxu.org/pelican-blog/matplotlib.org" rel="nofollow" target="_blank">matplotlib</a>， 使用<code>%matplotlib inline</code>进行激活。</p>
+</li><li>
+<p><code>%matplotlib notebook</code>提供了一些交互性，不过可能会有点慢，因为渲染由服务器端完成。</p>
+</li><li>
+<p><a href="https://github.com/mpld3/mpld3" rel="nofollow" target="_blank">mpld3</a>为matplotlib代码提供了另一个渲染器(使用d3)。非常漂亮，不过尚不完备还有待发展。</p>
+</li><li>
+<p><a href="http://liuchengxu.org/pelican-blog/bokeh.pydata.org/latest/" rel="nofollow" target="_blank">bokeh</a>是构建交互性绘图的一个更好的选择。</p>
+</li><li>
+<p><a href="https://plot.ly" rel="nofollow" target="_blank">plot.ly</a>也可以生成漂亮的绘图，不过是付费服务。</p>
+</li></ul></div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"></div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="5.-Jupyter-Magic-Commands"><a name="t5"></a>5. Jupyter Magic Commands</h3>
+<p>上面的 <code>%matplotlib inline</code> 就是一个所谓的 <em>Jupyter Magic</em> (Jupyter魔法)命令。</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input"></div>
+</div>
+<div class="input">
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-ipython3">
+<pre><span></span><span class="o">%</span><span class="k">lsmagic</span>
+</pre>
+</div>
+</div>
+</div>
+</div>
+<div class="output_wrapper">
+<div class="output"></div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="output_text output_subarea output_execute_result">
+<pre>Available line magics:
+%alias  %alias_magic  %autocall  %automagic  %autosave  %bookmark  %cat  %cd  %clear  %colors  %config  %connect_info  %cp  %debug  %dhist  %dirs  %doctest_mode  %ed  %edit  %env  %gui  %hist  %history  %killbgscripts  %ldir  %less  %lf  %lk  %ll  %load  %load_ext  %loadpy  %logoff  %logon  %logstart  %logstate  %logstop  %ls  %lsmagic  %lx  %macro  %magic  %man  %matplotlib  %mkdir  %more  %mv  %notebook  %page  %pastebin  %pdb  %pdef  %pdoc  %pfile  %pinfo  %pinfo2  %popd  %pprint  %precision  %profile  %prun  %psearch  %psource  %pushd  %pwd  %pycat  %pylab  %qtconsole  %quickref  %recall  %rehashx  %reload_ext  %rep  %rerun  %reset  %reset_selective  %rm  %rmdir  %run  %save  %sc  %set_env  %store  %sx  %system  %tb  %time  %timeit  %unalias  %unload_ext  %who  %who_ls  %whos  %xdel  %xmode
+
+Available cell magics:
+%%!  %%HTML  %%SVG  %%bash  %%capture  %%debug  %%file  %%html  %%javascript  %%js  %%latex  %%perl  %%prun  %%pypy  %%python  %%python2  %%python3  %%ruby  %%script  %%sh  %%svg  %%sx  %%system  %%time  %%timeit  %%writefile
+
+Automagic is ON, % prefix IS NOT needed for line magics.</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"></div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>推荐阅读<a href="http://liuchengxu.org/pelican-blog/ipython.readthedocs.io/en/stable/interactive/magics.html" rel="nofollow" target="_blank">the documentation for all Jupyter magic commands</a>，你会发现这非常有用。下面是一些我所喜爱的魔法命令：</p>
+<h4 id="6.-Jupyter-Magic---%env:Set-Environment-Variables">6. Jupyter Magic - %env:Set Environment Variables</h4>
+<p>你可以管理notebook的环境变量而无需重启jupyter server. 一些库(比如theano)使用环境变量来控制行为，%env是最方便的一个途径。</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input"></div>
+</div>
+<div class="input">
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-ipython3">
+<pre><span></span><span class="c1"># 单独运行 %env 会列出所有环境变量</span>
+
+<span class="c1"># 带参数的话则会设置该变量 比如 OMP_NUM_THREADS=4</span>
+<span class="o">%</span><span class="k">env</span> OMP_NUM_THREADS=4
+</pre>
+</div>
+</div>
+</div>
+</div>
+<div class="output_wrapper">
+<div class="output"></div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>env: OMP_NUM_THREADS=4
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"></div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="7.-Jupyter-Magic---%run:Excute-python-code">7. Jupyter Magic - %run:Excute python code</h4>
+<p><code>%run</code>可以从.py文件执行Python代码. 更少的人知道的是它也可以执行其他的Jupyter notebook,这也非常有用。</p>
+<p>注意使用<code>%run</code>并不等同于导入一个Python模块.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input"></div>
+</div>
+<div class="input">
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-ipython3">
+<pre><span></span><span class="c1"># this will execute and show the output from</span>
+<span class="c1"># all code cells of the specified notebook</span>
+<span class="o">%</span><span class="k">run</span> ./LinearRegression.ipynb
+</pre>
+</div>
+</div>
+</div>
+</div>
+<div class="output_wrapper">
+<div class="output"></div>
+</div>
+<div class="output_area">
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Coefficients: 
+ [ 938.23786125]
+Residual sum of squares: 2548.07
+Variance score: 0.47
+</pre>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="output_png output_subarea"><img src="" alt=""></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"></div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="8.-Jupyter-Magic---%load:Insert-the-code-from-an-external-script">8. Jupyter Magic - %load:Insert the code from an external script</h4>
+<p>这将会使用外部脚本来代替cell的内容。你可以使用本地机器上的文件也可以使用一个URL.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"></div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="9.-Jupyter-Magic---%store:Pass-variables-between-notebooks">9. Jupyter Magic - %store:Pass variables between notebooks</h4>
+<p><code>%store</code>命令可以让你在两个不同的notebook间传递变量。</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"></div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="10.-Jupyter-Magic---%who:List-all-variables-of-global-scope.">10. Jupyter Magic - %who:List all variables of global scope.</h4>
+<p>不带参数的<code>%who</code>命令将会列出全局范围内存在的所有变量。如果传入参数，比如<code>str</code>，将会列出指定类型的所有变量。</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input"></div>
+</div>
+<div class="input">
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-ipython3">
+<pre><span></span><span class="o">%</span><span class="k">who</span>
+</pre>
+</div>
+</div>
+</div>
+</div>
+<div class="output_wrapper">
+<div class="output"></div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>FormatCode	 Image	 InteractiveShell	 datasets	 diabetes	 diabetes_X	 diabetes_X_test	 diabetes_X_train	 diabetes_y_test	 
+diabetes_y_train	 display	 line1	 line2	 linear_model	 name	 names	 np	 numpy	 
+os	 plt	 regr	 time	 x	 
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"></div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="11.-Jupyter-Magic---Timing">11. Jupyter Magic - Timing</h4>
+<p>对于计时有两个十分有用的魔法命令：<code>%%time</code> 和 <code>%timeit</code>. 如果你有些代码运行地十分缓慢，而你想确定是否问题出在这里，这两个命令将会非常方便。</p>
+<ul><li><code>%%time</code> 将会给出cell的代码运行一次所花费的时间。</li></ul></div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input"></div>
+</div>
+<div class="input">
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-ipython3">
+<pre><span></span><span class="o">%%</span><span class="k">time</span>
+import time
+for _ in range(1000):
+    time.sleep(0.01)# sleep for 0.01 seconds
+</pre>
+</div>
+</div>
+</div>
+</div>
+<div class="output_wrapper">
+<div class="output"></div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>CPU times: user 196 ms, sys: 21.4 ms, total: 217 ms
+Wall time: 11.6 s
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"></div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul><li><code>%timeit</code> 使用Python的timeit模块，它将会执行一个语句100，000次(默认情况下)，然后给出运行最快3次的平均值。</li></ul></div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input"></div>
+</div>
+<div class="input">
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-ipython3">
+<pre><span></span><span class="kn">import</span> <span class="nn">numpy</span>
+<span class="o">%</span><span class="k">timeit</span> numpy.random.normal(size=100)
+</pre>
+</div>
+</div>
+</div>
+</div>
+<div class="output_wrapper">
+<div class="output"></div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>The slowest run took 46.45 times longer than the fastest. This could mean that an intermediate result is being cached.
+100000 loops, best of 3: 6.26 µs per loop
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"></div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="12.-Jupyter-Magic---%%writefile-and-%pycat:Export-the-contents-of-a-cell/Show-the-contents-of-an-external-script">
+12. Jupyter Magic - %%writefile and %pycat:Export the contents of a cell/Show the contents of an external script</h4>
+<p>使用<code>%%writefile</code>魔法保存cell的内容到一个外部文件。<code>%pycat</code>则刚好相反，并且会向你展示高亮后的外部文件。</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"></div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="13.-Jupyter-Magic---%prun:Show-how-much-time-your-program-spent-in-each-function">
+13. Jupyter Magic - %prun:Show how much time your program spent in each function</h4>
+<p>使用<code>%prun statement_name</code>将会产生一个有序表格来展示在该语句中所调用的每个内部函数调用的次数，每次调用的时间与该函数累计运行的时间。</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input"></div>
+</div>
+<div class="input">
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-ipython3">
+<pre><span></span><span class="o">%</span><span class="k">prun</span> print('hello')
+</pre>
+</div>
+</div>
+</div>
+</div>
+<div class="output_wrapper">
+<div class="output"></div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>hello
+ </pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"></div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="14.-Jupyter-Magic---Debugging-with-%pdb">14. Jupyter Magic - Debugging with %pdb</h4>
+<p>Jupyter有一个自己的<a href="https://docs.python.org/3.5/library/pdb.html" rel="nofollow" target="_blank">python调试器接口(<code>pdb</code>)</a>，这使得我们能够进入函数内部看看到底发生了什么。</p>
+<p>你可以在这里<a href="https://docs.python.org/3.5/library/pdb.html#debugger-commands" rel="nofollow" target="_blank">查看pdb的命令列表</a></p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"></div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="15.-Suppress-the-output-of-a-final-function"><a name="t6"></a>15. Suppress the output of a final function</h3>
+<p>有时候你可能会想要抑制最后一行函数的输出，比如当我们绘制图像的时候。为此，你只需加上一个分号即可。</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input"></div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-ipython3">
+<pre><span></span><span class="o">%</span><span class="k">matplotlib</span> inline
+<span class="kn">from</span> <span class="nn">matplotlib</span> <span class="k">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+<span class="kn">import</span> <span class="nn">numpy</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1000</span><span class="p">)</span><span class="o">**</span><span class="mf">1.5</span>
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input"></div>
+</div>
+<div class="input">
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-ipython3">
+<pre><span></span><span class="c1"># Here you get the output of the function</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</pre>
+</div>
+</div>
+</div>
+</div>
+<div class="output_wrapper">
+<div class="output"></div>
+</div>
+<div class="output_area">
+<div class="output_text output_subarea output_execute_result">
+<pre>(array([ 216.,  126.,  106.,   95.,   87.,   81.,   77.,   73.,   71.,   68.]),
+ array([ 0. ,  0.1,  0.2,  0.3,  0.4,  0.5,  0.6,  0.7,  0.8,  0.9,  1. ]),
+ <a target="_blank">)</a></pre>
+<a target="_blank"></a></div>
+<a target="_blank"></a></div>
+<a target="_blank"></a>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="output_wrapper">
+<div class="output"><a target="_blank"></a>
+<div class="output_area">
+<div class="output_png output_subarea"><img src="" alt=""></div>
+</div>
+</div>
+<a target="_blank"></a></div>
+<a target="_blank"></a></div>
+<a target="_blank"></a>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input"></div>
+</div>
+<a target="_blank"></a>
+<div class="input">
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-ipython3">
+<pre><span></span><span class="c1"># By adding a semicolon at the end, the output is suppressed.</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">x</span><span class="p">);</span>
+</pre>
+</div>
+</div>
+</div>
+</div>
+<div class="output_wrapper">
+<div class="output"></div>
+</div>
+<a target="_blank"></a>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="output_png output_subarea"><img src="" alt=""></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><a target="_blank"></a></div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell"><a target="_blank"></a>
+<div class="text_cell_render border-box-sizing rendered_html"><a target="_blank"></a>
+<h3 id="16.-Executing-Shell-Commands"><a name="t7"></a><a target="_blank">16. Executing Shell Commands</a></h3>
+<p>在 notebook 中执行 shell 命令非常容易，你可以像下面这样列出当前目录下的文件：</p>
+<pre onclick="hljs.copyCode(event)"><code class="hljs diff"><span class="hljs-addition">!ls</span></code><div class="hljs-button" data-title="复制"></div></pre>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input"></div>
+</div>
+<div class="input">
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-ipython3">
+<pre><span></span><span class="o">!</span>ls
+</pre>
+</div>
+</div>
+</div>
+</div>
+<div class="output_wrapper">
+<div class="output"></div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>JupyterNotebookTips.ipynb      LinearRegression.ipynb
+JupyterNotebookTips.ipynb-meta LinearRegression.ipynb-meta
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"></div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>或是检查或管理包.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input"></div>
+</div>
+<div class="input">
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-ipython3">
+<pre><span></span><span class="o">!</span>pip list <span class="p">|</span> grep pandas
+</pre>
+</div>
+</div>
+</div>
+</div>
+<div class="output_wrapper">
+<div class="output"></div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>pandas (0.18.1)
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"></div>
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="17.-Using-LaTeX-for-formulas"><a name="t8"></a>17. Using LaTeX for formulas</h3>
+<p>当你在 markdown cell 中书写<a href="https://www.latex-project.org/" rel="nofollow" target="_blank">LaTeX</a>时，它会被 MathJax 渲染成一个公式。(译者：下文中介绍的Jupyter插件中有个插件关于LaTeX，提供了更多LaTeX功能)</p>
+<pre onclick="hljs.copyCode(event)"><code class="hljs vbscript">$$ P(A \<span class="hljs-built_in">mid</span> B) = \frac{P(B \<span class="hljs-built_in">mid</span> A) \, P(A)}{P(B)} $$</code><div class="hljs-button" data-title="复制"></div></pre>
+<p>会被渲染成为：</p>
+<div class="MathJax_Display" style="text-align:center;"></div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>markdown 是 notebook 中十分重要的一部分，别忘了使用它来传达你的想法！</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"></div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="18.-Run-code-from-a-different-kernel-in-a-notebooks"><a name="t9"></a>18. Run code from a different kernel in a notebooks</h3>
+<p>如果想要的话，你可以将多个 kernel 的代码组合到一个 notebook 中。</p>
+<p>在每个cell的开头使用相关的魔法命令来声明你想使用的 kernel：</p>
+<ul><li>
+<p><code>%%bash</code></p>
+</li><li>
+<p><code>%%HTML</code></p>
+</li><li>
+<p><code>%%python2</code></p>
+</li><li>
+<p><code>%%python3</code></p>
+</li><li>
+<p><code>%%ruby</code></p>
+</li><li>
+<p><code>%%perl</code></p>
+</li></ul></div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input"></div>
+</div>
+<div class="input">
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-ipython3">
+<pre><span></span>%%bash
+<span class="k">for</span> i in <span class="o">{</span>1..5<span class="o">}</span>
+<span class="k">do</span>
+   <span class="nb">echo</span> <span class="s2">"</span><span class="nv">$i</span><span class="s2">"</span>
+<span class="k">done</span>
+</pre>
+</div>
+</div>
+</div>
+</div>
+<div class="output_wrapper">
+<div class="output"></div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>1
+2
+3
+4
+5
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"></div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="19.-Install-other-kernels-for-Jupyter"><a name="t10"></a>19. Install other kernels for Jupyter</h3>
+<p>Jupyter 其中的一个重要特色就是能够运行不同语言，你只需安装相关的 kernel 即可。比如，下面的例子是如何安装 R kernel.</p>
+<ul><li>快捷选择：使用anaconda安装 R kernel</li></ul><p>如果你使用 anaconda 安装你的环境，这会相当简单。你只需要在 terminal 中运行下面的命令：</p>
+<pre onclick="hljs.copyCode(event)"><code class="hljs swift">conda install -<span class="hljs-built_in">c</span> r r-essentials</code><div class="hljs-button" data-title="复制"></div></pre>
+<ul><li>不那么快捷的方式：手动安装 R kernel</li></ul><p>如果你不是使用 anaconda, 这个过程可能稍显复杂。如果你还没有安装的话, 你需要从 <a href="https://cloud.r-project.org/" rel="nofollow" target="_blank">
+CRAN</a>安装。(译者: 也可使用 <code>brew cask install r-gui</code>)</p>
+<p>安装 R 完毕后，打开 R console 并运行如下命令：</p>
+<pre onclick="hljs.copyCode(event)"><code class="hljs php"><ol class="hljs-ln"><li><div class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="1"></div></div><div class="hljs-ln-code"><div class="hljs-ln-line">install.packages(c(<span class="hljs-string">'repr'</span>, <span class="hljs-string">'IRdisplay'</span>, <span class="hljs-string">'crayon'</span>, <span class="hljs-string">'pbdZMQ'</span>, <span class="hljs-string">'devtools'</span>))</div></div></li><li><div class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="2"></div></div><div class="hljs-ln-code"><div class="hljs-ln-line">devtools::install_github(<span class="hljs-string">'IRkernel/IRkernel'</span>)</div></div></li><li><div class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="3"></div></div><div class="hljs-ln-code"><div class="hljs-ln-line">IRkernel::installspec()  <span class="hljs-comment"># to register the kernel in the current R installation</span></div></div></li></ol></code><div class="hljs-button" data-title="复制"></div></pre>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"></div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="20.-Running-R-and-Python-in-the-same-notebook"><a name="t11"></a>20. Running R and Python in the same notebook</h3>
+<p>对于此最好的解决方案是安装 <a href="http://liuchengxu.org/pelican-blog/rpy2.bitbucket.org" rel="nofollow" target="_blank">
+rpy2</a>(需要安装一个可以工作的 R )， 通过 pip 可以很容易安装：</p>
+<pre onclick="hljs.copyCode(event)"><code class="hljs sql">pip <span class="hljs-keyword">install</span> rpy2</code><div class="hljs-button" data-title="复制"></div></pre>
+<p>你可以同时使用这两种语言，甚至在它们之间传递变量：</p>
+<p>一个很好的示例 <a href="http://blog.revolutionanalytics.com/2016/01/pipelining-r-python.html" rel="nofollow" target="_blank">
+Revolutions Blog</a></p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"></div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="21.-Writing-functions-in-other-languages"><a name="t12"></a>21. Writing functions in other languages</h3>
+<p>有时候 numpy 的速度仍旧不够快，我们需要自己写一些更快的代码。</p>
+<p>原则上，你可以以动态链接库的方式编译函数，然后用 python 进行包装。</p>
+<p>不过如果有人能够帮你完成这部分烦人的工作是不是非常棒呢？</p>
+<p>你可以用 cython 或 fortran 写函数并直接从 Python 代码进行调用。</p>
+<p>首先你需要安装：</p>
+<p><code>pip install cython fortran-magic</code></p>
+<p>个人来说我更喜欢使用 fortran, 我发现它对数值统计函数十分方便。更多用法上的细节可以<a href="https://arogozhnikov.github.io/2015/11/29/using-fortran-from-python.html" rel="nofollow" target="_blank">在这里找到</a>.</p>
+<p>也有一些其他方式可以加速你的Python代码。更多示例可以<a href="https://arogozhnikov.github.io/2015/09/08/SpeedBenchmarks.html" rel="nofollow" target="_blank">在这里找到</a>/</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"></div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="22.-Multicursor-support"><a name="t13"></a>22. Multicursor support</h3>
+<p>Jupyter 支持多光标操作，与 Sublime Text 类似。按住 <code>Alt</code> 进行点击和拖拽鼠标即可。</p>
+<p><img alt="multiline" src="http://liuchengxu.org/pelican-blog/images/multiline.gif"></p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"></div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="23.-Jupyter-contrib-extensions"><a name="t14"></a>23. Jupyter-contrib extensions</h3>
+<p><a href="https://github.com/ipython-contrib/jupyter_contrib_nbextensions" rel="nofollow" target="_blank">Jupyter-contrib extensions</a> 是一系列能够给 Jupyter 带来许多功能的扩展，比如
+<code>jupyter spell-checker</code> 和 <code>code-formatter</code>.</p>
+<p>译者：使用conda安装是最方便的，更多安装与使用信息可以看<a href="https://github.com/ipython-contrib/jupyter_contrib_nbextensions" rel="nofollow" target="_blank">Jupyter-contrib extensions</a>. 启用插件可以使用<a href="https://github.com/Jupyter-contrib/jupyter_nbextensions_configurator" rel="nofollow" target="_blank">jupyter_nbextensions_configurator
+</a>, 通过打开 <code>http://localhost:8888/nbextensions/</code> 进行设置，里面有很多实用的插件，具体自行发现。</p>
+<pre onclick="hljs.copyCode(event)"><code class="hljs swift">conda install -<span class="hljs-built_in">c</span> conda-forge jupyter_contrib_nbextensions</code><div class="hljs-button" data-title="复制"></div></pre>
+<p><img alt="nbextensions" src="http://liuchengxu.org/pelican-blog/images/nbextensions.png"></p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"></div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="24.-Create-a-presentation-from-a-Jupyter-notebook"><a name="t15"></a>24. Create a presentation from a Jupyter notebook</h3>
+<p>Damian Avila的 <a href="https://damianavila/RISE" rel="nofollow" target="_blank">RISE</a> 允许你从已有的一个 notebook 创建一个 powerpoint 风格的报告。</p>
+<p>你可以通过 conda 安装 RISE:</p>
+<div class="highlight">
+<pre><span></span>conda install -c damianavila82 rise
+</pre>
+</div>
+<p>或通过 pip:</p>
+<div class="highlight">
+<pre><span></span>pip install RISE
+</pre>
+</div>
+<p>然后执行下面的代码安装并启用扩展：</p>
+<div class="highlight">
+<pre><span></span>jupyter-nbextension install rise --py --sys-prefix
+jupyter-nbextension <span class="nb">enable</span> rise --py --sys-prefix
+</pre>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"></div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="25.-The-Jupyter-output-system"><a name="t16"></a>25. The Jupyter output system</h3>
+<p>notebook 以 HTML 的方式进行展示，cell 的输出也可以是 HTML，所以事实上你可以返回任何东西：视频/音频/图像。</p>
+<p>下面的例子我扫描了 images 目录下的 png 文件，并输出它们的缩略图.(译者：因为当前该目录下只有两个 png 文件，所以仅输出两个)</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input"></div>
+</div>
+<div class="input">
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-ipython3">
+<pre><span></span><span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">from</span> <span class="nn">IPython.display</span> <span class="k">import</span> <span class="n">display</span><span class="p">,</span> <span class="n">Image</span>
+<span class="n">names</span> <span class="o">=</span> <span class="p">[</span><span class="n">f</span> <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="s1">'../images/'</span><span class="p">)</span> <span class="k">if</span> <span class="n">f</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s1">'.png'</span><span class="p">)]</span>
+<span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">names</span><span class="p">[:</span><span class="mi">5</span><span class="p">]:</span>
+    <span class="n">display</span><span class="p">(</span><span class="n">Image</span><span class="p">(</span><span class="s1">'../images/'</span> <span class="o">+</span> <span class="n">name</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">100</span><span class="p">))</span>
+</pre>
+</div>
+</div>
+</div>
+</div>
+<div class="output_wrapper">
+<div class="output"></div>
+</div>
+<div class="output_area">
+<div class="output_png output_subarea"><img src="" width="100" alt=""></div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="output_png output_subarea"><img src="" width="100" alt=""></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"></div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="26.-'Big-data'-analysis"><a name="t17"></a>26. 'Big data' analysis</h3>
+<p>对于大规模数据样本的查询/处理也有一些解决方案：</p>
+<ul><li>
+<p><a href="https://github.com/ipython/ipyparallel" rel="nofollow" target="_blank">ipyparallel(以前叫ipython cluster)</a>是使用 Python 进行简单 map-reduce 操作的一个很好的选择。</p>
+</li><li>
+<p><a href="http://www.cloudera.com/documentation/enterprise/5-5-x/topics/spark_ipython.html" rel="nofollow" target="_blank">pyspark</a></p>
+</li><li>
+<p>spark-sql 魔法 <a href="https://github.com/jupyter-incubator/sparkmagic" rel="nofollow" target="_blank">
+%%sql</a></p>
+</li></ul></div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"></div>
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="27.-Sharing-notebooks"><a name="t18"></a>27. Sharing notebooks</h3>
+<p>分享 notebook 最简单的方式是直接使用 notebook 文件(.ipynb).不过对于那些不使用 Jupyter 的人来说，你也可以这么做：</p>
+<ul><li>
+<p>使用菜单项 <code>File &gt; Download as &gt; HTML</code> 将 notebook 转换成 HTML。</p>
+</li><li>
+<p>使用 gist 或 github 分享 notebook，它们都会对 notebook 进行渲染展示。</p>
+<ul><li>如果你上传 notebook 到一个 github 仓库，你可以使用十分便利的<a href="http://liuchengxu.org/pelican-blog/mybinder.org" rel="nofollow" target="_blank">mybinder</a>服务来允许第三者半小时时间以交互性身份访问你的仓库。</li></ul></li></ul><ul><li>
+<p>安装<a href="https://github.com/jupyterhub/jupyterhub" rel="nofollow" target="_blank">jupyterhub</a>, 当你组织一个小型课程或研讨会没有心思关心学生的机器状况时，这是非常方便的。</p>
+</li><li>
+<p>将 notebook 保存到比如 dropbox 中，然后将链接放到<a href="http://liuchengxu.org/pelican-blog/nbviewer.jupyter.org" rel="nofollow" target="_blank">nbviewer</a>. nbviewer将会渲染你存储在任何地方的notebook.</p>
+</li><li>
+<p>使用 <code>File &gt; Download as &gt; PDF</code> 菜单将 notebook 保存为一个 PDF。如果你打算这么做，强烈推荐你阅读 Julius Schulz 非常棒的一篇文章<a href="http://blog.juliusschulz.de/blog/ultimate-ipython-notebook" rel="nofollow" target="_blank">Making publication ready Python notebooks</a>.</p>
+</li><li>
+<p><a href="https://www.dataquest.io/blog/how-to-setup-a-data-science-blog/" rel="nofollow" target="_blank">使用 Pelican 搭建一个关于数据科学博客</a>( 译者注：可在<a href="http://blog.csdn.net/simple_the_best/article/details/52821132" rel="nofollow" target="_blank">这里</a>查看译文 )</p>
+</li></ul></div>
+<br><p></p>
+            </div>
