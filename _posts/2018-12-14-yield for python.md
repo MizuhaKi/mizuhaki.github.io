@@ -1,4 +1,18 @@
-﻿# yield for python
+---
+layout: post
+title: yield for python
+author: Mizuha Ki
+date: 2018-12-14
+categories:
+- computer science
+- deep learning
+- python
+tags:
+- computer science
+- deep learning
+- python
+- blog
+---
 
 ## a example of code
 ```python

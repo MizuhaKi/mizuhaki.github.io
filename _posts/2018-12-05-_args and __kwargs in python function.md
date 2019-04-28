@@ -1,4 +1,17 @@
-﻿# *args and **kwargs in python function
+---
+layout: post
+title: *args and **kwargs for python
+author: Mizuha Ki
+date: 2018-12-05
+categories:
+- computer science
+- deep learning
+- python
+tags:
+- computer science
+- deep learning
+- python
+- blog
 ---
 
 ## an example

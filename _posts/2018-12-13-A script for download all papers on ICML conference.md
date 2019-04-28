@@ -1,4 +1,20 @@
-﻿# A script
+---
+layout: post
+title: A script for download all papers on ICML conference
+author: Mizuha Ki
+date: 2018-12-13
+categories:
+- computer science
+- tool
+- script
+tags:
+- computer science
+- tool
+- script
+- blog
+---
+
+## script code
 ```python
 # coding=utf-8
 from multiprocessing import Pool

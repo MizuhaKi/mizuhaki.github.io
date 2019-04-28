@@ -1,4 +1,18 @@
-﻿# LaTex presentation
+---
+layout: post
+title:  some websit for latex presenation
+author: Mizuha Ki
+date: 2018-11-02
+categories:
+- computer science
+- tool
+- websit
+tags:
+- computer science
+- tool
+- websit
+- blog
+---
 
 ## PowerPoint
 It is usually used to create presentations.

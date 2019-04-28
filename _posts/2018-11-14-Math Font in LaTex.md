@@ -1,4 +1,19 @@
-﻿# math font
+---
+layout: post
+title:  math font for latex
+author: Mizuha Ki
+date: 2018-11-14
+categories:
+- computer science
+- tool
+- latex
+tags:
+- computer science
+- tool
+- latex
+- blog
+---
+
 ## used 
 **mathbb**：blackboard bold
 **mathcal**：calligraphy 

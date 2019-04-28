@@ -1,4 +1,17 @@
-﻿# python function for list
+---
+layout: post
+title:  list method for python
+author: Mizuha Ki
+date: 2018-10-09
+categories:
+- computer science
+- deep learning
+- python
+tags:
+- computer science
+- deep learning
+- python
+- blog
 ---
 
 ## remove()

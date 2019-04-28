@@ -1,4 +1,19 @@
-﻿# g++ and gcc version in Ubuntu
+---
+layout: post
+title:  check g++ and gcc version in Ubuntu
+author: Mizuha Ki
+date: 2018-08-20
+categories:
+- computer science
+- ubuntu
+- check version
+tags:
+- computer science
+- ubuntu
+- check version
+- blog
+---
+
 ## check version
 ```bash
 gcc --version

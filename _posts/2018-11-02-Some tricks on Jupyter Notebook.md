@@ -1,5 +1,21 @@
-﻿<div class="htmledit_views">
-                
+---
+layout: post
+title:  some tricks on jupyter notebook
+author: Mizuha Ki
+date: 2018-11-02
+categories:
+- computer science
+- deep learning
+- jupyter notebook
+tags:
+- computer science
+- deep learning
+- jupyter notebook
+- blog
+---
+
+<div class="htmledit_views">
+
 <h1><a name="t0"></a><a href="http://liuchengxu.org/pelican-blog/jupyter-notebook-tips.html" rel="nofollow" title="Permalink to [译]27 个Jupyter Notebook的小提示与技巧" target="_blank">27 个Jupyter Notebook的小提示与技巧
 </a></h1>
 <p></p>
