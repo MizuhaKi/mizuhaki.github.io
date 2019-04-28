@@ -1,6 +1,6 @@
 ---
 layout: post
-title: SwitchOmega + SS
+title: SwitchyOmega + SS
 author: Mizuha Ki
 date: 2019-04-22
 categories:
