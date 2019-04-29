@@ -89,9 +89,9 @@
     } ,
   
     {
-      "title"    : "\@ for python",
+      "title"    : "at for python",
       "category" : "",
-      "tags"     : "computer science, deep learning, \@, blog",
+      "tags"     : "computer science, deep learning, at, blog",
       "url"      : "/2018/12/@-for-python/",
       "date"     : "2018-12-13 00:00:00 +0800"
     } ,
@@ -113,7 +113,7 @@
     } ,
   
     {
-      "title"    : "\*args and \*\*kwargs for python",
+      "title"    : "args and kwargs for python",
       "category" : "",
       "tags"     : "computer science, deep learning, python, blog",
       "url"      : "/2018/12/args-and-kwargs/",
