@@ -6,17 +6,17 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-  <title>docker command</title>
-  <meta name="description" content="images import and export  sudo docker images  sudo docker save -o **.tar image_name  sudo docker load –input **.tar">
+  <title>open for Python</title>
+  <meta name="description" content="Python open() 函数python open()函数用于打开一个文件，创建一个 file 对象，相关的方法才可以调用它进行读写。">
   <meta name="author" content="Mizuha Ki">
 
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="docker command">
-  <meta name="twitter:description" content="images import and export  sudo docker images  sudo docker save -o **.tar image_name  sudo docker load –input **.tar">
+  <meta name="twitter:title" content="open for Python">
+  <meta name="twitter:description" content="Python open() 函数python open()函数用于打开一个文件，创建一个 file 对象，相关的方法才可以调用它进行读写。">
   
   <meta property="og:type" content="article">
-  <meta property="og:title" content="docker command">
-  <meta property="og:description" content="images import and export  sudo docker images  sudo docker save -o **.tar image_name  sudo docker load –input **.tar">
+  <meta property="og:title" content="open for Python">
+  <meta property="og:description" content="Python open() 函数python open()函数用于打开一个文件，创建一个 file 对象，相关的方法才可以调用它进行读写。">
   
   <link rel="icon" type="image/png" href="/assets/images/favicon.png" />
   <link href="/assets/images/favicon.png" rel="shortcut icon" type="image/png">
@@ -24,7 +24,7 @@
   <link rel="stylesheet" href="/css/main.css">
   <link href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
 
-  <link rel="canonical" href="http://localhost:4000/2019/04/docker-command/">
+  <link rel="canonical" href="http://localhost:4000/2019/04/open-for-python/">
   <link rel="alternate" type="application/rss+xml" title="Mizuha Ki" href="http://localhost:4000/feed.xml">
   
   <meta name="google-site-verification" content="1-1ZlHoRvM0T2FqPbW2S-qLgYXN6rsn52kErlMPd_gw" />
@@ -146,43 +146,62 @@
             <article class="post-container post-container--single" itemscope itemtype="http://schema.org/BlogPosting">
   <header class="post-header">
     <div class="post-meta">
-      <time datetime="2019-04-18 00:00:00 +0800" itemprop="datePublished" class="post-meta__date date">2019-04-18</time> &#8226; <span class="post-meta__tags tags">computer science ubuntu docker blog</span>
+      <time datetime="2019-04-29 00:00:00 +0800" itemprop="datePublished" class="post-meta__date date">2019-04-29</time> &#8226; <span class="post-meta__tags tags">computer science deep learning python blog</span>
     </div>
-    <h1 class="post-title">docker command</h1>
+    <h1 class="post-title">open for Python</h1>
   </header>
 
   <section class="post">
-    <h2 id="images-import-and-export">images import and export</h2>
-<ul>
-  <li>sudo docker images</li>
-  <li>sudo docker save -o **.tar image_name</li>
-  <li>sudo docker load –input **.tar</li>
-</ul>
+    <h2 id="python-open-函数">Python open() 函数</h2>
+<p>python open()函数用于打开一个文件，创建一个 file 对象，相关的方法才可以调用它进行读写。</p>
 
-<h2 id="new-docker">new docker</h2>
-<ul>
-  <li>sudo docker images</li>
-  <li>sudo docker run ….</li>
-</ul>
+<p>更多文件操作可参考：<a href="https://www.runoob.com/python/python-files-io.html">Python 文件I/O</a>。</p>
 
-<h2 id="enter-container">enter container</h2>
-<ul>
-  <li>docker exec -ti container_name bash (recommend)</li>
-  <li>docker attach container_name</li>
-</ul>
+<h2 id="function-grammar">function grammar</h2>
+<p><strong><em>open(name[, mode[, buffering]])</em></strong></p>
 
-<h2 id="frequent-command">frequent command</h2>
-<ul>
-  <li>docker images</li>
-  <li>docker ps -a</li>
-  <li>docker tag image_id image_name</li>
-  <li>docker rmi image_name</li>
-  <li>docker container rm</li>
-  <li>docker container kill</li>
-  <li>docker container start</li>
-  <li>docker container stop</li>
-  <li>docker container rename</li>
-</ul>
+<p>name: 一个包含了你要访问的文件名称的字符串值。</p>
+
+<p>mode: mode 决定了打开文件的模式：只读，写入，追加等。所有可取值见如下的完全列表。这个参数是非强制的，默认文件访问模式为只读(r)。</p>
+
+<p>buffering: 如果 buffering 的值被设为 0，就不会有寄存。如果 buffering 的值取 1，访问文件时会寄存行。如果将 buffering 的值设为大于 1 的整数，表明了这就是的寄存区的缓冲大小。如果取负值，寄存区的缓冲大小则为系统默认。</p>
+
+<h2 id="不同模式打开文件的完全列表">不同模式打开文件的完全列表：</h2>
+<p>模式 | 描述 
+————– | :———- 
+r | 以只读方式打开文件。文件的指针将会放在文件的开头。这是默认模式。
+rb | 以二进制格式打开一个文件用于只读。文件指针将会放在文件的开头。这是默认模式。
+r+ | 打开一个文件用于读写。文件指针将会放在文件的开头。
+rb+ | 以二进制格式打开一个文件用于读写。文件指针将会放在文件的开头。
+w | 打开一个文件只用于写入。如果该文件已存在则打开文件，并从开头开始编辑，即原有内容会被删除。如果该文件不存在，创建新文件。
+wb | 以二进制格式打开一个文件只用于写入。如果该文件已存在则打开文件，并从开头开始编辑，即原有内容会被删除。如果该文件不存在，创建新文件。
+w+ | 打开一个文件用于读写。如果该文件已存在则打开文件，并从开头开始编辑，即原有内容会被删除。如果该文件不存在，创建新文件。
+wb+ | 以二进制格式打开一个文件用于读写。如果该文件已存在则打开文件，并从开头开始编辑，即原有内容会被删除。如果该文件不存在，创建新文件。
+a | 打开一个文件用于追加。如果该文件已存在，文件指针将会放在文件的结尾。也就是说，新的内容将会被写入到已有内容之后。如果该文件不存在，创建新文件进行写入。
+ab | 以二进制格式打开一个文件用于追加。如果该文件已存在，文件指针将会放在文件的结尾。也就是说，新的内容将会被写入到已有内容之后。如果该文件不存在，创建新文件进行写入。
+a+ | 打开一个文件用于读写。如果该文件已存在，文件指针将会放在文件的结尾。文件打开时会是追加模式。如果该文件不存在，创建新文件用于读写。
+ab+ | 以二进制格式打开一个文件用于追加。如果该文件已存在，文件指针将会放在文件的结尾。如果该文件不存在，创建新文件用于读写。</p>
+
+<h2 id="file-对象方法">file 对象方法</h2>
+<p>file.read([size])：size 未指定则返回整个文件，如果文件大小 &gt;2 倍内存则有问题，f.read()读到文件尾时返回”“(空字串)。</p>
+
+<p>file.readline()：返回一行。</p>
+
+<p>file.readlines([size]) ：返回包含size行的列表, size 未指定则返回全部行。</p>
+
+<p>for line in f: print line ：通过迭代器访问。</p>
+
+<p>f.write(“hello\n”)：如果要写入字符串以外的数据,先将他转换为字符串。</p>
+
+<p>f.tell()：返回一个整数,表示当前文件指针的位置(就是到文件头的比特数)。</p>
+
+<p>f.seek(偏移量,[起始位置])：用来移动文件指针。</p>
+
+<p>偏移量: 单位为比特，可正可负</p>
+
+<p>起始位置: 0 - 文件头, 默认值; 1 - 当前位置; 2 - 文件尾</p>
+
+<p>f.close() 关闭文件</p>
 
   </section>
 </article>
@@ -190,21 +209,13 @@
 <section class="read-more">
    
    
-   <div class="read-more-item">
-       <span class="read-more-item-dim">recent article</span>
-       <h2 class="post-list__post-title post-title"><a href="/2019/04/switchyomega-ss/" title="link to SwitchyOmega + SS">SwitchyOmega + SS</a></h2>
-       <p class="excerpt">a tool script forShadowSocksA secure socks5 proxy, designed to protect your Internet traffic. Support Windows, Mac OS X, Linux, Android, IOS.SwitchyOmegaManage and switch between multiple proxies quickly &amp; easily. Changing proxy settings has n...&hellip;</p>
-       <div class="post-list__meta"><time datetime="2019-04-22 00:00:00 +0800" class="post-list__meta--date date">2019-04-22</time> &#8226; <span class="post-list__meta--tags tags">computer science tool shadowsocks blog</span><a class="btn-border-small" href=/2019/04/switchyomega-ss/>read</a></div>
-   </div>
-   
-   
    
    
    <div class="read-more-item">
        <span class="read-more-item-dim">previous article</span>
-       <h2 class="post-list__post-title post-title"><a href="/2019/04/embedding-representation-visualization/" title="link to embedding representation visualization">embedding representation visualization</a></h2>
-       <p class="excerpt">a code exampleimport numpy as npfrom sklearn.manifold import TSNEimport matplotlib.pyplot as plt#embedding = np.loadtxt('word_embedding.txt', skiprows = 1)with open('word_embedding.txt', 'r') as fin:    firstline = fin.readline().strip().split()  ...&hellip;</p>
-       <div class="post-list__meta"><time datetime="2019-04-18 00:00:00 +0800" class="post-list__meta--date date">2019-04-18</time> &#8226; <span class="post-list__meta--tags tags">computer science deep learning python blog</span><a class="btn-border-small" href=/2019/04/embedding-representation-visualization/>read</a></div>
+       <h2 class="post-list__post-title post-title"><a href="/2019/04/switchyomega-ss/" title="link to SwitchyOmega + SS">SwitchyOmega + SS</a></h2>
+       <p class="excerpt">a tool script forShadowSocksA secure socks5 proxy, designed to protect your Internet traffic. Support Windows, Mac OS X, Linux, Android, IOS.SwitchyOmegaManage and switch between multiple proxies quickly &amp; easily. Changing proxy settings has n...&hellip;</p>
+       <div class="post-list__meta"><time datetime="2019-04-22 00:00:00 +0800" class="post-list__meta--date date">2019-04-22</time> &#8226; <span class="post-list__meta--tags tags">computer science tool shadowsocks blog</span><a class="btn-border-small" href=/2019/04/switchyomega-ss/>read</a></div>
    </div>
    
 </section>
@@ -215,8 +226,8 @@
     <script>
     
     var disqus_config = function () {
-        this.page.url = "http://localhost:4000/2019/04/docker-command/";
-        this.page.identifier = "/2019/04/docker-command/";
+        this.page.url = "http://localhost:4000/2019/04/open-for-python/";
+        this.page.identifier = "/2019/04/open-for-python/";
     };
 
     var disqus_shortname = 'mizuhaki';

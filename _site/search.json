@@ -1,6 +1,14 @@
 [
   
     {
+      "title"    : "open for Python",
+      "category" : "",
+      "tags"     : "computer science, deep learning, python, blog",
+      "url"      : "/2019/04/open-for-python/",
+      "date"     : "2019-04-29 00:00:00 +0800"
+    } ,
+  
+    {
       "title"    : "SwitchyOmega + SS",
       "category" : "",
       "tags"     : "computer science, tool, shadowsocks, blog",
@@ -236,7 +244,7 @@
       "title"    : "read .PFM images",
       "category" : "",
       "tags"     : "computer science, deep learning, matlab, blog",
-      "url"      : "/2018/07/read-.pfm-images/",
+      "url"      : "/2018/07/read-pfm-images/",
       "date"     : "2018-07-20 00:00:00 +0800"
     } ,
   
