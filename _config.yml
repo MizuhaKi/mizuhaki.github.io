@@ -11,6 +11,9 @@ permalink: /:year/:month/:title/
 
 # Format
 highlighter: rouge
+markdown: redcarpet   # default kramdown
+redcarpet:
+   extensions: [ "hard_wrap","autolink", "tables", "strikethrough", "superscript", "with_toc_data", "highlight", "prettify","no_intra_emphasis"]
 
 # supported colors: blue, green, purple, red, orange or slate. If you need clear, leave it empty.
 # cover_color: red
@@ -19,12 +22,6 @@ highlighter: rouge
 blog_button:
     title: Blog
     description: Visit blog
-
-# The cv button should not be removed
-#nav:
-#    - {title: CV, description: Visit CV}
-#    - {title: About, description: About}
-
 
 # Navigation buttons in the front page.
 #nav:

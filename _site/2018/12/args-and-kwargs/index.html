@@ -7,16 +7,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
   <title>args and kwargs for python</title>
-  <meta name="description" content="an example```pythondef func(*args, **kwargs):    print (‘args =’, args)    print (‘kwargs = ‘, kwargs)    print (‘———–’, flush = True)">
+  <meta name="description" content="an exampledef func(*args, **kwargs):    print ('args =', args)    print ('kwargs = ', kwargs)    print ('-----------', flush = True)">
   <meta name="author" content="Mizuha Ki">
 
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="args and kwargs for python">
-  <meta name="twitter:description" content="an example```pythondef func(*args, **kwargs):    print (‘args =’, args)    print (‘kwargs = ‘, kwargs)    print (‘———–’, flush = True)">
+  <meta name="twitter:description" content="an exampledef func(*args, **kwargs):    print ('args =', args)    print ('kwargs = ', kwargs)    print ('-----------', flush = True)">
   
   <meta property="og:type" content="article">
   <meta property="og:title" content="args and kwargs for python">
-  <meta property="og:description" content="an example```pythondef func(*args, **kwargs):    print (‘args =’, args)    print (‘kwargs = ‘, kwargs)    print (‘———–’, flush = True)">
+  <meta property="og:description" content="an exampledef func(*args, **kwargs):    print ('args =', args)    print ('kwargs = ', kwargs)    print ('-----------', flush = True)">
   
   <link rel="icon" type="image/png" href="/assets/images/favicon.png" />
   <link href="/assets/images/favicon.png" rel="shortcut icon" type="image/png">
@@ -153,7 +153,7 @@
 
   <section class="post">
     <h2 id="an-example">an example</h2>
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">func</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<div class="highlight"><pre><code class="language-python" data-lang="python"><span class="k">def</span> <span class="nf">func</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
     <span class="k">print</span> <span class="p">(</span><span class="s">'args ='</span><span class="p">,</span> <span class="n">args</span><span class="p">)</span>
     <span class="k">print</span> <span class="p">(</span><span class="s">'kwargs = '</span><span class="p">,</span> <span class="n">kwargs</span><span class="p">)</span>
     <span class="k">print</span> <span class="p">(</span><span class="s">'-----------'</span><span class="p">,</span> <span class="n">flush</span> <span class="o">=</span> <span class="bp">True</span><span class="p">)</span>
@@ -163,10 +163,9 @@
     <span class="n">func</span><span class="p">(</span><span class="n">a</span> <span class="o">=</span> <span class="s">'name'</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="mi">11</span><span class="p">,</span> <span class="n">c</span> <span class="o">=</span> <span class="s">'a'</span><span class="p">,</span>  <span class="n">d</span> <span class="o">=</span> <span class="mi">4</span><span class="p">)</span>
     <span class="n">func</span><span class="p">(</span><span class="s">'name'</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="s">'a'</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="n">a</span> <span class="o">=</span> <span class="s">'name'</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="mi">11</span><span class="p">,</span> <span class="n">c</span> <span class="o">=</span> <span class="s">'a'</span><span class="p">,</span>  <span class="n">d</span> <span class="o">=</span> <span class="mi">4</span><span class="p">)</span>
     <span class="n">func</span><span class="p">(</span><span class="s">'name'</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="s">'a'</span><span class="p">,</span> <span class="bp">None</span><span class="p">,</span> <span class="n">a</span> <span class="o">=</span> <span class="s">'name'</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="mi">11</span><span class="p">,</span> <span class="n">c</span> <span class="o">=</span> <span class="s">'a'</span><span class="p">,</span>  <span class="n">d</span> <span class="o">=</span> <span class="bp">None</span><span class="p">)</span>
-</code></pre></div></div>
-
+</code></pre></div>
 <h2 id="output">output</h2>
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">args</span> <span class="o">=</span> <span class="p">(</span><span class="s">'name'</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="s">'a'</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+<div class="highlight"><pre><code class="language-python" data-lang="python"><span class="n">args</span> <span class="o">=</span> <span class="p">(</span><span class="s">'name'</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="s">'a'</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
 <span class="n">kwargs</span> <span class="o">=</span>  <span class="p">{}</span>
 <span class="o">-----------</span>
 <span class="n">args</span> <span class="o">=</span> <span class="p">()</span>
@@ -179,15 +178,14 @@
 <span class="n">kwargs</span> <span class="o">=</span>  <span class="p">{</span><span class="s">'a'</span><span class="p">:</span> <span class="s">'name'</span><span class="p">,</span> <span class="s">'b'</span><span class="p">:</span> <span class="mi">11</span><span class="p">,</span> <span class="s">'c'</span><span class="p">:</span> <span class="s">'a'</span><span class="p">,</span> <span class="s">'d'</span><span class="p">:</span> <span class="bp">None</span><span class="p">}</span>
 <span class="o">-----------</span>
 <span class="o">-----------</span>
-</code></pre></div></div>
-
+</code></pre></div>
 <h2 id="description">description</h2>
-<ul>
-  <li><strong>*args</strong> and <strong>**kwargs</strong> are changeable function parameters</li>
-  <li><strong>*args</strong> is a tuple</li>
-  <li><strong>**kwargs</strong> is a dict</li>
-</ul>
 
+<ul>
+<li><strong>*args</strong> and <strong>**kwargs</strong> are changeable function parameters</li>
+<li><strong>*args</strong> is a tuple </li>
+<li><strong>**kwargs</strong> is a dict</li>
+</ul>
 
   </section>
 </article>

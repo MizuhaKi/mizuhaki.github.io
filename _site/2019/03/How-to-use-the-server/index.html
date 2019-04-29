@@ -7,16 +7,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
   <title>How to use the ubuntu for GPU server</title>
-  <meta name="description" content="窗口操作：创建窗口： screen -S xxx (screen’s name)激活窗口： screen -r xxx (screen’s name)查看窗口序列： screen -ls退出窗口： Ctrl + A + Dkill窗口：  screen -S screenname -X quit  screen ...">
+  <meta name="description" content="窗口操作：创建窗口： screen -S xxx (screen&#39;s name)激活窗口： screen -r xxx (screen&#39;s name)查看窗口序列： screen -ls退出窗口： Ctrl + A + Dkill窗口：- screen -S screenname -X quit-...">
   <meta name="author" content="Mizuha Ki">
 
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="How to use the ubuntu for GPU server">
-  <meta name="twitter:description" content="窗口操作：创建窗口： screen -S xxx (screen’s name)激活窗口： screen -r xxx (screen’s name)查看窗口序列： screen -ls退出窗口： Ctrl + A + Dkill窗口：  screen -S screenname -X quit  screen ...">
+  <meta name="twitter:description" content="窗口操作：创建窗口： screen -S xxx (screen&#39;s name)激活窗口： screen -r xxx (screen&#39;s name)查看窗口序列： screen -ls退出窗口： Ctrl + A + Dkill窗口：- screen -S screenname -X quit-...">
   
   <meta property="og:type" content="article">
   <meta property="og:title" content="How to use the ubuntu for GPU server">
-  <meta property="og:description" content="窗口操作：创建窗口： screen -S xxx (screen’s name)激活窗口： screen -r xxx (screen’s name)查看窗口序列： screen -ls退出窗口： Ctrl + A + Dkill窗口：  screen -S screenname -X quit  screen ...">
+  <meta property="og:description" content="窗口操作：创建窗口： screen -S xxx (screen&#39;s name)激活窗口： screen -r xxx (screen&#39;s name)查看窗口序列： screen -ls退出窗口： Ctrl + A + Dkill窗口：- screen -S screenname -X quit-...">
   
   <link rel="icon" type="image/png" href="/assets/images/favicon.png" />
   <link href="/assets/images/favicon.png" rel="shortcut icon" type="image/png">
@@ -152,113 +152,107 @@
   </header>
 
   <section class="post">
-    <h2 id="窗口操作">窗口操作：</h2>
-<p>创建窗口： screen -S xxx (screen’s name)
-激活窗口： screen -r xxx (screen’s name)
-查看窗口序列： screen -ls
-退出窗口： Ctrl + A + D
-kill窗口：</p>
-<ul>
-  <li>screen -S screenname -X quit</li>
-  <li>screen -S yourname -&gt; 新建一个叫yourname的session</li>
-  <li>screen -ls -&gt; 列出当前所有的session</li>
-  <li>screen -r yourname -&gt; 回到yourname这个session</li>
-  <li>screen -d yourname -&gt; 远程detach某个session</li>
-  <li>screen -d -r yourname -&gt; 结束当前session并回到yourname这个session</li>
-</ul>
+    <h2 id="part-cc80684c">窗口操作：</h2>
 
-<h2 id="常用文件操作指令">常用文件操作指令：</h2>
-<p>显示当前目录下的文件列表：ls
-显示当前目录下的隐藏文件列表：ls -a
-拷贝文件夹：  cp -r 文件夹 目标路径
-拷贝文件夹：  cp 文件 目标路径
-删除文件： rm 文件
-删除文件夹：</p>
-<ul>
-  <li>rm -r 文件夹</li>
-  <li>rm -rf 文件夹</li>
-</ul>
+<p>创建窗口： screen -S xxx (screen&#39;s name)<br>
+激活窗口： screen -r xxx (screen&#39;s name)<br>
+查看窗口序列： screen -ls<br>
+退出窗口： Ctrl + A + D<br>
+kill窗口：<br>
+- screen -S screenname -X quit<br>
+- screen -S yourname -&gt; 新建一个叫yourname的session<br>
+- screen -ls -&gt; 列出当前所有的session<br>
+- screen -r yourname -&gt; 回到yourname这个session<br>
+- screen -d yourname -&gt; 远程detach某个session<br>
+- screen -d -r yourname -&gt; 结束当前session并回到yourname这个session</p>
 
-<p>新建文件夹：mkdir 文件夹名
-移动文件：mv
-显示当前路径：pwd
-显示文件大小： du -sh *
+<h2 id="part-47232c39">常用文件操作指令：</h2>
+
+<p>显示当前目录下的文件列表：ls<br>
+显示当前目录下的隐藏文件列表：ls -a<br>
+拷贝文件夹：  cp -r 文件夹 目标路径<br>
+拷贝文件夹：  cp 文件 目标路径<br>
+删除文件： rm 文件<br>
+删除文件夹： <br>
+- rm -r 文件夹<br>
+- rm -rf 文件夹</p>
+
+<p>新建文件夹：mkdir 文件夹名<br>
+移动文件：mv<br>
+显示当前路径：pwd<br>
+显示文件大小： du -sh *<br>
 显示问价夹大小：du -sh */</p>
 
 <p>如何修改文件为可执行状态：chmod 777 文件名</p>
 
 <p>查询GPU状态: nvidia-smi</p>
 
-<p>查看内存和gpu消耗情况：nvidia-smi
-查看文件大小 du –sh 文件夹   或者 du -sh *      sudo du -h –max-depth=1 xxxx    du -h  –max-depth=1
-百分比： df
-编译： make  make -j8
+<p>查看内存和gpu消耗情况：nvidia-smi<br>
+查看文件大小 du –sh 文件夹   或者 du -sh *      sudo du -h --max-depth=1 xxxx    du -h  --max-depth=1<br>
+百分比： df<br>
+编译： make  make -j8<br>
 清空编译：make clean</p>
 
 <p>定位文件名，直接gf，即可直接打开另外一个文件。</p>
 
-<p>查找文件：locate filename
-查找文件：</p>
+<p>查找文件：locate filename<br>
+查找文件：<br>
+- 查找当前目录下的指定的core文件 find . -name &quot;core&quot;<br>
+- 查找根目录下的指定的core文件 find / -name &quot;core&quot;<br>
+- 查找根目录下的指定的大小core文件 find / -name &quot;core&quot; - size +1024c<br>
+- 查找文件中是否含有指定的字符 &quot;10.71.110.89&quot; find / -name &quot;*.tar.gz&quot; - type f -exec rm -rf {} /;</p>
+
+<h2 id="vim">vim常用快捷键</h2>
+
 <ul>
-  <li>查找当前目录下的指定的core文件 find . -name “core”</li>
-  <li>查找根目录下的指定的core文件 find / -name “core”</li>
-  <li>查找根目录下的指定的大小core文件 find / -name “core” - size +1024c</li>
-  <li>查找文件中是否含有指定的字符 “10.71.110.89” find / -name “*.tar.gz” - type f -exec rm -rf {} /;</li>
+<li>打开文件：vim 文件名</li>
+<li>进入编辑模式：i</li>
+<li>编辑文件：Esc ：wq</li>
+<li>退出文件： Esc :q</li>
+<li>退出文件，不编辑： Esc :q!</li>
+<li>h 每次按下光标就会向左移动</li>
+<li>l 每次按下光标就会向右移动</li>
+<li>j 每次按下光标就会向下移动</li>
+<li>k 每次按下光标就会向上移动 </li>
+<li>dd 删除一行</li>
+<li>de 删除到空格前的词</li>
+<li>dw 删除知道空格的词</li>
+<li>gg 光标到行文件首</li>
+<li>G 光标到文件尾</li>
+<li>:!command 用于执行一个外部命令 command</li>
 </ul>
 
-<h2 id="vim常用快捷键">vim常用快捷键</h2>
-<ul>
-  <li>打开文件：vim 文件名</li>
-  <li>进入编辑模式：i</li>
-  <li>编辑文件：Esc ：wq</li>
-  <li>退出文件： Esc :q</li>
-  <li>退出文件，不编辑： Esc :q!</li>
-  <li>h 每次按下光标就会向左移动</li>
-  <li>l 每次按下光标就会向右移动</li>
-  <li>j 每次按下光标就会向下移动</li>
-  <li>k 每次按下光标就会向上移动</li>
-  <li>dd 删除一行</li>
-  <li>de 删除到空格前的词</li>
-  <li>dw 删除知道空格的词</li>
-  <li>gg 光标到行文件首</li>
-  <li>G 光标到文件尾</li>
-  <li>:!command 用于执行一个外部命令 command</li>
-</ul>
+<h2 id="ubuntu">ubuntu终端常用命令</h2>
 
-<h2 id="ubuntu终端常用命令">ubuntu终端常用命令</h2>
 <ul>
-  <li>ctrl + l - 清屏</li>
-  <li>ctrl + c - 终止命令</li>
-  <li>ctrl + d - 退出 shell,好像也可以表示EOF</li>
-  <li>ctrl + z - 将当前进程置于后台，fg还原。</li>
-  <li>ctrl + r - 从命令历史中找</li>
-  <li>ctrl + a - 光标移到行首</li>
-  <li>ctrl + e - 光标移到行尾</li>
-  <li>ctrl + u - 清除光标到行首的字符</li>
-  <li>ctrl + w - 清除光标之前一个单词</li>
-  <li>ctrl + k - 清除光标到行尾的字符</li>
-  <li>ctrl + t - 交换光标前两个字符</li>
-  <li>ctrl + y - 粘贴前一ctrl+u类命令删除的字符</li>
-  <li>ctrl + p - 上一条命令</li>
-  <li>ctrl + n - 下一条命令</li>
-  <li>ctrl + v - 输入控制字符 如ctrl+v <ENTER> ,会输入^M</ENTER></li>
-  <li>ctrl + f - 光标后移一个字符</li>
-  <li>ctrl + b - 光标前移一个字符</li>
-  <li>ctrl + h - 删除光标前一个字符</li>
-  <li>N+<ESC>+f - 光标后移N个单词，N为1时可省略</ESC></li>
-  <li>N+<ESC>+b - 光标前移N个单词，N为1时可省略</ESC></li>
-  <li>ctrl + s - 挂起当前shell</li>
-  <li>ctrl + q - 重新启用</li>
-  <li>
-    <ESC>+d 从光标开始处删除到行尾。挂起的shell
-</ESC>
-  </li>
-  <li>!! - 上一条命令</li>
-  <li>!-n - 倒数第N条历史命令</li>
-  <li>!-n:p - 打印上一条命令（不执行）</li>
-  <li>!?string?- 最新一条含有”string”的命令 # !-n:gs/str1/str2/ - 将倒数第N条命令的str1替换为str2,并执行（若不加g,则仅替换第一个）</li>
+<li>ctrl + l - 清屏</li>
+<li>ctrl + c - 终止命令</li>
+<li>ctrl + d - 退出 shell,好像也可以表示EOF</li>
+<li>ctrl + z - 将当前进程置于后台，fg还原。</li>
+<li>ctrl + r - 从命令历史中找</li>
+<li>ctrl + a - 光标移到行首</li>
+<li>ctrl + e - 光标移到行尾</li>
+<li>ctrl + u - 清除光标到行首的字符</li>
+<li>ctrl + w - 清除光标之前一个单词</li>
+<li>ctrl + k - 清除光标到行尾的字符</li>
+<li>ctrl + t - 交换光标前两个字符</li>
+<li>ctrl + y - 粘贴前一ctrl+u类命令删除的字符</li>
+<li>ctrl + p - 上一条命令</li>
+<li>ctrl + n - 下一条命令</li>
+<li>ctrl + v - 输入控制字符 如ctrl+v <ENTER> ,会输入<sup>M</sup></li>
+<li>ctrl + f - 光标后移一个字符</li>
+<li>ctrl + b - 光标前移一个字符</li>
+<li>ctrl + h - 删除光标前一个字符</li>
+<li>N+<ESC>+f - 光标后移N个单词，N为1时可省略</li>
+<li>N+<ESC>+b - 光标前移N个单词，N为1时可省略</li>
+<li>ctrl + s - 挂起当前shell</li>
+<li>ctrl + q - 重新启用</li>
+<li><ESC>+d 从光标开始处删除到行尾。挂起的shell</li>
+<li>!! - 上一条命令</li>
+<li>!-n - 倒数第N条历史命令</li>
+<li>!-n:p - 打印上一条命令（不执行）</li>
+<li>!?string?- 最新一条含有&quot;string&quot;的命令 # !-n:gs/str1/str2/ - 将倒数第N条命令的str1替换为str2,并执行（若不加g,则仅替换第一个）</li>
 </ul>
-
 
   </section>
 </article>
@@ -269,7 +263,7 @@ kill窗口：</p>
    <div class="read-more-item">
        <span class="read-more-item-dim">recent article</span>
        <h2 class="post-list__post-title post-title"><a href="/2019/03/Office-software/" title="link to Office software">Office software</a></h2>
-       <p class="excerpt">commercial software  Microsoft OfficeMicrosoft Office is a family of client software, server software, and services developed by Microsoft. It was first announced by Bill Gates on August 1, 1988, at COMDEX in Las Vegas. Initially a marketing term ...&hellip;</p>
+       <p class="excerpt">commercial softwareMicrosoft OfficeMicrosoft Office is a family of client software, server software, and services developed by Microsoft. It was first announced by Bill Gates on August 1, 1988, at COMDEX in Las Vegas. Initially a marketing term fo...&hellip;</p>
        <div class="post-list__meta"><time datetime="2019-03-12 00:00:00 +0800" class="post-list__meta--date date">2019-03-12</time> &#8226; <span class="post-list__meta--tags tags">computer science tool office blog</span><a class="btn-border-small" href=/2019/03/Office-software/>read</a></div>
    </div>
    

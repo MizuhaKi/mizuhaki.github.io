@@ -7,16 +7,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
   <title>A script for download all papers on ICML conference</title>
-  <meta name="description" content="script code```pythoncoding=utf-8from multiprocessing import Poolimport requestsfrom bs4 import BeautifulSoupimport tracebackimport reimport osimport pdb">
+  <meta name="description" content="script code# coding=utf-8from multiprocessing import Poolimport requestsfrom bs4 import BeautifulSoupimport tracebackimport reimport osimport pdb">
   <meta name="author" content="Mizuha Ki">
 
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="A script for download all papers on ICML conference">
-  <meta name="twitter:description" content="script code```pythoncoding=utf-8from multiprocessing import Poolimport requestsfrom bs4 import BeautifulSoupimport tracebackimport reimport osimport pdb">
+  <meta name="twitter:description" content="script code# coding=utf-8from multiprocessing import Poolimport requestsfrom bs4 import BeautifulSoupimport tracebackimport reimport osimport pdb">
   
   <meta property="og:type" content="article">
   <meta property="og:title" content="A script for download all papers on ICML conference">
-  <meta property="og:description" content="script code```pythoncoding=utf-8from multiprocessing import Poolimport requestsfrom bs4 import BeautifulSoupimport tracebackimport reimport osimport pdb">
+  <meta property="og:description" content="script code# coding=utf-8from multiprocessing import Poolimport requestsfrom bs4 import BeautifulSoupimport tracebackimport reimport osimport pdb">
   
   <link rel="icon" type="image/png" href="/assets/images/favicon.png" />
   <link href="/assets/images/favicon.png" rel="shortcut icon" type="image/png">
@@ -153,7 +153,7 @@
 
   <section class="post">
     <h2 id="script-code">script code</h2>
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># coding=utf-8
+<div class="highlight"><pre><code class="language-python" data-lang="python"><span class="c1"># coding=utf-8
 </span><span class="kn">from</span> <span class="nn">multiprocessing</span> <span class="kn">import</span> <span class="n">Pool</span>
 <span class="kn">import</span> <span class="nn">requests</span>
 <span class="kn">from</span> <span class="nn">bs4</span> <span class="kn">import</span> <span class="n">BeautifulSoup</span>
@@ -179,7 +179,7 @@
     <span class="k">except</span><span class="p">:</span>
         <span class="k">print</span><span class="p">(</span><span class="s">'Error when downloading </span><span class="si">%</span><span class="s">s'</span> <span class="o">%</span> <span class="n">href</span><span class="p">)</span>
         <span class="k">print</span><span class="p">(</span><span class="n">traceback</span><span class="o">.</span><span class="n">format_exc</span><span class="p">())</span>
-        
+
 <span class="n">pool</span> <span class="o">=</span> <span class="n">Pool</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
 <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">save_dir</span><span class="p">):</span>
     <span class="n">os</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="n">save_dir</span><span class="p">)</span>
@@ -197,8 +197,7 @@
 <span class="k">print</span><span class="p">(</span><span class="s">"Find </span><span class="si">%</span><span class="s">d papers"</span> <span class="o">%</span> <span class="nb">len</span><span class="p">(</span><span class="n">pdf_list</span><span class="p">))</span>
 <span class="n">pool</span><span class="o">.</span><span class="nb">map</span><span class="p">(</span><span class="n">get_pdf</span><span class="p">,</span> <span class="nb">zip</span><span class="p">(</span><span class="n">pdf_list</span><span class="p">,</span> <span class="n">title_list</span><span class="p">))</span>
 <span class="k">print</span><span class="p">(</span><span class="s">"Find </span><span class="si">%</span><span class="s">d papers"</span> <span class="o">%</span> <span class="nb">len</span><span class="p">(</span><span class="n">pdf_list</span><span class="p">))</span>
-</code></pre></div></div>
-
+</code></pre></div>
   </section>
 </article>
 

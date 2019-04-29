@@ -153,23 +153,19 @@
 
   <section class="post">
     <h2 id="uninstall-older-version">uninstall older version</h2>
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>apt-get udpate
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nb">sudo </span>apt-get udpate
 <span class="nb">sudo </span>apt-get autoremove cmake
-</code></pre></div></div>
-
+</code></pre></div>
 <h2 id="download-files">download files</h2>
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>wget <span class="o">[</span>cmake]<span class="o">(</span>https://cmake.org/files/v3.9/cmake-3.9.1-Linux-x86_64.tar.gz<span class="o">)</span>
-</code></pre></div></div>
-
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">wget <span class="o">[</span>cmake]<span class="o">(</span>https://cmake.org/files/v3.9/cmake-3.9.1-Linux-x86_64.tar.gz<span class="o">)</span>
+</code></pre></div>
 <h2 id="unzip">unzip</h2>
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">tar </span>zxvf cmake-3.9.1-Linux-x86_64.tar.gz
-</code></pre></div></div>
-
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nb">tar </span>zxvf cmake-3.9.1-Linux-x86_64.tar.gz
+</code></pre></div>
 <h2 id="create-soft-url">create soft url</h2>
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">mv </span>cmake-3.9.1-Linux-x86_64 /opt/cmake-3.9.1
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nb">mv </span>cmake-3.9.1-Linux-x86_64 /opt/cmake-3.9.1
 <span class="nb">ln</span> <span class="nt">-sf</span> /opt/cmake-3.9.1/bin/<span class="k">*</span>  /usr/bin/
-</code></pre></div></div>
-
+</code></pre></div>
   </section>
 </article>
 

@@ -153,34 +153,34 @@
 
   <section class="post">
     <p>Some frequent one-hot method in <a href="https://pytorch.org/docs/stable/index.html">PyTorch</a></p>
-<h2 id="use-scatter_-function">use scatter_ function</h2>
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">labels</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span>
-<span class="n">one_hot</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">8</span><span class="p">)</span><span class="o">.</span><span class="n">scatter_</span><span class="p">(</span><span class="n">dim</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">index</span> <span class="o">=</span> <span class="n">labels</span><span class="p">,</span> <span class="n">value</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span>
-</code></pre></div></div>
 
+<h2 id="use-scatter_-function">use scatter_ function</h2>
+<div class="highlight"><pre><code class="language-python" data-lang="python"><span class="n">labels</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span>
+<span class="n">one_hot</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">8</span><span class="p">)</span><span class="o">.</span><span class="n">scatter_</span><span class="p">(</span><span class="n">dim</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">index</span> <span class="o">=</span> <span class="n">labels</span><span class="p">,</span> <span class="n">value</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span>
+</code></pre></div>
 <h2 id="use-index_select-funtion">use index_select() funtion</h2>
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">labels</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span>
+<div class="highlight"><pre><code class="language-python" data-lang="python"><span class="n">labels</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span>
 <span class="n">index</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span>
 <span class="n">one_hot</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">index_select</span><span class="p">(</span><span class="n">index</span><span class="p">,</span> <span class="n">dim</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">index</span> <span class="o">=</span> <span class="n">labels</span><span class="p">)</span>
-</code></pre></div></div>
-
+</code></pre></div>
 <h2 id="use-embedding-module">use Embedding module</h2>
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">emb</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Embedding</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">8</span><span class="p">)</span>
+<div class="highlight"><pre><code class="language-python" data-lang="python"><span class="n">emb</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Embedding</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">8</span><span class="p">)</span>
 <span class="n">emb</span><span class="o">.</span><span class="n">weight</span><span class="o">.</span><span class="n">data</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span>
-</code></pre></div></div>
-<p>then we can get</p>
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>emb<span class="o">(</span>Variable<span class="o">(</span>torch.LongTensor<span class="o">([</span>1, 2], <span class="o">[</span>3, 4]<span class="o">)))</span>
-Variable containing:
-<span class="o">(</span>0,.,.<span class="o">)</span> <span class="o">=</span> 
-0 1 0 0 0 0 0 0 
-0 0 1 0 0 0 0 0
-<span class="o">(</span>1 ,.,.<span class="o">)</span> <span class="o">=</span>
-0 0 0 1 0 0 0 0
-0 0 0 0 1 0 0 0
-</code></pre></div></div>
+</code></pre></div>
+<p>then we can get<br>
+<code class="prettyprint">bash<br>
+emb(Variable(torch.LongTensor([1, 2], [3, 4])))<br>
+Variable containing:<br>
+(0,.,.) = <br>
+0 1 0 0 0 0 0 0 <br>
+0 0 1 0 0 0 0 0<br>
+(1 ,.,.) =<br>
+0 0 0 1 0 0 0 0<br>
+0 0 0 0 1 0 0 0<br>
+</code></p>
 
-<h2 id="create--a-module">create  a module</h2>
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">One_Hot</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">):</span>
+<h2 id="create-a-module">create  a module</h2>
+<div class="highlight"><pre><code class="language-python" data-lang="python"><span class="k">class</span> <span class="nc">One_Hot</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">):</span>
     <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">depth</span><span class="p">):</span>
         <span class="nb">super</span><span class="p">(</span><span class="n">One_Hot</span><span class="p">,</span><span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">__init__</span><span class="p">()</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">depth</span> <span class="o">=</span> <span class="n">depth</span>
@@ -190,9 +190,7 @@ Variable containing:
         <span class="k">return</span> <span class="n">Variable</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">ones</span><span class="o">.</span><span class="n">index_select</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">X_in</span><span class="o">.</span><span class="n">data</span><span class="p">))</span>
     <span class="k">def</span> <span class="nf">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__class__</span><span class="o">.</span><span class="n">__name__</span> <span class="o">+</span> <span class="s">"({})"</span><span class="o">.</span><span class="nb">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">depth</span><span class="p">)</span>
-</code></pre></div></div>
-
-
+</code></pre></div>
   </section>
 </article>
 
@@ -212,7 +210,7 @@ Variable containing:
    <div class="read-more-item">
        <span class="read-more-item-dim">previous article</span>
        <h2 class="post-list__post-title post-title"><a href="/2018/08/tf.app.flags/" title="link to tf.app.flags">tf.app.flags</a></h2>
-       <p class="excerpt">tf.app.flags defines some parameter. A simple example:import tensorflow as tfFLAGS = tf.app.flags.FLAGStf.app.flags.DEFINE_float('learning_rate', 0.01, 'Initial learning rate.')tf.app.flags.DEFINE_string('train_dir', 'tmp/train/', 'Directory where...&hellip;</p>
+       <p class="excerpt">tf.app.flags defines some parameter. A simple example:```pythonimport tensorflow as tfFLAGS = tf.app.flags.FLAGStf.app.flags.DEFINE_float(&#39;learning_rate&#39;, 0.01, &#39;Initial learning rate.&#39;)tf.app.flags.DEFINE_string(&#39;train_dir&#39...&hellip;</p>
        <div class="post-list__meta"><time datetime="2018-08-04 00:00:00 +0800" class="post-list__meta--date date">2018-08-04</time> &#8226; <span class="post-list__meta--tags tags">computer science deep learning tensorflow blog</span><a class="btn-border-small" href=/2018/08/tf.app.flags/>read</a></div>
    </div>
    

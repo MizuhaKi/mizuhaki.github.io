@@ -7,16 +7,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
   <title>list method for python</title>
-  <meta name="description" content="remove()list.remove(value)list = [2, 3, 4, 5, 6, 3] print(list)&gt;&gt; [2, 3, 4, 5, 6, 3]list.remove(3)print(list)&gt;&gt;[2, 4, 5, 6, 3]">
+  <meta name="description" content="remove()list.remove(value)```pythonlist = [2, 3, 4, 5, 6, 3] print(list)[2, 3, 4, 5, 6, 3]list.remove(3)print(list)[2, 4, 5, 6, 3]```">
   <meta name="author" content="Mizuha Ki">
 
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="list method for python">
-  <meta name="twitter:description" content="remove()list.remove(value)list = [2, 3, 4, 5, 6, 3] print(list)&gt;&gt; [2, 3, 4, 5, 6, 3]list.remove(3)print(list)&gt;&gt;[2, 4, 5, 6, 3]">
+  <meta name="twitter:description" content="remove()list.remove(value)```pythonlist = [2, 3, 4, 5, 6, 3] print(list)[2, 3, 4, 5, 6, 3]list.remove(3)print(list)[2, 4, 5, 6, 3]```">
   
   <meta property="og:type" content="article">
   <meta property="og:title" content="list method for python">
-  <meta property="og:description" content="remove()list.remove(value)list = [2, 3, 4, 5, 6, 3] print(list)&gt;&gt; [2, 3, 4, 5, 6, 3]list.remove(3)print(list)&gt;&gt;[2, 4, 5, 6, 3]">
+  <meta property="og:description" content="remove()list.remove(value)```pythonlist = [2, 3, 4, 5, 6, 3] print(list)[2, 3, 4, 5, 6, 3]list.remove(3)print(list)[2, 4, 5, 6, 3]```">
   
   <link rel="icon" type="image/png" href="/assets/images/favicon.png" />
   <link href="/assets/images/favicon.png" rel="shortcut icon" type="image/png">
@@ -153,34 +153,55 @@
 
   <section class="post">
     <h2 id="remove">remove()</h2>
-<p>list.remove(value)</p>
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">list</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span> 
-<span class="k">print</span><span class="p">(</span><span class="nb">list</span><span class="p">)</span>
-<span class="o">&gt;&gt;</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
-<span class="nb">list</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="nb">list</span><span class="p">)</span>
-<span class="o">&gt;&gt;</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
-</code></pre></div></div>
+
+<p>list.remove(value)<br>
+```python<br>
+list = [2, 3, 4, 5, 6, 3] <br>
+print(list)</p>
+
+<blockquote>
+<blockquote>
+<p>[2, 3, 4, 5, 6, 3]<br>
+list.remove(3)<br>
+print(list)<br>
+[2, 4, 5, 6, 3]<br>
+```</p>
+</blockquote>
+</blockquote>
 
 <h2 id="del">del()</h2>
-<p>del list[index]</p>
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">list</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span> 
-<span class="k">print</span><span class="p">(</span><span class="nb">list</span><span class="p">)</span>
-<span class="o">&gt;&gt;</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
-<span class="k">del</span> <span class="nb">list</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
-<span class="k">print</span><span class="p">(</span><span class="nb">list</span><span class="p">)</span>
-<span class="o">&gt;&gt;</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
-</code></pre></div></div>
+
+<p>del list[index]<br>
+```python<br>
+list = [2, 3, 4, 5, 6, 3] <br>
+print(list)</p>
+
+<blockquote>
+<blockquote>
+<p>[2, 3, 4, 5, 6, 3]<br>
+del list[2]<br>
+print(list)<br>
+[2, 3, 5, 6, 3]<br>
+```</p>
+</blockquote>
+</blockquote>
 
 <h2 id="pop">pop()</h2>
-<p>list.pop(index)</p>
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">list</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span> 
-<span class="k">print</span><span class="p">(</span><span class="nb">list</span><span class="p">)</span>
-<span class="o">&gt;&gt;</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
-<span class="n">top</span> <span class="o">=</span> <span class="nb">list</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="n">top</span><span class="p">,</span> <span class="nb">list</span><span class="p">)</span>
-<span class="o">&gt;&gt;</span><span class="mi">4</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
-</code></pre></div></div>
+
+<p>list.pop(index)<br>
+```python<br>
+list = [2, 3, 4, 5, 6, 3] <br>
+print(list)</p>
+
+<blockquote>
+<blockquote>
+<p>[2, 3, 4, 5, 6, 3]<br>
+top = list.pop(2)<br>
+print(top, list)<br>
+4 [2, 4, 5, 6, 3]<br>
+```</p>
+</blockquote>
+</blockquote>
 
   </section>
 </article>
