@@ -153,160 +153,41 @@
 
   <section class="post">
     <h2 id="basic-git-commands">Basic Git commands</h2>
-
-<p>Here is a list of some basic Git commands to get you going with Git.<br>
+<p>Here is a list of some basic Git commands to get you going with Git.
 For more detail, check out the  <a href="https://www.atlassian.com/git">Atlassian Git Tutorials</a>  for a visual introduction to Git commands and workflows, including examples.</p>
 
 <h2 id="commands">commands</h2>
+<p>Git task | Notes | Git commands |
+:–: |:–: |:–: 
+Tell Git who you are | Configure the author name and email address to be used with your commits.  <br />Note that Git strips some characters (for example trailing periods) from user.name | git config –global user.name “Sam Smith”   <br />git config –global user.email sam@example.com
+Create a new local repository | | git init
+Check out a repository | Create a working copy of a local repository: | git clone /path/to/repository
+| | For a remote server, use: | git clone username@host:/path/to/repository
+Add files | Add one or more files to staging (index): | git add  ‘filename’ <br />git add *
+Commit | Commit changes to head (but not yet to the remote repository): | git commit -m ‘Commit message’
+| | Commit any files you’ve added with git add, and also commit any files you’ve changed since then: | git commit -a
+Push | Send changes to the master branch of your remote repository: | git push origin master
+Status	| List the files you’ve changed and those you still need to add or commit:	| git status
+Connect to a remote repository	| If you haven’t connected your local repository to a remote server, add the server to be able to push to it:	| git remote add origin ‘server’
+| | List all currently configured remote repositories: | git remote -v
+Branches | Create a new branch and switch to it: | git checkout -b ‘branchname’
+| | Switch from one branch to another: | git checkout ‘branchname’
+| | List all the branches in your repo, and also tell you what branch you’re currently in:	| git branch
+| | Delete the feature branch: | git branch -d ‘branchname’
+| | Push the branch to your remote repository, so others can use it: | git push origin ‘branchname’
+| | Push all branches to your remote repository:	| git push –all origin
+| | Delete a branch on your remote repository: | git push origin: ‘branchname’
+Update from the remote repository	| Fetch and merge changes on the remote server to your working directory:	| git pull
+| | To merge a different branch into your active branch:	| git merge ‘branchname’
+| | View all the merge conflicts: <br />View the conflicts against the base file: <br />Preview changes, before merging: | git diff <br />git diff –base ‘filename’ <br />git diff ‘sourcebranch’ ‘targetbranch’
+| | After you have manually resolved any conflicts, you mark the changed file: | git add ‘filename’
+Tags | You can use tagging to mark a significant changeset, such as a release: | git tag 1.0.0 ‘commitID’
+| | CommitId is the leading characters of the changeset ID, up to 10, but must be unique. Get the ID using: | git log
+| | Push all tags to remote repository:	| git push –tags origin
+Undo local changes | If you mess up, you can replace the changes in your working tree with the last content in head: Changes already added to the index, as well as new files, will be kept. | git checkout – ‘filename’
+| | Instead, to drop all your local changes and commits, fetch the latest history from the server and point your local master branch at it, do this: | git fetch origin <br />git reset –hard origin/master
+Search	| Search the working directory for foo(): | git grep “foo()”</p>
 
-<table><thead>
-<tr>
-<th style="text-align: center">Git task</th>
-<th style="text-align: center">Notes</th>
-<th style="text-align: center">Git commands</th>
-</tr>
-</thead><tbody>
-<tr>
-<td style="text-align: center">Tell Git who you are</td>
-<td style="text-align: center">Configure the author name and email address to be used with your commits.  <br>Note that Git strips some characters (for example trailing periods) from user.name</td>
-<td style="text-align: center">git config --global user.name &quot;Sam Smith&quot;   <br>git config --global user.email <a href="mailto:sam@example.com">sam@example.com</a></td>
-</tr>
-<tr>
-<td style="text-align: center">Create a new local repository</td>
-<td style="text-align: center"></td>
-<td style="text-align: center">git init</td>
-</tr>
-<tr>
-<td style="text-align: center">Check out a repository</td>
-<td style="text-align: center">Create a working copy of a local repository:</td>
-<td style="text-align: center">git clone /path/to/repository</td>
-</tr>
-<tr>
-<td style="text-align: center"></td>
-<td style="text-align: center">For a remote server, use:</td>
-<td style="text-align: center">git clone username@host:/path/to/repository</td>
-</tr>
-<tr>
-<td style="text-align: center">Add files</td>
-<td style="text-align: center">Add one or more files to staging (index):</td>
-<td style="text-align: center">git add  &#39;filename&#39; <br>git add *</td>
-</tr>
-<tr>
-<td style="text-align: center">Commit</td>
-<td style="text-align: center">Commit changes to head (but not yet to the remote repository):</td>
-<td style="text-align: center">git commit -m &#39;Commit message&#39;</td>
-</tr>
-<tr>
-<td style="text-align: center"></td>
-<td style="text-align: center">Commit any files you&#39;ve added with git add, and also commit any files you&#39;ve changed since then:</td>
-<td style="text-align: center">git commit -a</td>
-</tr>
-<tr>
-<td style="text-align: center">Push</td>
-<td style="text-align: center">Send changes to the master branch of your remote repository:</td>
-<td style="text-align: center">git push origin master</td>
-</tr>
-<tr>
-<td style="text-align: center">Status</td>
-<td style="text-align: center">List the files you&#39;ve changed and those you still need to add or commit:</td>
-<td style="text-align: center">git status</td>
-</tr>
-<tr>
-<td style="text-align: center">Connect to a remote repository</td>
-<td style="text-align: center">If you haven&#39;t connected your local repository to a remote server, add the server to be able to push to it:</td>
-<td style="text-align: center">git remote add origin &#39;server&#39;</td>
-</tr>
-<tr>
-<td style="text-align: center"></td>
-<td style="text-align: center">List all currently configured remote repositories:</td>
-<td style="text-align: center">git remote -v</td>
-</tr>
-<tr>
-<td style="text-align: center">Branches</td>
-<td style="text-align: center">Create a new branch and switch to it:</td>
-<td style="text-align: center">git checkout -b &#39;branchname&#39;</td>
-</tr>
-<tr>
-<td style="text-align: center"></td>
-<td style="text-align: center">Switch from one branch to another:</td>
-<td style="text-align: center">git checkout &#39;branchname&#39;</td>
-</tr>
-<tr>
-<td style="text-align: center"></td>
-<td style="text-align: center">List all the branches in your repo, and also tell you what branch you&#39;re currently in:</td>
-<td style="text-align: center">git branch</td>
-</tr>
-<tr>
-<td style="text-align: center"></td>
-<td style="text-align: center">Delete the feature branch:</td>
-<td style="text-align: center">git branch -d &#39;branchname&#39;</td>
-</tr>
-<tr>
-<td style="text-align: center"></td>
-<td style="text-align: center">Push the branch to your remote repository, so others can use it:</td>
-<td style="text-align: center">git push origin &#39;branchname&#39;</td>
-</tr>
-<tr>
-<td style="text-align: center"></td>
-<td style="text-align: center">Push all branches to your remote repository:</td>
-<td style="text-align: center">git push --all origin</td>
-</tr>
-<tr>
-<td style="text-align: center"></td>
-<td style="text-align: center">Delete a branch on your remote repository:</td>
-<td style="text-align: center">git push origin: &#39;branchname&#39;</td>
-</tr>
-<tr>
-<td style="text-align: center">Update from the remote repository</td>
-<td style="text-align: center">Fetch and merge changes on the remote server to your working directory:</td>
-<td style="text-align: center">git pull</td>
-</tr>
-<tr>
-<td style="text-align: center"></td>
-<td style="text-align: center">To merge a different branch into your active branch:</td>
-<td style="text-align: center">git merge &#39;branchname&#39;</td>
-</tr>
-<tr>
-<td style="text-align: center"></td>
-<td style="text-align: center">View all the merge conflicts: <br>View the conflicts against the base file: <br>Preview changes, before merging:</td>
-<td style="text-align: center">git diff <br>git diff --base &#39;filename&#39; <br>git diff &#39;sourcebranch&#39; &#39;targetbranch&#39;</td>
-</tr>
-<tr>
-<td style="text-align: center"></td>
-<td style="text-align: center">After you have manually resolved any conflicts, you mark the changed file:</td>
-<td style="text-align: center">git add &#39;filename&#39;</td>
-</tr>
-<tr>
-<td style="text-align: center">Tags</td>
-<td style="text-align: center">You can use tagging to mark a significant changeset, such as a release:</td>
-<td style="text-align: center">git tag 1.0.0 &#39;commitID&#39;</td>
-</tr>
-<tr>
-<td style="text-align: center"></td>
-<td style="text-align: center">CommitId is the leading characters of the changeset ID, up to 10, but must be unique. Get the ID using:</td>
-<td style="text-align: center">git log</td>
-</tr>
-<tr>
-<td style="text-align: center"></td>
-<td style="text-align: center">Push all tags to remote repository:</td>
-<td style="text-align: center">git push --tags origin</td>
-</tr>
-<tr>
-<td style="text-align: center">Undo local changes</td>
-<td style="text-align: center">If you mess up, you can replace the changes in your working tree with the last content in head: Changes already added to the index, as well as new files, will be kept.</td>
-<td style="text-align: center">git checkout -- &#39;filename&#39;</td>
-</tr>
-<tr>
-<td style="text-align: center"></td>
-<td style="text-align: center">Instead, to drop all your local changes and commits, fetch the latest history from the server and point your local master branch at it, do this:</td>
-<td style="text-align: center">git fetch origin <br>git reset --hard origin/master</td>
-</tr>
-<tr>
-<td style="text-align: center">Search</td>
-<td style="text-align: center">Search the working directory for foo():</td>
-<td style="text-align: center">git grep &quot;foo()&quot;</td>
-</tr>
-</tbody></table>
 
   </section>
 </article>
@@ -327,7 +208,7 @@ For more detail, check out the  <a href="https://www.atlassian.com/git">Atlassia
    <div class="read-more-item">
        <span class="read-more-item-dim">previous article</span>
        <h2 class="post-list__post-title post-title"><a href="/2019/03/Grammarly-for-writing/" title="link to Grammarly for writing">Grammarly for writing</a></h2>
-       <p class="excerpt">GrammlyA plugin help you better writing.    Grammly    DocumentSave Your Valuable TimeGrammarly significantly cuts down on all the extra time you spend rereading and rewriting by focusing you on where your writing needs work.Write Effectively Toda...&hellip;</p>
+       <p class="excerpt">GrammlyA plugin help you better writing.	Grammly	DocumentSave Your Valuable TimeGrammarly significantly cuts down on all the extra time you spend rereading and rewriting by focusing you on where your writing needs work.Write Effectively TodayDangl...&hellip;</p>
        <div class="post-list__meta"><time datetime="2019-03-19 00:00:00 +0800" class="post-list__meta--date date">2019-03-19</time> &#8226; <span class="post-list__meta--tags tags">computer science tool grammarly blog</span><a class="btn-border-small" href=/2019/03/Grammarly-for-writing/>read</a></div>
    </div>
    
@@ -364,7 +245,7 @@ For more detail, check out the  <a href="https://www.atlassian.com/git">Atlassia
             <section class="footer">
     <footer>
     	<span class="footer__copyright">本站点采用<a href="http://creativecommons.org/licenses/by-nc-sa/4.0/">知识共享 署名-非商业性使用-相同方式共享 4.0 国际 许可协议</a></span>
-        <span class="footer__copyright">由 <a href="https://jekyllrb.com">Jekyll</a> 于 2019-04-29 生成，感谢 <a href="https://www.digitalocean.com/?refcode=30ed2d146762">Digital Ocean</a> 为本站提供稳定的 VPS 服务</span>
+        <span class="footer__copyright">由 <a href="https://jekyllrb.com">Jekyll</a> 于 2019-04-30 生成，感谢 <a href="https://www.digitalocean.com/?refcode=30ed2d146762">Digital Ocean</a> 为本站提供稳定的 VPS 服务</span>
         <span class="footer__copyright">本站由 <a href="http://github.com/MizuhaKi">@mizuhaki</a> 创建，采用 <a href="https://github.com/onevcat/vno-jekyll">Vno - Jekyll</a> 作为主题，您可以在 GitHub 找到<a href="https://github.com/onevcat/OneV-s-Den">本站源码</a> - &copy; 2019</span>
     </footer>
 </section>

@@ -7,16 +7,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
   <title>convert image format</title>
-  <meta name="description" content="a code#!/usr/bin/env python3.4">
+  <meta name="description" content="a code```python#!/usr/bin/env python3.4">
   <meta name="author" content="Mizuha Ki">
 
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="convert image format">
-  <meta name="twitter:description" content="a code#!/usr/bin/env python3.4">
+  <meta name="twitter:description" content="a code```python#!/usr/bin/env python3.4">
   
   <meta property="og:type" content="article">
   <meta property="og:title" content="convert image format">
-  <meta property="og:description" content="a code#!/usr/bin/env python3.4">
+  <meta property="og:description" content="a code```python#!/usr/bin/env python3.4">
   
   <link rel="icon" type="image/png" href="/assets/images/favicon.png" />
   <link href="/assets/images/favicon.png" rel="shortcut icon" type="image/png">
@@ -153,7 +153,7 @@
 
   <section class="post">
     <h2 id="a-code">a code</h2>
-<div class="highlight"><pre><code class="language-python" data-lang="python"><span class="c1">#!/usr/bin/env python3.4
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">#!/usr/bin/env python3.4
 </span>
 <span class="kn">import</span> <span class="nn">os</span>
 <span class="kn">import</span> <span class="nn">re</span>
@@ -194,7 +194,7 @@
     <span class="n">height</span> <span class="o">=</span> <span class="bp">None</span>
     <span class="n">scale</span> <span class="o">=</span> <span class="bp">None</span>
     <span class="n">endian</span> <span class="o">=</span> <span class="bp">None</span>
-
+    
     <span class="n">header</span> <span class="o">=</span> <span class="nb">file</span><span class="o">.</span><span class="n">readline</span><span class="p">()</span><span class="o">.</span><span class="n">rstrip</span><span class="p">()</span>
     <span class="k">if</span> <span class="n">header</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s">"ascii"</span><span class="p">)</span> <span class="o">==</span> <span class="s">'PF'</span><span class="p">:</span>
         <span class="n">color</span> <span class="o">=</span> <span class="bp">True</span>
@@ -202,23 +202,23 @@
         <span class="n">color</span> <span class="o">=</span> <span class="bp">False</span>
     <span class="k">else</span><span class="p">:</span>
         <span class="k">raise</span> <span class="nb">Exception</span><span class="p">(</span><span class="s">'Not a PFM file.'</span><span class="p">)</span>
-
+    
     <span class="n">dim_match</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="s">r'^(\d+)\s(\d+)\s$'</span><span class="p">,</span> <span class="nb">file</span><span class="o">.</span><span class="n">readline</span><span class="p">()</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s">"ascii"</span><span class="p">))</span>
     <span class="k">if</span> <span class="n">dim_match</span><span class="p">:</span>
         <span class="n">width</span><span class="p">,</span> <span class="n">height</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="n">dim_match</span><span class="o">.</span><span class="n">groups</span><span class="p">()))</span>
     <span class="k">else</span><span class="p">:</span>
         <span class="k">raise</span> <span class="nb">Exception</span><span class="p">(</span><span class="s">'Malformed PFM header.'</span><span class="p">)</span>
-
+    
     <span class="n">scale</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="nb">file</span><span class="o">.</span><span class="n">readline</span><span class="p">()</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s">"ascii"</span><span class="p">)</span><span class="o">.</span><span class="n">rstrip</span><span class="p">())</span>
     <span class="k">if</span> <span class="n">scale</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span> <span class="c1"># little-endian
 </span>        <span class="n">endian</span> <span class="o">=</span> <span class="s">'&lt;'</span>
         <span class="n">scale</span> <span class="o">=</span> <span class="o">-</span><span class="n">scale</span>
     <span class="k">else</span><span class="p">:</span>
         <span class="n">endian</span> <span class="o">=</span> <span class="s">'&gt;'</span> <span class="c1"># big-endian
-</span>
+</span>    
     <span class="n">data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">fromfile</span><span class="p">(</span><span class="nb">file</span><span class="p">,</span> <span class="n">endian</span> <span class="o">+</span> <span class="s">'f'</span><span class="p">)</span>
     <span class="n">shape</span> <span class="o">=</span> <span class="p">(</span><span class="n">height</span><span class="p">,</span> <span class="n">width</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span> <span class="k">if</span> <span class="n">color</span> <span class="k">else</span> <span class="p">(</span><span class="n">height</span><span class="p">,</span> <span class="n">width</span><span class="p">)</span>
-
+    
     <span class="n">data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">shape</span><span class="p">)</span>
     <span class="n">data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">flipud</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">data</span><span class="p">,</span> <span class="n">scale</span>
@@ -227,29 +227,29 @@
     <span class="nb">file</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="nb">file</span><span class="p">,</span> <span class="s">'wb'</span><span class="p">)</span>
 
     <span class="n">color</span> <span class="o">=</span> <span class="bp">None</span>
-
+    
     <span class="k">if</span> <span class="n">image</span><span class="o">.</span><span class="n">dtype</span><span class="o">.</span><span class="n">name</span> <span class="o">!=</span> <span class="s">'float32'</span><span class="p">:</span>
         <span class="k">raise</span> <span class="nb">Exception</span><span class="p">(</span><span class="s">'Image dtype must be float32.'</span><span class="p">)</span>
-
+    
     <span class="n">image</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">flipud</span><span class="p">(</span><span class="n">image</span><span class="p">)</span>
-
+    
     <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">image</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span> <span class="o">==</span> <span class="mi">3</span> <span class="ow">and</span> <span class="n">image</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">==</span> <span class="mi">3</span><span class="p">:</span> <span class="c1"># color image
 </span>        <span class="n">color</span> <span class="o">=</span> <span class="bp">True</span>
     <span class="k">elif</span> <span class="nb">len</span><span class="p">(</span><span class="n">image</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span> <span class="o">==</span> <span class="mi">2</span> <span class="ow">or</span> <span class="nb">len</span><span class="p">(</span><span class="n">image</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span> <span class="o">==</span> <span class="mi">3</span> <span class="ow">and</span> <span class="n">image</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span> <span class="c1"># greyscale
 </span>        <span class="n">color</span> <span class="o">=</span> <span class="bp">False</span>
     <span class="k">else</span><span class="p">:</span>
         <span class="k">raise</span> <span class="nb">Exception</span><span class="p">(</span><span class="s">'Image must have H x W x 3, H x W x 1 or H x W dimensions.'</span><span class="p">)</span>
-
+    
     <span class="nb">file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s">'PF</span><span class="se">\n</span><span class="s">'</span> <span class="k">if</span> <span class="n">color</span> <span class="k">else</span> <span class="s">'Pf</span><span class="se">\n</span><span class="s">'</span><span class="o">.</span><span class="n">encode</span><span class="p">())</span>
     <span class="nb">file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s">'</span><span class="si">%</span><span class="s">d </span><span class="si">%</span><span class="s">d</span><span class="se">\n</span><span class="s">'</span><span class="o">.</span><span class="n">encode</span><span class="p">()</span> <span class="o">%</span> <span class="p">(</span><span class="n">image</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">image</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span>
-
+    
     <span class="n">endian</span> <span class="o">=</span> <span class="n">image</span><span class="o">.</span><span class="n">dtype</span><span class="o">.</span><span class="n">byteorder</span>
-
+    
     <span class="k">if</span> <span class="n">endian</span> <span class="o">==</span> <span class="s">'&lt;'</span> <span class="ow">or</span> <span class="n">endian</span> <span class="o">==</span> <span class="s">'='</span> <span class="ow">and</span> <span class="n">sys</span><span class="o">.</span><span class="n">byteorder</span> <span class="o">==</span> <span class="s">'little'</span><span class="p">:</span>
         <span class="n">scale</span> <span class="o">=</span> <span class="o">-</span><span class="n">scale</span>
-
+    
     <span class="nb">file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s">'</span><span class="si">%</span><span class="s">f</span><span class="se">\n</span><span class="s">'</span><span class="o">.</span><span class="n">encode</span><span class="p">()</span> <span class="o">%</span> <span class="n">scale</span><span class="p">)</span>
-
+    
     <span class="n">image</span><span class="o">.</span><span class="n">tofile</span><span class="p">(</span><span class="nb">file</span><span class="p">)</span>
 
 <span class="k">def</span> <span class="nf">readFlow</span><span class="p">(</span><span class="n">name</span><span class="p">):</span>
@@ -257,16 +257,16 @@
         <span class="k">return</span> <span class="n">readPFM</span><span class="p">(</span><span class="n">name</span><span class="p">)[</span><span class="mi">0</span><span class="p">][:,:,</span><span class="mi">0</span><span class="p">:</span><span class="mi">2</span><span class="p">]</span>
 
     <span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="s">'rb'</span><span class="p">)</span>
-
+    
     <span class="n">header</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
     <span class="k">if</span> <span class="n">header</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s">"utf-8"</span><span class="p">)</span> <span class="o">!=</span> <span class="s">'PIEH'</span><span class="p">:</span>
         <span class="k">raise</span> <span class="nb">Exception</span><span class="p">(</span><span class="s">'Flow file header does not contain PIEH'</span><span class="p">)</span>
-
+    
     <span class="n">width</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">fromfile</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">int32</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">squeeze</span><span class="p">()</span>
     <span class="n">height</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">fromfile</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">int32</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">squeeze</span><span class="p">()</span>
-
+    
     <span class="n">flow</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">fromfile</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">,</span> <span class="n">width</span> <span class="o">*</span> <span class="n">height</span> <span class="o">*</span> <span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="n">height</span><span class="p">,</span> <span class="n">width</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
-
+    
     <span class="k">return</span> <span class="n">flow</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span>
 
 <span class="k">def</span> <span class="nf">readImage</span><span class="p">(</span><span class="n">name</span><span class="p">):</span>
@@ -297,23 +297,23 @@
 
     <span class="k">if</span><span class="p">(</span><span class="n">f</span><span class="o">.</span><span class="n">readline</span><span class="p">()</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s">"utf-8"</span><span class="p">))</span>  <span class="o">!=</span> <span class="s">'float</span><span class="se">\n</span><span class="s">'</span><span class="p">:</span>
         <span class="k">raise</span> <span class="nb">Exception</span><span class="p">(</span><span class="s">'float file </span><span class="si">%</span><span class="s">s did not contain &lt;float&gt; keyword'</span> <span class="o">%</span> <span class="n">name</span><span class="p">)</span>
-
+    
     <span class="n">dim</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">f</span><span class="o">.</span><span class="n">readline</span><span class="p">())</span>
-
+    
     <span class="n">dims</span> <span class="o">=</span> <span class="p">[]</span>
     <span class="n">count</span> <span class="o">=</span> <span class="mi">1</span>
     <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">dim</span><span class="p">):</span>
         <span class="n">d</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">f</span><span class="o">.</span><span class="n">readline</span><span class="p">())</span>
         <span class="n">dims</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">d</span><span class="p">)</span>
         <span class="n">count</span> <span class="o">*=</span> <span class="n">d</span>
-
+    
     <span class="n">dims</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">reversed</span><span class="p">(</span><span class="n">dims</span><span class="p">))</span>
-
+    
     <span class="n">data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">fromfile</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">,</span> <span class="n">count</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">dims</span><span class="p">)</span>
     <span class="k">if</span> <span class="n">dim</span> <span class="o">&gt;</span> <span class="mi">2</span><span class="p">:</span>
         <span class="n">data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span>
         <span class="n">data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
-
+    
     <span class="k">return</span> <span class="n">data</span>
 
 <span class="k">def</span> <span class="nf">writeFloat</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
@@ -322,10 +322,10 @@
     <span class="n">dim</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
     <span class="k">if</span> <span class="n">dim</span><span class="o">&gt;</span><span class="mi">3</span><span class="p">:</span>
         <span class="k">raise</span> <span class="nb">Exception</span><span class="p">(</span><span class="s">'bad float file dimension: </span><span class="si">%</span><span class="s">d'</span> <span class="o">%</span> <span class="n">dim</span><span class="p">)</span>
-
+    
     <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">((</span><span class="s">'float</span><span class="se">\n</span><span class="s">'</span><span class="p">)</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s">'ascii'</span><span class="p">))</span>
     <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">((</span><span class="s">'</span><span class="si">%</span><span class="s">d</span><span class="se">\n</span><span class="s">'</span> <span class="o">%</span> <span class="n">dim</span><span class="p">)</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s">'ascii'</span><span class="p">))</span>
-
+    
     <span class="k">if</span> <span class="n">dim</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
         <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">((</span><span class="s">'</span><span class="si">%</span><span class="s">d</span><span class="se">\n</span><span class="s">'</span> <span class="o">%</span> <span class="n">data</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s">'ascii'</span><span class="p">))</span>
     <span class="k">else</span><span class="p">:</span>
@@ -333,14 +333,17 @@
         <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">((</span><span class="s">'</span><span class="si">%</span><span class="s">d</span><span class="se">\n</span><span class="s">'</span> <span class="o">%</span> <span class="n">data</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s">'ascii'</span><span class="p">))</span>
         <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">dim</span><span class="p">):</span>
             <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">((</span><span class="s">'</span><span class="si">%</span><span class="s">d</span><span class="se">\n</span><span class="s">'</span> <span class="o">%</span> <span class="n">data</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="n">i</span><span class="p">])</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s">'ascii'</span><span class="p">))</span>
-
+    
     <span class="n">data</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span>
     <span class="k">if</span> <span class="n">dim</span><span class="o">==</span><span class="mi">2</span><span class="p">:</span>
         <span class="n">data</span><span class="o">.</span><span class="n">tofile</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
-
+    
     <span class="k">else</span><span class="p">:</span>
         <span class="n">np</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span><span class="o">.</span><span class="n">tofile</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
-</code></pre></div><div class="highlight"><pre><code class="language-" data-lang=""></code></pre></div>
+</code></pre></div></div>
+
+<p>```</p>
+
   </section>
 </article>
 
@@ -360,7 +363,7 @@
    <div class="read-more-item">
        <span class="read-more-item-dim">previous article</span>
        <h2 class="post-list__post-title post-title"><a href="/2018/10/python-function-for-list-remove-del-pop/" title="link to list method for python">list method for python</a></h2>
-       <p class="excerpt">remove()list.remove(value)```pythonlist = [2, 3, 4, 5, 6, 3] print(list)[2, 3, 4, 5, 6, 3]list.remove(3)print(list)[2, 4, 5, 6, 3]```del()del list[index]```pythonlist = [2, 3, 4, 5, 6, 3] print(list)[2, 3, 4, 5, 6, 3]del list[2]print(list)[2, 3, 5...&hellip;</p>
+       <p class="excerpt">remove()list.remove(value)list = [2, 3, 4, 5, 6, 3] print(list)&gt;&gt; [2, 3, 4, 5, 6, 3]list.remove(3)print(list)&gt;&gt;[2, 4, 5, 6, 3]del()del list[index]list = [2, 3, 4, 5, 6, 3] print(list)&gt;&gt; [2, 3, 4, 5, 6, 3]del list[2]print(list)&gt...&hellip;</p>
        <div class="post-list__meta"><time datetime="2018-10-09 00:00:00 +0800" class="post-list__meta--date date">2018-10-09</time> &#8226; <span class="post-list__meta--tags tags">computer science deep learning python blog</span><a class="btn-border-small" href=/2018/10/python-function-for-list-remove-del-pop/>read</a></div>
    </div>
    
@@ -397,7 +400,7 @@
             <section class="footer">
     <footer>
     	<span class="footer__copyright">本站点采用<a href="http://creativecommons.org/licenses/by-nc-sa/4.0/">知识共享 署名-非商业性使用-相同方式共享 4.0 国际 许可协议</a></span>
-        <span class="footer__copyright">由 <a href="https://jekyllrb.com">Jekyll</a> 于 2019-04-29 生成，感谢 <a href="https://www.digitalocean.com/?refcode=30ed2d146762">Digital Ocean</a> 为本站提供稳定的 VPS 服务</span>
+        <span class="footer__copyright">由 <a href="https://jekyllrb.com">Jekyll</a> 于 2019-04-30 生成，感谢 <a href="https://www.digitalocean.com/?refcode=30ed2d146762">Digital Ocean</a> 为本站提供稳定的 VPS 服务</span>
         <span class="footer__copyright">本站由 <a href="http://github.com/MizuhaKi">@mizuhaki</a> 创建，采用 <a href="https://github.com/onevcat/vno-jekyll">Vno - Jekyll</a> 作为主题，您可以在 GitHub 找到<a href="https://github.com/onevcat/OneV-s-Den">本站源码</a> - &copy; 2019</span>
     </footer>
 </section>

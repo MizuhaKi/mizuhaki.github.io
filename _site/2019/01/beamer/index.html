@@ -153,7 +153,7 @@
 
   <section class="post">
     <h2 id="example-for-beamer">example for beamer</h2>
-<div class="highlight"><pre><code class="language-latex" data-lang="latex"><span class="k">\documentclass</span><span class="p">{</span>beamer<span class="p">}</span>
+<div class="language-latex highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\documentclass</span><span class="p">{</span>beamer<span class="p">}</span>
 <span class="k">\usepackage</span><span class="na">[english]</span><span class="p">{</span>babel<span class="p">}</span>   <span class="k">\%</span>如果去掉，中英混合会出错
 <span class="k">\usepackage</span><span class="na">[noindent]</span><span class="p">{</span>ctex<span class="p">}</span>   <span class="k">\%</span>可使用 <span class="k">\usepackage</span><span class="p">{</span>CJK<span class="p">}</span>
 <span class="k">\usepackage</span><span class="p">{</span>beamerthemesplit<span class="p">}</span>
@@ -161,48 +161,50 @@
 <span class="k">\%</span> does not look nice, try deleting the line with the fontenc.
 <span class="k">\usepackage</span><span class="na">[T1]</span><span class="p">{</span>fontenc<span class="p">}</span>
 <span class="k">\usepackage</span><span class="p">{</span>times<span class="p">}</span>
-
+ 
 <span class="k">\usetheme</span><span class="p">{</span>Berkeley<span class="p">}</span>
-
+ 
 <span class="k">\title</span><span class="p">{</span>XXXX<span class="p">}</span>
-
+ 
 <span class="k">\subtitle</span><span class="p">{</span>XXXX<span class="p">}</span>
-
+ 
 <span class="k">\author</span><span class="p">{</span>Ofey<span class="p">}</span>
-
+ 
 <span class="k">\institute</span><span class="p">{</span>
   School of Computer Science<span class="k">\\</span>
   Beijing Institute of Technology
 <span class="p">}</span>
-
+ 
 <span class="k">\%</span> This is only inserted into the PDF information catalog. Can be left out.
 <span class="k">\subject</span><span class="p">{</span>OOO<span class="p">}</span>
 <span class="k">\keywords</span><span class="p">{</span>OXOX<span class="p">}</span>
-
+ 
 <span class="nt">\begin{document}</span>
-
+ 
 <span class="nt">\begin{frame}</span><span class="p">{</span>XXXX<span class="p">}</span>
 A normal frame.
 <span class="nt">\end{frame}</span>
-
+ 
 <span class="nt">\end{document}</span>
-</code></pre></div>
+</code></pre></div></div>
 <p>上面代码，便可以生成一夜的slides了，在我机器上测试是木有问题的。beamer中的frame有点相当于powerpoint中的一叶，要是想新建几页，再多加加个frame吧，也可以写成</p>
-<div class="highlight"><pre><code class="language-latex" data-lang="latex"><span class="k">\frame</span>
+
+<div class="language-latex highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\frame</span>
 <span class="p">{</span>
   <span class="k">\frametitle</span><span class="p">{</span>test<span class="p">}</span>
   A normal frame.
 <span class="p">}</span>
-</code></pre></div>
+</code></pre></div></div>
 <p>至于frame和整个slides也都有相应的subtitle可以设置，随便看下文档就ok。</p>
 
-<p>多个作者多个单位<br>
+<p>多个作者多个单位
 有时，slides可能有多个作者，并且属于多个单位，会议论文作报告时，经常遇见此情况。如下代码解决</p>
-<div class="highlight"><pre><code class="language-latex" data-lang="latex"><span class="k">\author</span><span class="na">[Author, Another]</span> <span class="k">\%</span> (optional, use only with lots of authors)
+
+<div class="language-latex highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\author</span><span class="na">[Author, Another]</span> <span class="k">\%</span> (optional, use only with lots of authors)
 <span class="p">{</span>F.~Author<span class="k">\inst</span><span class="p">{</span>1<span class="p">}</span> <span class="k">\and</span> S.~Another<span class="k">\inst</span><span class="p">{</span>2<span class="p">}}</span>
 <span class="k">\%</span> - Give the names in the same order as the appear in the paper.
 <span class="k">\%</span> - Use the <span class="k">\inst</span><span class="p">{</span>?<span class="p">}</span> command only if the authors have different affiliation.
-
+ 
 <span class="k">\institute</span><span class="na">[Beijing Institute of Technology]</span> <span class="k">\%</span> (optional, but mostly needed)
 <span class="p">{</span>
   <span class="k">\inst</span><span class="p">{</span>1<span class="p">}</span>
@@ -215,70 +217,78 @@ A normal frame.
 <span class="p">}</span>
 <span class="k">\%</span> - Use the <span class="k">\inst</span> command only if there are several affiliations.
 <span class="k">\%</span> - Keep it simple, no one is interested in your street address.
-</code></pre></div>
+</code></pre></div></div>
 <p>institute中写Email是可以直接识别出的，放心使用。至于经常出现的中括号可选项，用了乃就懂的～～</p>
 
-<p>logo<br>
-有时，要插入个校徽神马的，吐槽下学校官方竟然每个矢量校徽。。。<br>
+<p>logo
+有时，要插入个校徽神马的，吐槽下学校官方竟然每个矢量校徽。。。
 导言区加：</p>
-<div class="highlight"><pre><code class="language-latex" data-lang="latex"><span class="k">\%</span> If you have a file called "university-logo-filename.xxx", where xxx
+
+<div class="language-latex highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\%</span> If you have a file called "university-logo-filename.xxx", where xxx
 <span class="k">\%</span> is a graphic format that can be processed by latex or pdflatex,
 <span class="k">\%</span> resp., then you can add a logo as follows:
-
+ 
 <span class="k">\%</span> <span class="k">\pgfdeclareimage</span><span class="na">[height=0.5cm]</span><span class="p">{</span>university-logo<span class="p">}{</span>university-logo-filename<span class="p">}</span>
 <span class="k">\%</span> <span class="k">\logo</span><span class="p">{</span><span class="k">\pgfuseimage</span><span class="p">{</span>bitlogo<span class="p">}}</span>
 <span class="k">\logo</span><span class="p">{</span><span class="k">\includegraphics</span><span class="na">[height=0.09\textwidth]</span><span class="p">{</span>./pic/bitlogo.eps<span class="p">}}</span> <span class="k">\%</span>这只是我的logo路径
-</code></pre></div>
-<p>目录(TOC)<br>
+</code></pre></div></div>
+<p>目录(TOC)
 LATEX生成目录这类实在是拿手戏。最简单的：</p>
-<div class="highlight"><pre><code class="language-latex" data-lang="latex"><span class="nt">\begin{frame}</span>
+
+<div class="language-latex highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">\begin{frame}</span>
   <span class="k">\tableofcontents</span>
 <span class="nt">\end{frame}</span>
-</code></pre></div>
+</code></pre></div></div>
 <p>有时，可能目录太多，想分成两栏，可以使用multicol包</p>
-<div class="highlight"><pre><code class="language-latex" data-lang="latex"><span class="k">\%</span> This environment allows switching between one and multicolumn format on the same page
+
+<div class="language-latex highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\%</span> This environment allows switching between one and multicolumn format on the same page
 <span class="k">\usepackage</span><span class="p">{</span>multicol<span class="p">}</span>
-
+ 
 <span class="nt">\begin{frame}</span><span class="p">{</span>Outline<span class="p">}</span>
-
+ 
   <span class="nt">\begin{multicols}</span><span class="p">{</span>2<span class="p">}</span>
     <span class="k">\tableofcontents</span>
     <span class="k">\%</span> You might wish to add the option [pausesections]
   <span class="nt">\end{multicols}</span>
 <span class="nt">\end{frame}</span>
-</code></pre></div>
+</code></pre></div></div>
 <p>有时，可能不想显示subsection之类，亦或者只想限制指定的几个section，如下：</p>
-<div class="highlight"><pre><code class="language-latex" data-lang="latex"><span class="k">\tableofcontents</span><span class="na">[hidesubsections,sections={&lt;1-4&gt;}]</span> <span class="k">\%</span>显示1-4section，不显示subsection
+
+<div class="language-latex highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\tableofcontents</span><span class="na">[hidesubsections,sections={&lt;1-4&gt;}]</span> <span class="k">\%</span>显示1-4section，不显示subsection
 <span class="k">\tableofcontents</span>还有很多其他参数设置，详见文档。
-</code></pre></div>
+</code></pre></div></div>
 <p>若想在没个章节前显示下目录提示，可以如下代码：</p>
-<div class="highlight"><pre><code class="language-latex" data-lang="latex"><span class="k">\AtBeginSection</span><span class="na">[]</span> <span class="p">{</span> 
+
+<div class="language-latex highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\AtBeginSection</span><span class="na">[]</span> <span class="p">{</span> 
   <span class="nt">\begin{frame}</span>
     <span class="k">\frametitle</span><span class="p">{</span>Outline<span class="p">}</span> 
     <span class="k">\tableofcontents</span><span class="na">[currentsection,hideothersubsections]</span> 
   <span class="nt">\end{frame}</span> 
   <span class="k">\addtocounter</span><span class="p">{</span>framenumber<span class="p">}{</span>-1<span class="p">}</span>  <span class="k">\%</span>目录页不计算页码
 <span class="p">}</span>
-</code></pre></div>
-<p>不过没发现如何获得当前section的数值，这样我就可以自动在每张前插入目录，且使当前目录为第一。<br>
+</code></pre></div></div>
+<p>不过没发现如何获得当前section的数值，这样我就可以自动在每张前插入目录，且使当前目录为第一。
 当然，还可以做成一个个显示目录的动画效果，不过没啥实际意义- -！</p>
 
-<p>slides中的链接<br>
-有时想在slides中加入超链接，可以跳转到指定的页面，这个也是很easy的。<br>
+<p>slides中的链接
+有时想在slides中加入超链接，可以跳转到指定的页面，这个也是很easy的。
 给欲跳转到的frame加上label</p>
-<div class="highlight"><pre><code class="language-latex" data-lang="latex"><span class="k">\frame</span><span class="na">[label = XXX]</span>
+
+<div class="language-latex highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\frame</span><span class="na">[label = XXX]</span>
 <span class="p">{</span>
   <span class="k">\frametitle</span><span class="p">{</span>OOO<span class="p">}</span>
   <span class="k">\framesubtitle</span><span class="p">{</span>XXX<span class="p">}</span>
   OOXX
 <span class="p">}</span>
-</code></pre></div>
+</code></pre></div></div>
 <p>再在想加入超链接的地方加入：</p>
-<div class="highlight"><pre><code class="language-latex" data-lang="latex"><span class="k">\hyperlink</span><span class="p">{</span>XXX<span class="p">}{</span><span class="k">\beamergotobutton</span><span class="p">{</span>乃想显示的文本<span class="p">}}</span> <span class="k">\%\beamergotobutton</span>可以选其他的按钮
-</code></pre></div>
-<p>显示时间+页数<br>
+
+<div class="language-latex highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\hyperlink</span><span class="p">{</span>XXX<span class="p">}{</span><span class="k">\beamergotobutton</span><span class="p">{</span>乃想显示的文本<span class="p">}}</span> <span class="k">\%\beamergotobutton</span>可以选其他的按钮
+</code></pre></div></div>
+<p>显示时间+页数
 这个根据不同的主题不一样，比如Berkeley默认就木有，而CambridgeUS就是有的，可以自己在导言区加入：</p>
-<div class="highlight"><pre><code class="language-latex" data-lang="latex"><span class="k">\setbeamertemplate</span><span class="p">{</span>footline<span class="p">}{</span><span class="k">\%</span>
+
+<div class="language-latex highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\setbeamertemplate</span><span class="p">{</span>footline<span class="p">}{</span><span class="k">\%</span>
   <span class="k">\leavevmode\%</span>
   <span class="k">\hbox</span><span class="p">{</span><span class="k">\%</span>
     <span class="nt">\begin{beamercolorbox}</span>[wd=.333333<span class="k">\paperwidth</span>,ht=2.25ex,dp=1ex,center]<span class="p">{</span>author in head/foot<span class="p">}</span><span class="k">\%</span>
@@ -293,18 +303,19 @@ LATEX生成目录这类实在是拿手戏。最简单的：</p>
     <span class="nt">\end{beamercolorbox}</span><span class="p">}</span><span class="k">\%</span>
   <span class="k">\vskip</span>0pt<span class="k">\%</span>
 <span class="p">}</span>
-</code></pre></div>
+</code></pre></div></div>
 <p>其实就是抄其他主题代码。。。</p>
 
-<p>页脚显示文本<br>
+<p>页脚显示文本
 有时希望在frame的左下角页脚能显示一些内容，并不是为了报告时如何，只是给其他途径看slides的人一点更详尽的解释、资料，但是又不想用脚注(脚注在beamer效果不咋的)。</p>
-<div class="highlight"><pre><code class="language-latex" data-lang="latex"><span class="k">\%</span> add text to beamer footline
 
+<div class="language-latex highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\%</span> add text to beamer footline
+ 
 <span class="k">\makeatletter</span>
 <span class="k">\%</span> add a macro that saves its argument
 <span class="k">\newcommand</span><span class="p">{</span><span class="k">\footlineextra</span><span class="p">}</span>[1]<span class="p">{</span><span class="k">\gdef\insertfootlineextra</span><span class="p">{</span>#1<span class="p">}}</span>
 <span class="k">\newbox\footlineextrabox</span>
-
+ 
 <span class="k">\%</span> add a beamer template that sets the saved argument in a box.
 <span class="k">\%</span> The * means that the beamer font and color "footline extra" are automatically added. 
 <span class="k">\defbeamertemplate*</span><span class="p">{</span>footline extra<span class="p">}{</span>default<span class="p">}{</span>
@@ -313,7 +324,7 @@ LATEX生成目录这类实在是拿手戏。最简单的：</p>
     <span class="k">\%</span> <span class="k">\par\vspace</span><span class="p">{</span>2.5pt<span class="p">}</span>
   <span class="nt">\end{beamercolorbox}</span>
 <span class="p">}</span>
-
+ 
 <span class="k">\addtobeamertemplate</span><span class="p">{</span>footline<span class="p">}{</span><span class="k">\%</span>
   <span class="k">\%</span> set the box with the extra footline material but make it add no vertical space
   <span class="k">\setbox\footlineextrabox</span>=<span class="k">\vbox</span><span class="p">{</span><span class="k">\usebeamertemplate*</span><span class="p">{</span>footline extra<span class="p">}}</span>
@@ -322,20 +333,23 @@ LATEX生成目录这类实在是拿手戏。最简单的：</p>
   <span class="k">\box\footlineextrabox\%</span>
 <span class="p">}</span>
 <span class="p">{}</span>
-
+ 
 <span class="k">\%</span> patch <span class="nt">\begin{frame}</span> to reset the footline extra material
 <span class="k">\let\beamer</span>@original@frame=<span class="k">\frame</span>
 <span class="k">\def\frame</span><span class="p">{</span><span class="k">\gdef\insertfootlineextra</span><span class="p">{}</span><span class="k">\beamer</span>@original@frame<span class="p">}</span>
 <span class="k">\footlineextra</span><span class="p">{}</span>
 <span class="k">\makeatother</span>
-</code></pre></div>
+</code></pre></div></div>
 <p>使用很简单：</p>
-<div class="highlight"><pre><code class="language-latex" data-lang="latex"><span class="k">\footlineextra</span><span class="p">{</span>XXXX<span class="p">}</span>
-</code></pre></div>
-<p>参考文献<br>
-LATEX最爽的几点之一就是参考文献的管理使用啊，毕设论文得用doc的泪奔T.T<br>
+
+<div class="language-latex highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\footlineextra</span><span class="p">{</span>XXXX<span class="p">}</span>
+</code></pre></div></div>
+
+<p>参考文献
+LATEX最爽的几点之一就是参考文献的管理使用啊，毕设论文得用doc的泪奔T.T
 一般用的比较多的是bibtex，首先，自己搞定bib文件，然后slides中加上一页来放引用文献</p>
-<div class="highlight"><pre><code class="language-latex" data-lang="latex"><span class="k">\%</span>一般的引用样式只是[1]类，paper中这样没啥，slides这样不够友好
+
+<div class="language-latex highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\%</span>一般的引用样式只是[1]类，paper中这样没啥，slides这样不够友好
 <span class="k">\%</span>apalike：美国心理学学会期刊样式，显示作者名+年份
 <span class="k">\bibliographystyle</span><span class="p">{</span>apalike<span class="p">}</span>   
 <span class="k">\bibliography</span><span class="p">{</span>XXX<span class="p">}</span>   <span class="k">\%</span>引用的XXX.bib文件
@@ -348,13 +362,14 @@ LATEX最爽的几点之一就是参考文献的管理使用啊，毕设论文得
   <span class="k">\bibliographystyle</span><span class="p">{</span>apalike<span class="p">}</span>
   <span class="k">\bibliography</span><span class="p">{</span>XXX<span class="p">}</span>
 <span class="nt">\end{frame}</span>
-</code></pre></div>
+</code></pre></div></div>
 <p>引用，自然是\cite{}命令了</p>
 
-<p>表格<br>
-有时，需要画一些表格，可能比较复杂，比如可能需要合并几行，或者几列，下面一个示例：<br>
+<p>表格
+有时，需要画一些表格，可能比较复杂，比如可能需要合并几行，或者几列，下面一个示例：
 导言区加上</p>
-<div class="highlight"><pre><code class="language-latex" data-lang="latex"><span class="k">\usepackage</span><span class="p">{</span>multirow<span class="p">}</span>
+
+<div class="language-latex highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\usepackage</span><span class="p">{</span>multirow<span class="p">}</span>
 <span class="k">\%</span> The <span class="k">\cline</span> command draws horizontal lines across the columns specified,
 ginning in column i and ending in column j, which are identified in the mandatory argument.
 <span class="k">\%</span> <span class="k">\cline</span><span class="p">{</span>i-j<span class="p">}</span>
@@ -364,7 +379,7 @@ ginning in column i and ending in column j, which are identified in the mandator
       <span class="k">\%</span> <span class="k">\multicolumn</span><span class="p">{</span>2<span class="p">}{</span>c<span class="p">}{</span><span class="k">\backslashbox</span><span class="p">{</span>Name<span class="p">}{</span>Numer<span class="p">}}</span> <span class="p">&amp;</span>  <span class="k">\multicolumn</span><span class="p">{</span>2<span class="p">}{</span>c<span class="p">}{}</span><span class="k">\\</span> <span class="k">\hline</span>
       <span class="k">\multirow</span><span class="p">{</span>2<span class="p">}{</span>*<span class="p">}{</span>CleanEval<span class="p">}</span> <span class="p">&amp;</span> <span class="k">\multirow</span><span class="p">{</span>2<span class="p">}{</span>*<span class="p">}{</span>CleanEval-Eng<span class="p">}</span> <span class="p">&amp;</span> training set <span class="p">&amp;</span> 60 <span class="k">\\</span> <span class="k">\cline</span><span class="p">{</span>3-4<span class="p">}</span> 
       <span class="k">\multirow</span><span class="p">{</span>2<span class="p">}{</span>*<span class="p">}{}</span>          <span class="p">&amp;</span> <span class="k">\multirow</span><span class="p">{</span>2<span class="p">}{</span>*<span class="p">}{}</span>              <span class="p">&amp;</span> evaluation set <span class="p">&amp;</span>   864 <span class="k">\\</span> <span class="k">\hline</span> 
-
+ 
       <span class="k">\multirow</span><span class="p">{</span>6<span class="p">}</span>*<span class="p">{</span>CETD<span class="p">}</span> <span class="p">&amp;</span> NYTimes      <span class="p">&amp;</span> <span class="k">\multicolumn</span><span class="p">{</span>2<span class="p">}{</span>c<span class="p">}{</span>100<span class="p">}</span> <span class="k">\\</span> <span class="k">\cline</span><span class="p">{</span>2-4<span class="p">}</span> 
       <span class="k">\multirow</span><span class="p">{</span>6<span class="p">}</span>*<span class="p">{}</span>     <span class="p">&amp;</span> Yahoo!       <span class="p">&amp;</span> <span class="k">\multicolumn</span><span class="p">{</span>2<span class="p">}{</span>c<span class="p">}{</span>100<span class="p">}</span> <span class="k">\\</span> <span class="k">\cline</span><span class="p">{</span>2-4<span class="p">}</span> 
       <span class="k">\multirow</span><span class="p">{</span>6<span class="p">}</span>*<span class="p">{}</span>     <span class="p">&amp;</span> Wikipedia    <span class="p">&amp;</span> <span class="k">\multicolumn</span><span class="p">{</span>2<span class="p">}{</span>c<span class="p">}{</span>100<span class="p">}</span> <span class="k">\\</span> <span class="k">\cline</span><span class="p">{</span>2-4<span class="p">}</span>
@@ -373,41 +388,45 @@ ginning in column i and ending in column j, which are identified in the mandator
       <span class="k">\multirow</span><span class="p">{</span>6<span class="p">}</span>*<span class="p">{}</span>     <span class="p">&amp;</span> Chaos        <span class="p">&amp;</span> <span class="k">\multicolumn</span><span class="p">{</span>2<span class="p">}{</span>c<span class="p">}{</span>200<span class="p">}</span> <span class="k">\\</span> <span class="k">\hline</span> 
     <span class="nt">\end{tabular}</span>
   <span class="nt">\end{table}</span>
-</code></pre></div>
-<p>效果如图<br>
-table <br>
-其中，\multirow{6}<em>{CETD} 6代表占用6行，CETD是其内容，其实下面的\multirow{6}</em>{}是可以去掉的，只是为了代码排版更清晰<br>
-\multicolumn{2}{c}{100}值合并两列，并且居中。<br>
-\cline的解释见代码注释<br>
-至于有时候可能会想要斜线的效果，不过latex中表格斜线分割看上去不舒服，还是不推荐，尤其科技论文中，文档直接明说不推荐<br>
+</code></pre></div></div>
+<p>效果如图
+table 
+其中，\multirow{6}<em>{CETD} 6代表占用6行，CETD是其内容，其实下面的\multirow{6}</em>{}是可以去掉的，只是为了代码排版更清晰
+\multicolumn{2}{c}{100}值合并两列，并且居中。
+\cline的解释见代码注释
+至于有时候可能会想要斜线的效果，不过latex中表格斜线分割看上去不舒服，还是不推荐，尤其科技论文中，文档直接明说不推荐
 更多设置，详见Tables in LaTeX: packages and methods</p>
 
-<p>sidebar<br>
-Berkeley主题中的sidebar默认显示所有的subsection，并且在显示对应的页时，高亮相应的section。对此可以作一些自定义。<br>
+<p>sidebar
+Berkeley主题中的sidebar默认显示所有的subsection，并且在显示对应的页时，高亮相应的section。对此可以作一些自定义。
 一般章节较多时，sidebar就很不友好了，显示不全，间距还大，别扭，只是取消显示subsection,一句话搞定</p>
-<div class="highlight"><pre><code class="language-latex" data-lang="latex"><span class="k">\usetheme</span><span class="na">[hideallsubsections]</span><span class="p">{</span>Berkeley<span class="p">}</span>
-</code></pre></div>
+
+<div class="language-latex highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\usetheme</span><span class="na">[hideallsubsections]</span><span class="p">{</span>Berkeley<span class="p">}</span>
+</code></pre></div></div>
 <p>一种更好的sidebar显示方式：</p>
-<div class="highlight"><pre><code class="language-latex" data-lang="latex"><span class="k">\%</span> By default, the current entry of the table of contents in the sidebar will be highlighted by using a more vibrant color.
+
+<div class="language-latex highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\%</span> By default, the current entry of the table of contents in the sidebar will be highlighted by using a more vibrant color.
 <span class="k">\%</span> A good alternative is to highlight the current entry by using a different color for the background of the current point.
 <span class="k">\%</span> The color theme sidebartab installs the appropriate colors
-
+ 
 <span class="k">\usecolortheme</span><span class="p">{</span>sidebartab<span class="p">}</span>
-</code></pre></div>
-<p>图表、算法编号<br>
+</code></pre></div></div>
+<p>图表、算法编号
 beamer仿佛默认是不显示图标标号的默认值是Figure：XXX</p>
-<div class="highlight"><pre><code class="language-latex" data-lang="latex"><span class="k">\%</span> show fig and table number
+
+<div class="language-latex highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\%</span> show fig and table number
 <span class="k">\setbeamertemplate</span><span class="p">{</span>caption<span class="p">}</span>[numbered]
 <span class="k">\%</span> show theorems and example number
 <span class="k">\setbeamertemplate</span><span class="p">{</span>theorems<span class="p">}</span>[numbered]
-</code></pre></div>
-<p>字体大小<br>
+</code></pre></div></div>
+<p>字体大小
 beamer中某人的一些项目字体太大，比如样例example，可以在导言区自定义</p>
-<div class="highlight"><pre><code class="language-latex" data-lang="latex"><span class="k">\setbeamerfont</span><span class="p">{</span>example<span class="p">}{</span>size=<span class="k">\tiny</span><span class="p">}</span>
+
+<div class="language-latex highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\setbeamerfont</span><span class="p">{</span>example<span class="p">}{</span>size=<span class="k">\tiny</span><span class="p">}</span>
 <span class="k">\setbeamerfont</span><span class="p">{</span>algorithm<span class="p">}{</span>size=<span class="k">\scriptsize</span><span class="p">}</span>
 Chaos
-</code></pre></div>
-<p>至于关于动画之类的，其实更多的涉及到的是LATEX的画图，扯起来就太多了，不扯了，直接照着各文档来吧。<br>
+</code></pre></div></div>
+<p>至于关于动画之类的，其实更多的涉及到的是LATEX的画图，扯起来就太多了，不扯了，直接照着各文档来吧。
 一般这些画图包都有各式各样的样例供参考</p>
 
   </section>
@@ -419,7 +438,7 @@ Chaos
    <div class="read-more-item">
        <span class="read-more-item-dim">recent article</span>
        <h2 class="post-list__post-title post-title"><a href="/2019/03/How-to-use-the-server/" title="link to How to use the ubuntu for GPU server">How to use the ubuntu for GPU server</a></h2>
-       <p class="excerpt">窗口操作：创建窗口： screen -S xxx (screen&#39;s name)激活窗口： screen -r xxx (screen&#39;s name)查看窗口序列： screen -ls退出窗口： Ctrl + A + Dkill窗口：- screen -S screenname -X quit- screen -S yourname -&gt; 新建一个叫yourname的session- screen -ls -&gt; 列出当前所有的session- screen -...&hellip;</p>
+       <p class="excerpt">窗口操作：创建窗口： screen -S xxx (screen’s name)激活窗口： screen -r xxx (screen’s name)查看窗口序列： screen -ls退出窗口： Ctrl + A + Dkill窗口：  screen -S screenname -X quit  screen -S yourname -&gt; 新建一个叫yourname的session  screen -ls -&gt; 列出当前所有的session  screen -r yourna...&hellip;</p>
        <div class="post-list__meta"><time datetime="2019-03-12 00:00:00 +0800" class="post-list__meta--date date">2019-03-12</time> &#8226; <span class="post-list__meta--tags tags">computer science ubuntu command blog</span><a class="btn-border-small" href=/2019/03/How-to-use-the-server/>read</a></div>
    </div>
    
@@ -466,7 +485,7 @@ Chaos
             <section class="footer">
     <footer>
     	<span class="footer__copyright">本站点采用<a href="http://creativecommons.org/licenses/by-nc-sa/4.0/">知识共享 署名-非商业性使用-相同方式共享 4.0 国际 许可协议</a></span>
-        <span class="footer__copyright">由 <a href="https://jekyllrb.com">Jekyll</a> 于 2019-04-29 生成，感谢 <a href="https://www.digitalocean.com/?refcode=30ed2d146762">Digital Ocean</a> 为本站提供稳定的 VPS 服务</span>
+        <span class="footer__copyright">由 <a href="https://jekyllrb.com">Jekyll</a> 于 2019-04-30 生成，感谢 <a href="https://www.digitalocean.com/?refcode=30ed2d146762">Digital Ocean</a> 为本站提供稳定的 VPS 服务</span>
         <span class="footer__copyright">本站由 <a href="http://github.com/MizuhaKi">@mizuhaki</a> 创建，采用 <a href="https://github.com/onevcat/vno-jekyll">Vno - Jekyll</a> 作为主题，您可以在 GitHub 找到<a href="https://github.com/onevcat/OneV-s-Den">本站源码</a> - &copy; 2019</span>
     </footer>
 </section>

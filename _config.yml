@@ -11,9 +11,10 @@ permalink: /:year/:month/:title/
 
 # Format
 highlighter: rouge
-markdown: redcarpet   # default kramdown
-redcarpet:
-   extensions: [ "hard_wrap","autolink", "tables", "strikethrough", "superscript", "with_toc_data", "highlight", "prettify","no_intra_emphasis"]
+markdown: kramdown
+# markdown: redcarpet   # default kramdown
+# redcarpet:
+#    extensions: [ "hard_wrap","autolink", "tables", "strikethrough", "superscript", "with_toc_data", "highlight", "prettify","no_intra_emphasis"]
 
 # supported colors: blue, green, purple, red, orange or slate. If you need clear, leave it empty.
 # cover_color: red

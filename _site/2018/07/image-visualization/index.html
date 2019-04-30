@@ -7,16 +7,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
   <title>image visualization</title>
-  <meta name="description" content="a code exampleimport cPickleimport numpy as npimport matplotlib.pyplot as pltfrom matplotlib.patches import Rectangle#from src import api as vgfrom PIL impor...">
+  <meta name="description" content="a code example```pythonimport cPickleimport numpy as npimport matplotlib.pyplot as pltfrom matplotlib.patches import Rectangle#from src import api as vgfrom ...">
   <meta name="author" content="Mizuha Ki">
 
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="image visualization">
-  <meta name="twitter:description" content="a code exampleimport cPickleimport numpy as npimport matplotlib.pyplot as pltfrom matplotlib.patches import Rectangle#from src import api as vgfrom PIL impor...">
+  <meta name="twitter:description" content="a code example```pythonimport cPickleimport numpy as npimport matplotlib.pyplot as pltfrom matplotlib.patches import Rectangle#from src import api as vgfrom ...">
   
   <meta property="og:type" content="article">
   <meta property="og:title" content="image visualization">
-  <meta property="og:description" content="a code exampleimport cPickleimport numpy as npimport matplotlib.pyplot as pltfrom matplotlib.patches import Rectangle#from src import api as vgfrom PIL impor...">
+  <meta property="og:description" content="a code example```pythonimport cPickleimport numpy as npimport matplotlib.pyplot as pltfrom matplotlib.patches import Rectangle#from src import api as vgfrom ...">
   
   <link rel="icon" type="image/png" href="/assets/images/favicon.png" />
   <link href="/assets/images/favicon.png" rel="shortcut icon" type="image/png">
@@ -153,7 +153,7 @@
 
   <section class="post">
     <h2 id="a-code-example">a code example</h2>
-<div class="highlight"><pre><code class="language-python" data-lang="python"><span class="kn">import</span> <span class="nn">cPickle</span>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">cPickle</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="n">np</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="n">plt</span>
 <span class="kn">from</span> <span class="nn">matplotlib.patches</span> <span class="kn">import</span> <span class="n">Rectangle</span>
@@ -171,7 +171,7 @@
         <span class="n">line</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
         <span class="n">obj</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">line</span><span class="p">)</span>
     <span class="n">fin</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
-
+    
 <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s">'C:/Users/Administrator/Desktop/python/rel.txt'</span><span class="p">,</span> <span class="s">'r'</span><span class="p">)</span> <span class="k">as</span> <span class="n">fin</span><span class="p">:</span>
     <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">fin</span><span class="o">.</span><span class="n">readlines</span><span class="p">():</span>
         <span class="n">line</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
@@ -222,7 +222,7 @@
             <span class="n">ax</span><span class="o">.</span><span class="n">add_patch</span><span class="p">(</span><span class="n">Rectangle</span><span class="p">((</span><span class="n">box</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">box</span><span class="p">[</span><span class="mi">1</span><span class="p">]),</span> <span class="n">box</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">-</span> <span class="n">box</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">box</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="o">-</span> <span class="n">box</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">fill</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span> <span class="n">edgecolor</span><span class="o">=</span><span class="s">'yellow'</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">7</span><span class="p">))</span>
         <span class="n">phrase</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">cla</span><span class="p">)</span>
         <span class="n">ax</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="n">box</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">box</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">phrase</span><span class="p">,</span> <span class="n">style</span><span class="o">=</span><span class="s">'italic'</span><span class="p">,</span> <span class="n">bbox</span><span class="o">=</span><span class="p">{</span><span class="s">'facecolor'</span><span class="p">:</span><span class="s">'white'</span><span class="p">,</span> <span class="s">'alpha'</span><span class="p">:</span> <span class="mf">0.7</span><span class="p">,</span> <span class="s">'pad'</span><span class="p">:</span> <span class="mi">1</span><span class="p">},</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">24</span><span class="p">)</span>
-
+    
     <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">ix1</span><span class="p">)):</span>
         <span class="k">if</span> <span class="n">i</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
             <span class="n">phrase</span> <span class="o">=</span> <span class="n">ix1</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="n">ix2</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="n">rel_classes</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
@@ -235,9 +235,10 @@
     <span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s">'giraffe.png'</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 
-
+    
 <span class="n">visualize_regions</span><span class="p">(</span><span class="n">img_path</span><span class="p">,</span> <span class="n">boxs</span><span class="p">,</span> <span class="n">classes</span><span class="p">,</span> <span class="n">ix1</span><span class="p">,</span> <span class="n">ix2</span><span class="p">,</span> <span class="n">rel_classes</span><span class="p">,</span> <span class="n">obj</span> <span class="o">=</span> <span class="n">obj</span><span class="p">,</span> <span class="n">rel</span> <span class="o">=</span> <span class="n">rel</span><span class="p">)</span>    
-</code></pre></div>
+</code></pre></div></div>
+
   </section>
 </article>
 
@@ -247,7 +248,7 @@
    <div class="read-more-item">
        <span class="read-more-item-dim">recent article</span>
        <h2 class="post-list__post-title post-title"><a href="/2018/07/jupyter-notebook-for-docker-on-server/" title="link to Jupyter Notebook In Docker for Server">Jupyter Notebook In Docker for Server</a></h2>
-       <p class="excerpt">生成jupyter配置文件，这个会生成配置文件.~/.jupyter/jupyter_notebook_config.pyjupyter notebook --allow-root --generate-config使用ipython生成密码In [1]: from notebook.auth import passwdIn [2]: passwd()Enter password: Verify password: Out[2]: &#39;sha1:XXX&#39;去配置文件.~/.ju...&hellip;</p>
+       <p class="excerpt">生成jupyter配置文件，这个会生成配置文件.~/.jupyter/jupyter_notebook_config.pyjupyter notebook –allow-root –generate-config使用ipython生成密码In [1]: from notebook.auth import passwdIn [2]: passwd()Enter password: Verify password: Out[2]: ‘sha1:XXX’去配置文件.~/.jupyter/jupy...&hellip;</p>
        <div class="post-list__meta"><time datetime="2018-07-20 00:00:00 +0800" class="post-list__meta--date date">2018-07-20</time> &#8226; <span class="post-list__meta--tags tags">computer science deep learning jupyter notebook blog</span><a class="btn-border-small" href=/2018/07/jupyter-notebook-for-docker-on-server/>read</a></div>
    </div>
    
@@ -294,7 +295,7 @@
             <section class="footer">
     <footer>
     	<span class="footer__copyright">本站点采用<a href="http://creativecommons.org/licenses/by-nc-sa/4.0/">知识共享 署名-非商业性使用-相同方式共享 4.0 国际 许可协议</a></span>
-        <span class="footer__copyright">由 <a href="https://jekyllrb.com">Jekyll</a> 于 2019-04-29 生成，感谢 <a href="https://www.digitalocean.com/?refcode=30ed2d146762">Digital Ocean</a> 为本站提供稳定的 VPS 服务</span>
+        <span class="footer__copyright">由 <a href="https://jekyllrb.com">Jekyll</a> 于 2019-04-30 生成，感谢 <a href="https://www.digitalocean.com/?refcode=30ed2d146762">Digital Ocean</a> 为本站提供稳定的 VPS 服务</span>
         <span class="footer__copyright">本站由 <a href="http://github.com/MizuhaKi">@mizuhaki</a> 创建，采用 <a href="https://github.com/onevcat/vno-jekyll">Vno - Jekyll</a> 作为主题，您可以在 GitHub 找到<a href="https://github.com/onevcat/OneV-s-Den">本站源码</a> - &copy; 2019</span>
     </footer>
 </section>

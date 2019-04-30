@@ -7,16 +7,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
   <title>read .PFM images</title>
-  <meta name="description" content="matlab codefunction D = pfmread(filename_pfm)fid = fopen(filename_pfm);fscanf(fid,'%c',[1,3]);cols = fscanf(fid,'%f',1);rows = fscanf(fid,'%f',1);fscanf(fid,...">
+  <meta name="description" content="matlab codefunction D = pfmread(filename_pfm) fid = fopen(filename_pfm); fscanf(fid,'%c',[1,3]);cols = fscanf(fid,'%f',1);rows = fscanf(fid,'%f',1);fscanf(fi...">
   <meta name="author" content="Mizuha Ki">
 
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="read .PFM images">
-  <meta name="twitter:description" content="matlab codefunction D = pfmread(filename_pfm)fid = fopen(filename_pfm);fscanf(fid,'%c',[1,3]);cols = fscanf(fid,'%f',1);rows = fscanf(fid,'%f',1);fscanf(fid,...">
+  <meta name="twitter:description" content="matlab codefunction D = pfmread(filename_pfm) fid = fopen(filename_pfm); fscanf(fid,'%c',[1,3]);cols = fscanf(fid,'%f',1);rows = fscanf(fid,'%f',1);fscanf(fi...">
   
   <meta property="og:type" content="article">
   <meta property="og:title" content="read .PFM images">
-  <meta property="og:description" content="matlab codefunction D = pfmread(filename_pfm)fid = fopen(filename_pfm);fscanf(fid,'%c',[1,3]);cols = fscanf(fid,'%f',1);rows = fscanf(fid,'%f',1);fscanf(fid,...">
+  <meta property="og:description" content="matlab codefunction D = pfmread(filename_pfm) fid = fopen(filename_pfm); fscanf(fid,'%c',[1,3]);cols = fscanf(fid,'%f',1);rows = fscanf(fid,'%f',1);fscanf(fi...">
   
   <link rel="icon" type="image/png" href="/assets/images/favicon.png" />
   <link href="/assets/images/favicon.png" rel="shortcut icon" type="image/png">
@@ -153,10 +153,10 @@
 
   <section class="post">
     <h2 id="matlab-code">matlab code</h2>
-<div class="highlight"><pre><code class="language-matlab" data-lang="matlab"><span class="k">function</span> <span class="n">D</span> <span class="o">=</span> <span class="n">pfmread</span><span class="p">(</span><span class="n">filename_pfm</span><span class="p">)</span>
-
+<div class="language-matlab highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">function</span> <span class="n">D</span> <span class="o">=</span> <span class="n">pfmread</span><span class="p">(</span><span class="n">filename_pfm</span><span class="p">)</span>
+ 
 <span class="n">fid</span> <span class="o">=</span> <span class="nb">fopen</span><span class="p">(</span><span class="n">filename_pfm</span><span class="p">);</span>
-
+ 
 <span class="nb">fscanf</span><span class="p">(</span><span class="n">fid</span><span class="p">,</span><span class="s1">'%c'</span><span class="p">,[</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">]);</span>
 <span class="n">cols</span> <span class="o">=</span> <span class="nb">fscanf</span><span class="p">(</span><span class="n">fid</span><span class="p">,</span><span class="s1">'%f'</span><span class="p">,</span><span class="mi">1</span><span class="p">);</span>
 <span class="n">rows</span> <span class="o">=</span> <span class="nb">fscanf</span><span class="p">(</span><span class="n">fid</span><span class="p">,</span><span class="s1">'%f'</span><span class="p">,</span><span class="mi">1</span><span class="p">);</span>
@@ -166,42 +166,42 @@
 <span class="n">D</span><span class="p">(</span><span class="n">D</span> <span class="o">==</span> <span class="n">Inf</span><span class="p">)</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
 <span class="n">D</span> <span class="o">=</span> <span class="nb">rot90</span><span class="p">(</span><span class="n">D</span><span class="p">);</span>
 <span class="nb">fclose</span><span class="p">(</span><span class="n">fid</span><span class="p">);</span>
-
+ 
 <span class="k">function</span> <span class="n">pfmwrite</span><span class="p">(</span><span class="n">D</span><span class="p">,</span> <span class="n">filename</span><span class="p">)</span>
 <span class="c1">% assert(size(D, 3) == 1 &amp; (isa(D, 'single') ));</span>
-
+ 
 <span class="p">[</span><span class="n">rows</span><span class="p">,</span> <span class="n">cols</span><span class="p">]</span> <span class="o">=</span> <span class="nb">size</span><span class="p">(</span><span class="n">D</span><span class="p">);</span>
 <span class="n">scale</span> <span class="o">=</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">/</span> <span class="nb">max</span><span class="p">(</span><span class="nb">max</span><span class="p">(</span><span class="n">D</span><span class="p">));</span>
 <span class="n">fid</span> <span class="o">=</span> <span class="nb">fopen</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="s1">'wb'</span><span class="p">);</span>
-
+ 
 <span class="nb">fprintf</span><span class="p">(</span><span class="n">fid</span><span class="p">,</span> <span class="s1">'Pf\n'</span><span class="p">);</span>
 <span class="nb">fprintf</span><span class="p">(</span><span class="n">fid</span><span class="p">,</span> <span class="s1">'%d %d\n'</span><span class="p">,</span> <span class="n">cols</span><span class="p">,</span> <span class="n">rows</span><span class="p">);</span>
 <span class="nb">fprintf</span><span class="p">(</span><span class="n">fid</span><span class="p">,</span> <span class="s1">'%f\n'</span><span class="p">,</span> <span class="n">scale</span><span class="p">);</span>
 <span class="c1">%fscanf(fid, '%c', 1);</span>
-
+ 
 <span class="nb">fwrite</span><span class="p">(</span><span class="n">fid</span><span class="p">,</span> <span class="n">D</span><span class="p">(</span><span class="k">end</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span> <span class="p">:)</span><span class="s1">', '</span><span class="nb">single</span><span class="o">'</span><span class="p">);</span>
 <span class="nb">fclose</span><span class="p">(</span><span class="n">fid</span><span class="p">);</span>
 <span class="k">end</span>
-</code></pre></div>
-<h2 id="description">description</h2>
+</code></pre></div></div>
 
+<h2 id="description">description</h2>
 <p>关于pfm格式，从来没有官方权威的定义，但是常常在一些场合用到，如生物医学成像，红外成像等，尤其是其浮点方式的存储的位图使得其在科研和学习场合应用都很方便，Middlebury数据库中的视差图像就是以pfm格式进行存储的。</p>
 
-<h2 id="pmf">PMF格式</h2>
-
+<h2 id="pmf格式">PMF格式</h2>
 <p>PMF格式主要有两部分组成：头、元数据。</p>
 
-<p>头有三行：<br>
-第一行，标识灰度、彩色的头，PF代表彩色三通道，Pf代表灰度单通道。<br>
-第二行，标识图像大大小，行-列。<br>
+<p>头有三行：
+第一行，标识灰度、彩色的头，PF代表彩色三通道，Pf代表灰度单通道。
+第二行，标识图像大大小，行-列。
 第三行，标识数，正数标识大端存储，负数标识小端存储，其绝对值为scale。</p>
 
-<p>元数据：<br>
+<p>元数据：
 就是紧密排列的浮点数，每个四字节，总体来数，就是和bmp位图很像。</p>
 
-<h2 id="pmf">PMF格式文件的查看</h2>
+<h2 id="pmf格式文件的查看">PMF格式文件的查看</h2>
 
 <p>        推荐一款工具cvkit，非常好用，还可以直接处理Middleburry双目图像生成立体图</p>
+
 
   </section>
 </article>
@@ -212,7 +212,7 @@
    <div class="read-more-item">
        <span class="read-more-item-dim">recent article</span>
        <h2 class="post-list__post-title post-title"><a href="/2018/07/software-on-windows/" title="link to frequent software on windows">frequent software on windows</a></h2>
-       <p class="excerpt">softwareAutoHotKey: 神器！神器！神器！当然也得看使用者咯(__) 嘻嘻……详情请参看：Win下最爱效率神器:AutoHotKey。Listary： 本地搜索神器，当然还有别的作用，More&amp;More。Launchy : 快速启动安装的应用程序，老而弥坚，有丝Mac下Spotlight之风；Wox ： Windows下一款最接近 Alfred 的软件启动/文件搜索利器；可参见Listary Everything Wox Launch。Chrome: Web世界里的...&hellip;</p>
+       <p class="excerpt">software  AutoHotKey: 神器！神器！神器！当然也得看使用者咯(^__^) 嘻嘻……详情请参看：Win下最爱效率神器:AutoHotKey。  Listary： 本地搜索神器，当然还有别的作用，More&amp;More。  Launchy : 快速启动安装的应用程序，老而弥坚，有丝Mac下Spotlight之风；  Wox ： Windows下一款最接近 Alfred 的软件启动/文件搜索利器；可参见Listary Everything Wox Launch。  Chr...&hellip;</p>
        <div class="post-list__meta"><time datetime="2018-07-20 00:00:00 +0800" class="post-list__meta--date date">2018-07-20</time> &#8226; <span class="post-list__meta--tags tags">computer science tool software</span><a class="btn-border-small" href=/2018/07/software-on-windows/>read</a></div>
    </div>
    
@@ -222,7 +222,7 @@
    <div class="read-more-item">
        <span class="read-more-item-dim">previous article</span>
        <h2 class="post-list__post-title post-title"><a href="/2018/07/jupyter-notebook-for-docker-on-server/" title="link to Jupyter Notebook In Docker for Server">Jupyter Notebook In Docker for Server</a></h2>
-       <p class="excerpt">生成jupyter配置文件，这个会生成配置文件.~/.jupyter/jupyter_notebook_config.pyjupyter notebook --allow-root --generate-config使用ipython生成密码In [1]: from notebook.auth import passwdIn [2]: passwd()Enter password: Verify password: Out[2]: &#39;sha1:XXX&#39;去配置文件.~/.ju...&hellip;</p>
+       <p class="excerpt">生成jupyter配置文件，这个会生成配置文件.~/.jupyter/jupyter_notebook_config.pyjupyter notebook –allow-root –generate-config使用ipython生成密码In [1]: from notebook.auth import passwdIn [2]: passwd()Enter password: Verify password: Out[2]: ‘sha1:XXX’去配置文件.~/.jupyter/jupy...&hellip;</p>
        <div class="post-list__meta"><time datetime="2018-07-20 00:00:00 +0800" class="post-list__meta--date date">2018-07-20</time> &#8226; <span class="post-list__meta--tags tags">computer science deep learning jupyter notebook blog</span><a class="btn-border-small" href=/2018/07/jupyter-notebook-for-docker-on-server/>read</a></div>
    </div>
    
@@ -259,7 +259,7 @@
             <section class="footer">
     <footer>
     	<span class="footer__copyright">本站点采用<a href="http://creativecommons.org/licenses/by-nc-sa/4.0/">知识共享 署名-非商业性使用-相同方式共享 4.0 国际 许可协议</a></span>
-        <span class="footer__copyright">由 <a href="https://jekyllrb.com">Jekyll</a> 于 2019-04-29 生成，感谢 <a href="https://www.digitalocean.com/?refcode=30ed2d146762">Digital Ocean</a> 为本站提供稳定的 VPS 服务</span>
+        <span class="footer__copyright">由 <a href="https://jekyllrb.com">Jekyll</a> 于 2019-04-30 生成，感谢 <a href="https://www.digitalocean.com/?refcode=30ed2d146762">Digital Ocean</a> 为本站提供稳定的 VPS 服务</span>
         <span class="footer__copyright">本站由 <a href="http://github.com/MizuhaKi">@mizuhaki</a> 创建，采用 <a href="https://github.com/onevcat/vno-jekyll">Vno - Jekyll</a> 作为主题，您可以在 GitHub 找到<a href="https://github.com/onevcat/OneV-s-Den">本站源码</a> - &copy; 2019</span>
     </footer>
 </section>

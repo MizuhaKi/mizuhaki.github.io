@@ -5,20 +5,18 @@
     <description>To be or not to be, that is a question.</description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Mon, 29 Apr 2019 20:57:53 +0800</pubDate>
-    <lastBuildDate>Mon, 29 Apr 2019 20:57:53 +0800</lastBuildDate>
+    <pubDate>Tue, 30 Apr 2019 21:23:19 +0800</pubDate>
+    <lastBuildDate>Tue, 30 Apr 2019 21:23:19 +0800</lastBuildDate>
     <generator>Jekyll v3.8.5</generator>
     
       <item>
         <title>open for Python</title>
-        <description>&lt;h2 id=&quot;python-open&quot;&gt;Python open() 函数&lt;/h2&gt;
-
+        <description>&lt;h2 id=&quot;python-open-函数&quot;&gt;Python open() 函数&lt;/h2&gt;
 &lt;p&gt;python open()函数用于打开一个文件，创建一个 file 对象，相关的方法才可以调用它进行读写。&lt;/p&gt;
 
 &lt;p&gt;更多文件操作可参考：&lt;a href=&quot;https://www.runoob.com/python/python-files-io.html&quot;&gt;Python 文件I/O&lt;/a&gt;。&lt;/p&gt;
 
 &lt;h2 id=&quot;function-grammar&quot;&gt;function grammar&lt;/h2&gt;
-
 &lt;p&gt;&lt;strong&gt;&lt;em&gt;open(name[, mode[, buffering]])&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
 
 &lt;p&gt;name: 一个包含了你要访问的文件名称的字符串值。&lt;/p&gt;
@@ -27,67 +25,69 @@
 
 &lt;p&gt;buffering: 如果 buffering 的值被设为 0，就不会有寄存。如果 buffering 的值取 1，访问文件时会寄存行。如果将 buffering 的值设为大于 1 的整数，表明了这就是的寄存区的缓冲大小。如果取负值，寄存区的缓冲大小则为系统默认。&lt;/p&gt;
 
-&lt;h2 id=&quot;part-bea03d99&quot;&gt;不同模式打开文件的完全列表：&lt;/h2&gt;
+&lt;h2 id=&quot;不同模式打开文件的完全列表&quot;&gt;不同模式打开文件的完全列表：&lt;/h2&gt;
 
-&lt;table&gt;&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;模式&lt;/th&gt;
-&lt;th&gt;描述&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;r&lt;/td&gt;
-&lt;td&gt;以只读方式打开文件。文件的指针将会放在文件的开头。这是默认模式。&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;rb&lt;/td&gt;
-&lt;td&gt;以二进制格式打开一个文件用于只读。文件指针将会放在文件的开头。这是默认模式。&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;r+&lt;/td&gt;
-&lt;td&gt;打开一个文件用于读写。文件指针将会放在文件的开头。&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;rb+&lt;/td&gt;
-&lt;td&gt;以二进制格式打开一个文件用于读写。文件指针将会放在文件的开头。&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;w&lt;/td&gt;
-&lt;td&gt;打开一个文件只用于写入。如果该文件已存在则打开文件，并从开头开始编辑，即原有内容会被删除。如果该文件不存在，创建新文件。&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;wb&lt;/td&gt;
-&lt;td&gt;以二进制格式打开一个文件只用于写入。如果该文件已存在则打开文件，并从开头开始编辑，即原有内容会被删除。如果该文件不存在，创建新文件。&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;w+&lt;/td&gt;
-&lt;td&gt;打开一个文件用于读写。如果该文件已存在则打开文件，并从开头开始编辑，即原有内容会被删除。如果该文件不存在，创建新文件。&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;wb+&lt;/td&gt;
-&lt;td&gt;以二进制格式打开一个文件用于读写。如果该文件已存在则打开文件，并从开头开始编辑，即原有内容会被删除。如果该文件不存在，创建新文件。&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;a&lt;/td&gt;
-&lt;td&gt;打开一个文件用于追加。如果该文件已存在，文件指针将会放在文件的结尾。也就是说，新的内容将会被写入到已有内容之后。如果该文件不存在，创建新文件进行写入。&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;ab&lt;/td&gt;
-&lt;td&gt;以二进制格式打开一个文件用于追加。如果该文件已存在，文件指针将会放在文件的结尾。也就是说，新的内容将会被写入到已有内容之后。如果该文件不存在，创建新文件进行写入。&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;a+&lt;/td&gt;
-&lt;td&gt;打开一个文件用于读写。如果该文件已存在，文件指针将会放在文件的结尾。文件打开时会是追加模式。如果该文件不存在，创建新文件用于读写。&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;ab+&lt;/td&gt;
-&lt;td&gt;以二进制格式打开一个文件用于追加。如果该文件已存在，文件指针将会放在文件的结尾。如果该文件不存在，创建新文件用于读写。&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;&lt;/table&gt;
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;模式&lt;/th&gt;
+      &lt;th&gt;描述&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;r&lt;/td&gt;
+      &lt;td&gt;以只读方式打开文件。文件的指针将会放在文件的开头。这是默认模式。&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;rb&lt;/td&gt;
+      &lt;td&gt;以二进制格式打开一个文件用于只读。文件指针将会放在文件的开头。这是默认模式。&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;r+&lt;/td&gt;
+      &lt;td&gt;打开一个文件用于读写。文件指针将会放在文件的开头。&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;rb+&lt;/td&gt;
+      &lt;td&gt;以二进制格式打开一个文件用于读写。文件指针将会放在文件的开头。&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;w&lt;/td&gt;
+      &lt;td&gt;打开一个文件只用于写入。如果该文件已存在则打开文件，并从开头开始编辑，即原有内容会被删除。如果该文件不存在，创建新文件。&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;wb&lt;/td&gt;
+      &lt;td&gt;以二进制格式打开一个文件只用于写入。如果该文件已存在则打开文件，并从开头开始编辑，即原有内容会被删除。如果该文件不存在，创建新文件。&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;w+&lt;/td&gt;
+      &lt;td&gt;打开一个文件用于读写。如果该文件已存在则打开文件，并从开头开始编辑，即原有内容会被删除。如果该文件不存在，创建新文件。&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;wb+&lt;/td&gt;
+      &lt;td&gt;以二进制格式打开一个文件用于读写。如果该文件已存在则打开文件，并从开头开始编辑，即原有内容会被删除。如果该文件不存在，创建新文件。&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;a&lt;/td&gt;
+      &lt;td&gt;打开一个文件用于追加。如果该文件已存在，文件指针将会放在文件的结尾。也就是说，新的内容将会被写入到已有内容之后。如果该文件不存在，创建新文件进行写入。&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;ab&lt;/td&gt;
+      &lt;td&gt;以二进制格式打开一个文件用于追加。如果该文件已存在，文件指针将会放在文件的结尾。也就是说，新的内容将会被写入到已有内容之后。如果该文件不存在，创建新文件进行写入。&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;a+&lt;/td&gt;
+      &lt;td&gt;打开一个文件用于读写。如果该文件已存在，文件指针将会放在文件的结尾。文件打开时会是追加模式。如果该文件不存在，创建新文件用于读写。&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;ab+&lt;/td&gt;
+      &lt;td&gt;以二进制格式打开一个文件用于追加。如果该文件已存在，文件指针将会放在文件的结尾。如果该文件不存在，创建新文件用于读写。&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
 
-&lt;h2 id=&quot;file&quot;&gt;file 对象方法&lt;/h2&gt;
-
-&lt;p&gt;file.read([size])：size 未指定则返回整个文件，如果文件大小 &amp;gt;2 倍内存则有问题，f.read()读到文件尾时返回&amp;quot;&amp;quot;(空字串)。&lt;/p&gt;
+&lt;h2 id=&quot;file-对象方法&quot;&gt;file 对象方法&lt;/h2&gt;
+&lt;p&gt;file.read([size])：size 未指定则返回整个文件，如果文件大小 &amp;gt;2 倍内存则有问题，f.read()读到文件尾时返回”“(空字串)。&lt;/p&gt;
 
 &lt;p&gt;file.readline()：返回一行。&lt;/p&gt;
 
@@ -95,7 +95,7 @@
 
 &lt;p&gt;for line in f: print line ：通过迭代器访问。&lt;/p&gt;
 
-&lt;p&gt;f.write(&amp;quot;hello\n&amp;quot;)：如果要写入字符串以外的数据,先将他转换为字符串。&lt;/p&gt;
+&lt;p&gt;f.write(“hello\n”)：如果要写入字符串以外的数据,先将他转换为字符串。&lt;/p&gt;
 
 &lt;p&gt;f.tell()：返回一个整数,表示当前文件指针的位置(就是到文件头的比特数)。&lt;/p&gt;
 
@@ -131,26 +131,24 @@
       <item>
         <title>SwitchyOmega + SS</title>
         <description>&lt;h2 id=&quot;a-tool-script-for&quot;&gt;a tool script for&lt;/h2&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://shadowsocks.org&quot;&gt;ShadowSocks&lt;/a&gt;&lt;br&gt;
+&lt;p&gt;&lt;a href=&quot;https://shadowsocks.org&quot;&gt;ShadowSocks&lt;/a&gt;
 A secure socks5 proxy, designed to protect your Internet traffic. Support Windows, Mac OS X, Linux, Android, IOS.&lt;/p&gt;
 
 &lt;h2 id=&quot;switchyomega&quot;&gt;&lt;a href=&quot;https://chrome.google.com/webstore/detail/proxy-switchyomega/padekgcemlokbadohgkifijomclgjgif?hl=en&quot;&gt;SwitchyOmega&lt;/a&gt;&lt;/h2&gt;
-
-&lt;p&gt;Manage and switch between multiple proxies quickly &amp;amp; easily. Changing proxy settings has never been so convenient. Think SwitchyOmega as a modern version of the &amp;quot;Proxy Settings&amp;quot; dialog, designed to be simpler, quicker and more powerful, specially optimized for Chrome.&lt;/p&gt;
+&lt;p&gt;Manage and switch between multiple proxies quickly &amp;amp; easily. Changing proxy settings has never been so convenient. Think SwitchyOmega as a modern version of the “Proxy Settings” dialog, designed to be simpler, quicker and more powerful, specially optimized for Chrome.&lt;/p&gt;
 
 &lt;h2 id=&quot;how-to-use-switchyomega&quot;&gt;How to use SwitchyOmega&lt;/h2&gt;
-
 &lt;ul&gt;
-&lt;li&gt;new profile
-&lt;img src=&quot;https://img-blog.csdnimg.cn/20190329153628475.png&quot; alt=&quot;在这里插入图片描述&quot;&gt;&lt;/li&gt;
-&lt;li&gt;profile name and type of profile (&lt;strong&gt;recommend switch profile&lt;/strong&gt;)
-&lt;img src=&quot;https://img-blog.csdnimg.cn/20190329153720887.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2NzZG5KZW5ueQ==,size_16,color_FFFFFF,t_70&quot; alt=&quot;在这里插入图片描述&quot;&gt;&lt;/li&gt;
-&lt;li&gt;proxy servers
-&lt;img src=&quot;https://img-blog.csdnimg.cn/20190329153755266.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2NzZG5KZW5ueQ==,size_16,color_FFFFFF,t_70&quot; alt=&quot;在这里插入图片描述&quot;&gt;&lt;/li&gt;
-&lt;li&gt;auto switch rule url: &lt;a href=&quot;https://raw.githubusercontent.com/gfwlist/gfwlist/master/gfwlist.txt&quot;&gt;https://raw.githubusercontent.com/gfwlist/gfwlist/master/gfwlist.txt&lt;/a&gt;
-&lt;img src=&quot;https://img-blog.csdnimg.cn/20190329153815833.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2NzZG5KZW5ueQ==,size_16,color_FFFFFF,t_70&quot; alt=&quot;在这里插入图片描述&quot;&gt;&lt;/li&gt;
+  &lt;li&gt;new profile
+&lt;img src=&quot;https://img-blog.csdnimg.cn/20190329153628475.png&quot; alt=&quot;在这里插入图片描述&quot; /&gt;&lt;/li&gt;
+  &lt;li&gt;profile name and type of profile (&lt;strong&gt;recommend switch profile&lt;/strong&gt;)
+&lt;img src=&quot;https://img-blog.csdnimg.cn/20190329153720887.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2NzZG5KZW5ueQ==,size_16,color_FFFFFF,t_70&quot; alt=&quot;在这里插入图片描述&quot; /&gt;&lt;/li&gt;
+  &lt;li&gt;proxy servers
+&lt;img src=&quot;https://img-blog.csdnimg.cn/20190329153755266.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2NzZG5KZW5ueQ==,size_16,color_FFFFFF,t_70&quot; alt=&quot;在这里插入图片描述&quot; /&gt;&lt;/li&gt;
+  &lt;li&gt;auto switch rule url: https://raw.githubusercontent.com/gfwlist/gfwlist/master/gfwlist.txt
+&lt;img src=&quot;https://img-blog.csdnimg.cn/20190329153815833.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2NzZG5KZW5ueQ==,size_16,color_FFFFFF,t_70&quot; alt=&quot;在这里插入图片描述&quot; /&gt;&lt;/li&gt;
 &lt;/ul&gt;
+
 </description>
         <pubDate>Mon, 22 Apr 2019 00:00:00 +0800</pubDate>
         <link>http://localhost:4000/2019/04/switchyomega-ss/</link>
@@ -176,39 +174,35 @@ A secure socks5 proxy, designed to protect your Internet traffic. Support Window
       <item>
         <title>docker command</title>
         <description>&lt;h2 id=&quot;images-import-and-export&quot;&gt;images import and export&lt;/h2&gt;
-
 &lt;ul&gt;
-&lt;li&gt;sudo docker images&lt;/li&gt;
-&lt;li&gt;sudo docker save -o **.tar image_name&lt;/li&gt;
-&lt;li&gt;sudo docker load --input **.tar&lt;/li&gt;
+  &lt;li&gt;sudo docker images&lt;/li&gt;
+  &lt;li&gt;sudo docker save -o **.tar image_name&lt;/li&gt;
+  &lt;li&gt;sudo docker load –input **.tar&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h2 id=&quot;new-docker&quot;&gt;new docker&lt;/h2&gt;
-
 &lt;ul&gt;
-&lt;li&gt;sudo docker images&lt;/li&gt;
-&lt;li&gt;sudo docker run ....&lt;/li&gt;
+  &lt;li&gt;sudo docker images&lt;/li&gt;
+  &lt;li&gt;sudo docker run ….&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h2 id=&quot;enter-container&quot;&gt;enter container&lt;/h2&gt;
-
 &lt;ul&gt;
-&lt;li&gt;docker exec -ti container_name bash (recommend)&lt;/li&gt;
-&lt;li&gt;docker attach container_name &lt;/li&gt;
+  &lt;li&gt;docker exec -ti container_name bash (recommend)&lt;/li&gt;
+  &lt;li&gt;docker attach container_name&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h2 id=&quot;frequent-command&quot;&gt;frequent command&lt;/h2&gt;
-
 &lt;ul&gt;
-&lt;li&gt;docker images&lt;/li&gt;
-&lt;li&gt;docker ps -a&lt;/li&gt;
-&lt;li&gt;docker tag image_id image_name&lt;/li&gt;
-&lt;li&gt;docker rmi image_name&lt;/li&gt;
-&lt;li&gt;docker container rm&lt;/li&gt;
-&lt;li&gt;docker container kill&lt;/li&gt;
-&lt;li&gt;docker container start&lt;/li&gt;
-&lt;li&gt;docker container stop&lt;/li&gt;
-&lt;li&gt;docker container rename&lt;/li&gt;
+  &lt;li&gt;docker images&lt;/li&gt;
+  &lt;li&gt;docker ps -a&lt;/li&gt;
+  &lt;li&gt;docker tag image_id image_name&lt;/li&gt;
+  &lt;li&gt;docker rmi image_name&lt;/li&gt;
+  &lt;li&gt;docker container rm&lt;/li&gt;
+  &lt;li&gt;docker container kill&lt;/li&gt;
+  &lt;li&gt;docker container start&lt;/li&gt;
+  &lt;li&gt;docker container stop&lt;/li&gt;
+  &lt;li&gt;docker container rename&lt;/li&gt;
 &lt;/ul&gt;
 </description>
         <pubDate>Thu, 18 Apr 2019 00:00:00 +0800</pubDate>
@@ -235,7 +229,7 @@ A secure socks5 proxy, designed to protect your Internet traffic. Support Window
       <item>
         <title>embedding representation visualization</title>
         <description>&lt;h2 id=&quot;a-code-example&quot;&gt;a code example&lt;/h2&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt;&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;numpy&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;as&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;np&lt;/span&gt;
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;numpy&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;as&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;np&lt;/span&gt;
 &lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;sklearn.manifold&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;TSNE&lt;/span&gt;
 &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;matplotlib.pyplot&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;as&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;plt&lt;/span&gt;
 
@@ -265,7 +259,8 @@ A secure socks5 proxy, designed to protect your Internet traffic. Support Window
 &lt;span class=&quot;n&quot;&gt;plt&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ylabel&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'dim 2'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
 
 &lt;span class=&quot;n&quot;&gt;plt&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;savefig&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'word_embedding.jpg'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+</description>
         <pubDate>Thu, 18 Apr 2019 00:00:00 +0800</pubDate>
         <link>http://localhost:4000/2019/04/embedding-representation-visualization/</link>
         <guid isPermaLink="true">http://localhost:4000/2019/04/embedding-representation-visualization/</guid>
@@ -290,160 +285,41 @@ A secure socks5 proxy, designed to protect your Internet traffic. Support Window
       <item>
         <title>git commands</title>
         <description>&lt;h2 id=&quot;basic-git-commands&quot;&gt;Basic Git commands&lt;/h2&gt;
-
-&lt;p&gt;Here is a list of some basic Git commands to get you going with Git.&lt;br&gt;
+&lt;p&gt;Here is a list of some basic Git commands to get you going with Git.
 For more detail, check out the  &lt;a href=&quot;https://www.atlassian.com/git&quot;&gt;Atlassian Git Tutorials&lt;/a&gt;  for a visual introduction to Git commands and workflows, including examples.&lt;/p&gt;
 
 &lt;h2 id=&quot;commands&quot;&gt;commands&lt;/h2&gt;
+&lt;p&gt;Git task | Notes | Git commands |
+:–: |:–: |:–: 
+Tell Git who you are | Configure the author name and email address to be used with your commits.  &lt;br /&gt;Note that Git strips some characters (for example trailing periods) from user.name | git config –global user.name “Sam Smith”   &lt;br /&gt;git config –global user.email sam@example.com
+Create a new local repository | | git init
+Check out a repository | Create a working copy of a local repository: | git clone /path/to/repository
+| | For a remote server, use: | git clone username@host:/path/to/repository
+Add files | Add one or more files to staging (index): | git add  ‘filename’ &lt;br /&gt;git add *
+Commit | Commit changes to head (but not yet to the remote repository): | git commit -m ‘Commit message’
+| | Commit any files you’ve added with git add, and also commit any files you’ve changed since then: | git commit -a
+Push | Send changes to the master branch of your remote repository: | git push origin master
+Status	| List the files you’ve changed and those you still need to add or commit:	| git status
+Connect to a remote repository	| If you haven’t connected your local repository to a remote server, add the server to be able to push to it:	| git remote add origin ‘server’
+| | List all currently configured remote repositories: | git remote -v
+Branches | Create a new branch and switch to it: | git checkout -b ‘branchname’
+| | Switch from one branch to another: | git checkout ‘branchname’
+| | List all the branches in your repo, and also tell you what branch you’re currently in:	| git branch
+| | Delete the feature branch: | git branch -d ‘branchname’
+| | Push the branch to your remote repository, so others can use it: | git push origin ‘branchname’
+| | Push all branches to your remote repository:	| git push –all origin
+| | Delete a branch on your remote repository: | git push origin: ‘branchname’
+Update from the remote repository	| Fetch and merge changes on the remote server to your working directory:	| git pull
+| | To merge a different branch into your active branch:	| git merge ‘branchname’
+| | View all the merge conflicts: &lt;br /&gt;View the conflicts against the base file: &lt;br /&gt;Preview changes, before merging: | git diff &lt;br /&gt;git diff –base ‘filename’ &lt;br /&gt;git diff ‘sourcebranch’ ‘targetbranch’
+| | After you have manually resolved any conflicts, you mark the changed file: | git add ‘filename’
+Tags | You can use tagging to mark a significant changeset, such as a release: | git tag 1.0.0 ‘commitID’
+| | CommitId is the leading characters of the changeset ID, up to 10, but must be unique. Get the ID using: | git log
+| | Push all tags to remote repository:	| git push –tags origin
+Undo local changes | If you mess up, you can replace the changes in your working tree with the last content in head: Changes already added to the index, as well as new files, will be kept. | git checkout – ‘filename’
+| | Instead, to drop all your local changes and commits, fetch the latest history from the server and point your local master branch at it, do this: | git fetch origin &lt;br /&gt;git reset –hard origin/master
+Search	| Search the working directory for foo(): | git grep “foo()”&lt;/p&gt;
 
-&lt;table&gt;&lt;thead&gt;
-&lt;tr&gt;
-&lt;th style=&quot;text-align: center&quot;&gt;Git task&lt;/th&gt;
-&lt;th style=&quot;text-align: center&quot;&gt;Notes&lt;/th&gt;
-&lt;th style=&quot;text-align: center&quot;&gt;Git commands&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td style=&quot;text-align: center&quot;&gt;Tell Git who you are&lt;/td&gt;
-&lt;td style=&quot;text-align: center&quot;&gt;Configure the author name and email address to be used with your commits.  &lt;br&gt;Note that Git strips some characters (for example trailing periods) from user.name&lt;/td&gt;
-&lt;td style=&quot;text-align: center&quot;&gt;git config --global user.name &amp;quot;Sam Smith&amp;quot;   &lt;br&gt;git config --global user.email &lt;a href=&quot;mailto:sam@example.com&quot;&gt;sam@example.com&lt;/a&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&quot;text-align: center&quot;&gt;Create a new local repository&lt;/td&gt;
-&lt;td style=&quot;text-align: center&quot;&gt;&lt;/td&gt;
-&lt;td style=&quot;text-align: center&quot;&gt;git init&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&quot;text-align: center&quot;&gt;Check out a repository&lt;/td&gt;
-&lt;td style=&quot;text-align: center&quot;&gt;Create a working copy of a local repository:&lt;/td&gt;
-&lt;td style=&quot;text-align: center&quot;&gt;git clone /path/to/repository&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&quot;text-align: center&quot;&gt;&lt;/td&gt;
-&lt;td style=&quot;text-align: center&quot;&gt;For a remote server, use:&lt;/td&gt;
-&lt;td style=&quot;text-align: center&quot;&gt;git clone username@host:/path/to/repository&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&quot;text-align: center&quot;&gt;Add files&lt;/td&gt;
-&lt;td style=&quot;text-align: center&quot;&gt;Add one or more files to staging (index):&lt;/td&gt;
-&lt;td style=&quot;text-align: center&quot;&gt;git add  &amp;#39;filename&amp;#39; &lt;br&gt;git add *&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&quot;text-align: center&quot;&gt;Commit&lt;/td&gt;
-&lt;td style=&quot;text-align: center&quot;&gt;Commit changes to head (but not yet to the remote repository):&lt;/td&gt;
-&lt;td style=&quot;text-align: center&quot;&gt;git commit -m &amp;#39;Commit message&amp;#39;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&quot;text-align: center&quot;&gt;&lt;/td&gt;
-&lt;td style=&quot;text-align: center&quot;&gt;Commit any files you&amp;#39;ve added with git add, and also commit any files you&amp;#39;ve changed since then:&lt;/td&gt;
-&lt;td style=&quot;text-align: center&quot;&gt;git commit -a&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&quot;text-align: center&quot;&gt;Push&lt;/td&gt;
-&lt;td style=&quot;text-align: center&quot;&gt;Send changes to the master branch of your remote repository:&lt;/td&gt;
-&lt;td style=&quot;text-align: center&quot;&gt;git push origin master&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&quot;text-align: center&quot;&gt;Status&lt;/td&gt;
-&lt;td style=&quot;text-align: center&quot;&gt;List the files you&amp;#39;ve changed and those you still need to add or commit:&lt;/td&gt;
-&lt;td style=&quot;text-align: center&quot;&gt;git status&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&quot;text-align: center&quot;&gt;Connect to a remote repository&lt;/td&gt;
-&lt;td style=&quot;text-align: center&quot;&gt;If you haven&amp;#39;t connected your local repository to a remote server, add the server to be able to push to it:&lt;/td&gt;
-&lt;td style=&quot;text-align: center&quot;&gt;git remote add origin &amp;#39;server&amp;#39;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&quot;text-align: center&quot;&gt;&lt;/td&gt;
-&lt;td style=&quot;text-align: center&quot;&gt;List all currently configured remote repositories:&lt;/td&gt;
-&lt;td style=&quot;text-align: center&quot;&gt;git remote -v&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&quot;text-align: center&quot;&gt;Branches&lt;/td&gt;
-&lt;td style=&quot;text-align: center&quot;&gt;Create a new branch and switch to it:&lt;/td&gt;
-&lt;td style=&quot;text-align: center&quot;&gt;git checkout -b &amp;#39;branchname&amp;#39;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&quot;text-align: center&quot;&gt;&lt;/td&gt;
-&lt;td style=&quot;text-align: center&quot;&gt;Switch from one branch to another:&lt;/td&gt;
-&lt;td style=&quot;text-align: center&quot;&gt;git checkout &amp;#39;branchname&amp;#39;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&quot;text-align: center&quot;&gt;&lt;/td&gt;
-&lt;td style=&quot;text-align: center&quot;&gt;List all the branches in your repo, and also tell you what branch you&amp;#39;re currently in:&lt;/td&gt;
-&lt;td style=&quot;text-align: center&quot;&gt;git branch&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&quot;text-align: center&quot;&gt;&lt;/td&gt;
-&lt;td style=&quot;text-align: center&quot;&gt;Delete the feature branch:&lt;/td&gt;
-&lt;td style=&quot;text-align: center&quot;&gt;git branch -d &amp;#39;branchname&amp;#39;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&quot;text-align: center&quot;&gt;&lt;/td&gt;
-&lt;td style=&quot;text-align: center&quot;&gt;Push the branch to your remote repository, so others can use it:&lt;/td&gt;
-&lt;td style=&quot;text-align: center&quot;&gt;git push origin &amp;#39;branchname&amp;#39;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&quot;text-align: center&quot;&gt;&lt;/td&gt;
-&lt;td style=&quot;text-align: center&quot;&gt;Push all branches to your remote repository:&lt;/td&gt;
-&lt;td style=&quot;text-align: center&quot;&gt;git push --all origin&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&quot;text-align: center&quot;&gt;&lt;/td&gt;
-&lt;td style=&quot;text-align: center&quot;&gt;Delete a branch on your remote repository:&lt;/td&gt;
-&lt;td style=&quot;text-align: center&quot;&gt;git push origin: &amp;#39;branchname&amp;#39;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&quot;text-align: center&quot;&gt;Update from the remote repository&lt;/td&gt;
-&lt;td style=&quot;text-align: center&quot;&gt;Fetch and merge changes on the remote server to your working directory:&lt;/td&gt;
-&lt;td style=&quot;text-align: center&quot;&gt;git pull&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&quot;text-align: center&quot;&gt;&lt;/td&gt;
-&lt;td style=&quot;text-align: center&quot;&gt;To merge a different branch into your active branch:&lt;/td&gt;
-&lt;td style=&quot;text-align: center&quot;&gt;git merge &amp;#39;branchname&amp;#39;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&quot;text-align: center&quot;&gt;&lt;/td&gt;
-&lt;td style=&quot;text-align: center&quot;&gt;View all the merge conflicts: &lt;br&gt;View the conflicts against the base file: &lt;br&gt;Preview changes, before merging:&lt;/td&gt;
-&lt;td style=&quot;text-align: center&quot;&gt;git diff &lt;br&gt;git diff --base &amp;#39;filename&amp;#39; &lt;br&gt;git diff &amp;#39;sourcebranch&amp;#39; &amp;#39;targetbranch&amp;#39;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&quot;text-align: center&quot;&gt;&lt;/td&gt;
-&lt;td style=&quot;text-align: center&quot;&gt;After you have manually resolved any conflicts, you mark the changed file:&lt;/td&gt;
-&lt;td style=&quot;text-align: center&quot;&gt;git add &amp;#39;filename&amp;#39;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&quot;text-align: center&quot;&gt;Tags&lt;/td&gt;
-&lt;td style=&quot;text-align: center&quot;&gt;You can use tagging to mark a significant changeset, such as a release:&lt;/td&gt;
-&lt;td style=&quot;text-align: center&quot;&gt;git tag 1.0.0 &amp;#39;commitID&amp;#39;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&quot;text-align: center&quot;&gt;&lt;/td&gt;
-&lt;td style=&quot;text-align: center&quot;&gt;CommitId is the leading characters of the changeset ID, up to 10, but must be unique. Get the ID using:&lt;/td&gt;
-&lt;td style=&quot;text-align: center&quot;&gt;git log&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&quot;text-align: center&quot;&gt;&lt;/td&gt;
-&lt;td style=&quot;text-align: center&quot;&gt;Push all tags to remote repository:&lt;/td&gt;
-&lt;td style=&quot;text-align: center&quot;&gt;git push --tags origin&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&quot;text-align: center&quot;&gt;Undo local changes&lt;/td&gt;
-&lt;td style=&quot;text-align: center&quot;&gt;If you mess up, you can replace the changes in your working tree with the last content in head: Changes already added to the index, as well as new files, will be kept.&lt;/td&gt;
-&lt;td style=&quot;text-align: center&quot;&gt;git checkout -- &amp;#39;filename&amp;#39;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&quot;text-align: center&quot;&gt;&lt;/td&gt;
-&lt;td style=&quot;text-align: center&quot;&gt;Instead, to drop all your local changes and commits, fetch the latest history from the server and point your local master branch at it, do this:&lt;/td&gt;
-&lt;td style=&quot;text-align: center&quot;&gt;git fetch origin &lt;br&gt;git reset --hard origin/master&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&quot;text-align: center&quot;&gt;Search&lt;/td&gt;
-&lt;td style=&quot;text-align: center&quot;&gt;Search the working directory for foo():&lt;/td&gt;
-&lt;td style=&quot;text-align: center&quot;&gt;git grep &amp;quot;foo()&amp;quot;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;&lt;/table&gt;
 </description>
         <pubDate>Thu, 28 Mar 2019 00:00:00 +0800</pubDate>
         <link>http://localhost:4000/2019/03/git-commands/</link>
@@ -469,33 +345,28 @@ For more detail, check out the  &lt;a href=&quot;https://www.atlassian.com/git&q
       <item>
         <title>Grammarly for writing</title>
         <description>&lt;h2 id=&quot;grammly&quot;&gt;Grammly&lt;/h2&gt;
-
-&lt;p&gt;A plugin help you better writing.&lt;br&gt;
-&lt;table&gt;&lt;br&gt;
-&lt;tr&gt;&lt;br&gt;
-    &lt;td &gt;&lt;center&gt;&lt;img src=&quot;https://mk0techvisecom0qiete.kinstacdn.com/wp-content/uploads/2016/03/grammarly.png&quot; &gt;Grammly&lt;/center&gt;&lt;/td&gt;&lt;br&gt;
-    &lt;td &gt;&lt;center&gt;&lt;img src=&quot;https://images.sftcdn.net/images/t_app-cover-l,f_auto/p/112c29d1-b324-47ae-8e98-bb43a9bcda1b/2173361903/grammarly-screenshot.jpg&quot; &gt;Document&lt;/center&gt;&lt;/td&gt;&lt;br&gt;
-&lt;/tr&gt;&lt;br&gt;
-&lt;/table&gt;&lt;/p&gt;
+&lt;p&gt;A plugin help you better writing.&lt;/p&gt;
+&lt;table&gt;
+&lt;tr&gt;
+	&lt;td&gt;&lt;center&gt;&lt;img src=&quot;https://mk0techvisecom0qiete.kinstacdn.com/wp-content/uploads/2016/03/grammarly.png&quot; /&gt;Grammly&lt;/center&gt;&lt;/td&gt;
+	&lt;td&gt;&lt;center&gt;&lt;img src=&quot;https://images.sftcdn.net/images/t_app-cover-l,f_auto/p/112c29d1-b324-47ae-8e98-bb43a9bcda1b/2173361903/grammarly-screenshot.jpg&quot; /&gt;Document&lt;/center&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/table&gt;
 
 &lt;h2 id=&quot;save-your-valuable-time&quot;&gt;Save Your Valuable Time&lt;/h2&gt;
-
 &lt;p&gt;Grammarly significantly cuts down on all the extra time you spend rereading and rewriting by focusing you on where your writing needs work.&lt;/p&gt;
 
 &lt;h2 id=&quot;write-effectively-today&quot;&gt;Write Effectively Today&lt;/h2&gt;
-
 &lt;p&gt;Dangling modifiers? Gone. Wordy sentences? A thing of the past. Grammarly catches over ten times more critical grammar and spelling errors than Microsoft Word. Together you’ll make a great team.&lt;/p&gt;
 
-&lt;h2 id=&quot;learn-improve-as-you-go&quot;&gt;Learn &amp;amp; Improve As You Go&lt;/h2&gt;
-
+&lt;h2 id=&quot;learn--improve-as-you-go&quot;&gt;Learn &amp;amp; Improve As You Go&lt;/h2&gt;
 &lt;p&gt;Grammarly adjusts to YOUR style, so you’ll effortlessly learn how to improve YOUR writing. You can expand every highlighted error to get more details about how to enhance what you wrote.&lt;/p&gt;
 
 &lt;h2 id=&quot;app&quot;&gt;APP&lt;/h2&gt;
-
 &lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;https://www.grammarly.com/office-addin/windows&quot;&gt;Grammarly for Microsoft Office&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://www.grammarly.com/native/windows&quot;&gt;Grammarly for Windows&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;http://grammarly.com/&quot;&gt;Grammarly for Chrome&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.grammarly.com/office-addin/windows&quot;&gt;Grammarly for Microsoft Office&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.grammarly.com/native/windows&quot;&gt;Grammarly for Windows&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://grammarly.com/&quot;&gt;Grammarly for Chrome&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 </description>
         <pubDate>Tue, 19 Mar 2019 00:00:00 +0800</pubDate>
@@ -522,39 +393,40 @@ For more detail, check out the  &lt;a href=&quot;https://www.atlassian.com/git&q
       <item>
         <title>Office software</title>
         <description>&lt;h2 id=&quot;commercial-software&quot;&gt;commercial software&lt;/h2&gt;
-
 &lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;https://www.office.com/&quot;&gt;Microsoft Office&lt;/a&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.office.com/&quot;&gt;Microsoft Office&lt;/a&gt;
 Microsoft Office is a family of client software, server software, and services developed by Microsoft. It was first announced by Bill Gates on August 1, 1988, at COMDEX in Las Vegas. Initially a marketing term for an office suite (bundled set of productivity applications), the first version of Office contained Microsoft Word, Microsoft Excel, and Microsoft PowerPoint. Over the years, Office applications have grown substantially closer with shared features such as a common spell checker, OLE data integration and Visual Basic for Applications scripting language. Microsoft also positions Office as a development platform for line-of-business software under the Office Business Applications brand. On July 10, 2012, Softpedia reported that Office is used by over a billion people worldwide.
-Office is produced in several versions targeted towards different end-users and computing environments. The original, and most widely used version, is the desktop version, available for PCs running the Windows and macOS operating systems. Office Online is a version of the software that runs within a web browser, while Microsoft also maintains Office apps for Android and iOS.
+Office is produced in several versions targeted towards different end-users and computing environments. The original, and most widely used version, is the desktop version, available for PCs running the Windows and macOS operating systems. Office Online is a version of the software that runs within a web browser, while Microsoft also maintains Office apps for Android and iOS.&lt;/li&gt;
+&lt;/ul&gt;
 &lt;table&gt;
 &lt;tr&gt;
-&lt;td &gt;&lt;center&gt;&lt;img src=&quot;https://upload.wikimedia.org/wikipedia/en/thumb/7/77/Microsoft_Office_2019.png/300px-Microsoft_Office_2019.png&quot; &gt;MS Office&lt;/center&gt;&lt;/td&gt;
-&lt;td &gt;&lt;center&gt;&lt;img src=&quot;https://www.itprotoday.com/sites/itprotoday.com/files/styles/article_featured_standard/public/uploads/2017/04/officeapps_0.jpg?itok=zF3DSSKT&quot; &gt;MS Office&lt;/center&gt;&lt;/td&gt;
+	&lt;td&gt;&lt;center&gt;&lt;img src=&quot;https://upload.wikimedia.org/wikipedia/en/thumb/7/77/Microsoft_Office_2019.png/300px-Microsoft_Office_2019.png&quot; /&gt;MS Office&lt;/center&gt;&lt;/td&gt;
+	&lt;td&gt;&lt;center&gt;&lt;img src=&quot;https://www.itprotoday.com/sites/itprotoday.com/files/styles/article_featured_standard/public/uploads/2017/04/officeapps_0.jpg?itok=zF3DSSKT&quot; /&gt;MS Office&lt;/center&gt;&lt;/td&gt;
 &lt;/tr&gt;
-&lt;/table&gt;&lt;/li&gt;
-&lt;/ul&gt;
+&lt;/table&gt;
 
 &lt;h2 id=&quot;free-software&quot;&gt;free software&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.openoffice.org/&quot;&gt;Apache OpenOffice&lt;/a&gt;
+Apache OpenOffice is the leading open-source office software suite for word processing, spreadsheets, presentations, graphics, databases and more. It is available in many languages and works on all common computers. It stores all your data in an international open standard format and can also read and write files from other common office software packages. It can be downloaded and used completely free of charge for any purpose.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;table&gt;
+    &lt;tr&gt;
+        &lt;td&gt;&lt;center&gt;&lt;img src=&quot;https://upload.wikimedia.org/wikipedia/commons/thumb/5/56/AOO_Writer_4.0.0_Windows_in_Wine.png/300px-AOO_Writer_4.0.0_Windows_in_Wine.png&quot; /&gt;OpenOffice&lt;/center&gt;&lt;/td&gt;
+        &lt;td&gt;&lt;center&gt;&lt;img src=&quot;https://i1.wp.com/accesshosting.com/wp-content/uploads/2014/04/2013-02_Apache_OpenOffice_Logo-Proposal_ChrisTa.png?resize=600%2C315&quot; /&gt;OpenOffice&lt;/center&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+&lt;/table&gt;
 
 &lt;ul&gt;
-&lt;li&gt;&lt;p&gt;&lt;a href=&quot;https://www.openoffice.org/&quot;&gt;Apache OpenOffice&lt;/a&gt;&lt;br&gt;
-Apache OpenOffice is the leading open-source office software suite for word processing, spreadsheets, presentations, graphics, databases and more. It is available in many languages and works on all common computers. It stores all your data in an international open standard format and can also read and write files from other common office software packages. It can be downloaded and used completely free of charge for any purpose.&lt;br&gt;
-&lt;table&gt;&lt;br&gt;
-&lt;tr&gt;&lt;br&gt;
-    &lt;td &gt;&lt;center&gt;&lt;img src=&quot;https://upload.wikimedia.org/wikipedia/commons/thumb/5/56/AOO_Writer_4.0.0_Windows_in_Wine.png/300px-AOO_Writer_4.0.0_Windows_in_Wine.png&quot; &gt;OpenOffice&lt;/center&gt;&lt;/td&gt;&lt;br&gt;
-    &lt;td &gt;&lt;center&gt;&lt;img src=&quot;https://i1.wp.com/accesshosting.com/wp-content/uploads/2014/04/2013-02_Apache_OpenOffice_Logo-Proposal_ChrisTa.png?resize=600%2C315&quot; &gt;OpenOffice&lt;/center&gt;&lt;/td&gt;&lt;br&gt;
-&lt;/tr&gt;&lt;br&gt;
-&lt;/table&gt;&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;Libre Office](&lt;a href=&quot;https://www.libreoffice.org/&quot;&gt;https://www.libreoffice.org/&lt;/a&gt;)&lt;br&gt;
-Libre Office is a powerful and free office suite, used by millions of people around the world. Its clean interface and feature-rich tools help you unleash your creativity and enhance your productivity. LibreOffice includes several applications that make it the most versatile Free and Open Source office suite on the market: Writer (word processing), Calc (spreadsheets), Impress (presentations), Draw (vector graphics and flowcharts), Base (databases), and Math (formula editing).&lt;br&gt;
-&lt;table&gt;&lt;br&gt;
-&lt;tr&gt;&lt;br&gt;
-    &lt;td &gt;&lt;center&gt;&lt;img src=&quot;https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/LibreOffice_6.0.1.1_Start_Center_Screenshot.png/300px-LibreOffice_6.0.1.1_Start_Center_Screenshot.png&quot; &gt;Libre Office&lt;/center&gt;&lt;/td&gt;&lt;br&gt;
-    &lt;td &gt;&lt;center&gt;&lt;img src=&quot;https://www.libreoffice.org/themes/libreofficenew/img/discover_flat.png&quot;  &gt;Libre Office&lt;/center&gt;&lt;/td&gt;&lt;br&gt;
-&lt;/tr&gt;&lt;br&gt;
-&lt;/table&gt;&lt;/p&gt;&lt;/li&gt;
+  &lt;li&gt;Libre Office](https://www.libreoffice.org/)
+Libre Office is a powerful and free office suite, used by millions of people around the world. Its clean interface and feature-rich tools help you unleash your creativity and enhance your productivity. LibreOffice includes several applications that make it the most versatile Free and Open Source office suite on the market: Writer (word processing), Calc (spreadsheets), Impress (presentations), Draw (vector graphics and flowcharts), Base (databases), and Math (formula editing).&lt;/li&gt;
 &lt;/ul&gt;
+&lt;table&gt;
+    &lt;tr&gt;
+        &lt;td&gt;&lt;center&gt;&lt;img src=&quot;https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/LibreOffice_6.0.1.1_Start_Center_Screenshot.png/300px-LibreOffice_6.0.1.1_Start_Center_Screenshot.png&quot; /&gt;Libre Office&lt;/center&gt;&lt;/td&gt;
+        &lt;td&gt;&lt;center&gt;&lt;img src=&quot;https://www.libreoffice.org/themes/libreofficenew/img/discover_flat.png&quot; /&gt;Libre Office&lt;/center&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+&lt;/table&gt;
 </description>
         <pubDate>Tue, 12 Mar 2019 00:00:00 +0800</pubDate>
         <link>http://localhost:4000/2019/03/Office-software/</link>
@@ -579,107 +451,113 @@ Libre Office is a powerful and free office suite, used by millions of people aro
     
       <item>
         <title>How to use the ubuntu for GPU server</title>
-        <description>&lt;h2 id=&quot;part-cc80684c&quot;&gt;窗口操作：&lt;/h2&gt;
+        <description>&lt;h2 id=&quot;窗口操作&quot;&gt;窗口操作：&lt;/h2&gt;
+&lt;p&gt;创建窗口： screen -S xxx (screen’s name)
+激活窗口： screen -r xxx (screen’s name)
+查看窗口序列： screen -ls
+退出窗口： Ctrl + A + D
+kill窗口：&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;screen -S screenname -X quit&lt;/li&gt;
+  &lt;li&gt;screen -S yourname -&amp;gt; 新建一个叫yourname的session&lt;/li&gt;
+  &lt;li&gt;screen -ls -&amp;gt; 列出当前所有的session&lt;/li&gt;
+  &lt;li&gt;screen -r yourname -&amp;gt; 回到yourname这个session&lt;/li&gt;
+  &lt;li&gt;screen -d yourname -&amp;gt; 远程detach某个session&lt;/li&gt;
+  &lt;li&gt;screen -d -r yourname -&amp;gt; 结束当前session并回到yourname这个session&lt;/li&gt;
+&lt;/ul&gt;
 
-&lt;p&gt;创建窗口： screen -S xxx (screen&amp;#39;s name)&lt;br&gt;
-激活窗口： screen -r xxx (screen&amp;#39;s name)&lt;br&gt;
-查看窗口序列： screen -ls&lt;br&gt;
-退出窗口： Ctrl + A + D&lt;br&gt;
-kill窗口：&lt;br&gt;
-- screen -S screenname -X quit&lt;br&gt;
-- screen -S yourname -&amp;gt; 新建一个叫yourname的session&lt;br&gt;
-- screen -ls -&amp;gt; 列出当前所有的session&lt;br&gt;
-- screen -r yourname -&amp;gt; 回到yourname这个session&lt;br&gt;
-- screen -d yourname -&amp;gt; 远程detach某个session&lt;br&gt;
-- screen -d -r yourname -&amp;gt; 结束当前session并回到yourname这个session&lt;/p&gt;
+&lt;h2 id=&quot;常用文件操作指令&quot;&gt;常用文件操作指令：&lt;/h2&gt;
+&lt;p&gt;显示当前目录下的文件列表：ls
+显示当前目录下的隐藏文件列表：ls -a
+拷贝文件夹：  cp -r 文件夹 目标路径
+拷贝文件夹：  cp 文件 目标路径
+删除文件： rm 文件
+删除文件夹：&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;rm -r 文件夹&lt;/li&gt;
+  &lt;li&gt;rm -rf 文件夹&lt;/li&gt;
+&lt;/ul&gt;
 
-&lt;h2 id=&quot;part-47232c39&quot;&gt;常用文件操作指令：&lt;/h2&gt;
-
-&lt;p&gt;显示当前目录下的文件列表：ls&lt;br&gt;
-显示当前目录下的隐藏文件列表：ls -a&lt;br&gt;
-拷贝文件夹：  cp -r 文件夹 目标路径&lt;br&gt;
-拷贝文件夹：  cp 文件 目标路径&lt;br&gt;
-删除文件： rm 文件&lt;br&gt;
-删除文件夹： &lt;br&gt;
-- rm -r 文件夹&lt;br&gt;
-- rm -rf 文件夹&lt;/p&gt;
-
-&lt;p&gt;新建文件夹：mkdir 文件夹名&lt;br&gt;
-移动文件：mv&lt;br&gt;
-显示当前路径：pwd&lt;br&gt;
-显示文件大小： du -sh *&lt;br&gt;
+&lt;p&gt;新建文件夹：mkdir 文件夹名
+移动文件：mv
+显示当前路径：pwd
+显示文件大小： du -sh *
 显示问价夹大小：du -sh */&lt;/p&gt;
 
 &lt;p&gt;如何修改文件为可执行状态：chmod 777 文件名&lt;/p&gt;
 
 &lt;p&gt;查询GPU状态: nvidia-smi&lt;/p&gt;
 
-&lt;p&gt;查看内存和gpu消耗情况：nvidia-smi&lt;br&gt;
-查看文件大小 du –sh 文件夹   或者 du -sh *      sudo du -h --max-depth=1 xxxx    du -h  --max-depth=1&lt;br&gt;
-百分比： df&lt;br&gt;
-编译： make  make -j8&lt;br&gt;
+&lt;p&gt;查看内存和gpu消耗情况：nvidia-smi
+查看文件大小 du –sh 文件夹   或者 du -sh *      sudo du -h –max-depth=1 xxxx    du -h  –max-depth=1
+百分比： df
+编译： make  make -j8
 清空编译：make clean&lt;/p&gt;
 
 &lt;p&gt;定位文件名，直接gf，即可直接打开另外一个文件。&lt;/p&gt;
 
-&lt;p&gt;查找文件：locate filename&lt;br&gt;
-查找文件：&lt;br&gt;
-- 查找当前目录下的指定的core文件 find . -name &amp;quot;core&amp;quot;&lt;br&gt;
-- 查找根目录下的指定的core文件 find / -name &amp;quot;core&amp;quot;&lt;br&gt;
-- 查找根目录下的指定的大小core文件 find / -name &amp;quot;core&amp;quot; - size +1024c&lt;br&gt;
-- 查找文件中是否含有指定的字符 &amp;quot;10.71.110.89&amp;quot; find / -name &amp;quot;*.tar.gz&amp;quot; - type f -exec rm -rf {} /;&lt;/p&gt;
-
-&lt;h2 id=&quot;vim&quot;&gt;vim常用快捷键&lt;/h2&gt;
-
+&lt;p&gt;查找文件：locate filename
+查找文件：&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;打开文件：vim 文件名&lt;/li&gt;
-&lt;li&gt;进入编辑模式：i&lt;/li&gt;
-&lt;li&gt;编辑文件：Esc ：wq&lt;/li&gt;
-&lt;li&gt;退出文件： Esc :q&lt;/li&gt;
-&lt;li&gt;退出文件，不编辑： Esc :q!&lt;/li&gt;
-&lt;li&gt;h 每次按下光标就会向左移动&lt;/li&gt;
-&lt;li&gt;l 每次按下光标就会向右移动&lt;/li&gt;
-&lt;li&gt;j 每次按下光标就会向下移动&lt;/li&gt;
-&lt;li&gt;k 每次按下光标就会向上移动 &lt;/li&gt;
-&lt;li&gt;dd 删除一行&lt;/li&gt;
-&lt;li&gt;de 删除到空格前的词&lt;/li&gt;
-&lt;li&gt;dw 删除知道空格的词&lt;/li&gt;
-&lt;li&gt;gg 光标到行文件首&lt;/li&gt;
-&lt;li&gt;G 光标到文件尾&lt;/li&gt;
-&lt;li&gt;:!command 用于执行一个外部命令 command&lt;/li&gt;
+  &lt;li&gt;查找当前目录下的指定的core文件 find . -name “core”&lt;/li&gt;
+  &lt;li&gt;查找根目录下的指定的core文件 find / -name “core”&lt;/li&gt;
+  &lt;li&gt;查找根目录下的指定的大小core文件 find / -name “core” - size +1024c&lt;/li&gt;
+  &lt;li&gt;查找文件中是否含有指定的字符 “10.71.110.89” find / -name “*.tar.gz” - type f -exec rm -rf {} /;&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h2 id=&quot;ubuntu&quot;&gt;ubuntu终端常用命令&lt;/h2&gt;
-
+&lt;h2 id=&quot;vim常用快捷键&quot;&gt;vim常用快捷键&lt;/h2&gt;
 &lt;ul&gt;
-&lt;li&gt;ctrl + l - 清屏&lt;/li&gt;
-&lt;li&gt;ctrl + c - 终止命令&lt;/li&gt;
-&lt;li&gt;ctrl + d - 退出 shell,好像也可以表示EOF&lt;/li&gt;
-&lt;li&gt;ctrl + z - 将当前进程置于后台，fg还原。&lt;/li&gt;
-&lt;li&gt;ctrl + r - 从命令历史中找&lt;/li&gt;
-&lt;li&gt;ctrl + a - 光标移到行首&lt;/li&gt;
-&lt;li&gt;ctrl + e - 光标移到行尾&lt;/li&gt;
-&lt;li&gt;ctrl + u - 清除光标到行首的字符&lt;/li&gt;
-&lt;li&gt;ctrl + w - 清除光标之前一个单词&lt;/li&gt;
-&lt;li&gt;ctrl + k - 清除光标到行尾的字符&lt;/li&gt;
-&lt;li&gt;ctrl + t - 交换光标前两个字符&lt;/li&gt;
-&lt;li&gt;ctrl + y - 粘贴前一ctrl+u类命令删除的字符&lt;/li&gt;
-&lt;li&gt;ctrl + p - 上一条命令&lt;/li&gt;
-&lt;li&gt;ctrl + n - 下一条命令&lt;/li&gt;
-&lt;li&gt;ctrl + v - 输入控制字符 如ctrl+v &lt;ENTER&gt; ,会输入&lt;sup&gt;M&lt;/sup&gt;&lt;/li&gt;
-&lt;li&gt;ctrl + f - 光标后移一个字符&lt;/li&gt;
-&lt;li&gt;ctrl + b - 光标前移一个字符&lt;/li&gt;
-&lt;li&gt;ctrl + h - 删除光标前一个字符&lt;/li&gt;
-&lt;li&gt;N+&lt;ESC&gt;+f - 光标后移N个单词，N为1时可省略&lt;/li&gt;
-&lt;li&gt;N+&lt;ESC&gt;+b - 光标前移N个单词，N为1时可省略&lt;/li&gt;
-&lt;li&gt;ctrl + s - 挂起当前shell&lt;/li&gt;
-&lt;li&gt;ctrl + q - 重新启用&lt;/li&gt;
-&lt;li&gt;&lt;ESC&gt;+d 从光标开始处删除到行尾。挂起的shell&lt;/li&gt;
-&lt;li&gt;!! - 上一条命令&lt;/li&gt;
-&lt;li&gt;!-n - 倒数第N条历史命令&lt;/li&gt;
-&lt;li&gt;!-n:p - 打印上一条命令（不执行）&lt;/li&gt;
-&lt;li&gt;!?string?- 最新一条含有&amp;quot;string&amp;quot;的命令 # !-n:gs/str1/str2/ - 将倒数第N条命令的str1替换为str2,并执行（若不加g,则仅替换第一个）&lt;/li&gt;
+  &lt;li&gt;打开文件：vim 文件名&lt;/li&gt;
+  &lt;li&gt;进入编辑模式：i&lt;/li&gt;
+  &lt;li&gt;编辑文件：Esc ：wq&lt;/li&gt;
+  &lt;li&gt;退出文件： Esc :q&lt;/li&gt;
+  &lt;li&gt;退出文件，不编辑： Esc :q!&lt;/li&gt;
+  &lt;li&gt;h 每次按下光标就会向左移动&lt;/li&gt;
+  &lt;li&gt;l 每次按下光标就会向右移动&lt;/li&gt;
+  &lt;li&gt;j 每次按下光标就会向下移动&lt;/li&gt;
+  &lt;li&gt;k 每次按下光标就会向上移动&lt;/li&gt;
+  &lt;li&gt;dd 删除一行&lt;/li&gt;
+  &lt;li&gt;de 删除到空格前的词&lt;/li&gt;
+  &lt;li&gt;dw 删除知道空格的词&lt;/li&gt;
+  &lt;li&gt;gg 光标到行文件首&lt;/li&gt;
+  &lt;li&gt;G 光标到文件尾&lt;/li&gt;
+  &lt;li&gt;:!command 用于执行一个外部命令 command&lt;/li&gt;
 &lt;/ul&gt;
+
+&lt;h2 id=&quot;ubuntu终端常用命令&quot;&gt;ubuntu终端常用命令&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;ctrl + l - 清屏&lt;/li&gt;
+  &lt;li&gt;ctrl + c - 终止命令&lt;/li&gt;
+  &lt;li&gt;ctrl + d - 退出 shell,好像也可以表示EOF&lt;/li&gt;
+  &lt;li&gt;ctrl + z - 将当前进程置于后台，fg还原。&lt;/li&gt;
+  &lt;li&gt;ctrl + r - 从命令历史中找&lt;/li&gt;
+  &lt;li&gt;ctrl + a - 光标移到行首&lt;/li&gt;
+  &lt;li&gt;ctrl + e - 光标移到行尾&lt;/li&gt;
+  &lt;li&gt;ctrl + u - 清除光标到行首的字符&lt;/li&gt;
+  &lt;li&gt;ctrl + w - 清除光标之前一个单词&lt;/li&gt;
+  &lt;li&gt;ctrl + k - 清除光标到行尾的字符&lt;/li&gt;
+  &lt;li&gt;ctrl + t - 交换光标前两个字符&lt;/li&gt;
+  &lt;li&gt;ctrl + y - 粘贴前一ctrl+u类命令删除的字符&lt;/li&gt;
+  &lt;li&gt;ctrl + p - 上一条命令&lt;/li&gt;
+  &lt;li&gt;ctrl + n - 下一条命令&lt;/li&gt;
+  &lt;li&gt;ctrl + v - 输入控制字符 如ctrl+v &lt;ENTER&gt; ,会输入^M&lt;/ENTER&gt;&lt;/li&gt;
+  &lt;li&gt;ctrl + f - 光标后移一个字符&lt;/li&gt;
+  &lt;li&gt;ctrl + b - 光标前移一个字符&lt;/li&gt;
+  &lt;li&gt;ctrl + h - 删除光标前一个字符&lt;/li&gt;
+  &lt;li&gt;N+&lt;ESC&gt;+f - 光标后移N个单词，N为1时可省略&lt;/ESC&gt;&lt;/li&gt;
+  &lt;li&gt;N+&lt;ESC&gt;+b - 光标前移N个单词，N为1时可省略&lt;/ESC&gt;&lt;/li&gt;
+  &lt;li&gt;ctrl + s - 挂起当前shell&lt;/li&gt;
+  &lt;li&gt;ctrl + q - 重新启用&lt;/li&gt;
+  &lt;li&gt;
+    &lt;ESC&gt;+d 从光标开始处删除到行尾。挂起的shell
+&lt;/ESC&gt;
+  &lt;/li&gt;
+  &lt;li&gt;!! - 上一条命令&lt;/li&gt;
+  &lt;li&gt;!-n - 倒数第N条历史命令&lt;/li&gt;
+  &lt;li&gt;!-n:p - 打印上一条命令（不执行）&lt;/li&gt;
+  &lt;li&gt;!?string?- 最新一条含有”string”的命令 # !-n:gs/str1/str2/ - 将倒数第N条命令的str1替换为str2,并执行（若不加g,则仅替换第一个）&lt;/li&gt;
+&lt;/ul&gt;
+
 </description>
         <pubDate>Tue, 12 Mar 2019 00:00:00 +0800</pubDate>
         <link>http://localhost:4000/2019/03/How-to-use-the-server/</link>
@@ -705,7 +583,7 @@ kill窗口：&lt;br&gt;
       <item>
         <title>beamer for powerpoint</title>
         <description>&lt;h2 id=&quot;example-for-beamer&quot;&gt;example for beamer&lt;/h2&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-latex&quot; data-lang=&quot;latex&quot;&gt;&lt;span class=&quot;k&quot;&gt;\documentclass&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;beamer&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;div class=&quot;language-latex highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;\documentclass&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;beamer&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
 &lt;span class=&quot;k&quot;&gt;\usepackage&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;[english]&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;babel&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;   &lt;span class=&quot;k&quot;&gt;\%&lt;/span&gt;如果去掉，中英混合会出错
 &lt;span class=&quot;k&quot;&gt;\usepackage&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;[noindent]&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;ctex&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;   &lt;span class=&quot;k&quot;&gt;\%&lt;/span&gt;可使用 &lt;span class=&quot;k&quot;&gt;\usepackage&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;CJK&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
 &lt;span class=&quot;k&quot;&gt;\usepackage&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;beamerthemesplit&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
@@ -713,48 +591,50 @@ kill窗口：&lt;br&gt;
 &lt;span class=&quot;k&quot;&gt;\%&lt;/span&gt; does not look nice, try deleting the line with the fontenc.
 &lt;span class=&quot;k&quot;&gt;\usepackage&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;[T1]&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;fontenc&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
 &lt;span class=&quot;k&quot;&gt;\usepackage&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;times&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-
+ 
 &lt;span class=&quot;k&quot;&gt;\usetheme&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;Berkeley&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-
+ 
 &lt;span class=&quot;k&quot;&gt;\title&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;XXXX&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-
+ 
 &lt;span class=&quot;k&quot;&gt;\subtitle&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;XXXX&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-
+ 
 &lt;span class=&quot;k&quot;&gt;\author&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;Ofey&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-
+ 
 &lt;span class=&quot;k&quot;&gt;\institute&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
   School of Computer Science&lt;span class=&quot;k&quot;&gt;\\&lt;/span&gt;
   Beijing Institute of Technology
 &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-
+ 
 &lt;span class=&quot;k&quot;&gt;\%&lt;/span&gt; This is only inserted into the PDF information catalog. Can be left out.
 &lt;span class=&quot;k&quot;&gt;\subject&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;OOO&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
 &lt;span class=&quot;k&quot;&gt;\keywords&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;OXOX&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-
+ 
 &lt;span class=&quot;nt&quot;&gt;\begin{document}&lt;/span&gt;
-
+ 
 &lt;span class=&quot;nt&quot;&gt;\begin{frame}&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;XXXX&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
 A normal frame.
 &lt;span class=&quot;nt&quot;&gt;\end{frame}&lt;/span&gt;
-
+ 
 &lt;span class=&quot;nt&quot;&gt;\end{document}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 &lt;p&gt;上面代码，便可以生成一夜的slides了，在我机器上测试是木有问题的。beamer中的frame有点相当于powerpoint中的一叶，要是想新建几页，再多加加个frame吧，也可以写成&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-latex&quot; data-lang=&quot;latex&quot;&gt;&lt;span class=&quot;k&quot;&gt;\frame&lt;/span&gt;
+
+&lt;div class=&quot;language-latex highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;\frame&lt;/span&gt;
 &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
   &lt;span class=&quot;k&quot;&gt;\frametitle&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;test&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
   A normal frame.
 &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 &lt;p&gt;至于frame和整个slides也都有相应的subtitle可以设置，随便看下文档就ok。&lt;/p&gt;
 
-&lt;p&gt;多个作者多个单位&lt;br&gt;
+&lt;p&gt;多个作者多个单位
 有时，slides可能有多个作者，并且属于多个单位，会议论文作报告时，经常遇见此情况。如下代码解决&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-latex&quot; data-lang=&quot;latex&quot;&gt;&lt;span class=&quot;k&quot;&gt;\author&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;[Author, Another]&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;\%&lt;/span&gt; (optional, use only with lots of authors)
+
+&lt;div class=&quot;language-latex highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;\author&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;[Author, Another]&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;\%&lt;/span&gt; (optional, use only with lots of authors)
 &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;F.~Author&lt;span class=&quot;k&quot;&gt;\inst&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;1&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;\and&lt;/span&gt; S.~Another&lt;span class=&quot;k&quot;&gt;\inst&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;2&lt;span class=&quot;p&quot;&gt;}}&lt;/span&gt;
 &lt;span class=&quot;k&quot;&gt;\%&lt;/span&gt; - Give the names in the same order as the appear in the paper.
 &lt;span class=&quot;k&quot;&gt;\%&lt;/span&gt; - Use the &lt;span class=&quot;k&quot;&gt;\inst&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;?&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; command only if the authors have different affiliation.
-
+ 
 &lt;span class=&quot;k&quot;&gt;\institute&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;[Beijing Institute of Technology]&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;\%&lt;/span&gt; (optional, but mostly needed)
 &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
   &lt;span class=&quot;k&quot;&gt;\inst&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;1&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
@@ -767,70 +647,78 @@ A normal frame.
 &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
 &lt;span class=&quot;k&quot;&gt;\%&lt;/span&gt; - Use the &lt;span class=&quot;k&quot;&gt;\inst&lt;/span&gt; command only if there are several affiliations.
 &lt;span class=&quot;k&quot;&gt;\%&lt;/span&gt; - Keep it simple, no one is interested in your street address.
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 &lt;p&gt;institute中写Email是可以直接识别出的，放心使用。至于经常出现的中括号可选项，用了乃就懂的～～&lt;/p&gt;
 
-&lt;p&gt;logo&lt;br&gt;
-有时，要插入个校徽神马的，吐槽下学校官方竟然每个矢量校徽。。。&lt;br&gt;
+&lt;p&gt;logo
+有时，要插入个校徽神马的，吐槽下学校官方竟然每个矢量校徽。。。
 导言区加：&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-latex&quot; data-lang=&quot;latex&quot;&gt;&lt;span class=&quot;k&quot;&gt;\%&lt;/span&gt; If you have a file called &quot;university-logo-filename.xxx&quot;, where xxx
+
+&lt;div class=&quot;language-latex highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;\%&lt;/span&gt; If you have a file called &quot;university-logo-filename.xxx&quot;, where xxx
 &lt;span class=&quot;k&quot;&gt;\%&lt;/span&gt; is a graphic format that can be processed by latex or pdflatex,
 &lt;span class=&quot;k&quot;&gt;\%&lt;/span&gt; resp., then you can add a logo as follows:
-
+ 
 &lt;span class=&quot;k&quot;&gt;\%&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;\pgfdeclareimage&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;[height=0.5cm]&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;university-logo&lt;span class=&quot;p&quot;&gt;}{&lt;/span&gt;university-logo-filename&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
 &lt;span class=&quot;k&quot;&gt;\%&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;\logo&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;\pgfuseimage&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;bitlogo&lt;span class=&quot;p&quot;&gt;}}&lt;/span&gt;
 &lt;span class=&quot;k&quot;&gt;\logo&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;\includegraphics&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;[height=0.09\textwidth]&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;./pic/bitlogo.eps&lt;span class=&quot;p&quot;&gt;}}&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;\%&lt;/span&gt;这只是我的logo路径
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;目录(TOC)&lt;br&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;目录(TOC)
 LATEX生成目录这类实在是拿手戏。最简单的：&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-latex&quot; data-lang=&quot;latex&quot;&gt;&lt;span class=&quot;nt&quot;&gt;\begin{frame}&lt;/span&gt;
+
+&lt;div class=&quot;language-latex highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nt&quot;&gt;\begin{frame}&lt;/span&gt;
   &lt;span class=&quot;k&quot;&gt;\tableofcontents&lt;/span&gt;
 &lt;span class=&quot;nt&quot;&gt;\end{frame}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 &lt;p&gt;有时，可能目录太多，想分成两栏，可以使用multicol包&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-latex&quot; data-lang=&quot;latex&quot;&gt;&lt;span class=&quot;k&quot;&gt;\%&lt;/span&gt; This environment allows switching between one and multicolumn format on the same page
+
+&lt;div class=&quot;language-latex highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;\%&lt;/span&gt; This environment allows switching between one and multicolumn format on the same page
 &lt;span class=&quot;k&quot;&gt;\usepackage&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;multicol&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-
+ 
 &lt;span class=&quot;nt&quot;&gt;\begin{frame}&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;Outline&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-
+ 
   &lt;span class=&quot;nt&quot;&gt;\begin{multicols}&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;2&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
     &lt;span class=&quot;k&quot;&gt;\tableofcontents&lt;/span&gt;
     &lt;span class=&quot;k&quot;&gt;\%&lt;/span&gt; You might wish to add the option [pausesections]
   &lt;span class=&quot;nt&quot;&gt;\end{multicols}&lt;/span&gt;
 &lt;span class=&quot;nt&quot;&gt;\end{frame}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 &lt;p&gt;有时，可能不想显示subsection之类，亦或者只想限制指定的几个section，如下：&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-latex&quot; data-lang=&quot;latex&quot;&gt;&lt;span class=&quot;k&quot;&gt;\tableofcontents&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;[hidesubsections,sections={&amp;lt;1-4&amp;gt;}]&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;\%&lt;/span&gt;显示1-4section，不显示subsection
+
+&lt;div class=&quot;language-latex highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;\tableofcontents&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;[hidesubsections,sections={&amp;lt;1-4&amp;gt;}]&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;\%&lt;/span&gt;显示1-4section，不显示subsection
 &lt;span class=&quot;k&quot;&gt;\tableofcontents&lt;/span&gt;还有很多其他参数设置，详见文档。
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 &lt;p&gt;若想在没个章节前显示下目录提示，可以如下代码：&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-latex&quot; data-lang=&quot;latex&quot;&gt;&lt;span class=&quot;k&quot;&gt;\AtBeginSection&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;[]&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; 
+
+&lt;div class=&quot;language-latex highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;\AtBeginSection&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;[]&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; 
   &lt;span class=&quot;nt&quot;&gt;\begin{frame}&lt;/span&gt;
     &lt;span class=&quot;k&quot;&gt;\frametitle&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;Outline&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; 
     &lt;span class=&quot;k&quot;&gt;\tableofcontents&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;[currentsection,hideothersubsections]&lt;/span&gt; 
   &lt;span class=&quot;nt&quot;&gt;\end{frame}&lt;/span&gt; 
   &lt;span class=&quot;k&quot;&gt;\addtocounter&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;framenumber&lt;span class=&quot;p&quot;&gt;}{&lt;/span&gt;-1&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;  &lt;span class=&quot;k&quot;&gt;\%&lt;/span&gt;目录页不计算页码
 &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;不过没发现如何获得当前section的数值，这样我就可以自动在每张前插入目录，且使当前目录为第一。&lt;br&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;不过没发现如何获得当前section的数值，这样我就可以自动在每张前插入目录，且使当前目录为第一。
 当然，还可以做成一个个显示目录的动画效果，不过没啥实际意义- -！&lt;/p&gt;
 
-&lt;p&gt;slides中的链接&lt;br&gt;
-有时想在slides中加入超链接，可以跳转到指定的页面，这个也是很easy的。&lt;br&gt;
+&lt;p&gt;slides中的链接
+有时想在slides中加入超链接，可以跳转到指定的页面，这个也是很easy的。
 给欲跳转到的frame加上label&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-latex&quot; data-lang=&quot;latex&quot;&gt;&lt;span class=&quot;k&quot;&gt;\frame&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;[label = XXX]&lt;/span&gt;
+
+&lt;div class=&quot;language-latex highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;\frame&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;[label = XXX]&lt;/span&gt;
 &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
   &lt;span class=&quot;k&quot;&gt;\frametitle&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;OOO&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
   &lt;span class=&quot;k&quot;&gt;\framesubtitle&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;XXX&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
   OOXX
 &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 &lt;p&gt;再在想加入超链接的地方加入：&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-latex&quot; data-lang=&quot;latex&quot;&gt;&lt;span class=&quot;k&quot;&gt;\hyperlink&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;XXX&lt;span class=&quot;p&quot;&gt;}{&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;\beamergotobutton&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;乃想显示的文本&lt;span class=&quot;p&quot;&gt;}}&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;\%\beamergotobutton&lt;/span&gt;可以选其他的按钮
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;显示时间+页数&lt;br&gt;
+
+&lt;div class=&quot;language-latex highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;\hyperlink&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;XXX&lt;span class=&quot;p&quot;&gt;}{&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;\beamergotobutton&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;乃想显示的文本&lt;span class=&quot;p&quot;&gt;}}&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;\%\beamergotobutton&lt;/span&gt;可以选其他的按钮
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;显示时间+页数
 这个根据不同的主题不一样，比如Berkeley默认就木有，而CambridgeUS就是有的，可以自己在导言区加入：&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-latex&quot; data-lang=&quot;latex&quot;&gt;&lt;span class=&quot;k&quot;&gt;\setbeamertemplate&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;footline&lt;span class=&quot;p&quot;&gt;}{&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;\%&lt;/span&gt;
+
+&lt;div class=&quot;language-latex highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;\setbeamertemplate&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;footline&lt;span class=&quot;p&quot;&gt;}{&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;\%&lt;/span&gt;
   &lt;span class=&quot;k&quot;&gt;\leavevmode\%&lt;/span&gt;
   &lt;span class=&quot;k&quot;&gt;\hbox&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;\%&lt;/span&gt;
     &lt;span class=&quot;nt&quot;&gt;\begin{beamercolorbox}&lt;/span&gt;[wd=.333333&lt;span class=&quot;k&quot;&gt;\paperwidth&lt;/span&gt;,ht=2.25ex,dp=1ex,center]&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;author in head/foot&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;\%&lt;/span&gt;
@@ -845,18 +733,19 @@ LATEX生成目录这类实在是拿手戏。最简单的：&lt;/p&gt;
     &lt;span class=&quot;nt&quot;&gt;\end{beamercolorbox}&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;\%&lt;/span&gt;
   &lt;span class=&quot;k&quot;&gt;\vskip&lt;/span&gt;0pt&lt;span class=&quot;k&quot;&gt;\%&lt;/span&gt;
 &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 &lt;p&gt;其实就是抄其他主题代码。。。&lt;/p&gt;
 
-&lt;p&gt;页脚显示文本&lt;br&gt;
+&lt;p&gt;页脚显示文本
 有时希望在frame的左下角页脚能显示一些内容，并不是为了报告时如何，只是给其他途径看slides的人一点更详尽的解释、资料，但是又不想用脚注(脚注在beamer效果不咋的)。&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-latex&quot; data-lang=&quot;latex&quot;&gt;&lt;span class=&quot;k&quot;&gt;\%&lt;/span&gt; add text to beamer footline
 
+&lt;div class=&quot;language-latex highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;\%&lt;/span&gt; add text to beamer footline
+ 
 &lt;span class=&quot;k&quot;&gt;\makeatletter&lt;/span&gt;
 &lt;span class=&quot;k&quot;&gt;\%&lt;/span&gt; add a macro that saves its argument
 &lt;span class=&quot;k&quot;&gt;\newcommand&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;\footlineextra&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;[1]&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;\gdef\insertfootlineextra&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;#1&lt;span class=&quot;p&quot;&gt;}}&lt;/span&gt;
 &lt;span class=&quot;k&quot;&gt;\newbox\footlineextrabox&lt;/span&gt;
-
+ 
 &lt;span class=&quot;k&quot;&gt;\%&lt;/span&gt; add a beamer template that sets the saved argument in a box.
 &lt;span class=&quot;k&quot;&gt;\%&lt;/span&gt; The * means that the beamer font and color &quot;footline extra&quot; are automatically added. 
 &lt;span class=&quot;k&quot;&gt;\defbeamertemplate*&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;footline extra&lt;span class=&quot;p&quot;&gt;}{&lt;/span&gt;default&lt;span class=&quot;p&quot;&gt;}{&lt;/span&gt;
@@ -865,7 +754,7 @@ LATEX生成目录这类实在是拿手戏。最简单的：&lt;/p&gt;
     &lt;span class=&quot;k&quot;&gt;\%&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;\par\vspace&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;2.5pt&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
   &lt;span class=&quot;nt&quot;&gt;\end{beamercolorbox}&lt;/span&gt;
 &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-
+ 
 &lt;span class=&quot;k&quot;&gt;\addtobeamertemplate&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;footline&lt;span class=&quot;p&quot;&gt;}{&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;\%&lt;/span&gt;
   &lt;span class=&quot;k&quot;&gt;\%&lt;/span&gt; set the box with the extra footline material but make it add no vertical space
   &lt;span class=&quot;k&quot;&gt;\setbox\footlineextrabox&lt;/span&gt;=&lt;span class=&quot;k&quot;&gt;\vbox&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;\usebeamertemplate*&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;footline extra&lt;span class=&quot;p&quot;&gt;}}&lt;/span&gt;
@@ -874,20 +763,23 @@ LATEX生成目录这类实在是拿手戏。最简单的：&lt;/p&gt;
   &lt;span class=&quot;k&quot;&gt;\box\footlineextrabox\%&lt;/span&gt;
 &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
 &lt;span class=&quot;p&quot;&gt;{}&lt;/span&gt;
-
+ 
 &lt;span class=&quot;k&quot;&gt;\%&lt;/span&gt; patch &lt;span class=&quot;nt&quot;&gt;\begin{frame}&lt;/span&gt; to reset the footline extra material
 &lt;span class=&quot;k&quot;&gt;\let\beamer&lt;/span&gt;@original@frame=&lt;span class=&quot;k&quot;&gt;\frame&lt;/span&gt;
 &lt;span class=&quot;k&quot;&gt;\def\frame&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;\gdef\insertfootlineextra&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{}&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;\beamer&lt;/span&gt;@original@frame&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
 &lt;span class=&quot;k&quot;&gt;\footlineextra&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{}&lt;/span&gt;
 &lt;span class=&quot;k&quot;&gt;\makeatother&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 &lt;p&gt;使用很简单：&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-latex&quot; data-lang=&quot;latex&quot;&gt;&lt;span class=&quot;k&quot;&gt;\footlineextra&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;XXXX&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;参考文献&lt;br&gt;
-LATEX最爽的几点之一就是参考文献的管理使用啊，毕设论文得用doc的泪奔T.T&lt;br&gt;
+
+&lt;div class=&quot;language-latex highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;\footlineextra&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;XXXX&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;参考文献
+LATEX最爽的几点之一就是参考文献的管理使用啊，毕设论文得用doc的泪奔T.T
 一般用的比较多的是bibtex，首先，自己搞定bib文件，然后slides中加上一页来放引用文献&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-latex&quot; data-lang=&quot;latex&quot;&gt;&lt;span class=&quot;k&quot;&gt;\%&lt;/span&gt;一般的引用样式只是[1]类，paper中这样没啥，slides这样不够友好
+
+&lt;div class=&quot;language-latex highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;\%&lt;/span&gt;一般的引用样式只是[1]类，paper中这样没啥，slides这样不够友好
 &lt;span class=&quot;k&quot;&gt;\%&lt;/span&gt;apalike：美国心理学学会期刊样式，显示作者名+年份
 &lt;span class=&quot;k&quot;&gt;\bibliographystyle&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;apalike&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;   
 &lt;span class=&quot;k&quot;&gt;\bibliography&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;XXX&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;   &lt;span class=&quot;k&quot;&gt;\%&lt;/span&gt;引用的XXX.bib文件
@@ -900,13 +792,14 @@ LATEX最爽的几点之一就是参考文献的管理使用啊，毕设论文得
   &lt;span class=&quot;k&quot;&gt;\bibliographystyle&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;apalike&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
   &lt;span class=&quot;k&quot;&gt;\bibliography&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;XXX&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
 &lt;span class=&quot;nt&quot;&gt;\end{frame}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 &lt;p&gt;引用，自然是\cite{}命令了&lt;/p&gt;
 
-&lt;p&gt;表格&lt;br&gt;
-有时，需要画一些表格，可能比较复杂，比如可能需要合并几行，或者几列，下面一个示例：&lt;br&gt;
+&lt;p&gt;表格
+有时，需要画一些表格，可能比较复杂，比如可能需要合并几行，或者几列，下面一个示例：
 导言区加上&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-latex&quot; data-lang=&quot;latex&quot;&gt;&lt;span class=&quot;k&quot;&gt;\usepackage&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;multirow&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+&lt;div class=&quot;language-latex highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;\usepackage&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;multirow&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
 &lt;span class=&quot;k&quot;&gt;\%&lt;/span&gt; The &lt;span class=&quot;k&quot;&gt;\cline&lt;/span&gt; command draws horizontal lines across the columns specified,
 ginning in column i and ending in column j, which are identified in the mandatory argument.
 &lt;span class=&quot;k&quot;&gt;\%&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;\cline&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;i-j&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
@@ -916,7 +809,7 @@ ginning in column i and ending in column j, which are identified in the mandator
       &lt;span class=&quot;k&quot;&gt;\%&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;\multicolumn&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;2&lt;span class=&quot;p&quot;&gt;}{&lt;/span&gt;c&lt;span class=&quot;p&quot;&gt;}{&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;\backslashbox&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;Name&lt;span class=&quot;p&quot;&gt;}{&lt;/span&gt;Numer&lt;span class=&quot;p&quot;&gt;}}&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;&amp;amp;&lt;/span&gt;  &lt;span class=&quot;k&quot;&gt;\multicolumn&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;2&lt;span class=&quot;p&quot;&gt;}{&lt;/span&gt;c&lt;span class=&quot;p&quot;&gt;}{}&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;\\&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;\hline&lt;/span&gt;
       &lt;span class=&quot;k&quot;&gt;\multirow&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;2&lt;span class=&quot;p&quot;&gt;}{&lt;/span&gt;*&lt;span class=&quot;p&quot;&gt;}{&lt;/span&gt;CleanEval&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;&amp;amp;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;\multirow&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;2&lt;span class=&quot;p&quot;&gt;}{&lt;/span&gt;*&lt;span class=&quot;p&quot;&gt;}{&lt;/span&gt;CleanEval-Eng&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;&amp;amp;&lt;/span&gt; training set &lt;span class=&quot;p&quot;&gt;&amp;amp;&lt;/span&gt; 60 &lt;span class=&quot;k&quot;&gt;\\&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;\cline&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;3-4&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; 
       &lt;span class=&quot;k&quot;&gt;\multirow&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;2&lt;span class=&quot;p&quot;&gt;}{&lt;/span&gt;*&lt;span class=&quot;p&quot;&gt;}{}&lt;/span&gt;          &lt;span class=&quot;p&quot;&gt;&amp;amp;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;\multirow&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;2&lt;span class=&quot;p&quot;&gt;}{&lt;/span&gt;*&lt;span class=&quot;p&quot;&gt;}{}&lt;/span&gt;              &lt;span class=&quot;p&quot;&gt;&amp;amp;&lt;/span&gt; evaluation set &lt;span class=&quot;p&quot;&gt;&amp;amp;&lt;/span&gt;   864 &lt;span class=&quot;k&quot;&gt;\\&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;\hline&lt;/span&gt; 
-
+ 
       &lt;span class=&quot;k&quot;&gt;\multirow&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;6&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;*&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;CETD&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;&amp;amp;&lt;/span&gt; NYTimes      &lt;span class=&quot;p&quot;&gt;&amp;amp;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;\multicolumn&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;2&lt;span class=&quot;p&quot;&gt;}{&lt;/span&gt;c&lt;span class=&quot;p&quot;&gt;}{&lt;/span&gt;100&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;\\&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;\cline&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;2-4&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; 
       &lt;span class=&quot;k&quot;&gt;\multirow&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;6&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;*&lt;span class=&quot;p&quot;&gt;{}&lt;/span&gt;     &lt;span class=&quot;p&quot;&gt;&amp;amp;&lt;/span&gt; Yahoo!       &lt;span class=&quot;p&quot;&gt;&amp;amp;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;\multicolumn&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;2&lt;span class=&quot;p&quot;&gt;}{&lt;/span&gt;c&lt;span class=&quot;p&quot;&gt;}{&lt;/span&gt;100&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;\\&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;\cline&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;2-4&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; 
       &lt;span class=&quot;k&quot;&gt;\multirow&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;6&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;*&lt;span class=&quot;p&quot;&gt;{}&lt;/span&gt;     &lt;span class=&quot;p&quot;&gt;&amp;amp;&lt;/span&gt; Wikipedia    &lt;span class=&quot;p&quot;&gt;&amp;amp;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;\multicolumn&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;2&lt;span class=&quot;p&quot;&gt;}{&lt;/span&gt;c&lt;span class=&quot;p&quot;&gt;}{&lt;/span&gt;100&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;\\&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;\cline&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;2-4&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
@@ -925,41 +818,45 @@ ginning in column i and ending in column j, which are identified in the mandator
       &lt;span class=&quot;k&quot;&gt;\multirow&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;6&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;*&lt;span class=&quot;p&quot;&gt;{}&lt;/span&gt;     &lt;span class=&quot;p&quot;&gt;&amp;amp;&lt;/span&gt; Chaos        &lt;span class=&quot;p&quot;&gt;&amp;amp;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;\multicolumn&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;2&lt;span class=&quot;p&quot;&gt;}{&lt;/span&gt;c&lt;span class=&quot;p&quot;&gt;}{&lt;/span&gt;200&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;\\&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;\hline&lt;/span&gt; 
     &lt;span class=&quot;nt&quot;&gt;\end{tabular}&lt;/span&gt;
   &lt;span class=&quot;nt&quot;&gt;\end{table}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;效果如图&lt;br&gt;
-table &lt;br&gt;
-其中，\multirow{6}&lt;em&gt;{CETD} 6代表占用6行，CETD是其内容，其实下面的\multirow{6}&lt;/em&gt;{}是可以去掉的，只是为了代码排版更清晰&lt;br&gt;
-\multicolumn{2}{c}{100}值合并两列，并且居中。&lt;br&gt;
-\cline的解释见代码注释&lt;br&gt;
-至于有时候可能会想要斜线的效果，不过latex中表格斜线分割看上去不舒服，还是不推荐，尤其科技论文中，文档直接明说不推荐&lt;br&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;效果如图
+table 
+其中，\multirow{6}&lt;em&gt;{CETD} 6代表占用6行，CETD是其内容，其实下面的\multirow{6}&lt;/em&gt;{}是可以去掉的，只是为了代码排版更清晰
+\multicolumn{2}{c}{100}值合并两列，并且居中。
+\cline的解释见代码注释
+至于有时候可能会想要斜线的效果，不过latex中表格斜线分割看上去不舒服，还是不推荐，尤其科技论文中，文档直接明说不推荐
 更多设置，详见Tables in LaTeX: packages and methods&lt;/p&gt;
 
-&lt;p&gt;sidebar&lt;br&gt;
-Berkeley主题中的sidebar默认显示所有的subsection，并且在显示对应的页时，高亮相应的section。对此可以作一些自定义。&lt;br&gt;
+&lt;p&gt;sidebar
+Berkeley主题中的sidebar默认显示所有的subsection，并且在显示对应的页时，高亮相应的section。对此可以作一些自定义。
 一般章节较多时，sidebar就很不友好了，显示不全，间距还大，别扭，只是取消显示subsection,一句话搞定&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-latex&quot; data-lang=&quot;latex&quot;&gt;&lt;span class=&quot;k&quot;&gt;\usetheme&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;[hideallsubsections]&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;Berkeley&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;div class=&quot;language-latex highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;\usetheme&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;[hideallsubsections]&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;Berkeley&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 &lt;p&gt;一种更好的sidebar显示方式：&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-latex&quot; data-lang=&quot;latex&quot;&gt;&lt;span class=&quot;k&quot;&gt;\%&lt;/span&gt; By default, the current entry of the table of contents in the sidebar will be highlighted by using a more vibrant color.
+
+&lt;div class=&quot;language-latex highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;\%&lt;/span&gt; By default, the current entry of the table of contents in the sidebar will be highlighted by using a more vibrant color.
 &lt;span class=&quot;k&quot;&gt;\%&lt;/span&gt; A good alternative is to highlight the current entry by using a different color for the background of the current point.
 &lt;span class=&quot;k&quot;&gt;\%&lt;/span&gt; The color theme sidebartab installs the appropriate colors
-
+ 
 &lt;span class=&quot;k&quot;&gt;\usecolortheme&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;sidebartab&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;图表、算法编号&lt;br&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;图表、算法编号
 beamer仿佛默认是不显示图标标号的默认值是Figure：XXX&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-latex&quot; data-lang=&quot;latex&quot;&gt;&lt;span class=&quot;k&quot;&gt;\%&lt;/span&gt; show fig and table number
+
+&lt;div class=&quot;language-latex highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;\%&lt;/span&gt; show fig and table number
 &lt;span class=&quot;k&quot;&gt;\setbeamertemplate&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;caption&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;[numbered]
 &lt;span class=&quot;k&quot;&gt;\%&lt;/span&gt; show theorems and example number
 &lt;span class=&quot;k&quot;&gt;\setbeamertemplate&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;theorems&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;[numbered]
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;字体大小&lt;br&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;字体大小
 beamer中某人的一些项目字体太大，比如样例example，可以在导言区自定义&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-latex&quot; data-lang=&quot;latex&quot;&gt;&lt;span class=&quot;k&quot;&gt;\setbeamerfont&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;example&lt;span class=&quot;p&quot;&gt;}{&lt;/span&gt;size=&lt;span class=&quot;k&quot;&gt;\tiny&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+&lt;div class=&quot;language-latex highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;\setbeamerfont&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;example&lt;span class=&quot;p&quot;&gt;}{&lt;/span&gt;size=&lt;span class=&quot;k&quot;&gt;\tiny&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
 &lt;span class=&quot;k&quot;&gt;\setbeamerfont&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;algorithm&lt;span class=&quot;p&quot;&gt;}{&lt;/span&gt;size=&lt;span class=&quot;k&quot;&gt;\scriptsize&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
 Chaos
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;至于关于动画之类的，其实更多的涉及到的是LATEX的画图，扯起来就太多了，不扯了，直接照着各文档来吧。&lt;br&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;至于关于动画之类的，其实更多的涉及到的是LATEX的画图，扯起来就太多了，不扯了，直接照着各文档来吧。
 一般这些画图包都有各式各样的样例供参考&lt;/p&gt;
 </description>
         <pubDate>Thu, 10 Jan 2019 00:00:00 +0800</pubDate>
@@ -986,7 +883,7 @@ Chaos
       <item>
         <title>yield for python</title>
         <description>&lt;h2 id=&quot;a-example-of-code&quot;&gt;a example of code&lt;/h2&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;fun&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;():&lt;/span&gt;
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;fun&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;():&lt;/span&gt;
     &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;range&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;20&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
         &lt;span class=&quot;n&quot;&gt;x&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;yield&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;
         &lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'good'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
@@ -1000,18 +897,19 @@ Chaos
     &lt;span class=&quot;nb&quot;&gt;next&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
     &lt;span class=&quot;nb&quot;&gt;next&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
     &lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;x2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
 &lt;h2 id=&quot;results&quot;&gt;results&lt;/h2&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt;&lt;span class=&quot;n&quot;&gt;good&lt;/span&gt; &lt;span class=&quot;bp&quot;&gt;None&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;good&lt;/span&gt; &lt;span class=&quot;bp&quot;&gt;None&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;
 &lt;span class=&quot;n&quot;&gt;good&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;5&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;
 &lt;span class=&quot;n&quot;&gt;good&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;
 &lt;span class=&quot;n&quot;&gt;good&lt;/span&gt; &lt;span class=&quot;bp&quot;&gt;None&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;
 &lt;span class=&quot;n&quot;&gt;good&lt;/span&gt; &lt;span class=&quot;bp&quot;&gt;None&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;4&lt;/span&gt;
 &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;h2 id=&quot;description&quot;&gt;description&lt;/h2&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;p&gt;&lt;a href=&quot;https://wiki.python.org/moin/Generators&quot;&gt;&lt;strong&gt;yield&lt;/strong&gt;&lt;/a&gt; generator functions allow you to declare a function that behaves like an iterator. &lt;/p&gt;
+&lt;h2 id=&quot;description&quot;&gt;description&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&quot;https://wiki.python.org/moin/Generators&quot;&gt;&lt;strong&gt;yield&lt;/strong&gt;&lt;/a&gt; generator functions allow you to declare a function that behaves like an iterator.&lt;/p&gt;
 </description>
         <pubDate>Fri, 14 Dec 2018 00:00:00 +0800</pubDate>
         <link>http://localhost:4000/2018/12/yield-for-python/</link>
