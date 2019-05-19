@@ -5,9 +5,738 @@
     <description>To be or not to be, that is a question.</description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Tue, 30 Apr 2019 21:23:19 +0800</pubDate>
-    <lastBuildDate>Tue, 30 Apr 2019 21:23:19 +0800</lastBuildDate>
+    <pubDate>Sun, 19 May 2019 20:05:30 +0800</pubDate>
+    <lastBuildDate>Sun, 19 May 2019 20:05:30 +0800</lastBuildDate>
     <generator>Jekyll v3.8.5</generator>
+    
+      <item>
+        <title>Vim for latex</title>
+        <description>&lt;p&gt;最近 Vim 和 LaTex 用的都比较多，如果你也经常使用 Vim来编辑 LaTex 文档，不妨尝试一下。&lt;/p&gt;
+
+&lt;h2 id=&quot;快捷键&quot;&gt;快捷键&lt;/h2&gt;
+&lt;ol&gt;
+  &lt;li&gt;= 自动格式化对齐样式，对于有代码洁癖强迫症的人来说绝对是福音。&lt;/li&gt;
+  &lt;li&gt;gq家族 根据 textwidth 自动换行。gqgq: 换行当前段。gqap: 格式化整个段。{Visual}gq: 格式化选定的部分。对于每行字符数量不能超过 80 的人来说，又一个福音。最后你的文章会非常整齐，就像这样：
+    &lt;div class=&quot;language-tex highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Vim (an acronym for Vi IMproved) is a text editor written by Bram Moolenaar and
+first released publicly in 1991. Based on the vi editor common to Unix-like
+systems, Vim is designed for use both from a command line interface and as a
+standalone application in a graphical user interface. Vim is free and open
+source software and is released under a license that includes some charityware
+clauses, encouraging users who enjoy the software to consider donating to
+children in Uganda. The license is compatible with the GNU General Public
+License.
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&quot;命令--vimrc&quot;&gt;命令 &amp;amp; .vimrc&lt;/h2&gt;
+&lt;ol&gt;
+  &lt;li&gt;:set spell 经常写英文的人会用得到的，一不小心打错单词了，Vim 会在单词上加一个下划线提示。你还可以把你认为正确的特殊单词加到字典里面。&lt;/li&gt;
+  &lt;li&gt;autocmd BufNewFile,BufRead *.tex set spell 把这句话加到 .vimrc 里面可以在打开 .tex 文件的时候自动进行拼写检查。&lt;/li&gt;
+  &lt;li&gt;let g:tex_indent_items=0 估计大家都打开了换行时自动对齐的功能，但是有没有发现这样一个问题，在用 itemize 的时候，每一个 item 都会自动缩进两个，非常麻烦。如果你懒得搞的话，最后就变成了这个样子：
+    &lt;div class=&quot;language-tex highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nt&quot;&gt;\begin{itemize}&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;\item&lt;/span&gt; fist ...
+ &lt;span class=&quot;k&quot;&gt;\item&lt;/span&gt; second ...
+   &lt;span class=&quot;k&quot;&gt;\item&lt;/span&gt; third ...
+&lt;span class=&quot;nt&quot;&gt;\end{itemize}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+    &lt;p&gt;如果在 .vimrc 里面加入 let g:tex_indent_items=0 一句话，自动缩进终于变得正常了。&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&quot;插件&quot;&gt;插件&lt;/h2&gt;
+&lt;ol&gt;
+  &lt;li&gt;UltiSnips 无论是编辑 LaTex 文档还是写代码，UltiSnips 绝对是利器。他可以自动补全常用的代码结构。拿 Tex 举例，输入 item 就会出来：
+```tex
+item
+\begin{itemize}
+ \item
+\end{itemize}&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;fig
+\begin{figure}[htpb]
+  \centering
+  \includegraphics[width=0.8\linewidth]{name.ext}
+  \caption{Name}
+  \label{fig:name}
+\end{figure}&lt;/p&gt;
+
+&lt;p&gt;lp
+\left(contents\right)&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;还有非常多的自动补全，\begin{}…\end{} \section{}…。当然，你还可以编写自己的 snippets。用了这个插件，写东西的时候有一种畅快淋漓的感觉，再也不用纠结乱起八糟的命令了。可以看一下作者录制的四个 screencasts，了解 UltiSpips 更强大的功能。
+
+2. Align 用 [Align](https://github.com/vim-scripts/Align) 来对齐表格，又一个强迫症的福音。
+```tex
+\begin{tabular}{cccc}
+  a &amp;amp; b &amp;amp; c &amp;amp; d \\
+  Ef &amp;amp; long long &amp;amp; ss &amp;amp; a \\
+  test &amp;amp; n &amp;amp; long content &amp;amp; small \\
+\end{tabular}
+&quot; 选中表格内容，按 tt，就可以对齐了，豁然开朗。
+\begin{tabular}{cccc}
+  a    &amp;amp; b         &amp;amp; c            &amp;amp; d     \\
+  Ef   &amp;amp; long long &amp;amp; ss           &amp;amp; a     \\
+  test &amp;amp; n         &amp;amp; long content &amp;amp; small \\
+\end{tabular}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;a href=&quot;https://github.com/scrooloose/syntastic&quot;&gt;Syntastic&lt;/a&gt;是语法检查的利器。对于 Tex 文档来说，你总不想到编译的时候才发现 &amp;amp; 符号没有用转移字符 \&amp;amp; 吧。Syntastic 会动态的检查 Tex 文档的语法，除了语法错误的提示，他还会有一些语法的建议。附一张官方的图，这是多么的方便啊！&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;a href=&quot;https://github.com/w0rp/ale&quot;&gt;ale&lt;/a&gt;(Asynchronous Lint Engine)是一款语法检查的插件，与syntastic类似，但有两个明显的优势，一个是语法检查是异步执行的，因此基本上不会出现卡顿的情况，另外一个是ale默认会使用所有检查工具并发的进行检查，但它只支持Vim 8.0以上的版本。
+```tex
+“异步语法检查
+Plug ‘w0rp/ale’&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;” ale-setting }&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
+## 其他
+还有一些不在强烈建议的列表当中，但是也非常的有用。比如说单词补全的插件：neocompletecache。或者直接从 markdown 转成 tex 文档，让你完全专注于写作: [pandoc](http://johnmacfarlane.net/pandoc/)。剩下的都是是看个人喜好了。
+
+Update: 还有一个非常重要的工具，latexmk，是 LaTex 的 Makefile。好像 tex-live 的包里面直接就带了。有了他，就可以左边开一个 Vim，右边放一个 PDF。然后在 Vim 中保存修改，右面 PDF 就会自动更新。想达到这样的效果，首先要建立一个配置文件 .latexmkrc，里面写上：
+```bash
+$pdf_previewer = &quot;start evince %O %S&quot;;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;这里是为了制定默认的 PDF 浏览器。设置完之后，只要运行 latexmk 命令就能自动监控 tex 文件的修改，然后重新编译。&lt;/p&gt;
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;latexmk &lt;span class=&quot;nt&quot;&gt;-pdf&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-pvc&lt;/span&gt; xxx.tex      // 用 pdflatex 编译，同时打开 PDF 浏览，并监控修改
+latexmk &lt;span class=&quot;nt&quot;&gt;-xelatex&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-pvc&lt;/span&gt; xxx.tex  // 用 xelatex 编译，同时打开 PDF 浏览，并监控修改
+latexmk &lt;span class=&quot;nt&quot;&gt;-c&lt;/span&gt;     // 删除生成的中间文件
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+</description>
+        <pubDate>Sun, 19 May 2019 00:00:00 +0800</pubDate>
+        <link>http://localhost:4000/2019/05/Vim-for-LaTeX/</link>
+        <guid isPermaLink="true">http://localhost:4000/2019/05/Vim-for-LaTeX/</guid>
+        
+        <category>computer science</category>
+        
+        <category>vim</category>
+        
+        <category>latex</category>
+        
+        <category>blog</category>
+        
+        
+        <category>computer science</category>
+        
+        <category>vim</category>
+        
+        <category>latex</category>
+        
+      </item>
+    
+      <item>
+        <title>jupyter notebook theme</title>
+        <description>&lt;h2 id=&quot;修改-jupyter-notebook-的主题字体字号&quot;&gt;修改 jupyter notebook 的主题，字体，字号&lt;/h2&gt;
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;pip &lt;span class=&quot;nb&quot;&gt;install &lt;/span&gt;jupyterthemes
+jt &lt;span class=&quot;nt&quot;&gt;-l&lt;/span&gt;
+jt &lt;span class=&quot;nt&quot;&gt;-t&lt;/span&gt; oceans16 &lt;span class=&quot;nt&quot;&gt;-f&lt;/span&gt; anonymous &lt;span class=&quot;nt&quot;&gt;-fs&lt;/span&gt; 12 &lt;span class=&quot;nt&quot;&gt;-cellw&lt;/span&gt; 90% &lt;span class=&quot;nt&quot;&gt;-ofs&lt;/span&gt; 11 &lt;span class=&quot;nt&quot;&gt;-dfs&lt;/span&gt; 11 &lt;span class=&quot;nt&quot;&gt;-T&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;theme&quot;&gt;theme&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;chesterish&lt;/li&gt;
+  &lt;li&gt;grade3&lt;/li&gt;
+  &lt;li&gt;gruvboxd&lt;/li&gt;
+  &lt;li&gt;gruvboxl&lt;/li&gt;
+  &lt;li&gt;monokai&lt;/li&gt;
+  &lt;li&gt;oceans16&lt;/li&gt;
+  &lt;li&gt;onedork&lt;/li&gt;
+  &lt;li&gt;solarizedd&lt;/li&gt;
+  &lt;li&gt;solarizedl&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;set-plotting-style-from-within-notebook&quot;&gt;Set Plotting Style (from within notebook)&lt;/h2&gt;
+&lt;p&gt;jtplot.style() makes changes to matplotlib’s rcParams dictionary so that figure aesthetics match those of a chosen jupyterthemes style. In addition to setting the color scheme, jtplot.style() allows you to control various figure properties (spines, grid, font scale, etc.) as well as the plotting “context” (borrowed from seaborn).&lt;/p&gt;
+
+&lt;p&gt;Note, these commands do not need to be re-run every time you generate a new plot, just once at the beginning of your notebook or whenever style changes are desired after that.&lt;/p&gt;
+
+&lt;p&gt;Pro-tip: Include the following two lines in ~/.ipython/profile_default/startup/startup.ipy file to set plotting style automatically whenever you start a notebook:&lt;/p&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;# import jtplot submodule from jupyterthemes
+&lt;/span&gt;&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;jupyterthemes&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;jtplot&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;# currently installed theme will be used to
+# set plot style if no arguments provided
+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;jtplot&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;style&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;jtplotstyle-examples&quot;&gt;jtplot.style() Examples&lt;/h3&gt;
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;# import jtplot module in notebook
+&lt;/span&gt;&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;jupyterthemes&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;jtplot&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;# choose which theme to inherit plotting style from
+# onedork | grade3 | oceans16 | chesterish | monokai | solarizedl | solarizedd
+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;jtplot&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;style&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;theme&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'onedork'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;# set &quot;context&quot; (paper, notebook, talk, poster)
+# scale font-size of ticklabels, legend, etc.
+# remove spines from x and y axes and make grid dashed
+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;jtplot&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;style&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;context&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'talk'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;fscale&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;1.4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;spines&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;False&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;gridlines&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'--'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;# turn on X- and Y-axis tick marks (default=False)
+# turn off the axis grid lines (default=True)
+# and set the default figure size
+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;jtplot&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;style&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ticks&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;True&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;grid&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;False&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;figsize&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;6&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mf&quot;&gt;4.5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;# reset default matplotlib rcParams
+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;jtplot&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;reset&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;monospace-fonts-code-cells&quot;&gt;Monospace Fonts (code cells)&lt;/h2&gt;
+&lt;p&gt;-f arg | Monospace Font
+:—: | :—:
+anka | Anka/Coder
+anonymous | Anonymous Pro
+aurulent | Aurulent Sans Mono
+bitstream | Bitstream Vera Sans Mono
+bpmono | BPmono
+code | Code New Roman
+consolamono | Consolamono
+cousine | Cousine
+dejavu | DejaVu Sans Mono
+droidmono | Droid Sans Mono
+fira | Fira Mono
+firacode | Fira Code
+generic | Generic Mono
+hack | Hack
+hasklig | Hasklig
+inconsolata | Inconsolata-g
+inputmono | Input Mono
+iosevka | Iosevka
+liberation | Liberation Mono
+meslo | Meslo
+office | Office Code Pro
+oxygen | Oxygen Mono
+roboto | Roboto Mono
+saxmono | saxMono
+source | Source Code Pro
+sourcemed | Source Code Pro Medium
+ptmono | PT Mono
+ubuntu | Ubuntu Mono&lt;/p&gt;
+
+&lt;h2 id=&quot;sans-serif-fonts&quot;&gt;Sans-Serif Fonts&lt;/h2&gt;
+&lt;p&gt;-nf/-tf arg | Sans-Serif Font
+:—: | :—:
+opensans | Open Sans
+droidsans | Droid Sans
+exosans | Exo_2
+latosans | Lato
+ptsans | PT Sans
+robotosans | Roboto
+sourcesans | Source Sans Pro&lt;/p&gt;
+
+&lt;h2 id=&quot;serif-fonts&quot;&gt;Serif Fonts&lt;/h2&gt;
+&lt;p&gt;-nf/-tf arg | Serif Font
+:—: | :—:
+loraserif | Lora
+ptserif | PT Serif
+georgiaserif | Georgia
+cardoserif | Cardo
+crimsonserif | Crimson Text
+ebserif | EB Garamond
+merriserif | Merriweather
+neutonserif | Neuton
+goudyserif | Sorts Mill Goudy&lt;/p&gt;
+</description>
+        <pubDate>Sun, 12 May 2019 00:00:00 +0800</pubDate>
+        <link>http://localhost:4000/2019/05/jupyter-notebook-theme/</link>
+        <guid isPermaLink="true">http://localhost:4000/2019/05/jupyter-notebook-theme/</guid>
+        
+        <category>computer science</category>
+        
+        <category>python</category>
+        
+        <category>jupyter notebook</category>
+        
+        <category>blog</category>
+        
+        
+        <category>computer science</category>
+        
+        <category>python</category>
+        
+        <category>jupyter notebook</category>
+        
+      </item>
+    
+      <item>
+        <title>tensorflow share parameter</title>
+        <description>&lt;h2 id=&quot;tfvariable定义变量&quot;&gt;tf.Variable()定义变量&lt;/h2&gt;
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;tf&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Variable&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;initial_value&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;None&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;c1&quot;&gt;# 第一个参数是必填参数
+&lt;/span&gt;    &lt;span class=&quot;n&quot;&gt;trainable&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;True&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;collections&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;None&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;validate_shape&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;True&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;caching_device&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;None&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;None&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;variable_def&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;None&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;dtype&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;None&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;expected_shape&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;None&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;import_scope&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;None&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://www.tensorflow.org/api_docs/python/tf/Variable&quot;&gt;tf.Variable()&lt;/a&gt;定义图的变量&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;initial_value：变量的初始值，以下会有一个总结&lt;/li&gt;
+  &lt;li&gt;trainable：bool类型，如果为True，会把它加入到GraphKeys.TRAINABLE_VARIABLES，才能对它使用Optimizer&lt;/li&gt;
+  &lt;li&gt;collections：是一个list类型，指定该图变量的类型、默认为[GraphKeys.GLOBAL_VARIABLES]&lt;/li&gt;
+  &lt;li&gt;validate_shape：bool类型，如果为False，则不进行类型和维度检查&lt;/li&gt;
+  &lt;li&gt;name：是string类型，变量的名称，如果没有指定则系统会自动分配一个唯一的值（可选参数）&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;tfvariable的初始化&quot;&gt;tf.Variable()的初始化&lt;/h2&gt;
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;## random tensor
+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;tf&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;random_normal&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;shape&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;mean&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;0.0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;stddev&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;1.0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;dtype&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;tf&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;float32&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;seed&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;None&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;None&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;tf&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;truncated_normal&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;shape&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;mean&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;0.0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;stddev&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;1.0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;dtype&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;tf&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;float32&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;seed&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;None&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;None&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;tf&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;random_uniform&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;shape&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;minval&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;maxval&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;None&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;dtype&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;tf&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;float32&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;seed&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;None&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;None&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;tf&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;random_shuffle&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;value&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;seed&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;None&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;None&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;tf&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;random_crop&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;value&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;size&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;seed&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;None&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;None&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;tf&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;multinomial&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;logits&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;num_samples&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;seed&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;None&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;None&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;tf&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;random_gamma&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;shape&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;alpha&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;beta&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;None&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;dtype&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;tf&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;float32&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;seed&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;None&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;None&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;tf&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;set_random_seed&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;seed&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;## constant value Tensor
+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;tf&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;zeros&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;shape&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;dtype&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;tf&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;float32&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;None&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;tf&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;zeros_like&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;tensor&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;dtype&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;None&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;None&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;tf&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ones&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;shape&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;dtype&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;tf&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;float32&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;None&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;tf&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ones_like&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;tensor&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;dtype&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;None&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;None&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;tf&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;fill&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;dims&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;value&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;None&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;tf&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;constant&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;value&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;dtype&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;None&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;shape&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;None&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'Const'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;tfget_variable&quot;&gt;tf.get_variable()&lt;/h2&gt;
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;tf&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;get_variable&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;   &lt;span class=&quot;c1&quot;&gt;#name是一个必填参数，与之前见过的函数不一样！！！！
+&lt;/span&gt;    &lt;span class=&quot;n&quot;&gt;shape&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;None&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;dtype&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;None&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;initializer&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;None&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;regularizer&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;None&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;trainable&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;True&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;collections&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;None&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;caching_device&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;None&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;partitioner&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;None&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;validate_shape&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;True&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;use_resource&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;None&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;custom_getter&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;None&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;&lt;a href=&quot;https://www.tensorflow.org/api_docs/python/tf/get_variable&quot;&gt;tf.get_variable()&lt;/a&gt;定义图的变量
+ - name：新变量或现有变量的名称，这个参数是必须的，函数会根据变量名称去创建或者获取变量。&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;shape：新变量或现有变量的形状或者维度。&lt;/li&gt;
+  &lt;li&gt;dtype：新变量或现有变量的类型（默认为 DT_FLOAT）。&lt;/li&gt;
+  &lt;li&gt;initializer：创建变量的初始化器，初始化变量。初始化的方式在下面会有一个归纳&lt;/li&gt;
+  &lt;li&gt;regularizer：一个函数（张量 - &amp;gt;张量或无）；将其应用于新创建的变量的结果将被添加到集合 tf.GraphKeys.REGULARIZATION_LOSSES 中，并可用于正则化。&lt;/li&gt;
+  &lt;li&gt;trainable：如果为 True，还将变量添加到图形集合：GraphKeys.TRAINABLE_VARIABLES。&lt;/li&gt;
+  &lt;li&gt;collections：要将变量添加到其中的图形集合键的列表。默认为 [GraphKeys.LOCAL_VARIABLES]。&lt;/li&gt;
+  &lt;li&gt;partitioner：（可选）可调用性，它接受要创建的变量的完全定义的 TensorShape 和 dtype，并且返回每个坐标轴的分区列表（当前只能对一个坐标轴进行分区）&lt;/li&gt;
+  &lt;li&gt;validate_shape：如果为假，则允许使用未知形状的值（也就是shape=[],方括号里面不填任何东西，包括空格）初始化变量。如果为真，则默认情况下，initial_value 的形状必须是已知的。&lt;/li&gt;
+  &lt;li&gt;use_resource：如果为假，则创建一个常规变量。如果为真，则创建一个实验性的 ResourceVariable，而不是具有明确定义的语义。默认为假（稍后将更改为真）。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;tfget_variable的初始化&quot;&gt;tf.get_variable()的初始化&lt;/h2&gt;
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;tf&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;constant_initializer&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;#常量初始化函数
+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;tf&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;random_normal_initializer&lt;/span&gt;  &lt;span class=&quot;c1&quot;&gt;#正态分布
+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;tf&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;truncated_normal_initializer&lt;/span&gt;  &lt;span class=&quot;c1&quot;&gt;#截取的正态分布
+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;tf&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;random_uniform_initializer&lt;/span&gt;  &lt;span class=&quot;c1&quot;&gt;#均匀分布
+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;tf&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;zeros_initializer&lt;/span&gt;  &lt;span class=&quot;c1&quot;&gt;#全部是0
+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;tf&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ones_initializer&lt;/span&gt;  &lt;span class=&quot;c1&quot;&gt;#全是1
+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;tf&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;uniform_unit_scaling_initializer&lt;/span&gt;  &lt;span class=&quot;c1&quot;&gt;##满足均匀分布，但不影响输出数量级的随机值
+&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;## example
+&lt;/span&gt;
+&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;tensorflow&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;as&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;tf&lt;/span&gt;
+&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;numpy&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;as&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;np&lt;/span&gt;
+&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;matplotlib.pyplot&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;as&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;plt&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;a1&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;tf&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;get_variable&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'a1'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;shape&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;initializer&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;tf&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;random_normal_initializer&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;mean&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;stddev&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;a2&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;tf&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;get_variable&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'a2'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;shape&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;initializer&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;tf&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;constant_initializer&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;a3&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;tf&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;get_variable&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'a3'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;shape&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;initializer&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;tf&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ones_initializer&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;())&lt;/span&gt;
+ 
+&lt;span class=&quot;k&quot;&gt;with&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;tf&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Session&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;as&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;sess&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+	&lt;span class=&quot;n&quot;&gt;sess&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;run&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;tf&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;initialize_all_variables&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;())&lt;/span&gt;
+	&lt;span class=&quot;k&quot;&gt;print&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;sess&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;run&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;a1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+	&lt;span class=&quot;k&quot;&gt;print&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;sess&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;run&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;a2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+	&lt;span class=&quot;k&quot;&gt;print&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;sess&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;run&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;a3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;tfvariable_scope&quot;&gt;tf.variable_scope()&lt;/h2&gt;
+&lt;p&gt;嵌套的作用域附加名字所用的规则和文件目录的规则很类似：&lt;/p&gt;
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;with&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;tf&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;variable_scope&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;foo&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;with&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;tf&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;variable_scope&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;bar&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;v&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;tf&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;get_variable&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;v&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;])&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;assert&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;v&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;name&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;foo/bar/v:0&quot;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;当前变量作用域可以用tf.get_variable_scope()里面不需要参数进行检索并且reuse 标签可以通过调用tf.get_variable_scope().reuse_variables()里面也不需要参数设置为True .设置方法在上面有举例。注意你不能设置reuse标签为False。即使你不能直接设置 reuse 为 False ,但是你可以输入一个重用变量作用域,然后就释放掉,就成为非重用的变量.当打开一个变量作用域时,使用reuse=True 作为参数是可以的.但也要注意，同一个原因，reuse 参数是不可继承.所以当你打开一个重用变量作用域，那么所有的子作用域也将会被重用.&lt;/p&gt;
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;with&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;tf&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;variable_scope&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;root&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+    &lt;span class=&quot;c1&quot;&gt;# At start, the scope is not reusing.
+&lt;/span&gt;    &lt;span class=&quot;k&quot;&gt;assert&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;tf&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;get_variable_scope&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;reuse&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;bp&quot;&gt;False&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;with&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;tf&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;variable_scope&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;foo&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+        &lt;span class=&quot;c1&quot;&gt;# Opened a sub-scope, still not reusing.
+&lt;/span&gt;        &lt;span class=&quot;k&quot;&gt;assert&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;tf&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;get_variable_scope&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;reuse&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;bp&quot;&gt;False&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;with&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;tf&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;variable_scope&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;foo&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;reuse&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;True&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;这里打开共享&lt;/span&gt;
+        &lt;span class=&quot;c1&quot;&gt;# Explicitly opened a reusing scope.
+&lt;/span&gt;        &lt;span class=&quot;k&quot;&gt;assert&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;tf&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;get_variable_scope&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;reuse&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;bp&quot;&gt;True&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;with&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;tf&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;variable_scope&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;bar&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+            &lt;span class=&quot;c1&quot;&gt;# Now sub-scope inherits the reuse flag.
+&lt;/span&gt;            &lt;span class=&quot;k&quot;&gt;assert&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;tf&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;get_variable_scope&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;reuse&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;bp&quot;&gt;True&lt;/span&gt;
+    &lt;span class=&quot;c1&quot;&gt;# Exited the reusing scope, back to a non-reusing one.
+&lt;/span&gt;    &lt;span class=&quot;k&quot;&gt;assert&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;tf&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;get_variable_scope&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;reuse&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;bp&quot;&gt;False&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;description&quot;&gt;description&lt;/h2&gt;
+&lt;h3 id=&quot;name&quot;&gt;name&lt;/h3&gt;
+&lt;p&gt;使用tf.Variable时，如果检测到命名冲突，系统会自己处理。使用tf.get_variable()时，系统不会处理冲突，而会报错。实际上由于tf.Variable() 每次都在创建新对象，所有reuse=True 和它并没有什么关系。对于get_variable()，来说，在某个作用域下如果已经有创建的变量对象，同时要满足标签reuse=True ，就把那个对象返回（也就是共享）没有创建变量；如果没有存在想要创建的变量对象的话，同时标签reuse=False(默认），就创建一个新的（这个时候才创建新对象）。&lt;/p&gt;
+&lt;h4 id=&quot;variable可以创建两个name相同都为w_1的变量&quot;&gt;variable可以创建两个name相同（都为w_1）的变量&lt;/h4&gt;
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;tensorflow&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;as&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;tf&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;w_1&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;tf&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Variable&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;w_1&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;w_2&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;tf&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Variable&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;w_1&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;print&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;w_1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;name&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;print&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;w_2&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;name&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#输出实际上创建了两个不同的变量
+#w_1:0
+#w_1_1:0
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;h4 id=&quot;get_variable在同一个作用域下这个作用域是默认的不能创建两个name相同都为w_1的变量&quot;&gt;get_variable在同一个作用域下（这个作用域是默认的）不能创建两个name相同（都为w_1）的变量&lt;/h4&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;tensorflow&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;as&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;tf&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;w_1&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;tf&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;get_variable&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;w_1&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;initializer&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;w_2&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;tf&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;get_variable&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;w_1&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;initializer&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#下面是错误信息
+#ValueError: Variable w_1 already exists, disallowed. Did
+#you mean to set reuse=True in VarScope?
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;reuse&quot;&gt;reuse&lt;/h3&gt;
+&lt;p&gt;tf.get_variable()它的工作方式根据当前的变量域（Variable Scope）的reuse属性变化而变化，我们可以通过tf.get_variable_scope().reuse来查看这个属性，它默认是False。&lt;/p&gt;
+&lt;h4 id=&quot;变量的实际名称作用域name的字符窜&quot;&gt;变量的实际名称=作用域+name的字符窜&lt;/h4&gt;
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;with&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;tf&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;variable_scope&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;foo&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# reuse默认是False
+&lt;/span&gt;    &lt;span class=&quot;n&quot;&gt;v&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;tf&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;get_variable&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;v&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;])&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;assert&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;v&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;name&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;foo/v:0&quot;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;h4 id=&quot;tfget_variable_scopereuse--true时作用域是为重用变量所设置&quot;&gt;tf.get_variable_scope().reuse == True时，作用域是为重用变量所设置&lt;/h4&gt;
+&lt;p&gt;这种情况下，调用就会搜索一个已经存在的变量，他的全称和当前变量的作用域名+所提供的名字是否相等.如果不存在相应的变量，就会抛出ValueError 错误.如果变量找到了，就返回这个变量.&lt;/p&gt;
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;with&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;tf&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;variable_scope&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;foo&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;v&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;tf&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;get_variable&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;v&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;])&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;with&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;tf&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;variable_scope&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;foo&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;reuse&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;True&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;v1&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;tf&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;get_variable&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;v&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;])&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;assert&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;v1&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;v&lt;/span&gt; 
+&lt;span class=&quot;c1&quot;&gt;## 输出可以知道
+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;v1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;==&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;v&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;==&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'foo/v:0'&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+</description>
+        <pubDate>Wed, 08 May 2019 00:00:00 +0800</pubDate>
+        <link>http://localhost:4000/2019/05/tensor-share-parameter/</link>
+        <guid isPermaLink="true">http://localhost:4000/2019/05/tensor-share-parameter/</guid>
+        
+        <category>computer science</category>
+        
+        <category>deep learning</category>
+        
+        <category>tensorflow</category>
+        
+        <category>blog</category>
+        
+        
+        <category>computer science</category>
+        
+        <category>deep learning</category>
+        
+        <category>tensorflow</category>
+        
+      </item>
+    
+      <item>
+        <title>tensorflow print</title>
+        <description>&lt;h2 id=&quot;tfprintinputdatamessagenonefirst_nnonesummarizenonenamenone&quot;&gt;tf.Print(input, data, message=None, first_n=None, summarize=None, name=None)&lt;/h2&gt;
+&lt;p&gt;最低要求两个输入，input和data，input是需要打印的变量的名字，data要求是一个list，里面包含要打印的内容。&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;message是需要输出的错误信息&lt;/li&gt;
+  &lt;li&gt;first_n指只记录前n次&lt;/li&gt;
+  &lt;li&gt;summarize是对每个tensor只打印的条目数量，如果是None，对于每个输入tensor只打印3个元素&lt;/li&gt;
+  &lt;li&gt;name是op的名字&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;a-code-example&quot;&gt;a code example&lt;/h2&gt;
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;tf&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;constant&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;([&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;])&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;tf&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;shape&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'test'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;message&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'Debug message:'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;summarize&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;100&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;with&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;tf&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Session&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;as&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;sess&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;sess&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;run&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;# Debug message:[2 3 4 5][4][test][2 3 4 5]
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+</description>
+        <pubDate>Mon, 06 May 2019 00:00:00 +0800</pubDate>
+        <link>http://localhost:4000/2019/05/tf.print/</link>
+        <guid isPermaLink="true">http://localhost:4000/2019/05/tf.print/</guid>
+        
+        <category>computer science</category>
+        
+        <category>deep learning</category>
+        
+        <category>tensorflow</category>
+        
+        <category>blog</category>
+        
+        
+        <category>computer science</category>
+        
+        <category>deep learning</category>
+        
+        <category>tensorflow</category>
+        
+      </item>
+    
+      <item>
+        <title>tensorflow and cuda version</title>
+        <description>&lt;h2 id=&quot;tensorflow各个版本需要的cuda版本以及cudnn的对应关系&quot;&gt;tensorflow各个版本需要的CUDA版本以及Cudnn的对应关系&lt;/h2&gt;
+&lt;p&gt;相应的网址为：
+&lt;a href=&quot;https://www.tensorflow.org/install/source#common_installation_problems&quot;&gt;tensorflow install for linux and macOS&lt;/a&gt;
+&lt;a href=&quot;https://www.tensorflow.org/install/source_windows&quot;&gt;tensorflow install for windows&lt;/a&gt;&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;版本&lt;/th&gt;
+      &lt;th&gt;Python 版本&lt;/th&gt;
+      &lt;th&gt;编译器&lt;/th&gt;
+      &lt;th&gt;编译工具&lt;/th&gt;
+      &lt;th&gt;cuDNN&lt;/th&gt;
+      &lt;th&gt;CUDA&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;tensorflow_gpu-2.0.0-alpha0&lt;/td&gt;
+      &lt;td&gt;2.7、3.3-3.6&lt;/td&gt;
+      &lt;td&gt;GCC 4.8&lt;/td&gt;
+      &lt;td&gt;Bazel 0.19.2&lt;/td&gt;
+      &lt;td&gt;7.4.1以及更高版本&lt;/td&gt;
+      &lt;td&gt;CUDA 10.0 (需要 410.x 或更高版本)&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;tensorflow_gpu-1.13.0&lt;/td&gt;
+      &lt;td&gt;2.7、3.3-3.6&lt;/td&gt;
+      &lt;td&gt;GCC 4.8&lt;/td&gt;
+      &lt;td&gt;Bazel 0.19.2&lt;/td&gt;
+      &lt;td&gt;7.4&lt;/td&gt;
+      &lt;td&gt;10.0&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;tensorflow_gpu-1.12.0&lt;/td&gt;
+      &lt;td&gt;2.7、3.3-3.6&lt;/td&gt;
+      &lt;td&gt;GCC 4.8&lt;/td&gt;
+      &lt;td&gt;Bazel 0.15.0&lt;/td&gt;
+      &lt;td&gt;7&lt;/td&gt;
+      &lt;td&gt;9&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;tensorflow_gpu-1.11.0&lt;/td&gt;
+      &lt;td&gt;2.7、3.3-3.6&lt;/td&gt;
+      &lt;td&gt;GCC 4.8&lt;/td&gt;
+      &lt;td&gt;Bazel 0.15.0&lt;/td&gt;
+      &lt;td&gt;7&lt;/td&gt;
+      &lt;td&gt;9&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;tensorflow_gpu-1.10.0&lt;/td&gt;
+      &lt;td&gt;2.7、3.3-3.6&lt;/td&gt;
+      &lt;td&gt;GCC 4.8&lt;/td&gt;
+      &lt;td&gt;Bazel 0.15.0&lt;/td&gt;
+      &lt;td&gt;7&lt;/td&gt;
+      &lt;td&gt;9&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;tensorflow_gpu-1.9.0&lt;/td&gt;
+      &lt;td&gt;2.7、3.3-3.6&lt;/td&gt;
+      &lt;td&gt;GCC 4.8&lt;/td&gt;
+      &lt;td&gt;Bazel 0.11.0&lt;/td&gt;
+      &lt;td&gt;7&lt;/td&gt;
+      &lt;td&gt;9&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;tensorflow_gpu-1.8.0&lt;/td&gt;
+      &lt;td&gt;2.7、3.3-3.6&lt;/td&gt;
+      &lt;td&gt;GCC 4.8&lt;/td&gt;
+      &lt;td&gt;Bazel 0.10.0&lt;/td&gt;
+      &lt;td&gt;7&lt;/td&gt;
+      &lt;td&gt;9&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;tensorflow_gpu-1.7.0&lt;/td&gt;
+      &lt;td&gt;2.7、3.3-3.6&lt;/td&gt;
+      &lt;td&gt;GCC 4.8&lt;/td&gt;
+      &lt;td&gt;Bazel 0.9.0&lt;/td&gt;
+      &lt;td&gt;7&lt;/td&gt;
+      &lt;td&gt;9&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;tensorflow_gpu-1.6.0&lt;/td&gt;
+      &lt;td&gt;2.7、3.3-3.6&lt;/td&gt;
+      &lt;td&gt;GCC 4.8&lt;/td&gt;
+      &lt;td&gt;Bazel 0.9.0&lt;/td&gt;
+      &lt;td&gt;7&lt;/td&gt;
+      &lt;td&gt;9&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;tensorflow_gpu-1.5.0&lt;/td&gt;
+      &lt;td&gt;2.7、3.3-3.6&lt;/td&gt;
+      &lt;td&gt;GCC 4.8&lt;/td&gt;
+      &lt;td&gt;Bazel 0.8.0&lt;/td&gt;
+      &lt;td&gt;7&lt;/td&gt;
+      &lt;td&gt;9&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;tensorflow_gpu-1.4.0&lt;/td&gt;
+      &lt;td&gt;2.7、3.3-3.6&lt;/td&gt;
+      &lt;td&gt;GCC 4.8&lt;/td&gt;
+      &lt;td&gt;Bazel 0.5.4&lt;/td&gt;
+      &lt;td&gt;6&lt;/td&gt;
+      &lt;td&gt;8&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;tensorflow_gpu-1.3.0&lt;/td&gt;
+      &lt;td&gt;2.7、3.3-3.6&lt;/td&gt;
+      &lt;td&gt;GCC 4.8&lt;/td&gt;
+      &lt;td&gt;Bazel 0.4.5&lt;/td&gt;
+      &lt;td&gt;6&lt;/td&gt;
+      &lt;td&gt;8&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;tensorflow_gpu-1.2.0&lt;/td&gt;
+      &lt;td&gt;2.7、3.3-3.6&lt;/td&gt;
+      &lt;td&gt;GCC 4.8&lt;/td&gt;
+      &lt;td&gt;Bazel 0.4.5&lt;/td&gt;
+      &lt;td&gt;5.1&lt;/td&gt;
+      &lt;td&gt;8&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;tensorflow_gpu-1.1.0&lt;/td&gt;
+      &lt;td&gt;2.7、3.3-3.6&lt;/td&gt;
+      &lt;td&gt;GCC 4.8&lt;/td&gt;
+      &lt;td&gt;Bazel 0.4.2&lt;/td&gt;
+      &lt;td&gt;5.1&lt;/td&gt;
+      &lt;td&gt;8&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;tensorflow_gpu-1.0.0&lt;/td&gt;
+      &lt;td&gt;2.7、3.3-3.6&lt;/td&gt;
+      &lt;td&gt;GCC 4.8&lt;/td&gt;
+      &lt;td&gt;Bazel 0.4.2&lt;/td&gt;
+      &lt;td&gt;5.1&lt;/td&gt;
+      &lt;td&gt;8&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+</description>
+        <pubDate>Mon, 06 May 2019 00:00:00 +0800</pubDate>
+        <link>http://localhost:4000/2019/05/tensorflow-and-cuda-version/</link>
+        <guid isPermaLink="true">http://localhost:4000/2019/05/tensorflow-and-cuda-version/</guid>
+        
+        <category>computer science</category>
+        
+        <category>deep learning</category>
+        
+        <category>tensorflow</category>
+        
+        <category>blog</category>
+        
+        
+        <category>computer science</category>
+        
+        <category>deep learning</category>
+        
+        <category>tensorflow</category>
+        
+      </item>
+    
+      <item>
+        <title>tensor shape</title>
+        <description>&lt;h2 id=&quot;tfshape&quot;&gt;tf.shape()&lt;/h2&gt;
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;tensorflow&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;as&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;tf&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;tf&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;constant&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;([&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;])&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;shape&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;tf&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;shape&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;with&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;tf&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Session&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;as&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;sess&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+	&lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;sess&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;run&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;shape&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;tensorget_shapeas_list&quot;&gt;tensor.get_shape().as_list()&lt;/h2&gt;
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;tensorflow&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;as&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;tf&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;tf&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;constant&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;([&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;])&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;shape1&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;get_shape&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;shape2&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;get_shape&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;as_list&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;with&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;tf&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Session&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;as&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;sess&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+	&lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;sess&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;run&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;shape1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
+	&lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;sess&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;run&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;shape2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+</description>
+        <pubDate>Mon, 06 May 2019 00:00:00 +0800</pubDate>
+        <link>http://localhost:4000/2019/05/tensor-shape/</link>
+        <guid isPermaLink="true">http://localhost:4000/2019/05/tensor-shape/</guid>
+        
+        <category>computer science</category>
+        
+        <category>deep learning</category>
+        
+        <category>tensorflow</category>
+        
+        <category>blog</category>
+        
+        
+        <category>computer science</category>
+        
+        <category>deep learning</category>
+        
+        <category>tensorflow</category>
+        
+      </item>
+    
+      <item>
+        <title>save log file for bash output</title>
+        <description>&lt;h2 id=&quot;a-code-example&quot;&gt;A code example&lt;/h2&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;# Train and test the model&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;export &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;CUDA_VISIBLE_DEVICES&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;2
+&lt;span class=&quot;nv&quot;&gt;dataset&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;xxx&quot;&lt;/span&gt;
+&lt;span class=&quot;nv&quot;&gt;LOG&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;./caches/&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$dataset&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;.txt.&lt;/span&gt;&lt;span class=&quot;sb&quot;&gt;`&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;date&lt;/span&gt; +&lt;span class=&quot;s1&quot;&gt;'%Y-%m-%d_%H-%M-%S'&lt;/span&gt;&lt;span class=&quot;sb&quot;&gt;`&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;exec&lt;/span&gt; &amp;amp;&amp;gt; &lt;span class=&quot;o&quot;&gt;&amp;gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;tee&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-a&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$LOG&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;echo &lt;/span&gt;Logging output to &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$LOG&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'Train the model ...'&lt;/span&gt;
+python train.py &lt;span class=&quot;nt&quot;&gt;--dataset&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$dataset&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+</description>
+        <pubDate>Sun, 05 May 2019 00:00:00 +0800</pubDate>
+        <link>http://localhost:4000/2019/05/save-log/</link>
+        <guid isPermaLink="true">http://localhost:4000/2019/05/save-log/</guid>
+        
+        <category>computer science</category>
+        
+        <category>ubuntu</category>
+        
+        <category>bash</category>
+        
+        <category>blog</category>
+        
+        
+        <category>computer science</category>
+        
+        <category>ubuntu</category>
+        
+        <category>bash</category>
+        
+      </item>
     
       <item>
         <title>open for Python</title>
@@ -223,712 +952,6 @@ A secure socks5 proxy, designed to protect your Internet traffic. Support Window
         <category>ubuntu</category>
         
         <category>docker</category>
-        
-      </item>
-    
-      <item>
-        <title>embedding representation visualization</title>
-        <description>&lt;h2 id=&quot;a-code-example&quot;&gt;a code example&lt;/h2&gt;
-&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;numpy&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;as&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;np&lt;/span&gt;
-&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;sklearn.manifold&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;TSNE&lt;/span&gt;
-&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;matplotlib.pyplot&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;as&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;plt&lt;/span&gt;
-
-
-&lt;span class=&quot;c1&quot;&gt;#embedding = np.loadtxt('word_embedding.txt', skiprows = 1)
-&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;with&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;open&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'word_embedding.txt'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'r'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;as&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;fin&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;firstline&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;fin&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;readline&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;strip&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;split&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;idx&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;dims&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;int&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;firstline&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]),&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;int&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;firstline&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;])&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;embedding&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;np&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;zeros&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;([&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;idx&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;dims&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;dtype&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;np&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;float&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;lines&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;fin&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;readlines&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;line&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;lines&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;line&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;line&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;strip&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;split&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;' '&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-        &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;len&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;line&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
-            &lt;span class=&quot;n&quot;&gt;embedding&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;line&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:]&lt;/span&gt;
-            &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;
-
-&lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'idx = {}, dims = {}, embedding = {}&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\n&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;format&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;idx&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;dims&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;embedding&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;shape&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
-
-&lt;span class=&quot;n&quot;&gt;emb&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;TSNE&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;n_components&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;fit_transform&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;embedding&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-
-&lt;span class=&quot;n&quot;&gt;plt&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;switch_backend&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'pdf'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;plt&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;figure&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;plt&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;scatter&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;emb&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[:,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;emb&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[:,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;])&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;plt&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;title&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'word_embedding'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;plt&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;xlabel&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'dim 1'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;plt&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ylabel&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'dim 2'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-
-&lt;span class=&quot;n&quot;&gt;plt&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;savefig&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'word_embedding.jpg'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-</description>
-        <pubDate>Thu, 18 Apr 2019 00:00:00 +0800</pubDate>
-        <link>http://localhost:4000/2019/04/embedding-representation-visualization/</link>
-        <guid isPermaLink="true">http://localhost:4000/2019/04/embedding-representation-visualization/</guid>
-        
-        <category>computer science</category>
-        
-        <category>deep learning</category>
-        
-        <category>python</category>
-        
-        <category>blog</category>
-        
-        
-        <category>computer science</category>
-        
-        <category>deep learning</category>
-        
-        <category>python</category>
-        
-      </item>
-    
-      <item>
-        <title>git commands</title>
-        <description>&lt;h2 id=&quot;basic-git-commands&quot;&gt;Basic Git commands&lt;/h2&gt;
-&lt;p&gt;Here is a list of some basic Git commands to get you going with Git.
-For more detail, check out the  &lt;a href=&quot;https://www.atlassian.com/git&quot;&gt;Atlassian Git Tutorials&lt;/a&gt;  for a visual introduction to Git commands and workflows, including examples.&lt;/p&gt;
-
-&lt;h2 id=&quot;commands&quot;&gt;commands&lt;/h2&gt;
-&lt;p&gt;Git task | Notes | Git commands |
-:–: |:–: |:–: 
-Tell Git who you are | Configure the author name and email address to be used with your commits.  &lt;br /&gt;Note that Git strips some characters (for example trailing periods) from user.name | git config –global user.name “Sam Smith”   &lt;br /&gt;git config –global user.email sam@example.com
-Create a new local repository | | git init
-Check out a repository | Create a working copy of a local repository: | git clone /path/to/repository
-| | For a remote server, use: | git clone username@host:/path/to/repository
-Add files | Add one or more files to staging (index): | git add  ‘filename’ &lt;br /&gt;git add *
-Commit | Commit changes to head (but not yet to the remote repository): | git commit -m ‘Commit message’
-| | Commit any files you’ve added with git add, and also commit any files you’ve changed since then: | git commit -a
-Push | Send changes to the master branch of your remote repository: | git push origin master
-Status	| List the files you’ve changed and those you still need to add or commit:	| git status
-Connect to a remote repository	| If you haven’t connected your local repository to a remote server, add the server to be able to push to it:	| git remote add origin ‘server’
-| | List all currently configured remote repositories: | git remote -v
-Branches | Create a new branch and switch to it: | git checkout -b ‘branchname’
-| | Switch from one branch to another: | git checkout ‘branchname’
-| | List all the branches in your repo, and also tell you what branch you’re currently in:	| git branch
-| | Delete the feature branch: | git branch -d ‘branchname’
-| | Push the branch to your remote repository, so others can use it: | git push origin ‘branchname’
-| | Push all branches to your remote repository:	| git push –all origin
-| | Delete a branch on your remote repository: | git push origin: ‘branchname’
-Update from the remote repository	| Fetch and merge changes on the remote server to your working directory:	| git pull
-| | To merge a different branch into your active branch:	| git merge ‘branchname’
-| | View all the merge conflicts: &lt;br /&gt;View the conflicts against the base file: &lt;br /&gt;Preview changes, before merging: | git diff &lt;br /&gt;git diff –base ‘filename’ &lt;br /&gt;git diff ‘sourcebranch’ ‘targetbranch’
-| | After you have manually resolved any conflicts, you mark the changed file: | git add ‘filename’
-Tags | You can use tagging to mark a significant changeset, such as a release: | git tag 1.0.0 ‘commitID’
-| | CommitId is the leading characters of the changeset ID, up to 10, but must be unique. Get the ID using: | git log
-| | Push all tags to remote repository:	| git push –tags origin
-Undo local changes | If you mess up, you can replace the changes in your working tree with the last content in head: Changes already added to the index, as well as new files, will be kept. | git checkout – ‘filename’
-| | Instead, to drop all your local changes and commits, fetch the latest history from the server and point your local master branch at it, do this: | git fetch origin &lt;br /&gt;git reset –hard origin/master
-Search	| Search the working directory for foo(): | git grep “foo()”&lt;/p&gt;
-
-</description>
-        <pubDate>Thu, 28 Mar 2019 00:00:00 +0800</pubDate>
-        <link>http://localhost:4000/2019/03/git-commands/</link>
-        <guid isPermaLink="true">http://localhost:4000/2019/03/git-commands/</guid>
-        
-        <category>computer science</category>
-        
-        <category>tool</category>
-        
-        <category>git</category>
-        
-        <category>blog</category>
-        
-        
-        <category>computer science</category>
-        
-        <category>tool</category>
-        
-        <category>git</category>
-        
-      </item>
-    
-      <item>
-        <title>Grammarly for writing</title>
-        <description>&lt;h2 id=&quot;grammly&quot;&gt;Grammly&lt;/h2&gt;
-&lt;p&gt;A plugin help you better writing.&lt;/p&gt;
-&lt;table&gt;
-&lt;tr&gt;
-	&lt;td&gt;&lt;center&gt;&lt;img src=&quot;https://mk0techvisecom0qiete.kinstacdn.com/wp-content/uploads/2016/03/grammarly.png&quot; /&gt;Grammly&lt;/center&gt;&lt;/td&gt;
-	&lt;td&gt;&lt;center&gt;&lt;img src=&quot;https://images.sftcdn.net/images/t_app-cover-l,f_auto/p/112c29d1-b324-47ae-8e98-bb43a9bcda1b/2173361903/grammarly-screenshot.jpg&quot; /&gt;Document&lt;/center&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/table&gt;
-
-&lt;h2 id=&quot;save-your-valuable-time&quot;&gt;Save Your Valuable Time&lt;/h2&gt;
-&lt;p&gt;Grammarly significantly cuts down on all the extra time you spend rereading and rewriting by focusing you on where your writing needs work.&lt;/p&gt;
-
-&lt;h2 id=&quot;write-effectively-today&quot;&gt;Write Effectively Today&lt;/h2&gt;
-&lt;p&gt;Dangling modifiers? Gone. Wordy sentences? A thing of the past. Grammarly catches over ten times more critical grammar and spelling errors than Microsoft Word. Together you’ll make a great team.&lt;/p&gt;
-
-&lt;h2 id=&quot;learn--improve-as-you-go&quot;&gt;Learn &amp;amp; Improve As You Go&lt;/h2&gt;
-&lt;p&gt;Grammarly adjusts to YOUR style, so you’ll effortlessly learn how to improve YOUR writing. You can expand every highlighted error to get more details about how to enhance what you wrote.&lt;/p&gt;
-
-&lt;h2 id=&quot;app&quot;&gt;APP&lt;/h2&gt;
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;https://www.grammarly.com/office-addin/windows&quot;&gt;Grammarly for Microsoft Office&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://www.grammarly.com/native/windows&quot;&gt;Grammarly for Windows&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;http://grammarly.com/&quot;&gt;Grammarly for Chrome&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-        <pubDate>Tue, 19 Mar 2019 00:00:00 +0800</pubDate>
-        <link>http://localhost:4000/2019/03/Grammarly-for-writing/</link>
-        <guid isPermaLink="true">http://localhost:4000/2019/03/Grammarly-for-writing/</guid>
-        
-        <category>computer science</category>
-        
-        <category>tool</category>
-        
-        <category>grammarly</category>
-        
-        <category>blog</category>
-        
-        
-        <category>computer science</category>
-        
-        <category>tool</category>
-        
-        <category>grammarly</category>
-        
-      </item>
-    
-      <item>
-        <title>Office software</title>
-        <description>&lt;h2 id=&quot;commercial-software&quot;&gt;commercial software&lt;/h2&gt;
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;https://www.office.com/&quot;&gt;Microsoft Office&lt;/a&gt;
-Microsoft Office is a family of client software, server software, and services developed by Microsoft. It was first announced by Bill Gates on August 1, 1988, at COMDEX in Las Vegas. Initially a marketing term for an office suite (bundled set of productivity applications), the first version of Office contained Microsoft Word, Microsoft Excel, and Microsoft PowerPoint. Over the years, Office applications have grown substantially closer with shared features such as a common spell checker, OLE data integration and Visual Basic for Applications scripting language. Microsoft also positions Office as a development platform for line-of-business software under the Office Business Applications brand. On July 10, 2012, Softpedia reported that Office is used by over a billion people worldwide.
-Office is produced in several versions targeted towards different end-users and computing environments. The original, and most widely used version, is the desktop version, available for PCs running the Windows and macOS operating systems. Office Online is a version of the software that runs within a web browser, while Microsoft also maintains Office apps for Android and iOS.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;table&gt;
-&lt;tr&gt;
-	&lt;td&gt;&lt;center&gt;&lt;img src=&quot;https://upload.wikimedia.org/wikipedia/en/thumb/7/77/Microsoft_Office_2019.png/300px-Microsoft_Office_2019.png&quot; /&gt;MS Office&lt;/center&gt;&lt;/td&gt;
-	&lt;td&gt;&lt;center&gt;&lt;img src=&quot;https://www.itprotoday.com/sites/itprotoday.com/files/styles/article_featured_standard/public/uploads/2017/04/officeapps_0.jpg?itok=zF3DSSKT&quot; /&gt;MS Office&lt;/center&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/table&gt;
-
-&lt;h2 id=&quot;free-software&quot;&gt;free software&lt;/h2&gt;
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;https://www.openoffice.org/&quot;&gt;Apache OpenOffice&lt;/a&gt;
-Apache OpenOffice is the leading open-source office software suite for word processing, spreadsheets, presentations, graphics, databases and more. It is available in many languages and works on all common computers. It stores all your data in an international open standard format and can also read and write files from other common office software packages. It can be downloaded and used completely free of charge for any purpose.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;table&gt;
-    &lt;tr&gt;
-        &lt;td&gt;&lt;center&gt;&lt;img src=&quot;https://upload.wikimedia.org/wikipedia/commons/thumb/5/56/AOO_Writer_4.0.0_Windows_in_Wine.png/300px-AOO_Writer_4.0.0_Windows_in_Wine.png&quot; /&gt;OpenOffice&lt;/center&gt;&lt;/td&gt;
-        &lt;td&gt;&lt;center&gt;&lt;img src=&quot;https://i1.wp.com/accesshosting.com/wp-content/uploads/2014/04/2013-02_Apache_OpenOffice_Logo-Proposal_ChrisTa.png?resize=600%2C315&quot; /&gt;OpenOffice&lt;/center&gt;&lt;/td&gt;
-    &lt;/tr&gt;
-&lt;/table&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Libre Office](https://www.libreoffice.org/)
-Libre Office is a powerful and free office suite, used by millions of people around the world. Its clean interface and feature-rich tools help you unleash your creativity and enhance your productivity. LibreOffice includes several applications that make it the most versatile Free and Open Source office suite on the market: Writer (word processing), Calc (spreadsheets), Impress (presentations), Draw (vector graphics and flowcharts), Base (databases), and Math (formula editing).&lt;/li&gt;
-&lt;/ul&gt;
-&lt;table&gt;
-    &lt;tr&gt;
-        &lt;td&gt;&lt;center&gt;&lt;img src=&quot;https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/LibreOffice_6.0.1.1_Start_Center_Screenshot.png/300px-LibreOffice_6.0.1.1_Start_Center_Screenshot.png&quot; /&gt;Libre Office&lt;/center&gt;&lt;/td&gt;
-        &lt;td&gt;&lt;center&gt;&lt;img src=&quot;https://www.libreoffice.org/themes/libreofficenew/img/discover_flat.png&quot; /&gt;Libre Office&lt;/center&gt;&lt;/td&gt;
-    &lt;/tr&gt;
-&lt;/table&gt;
-</description>
-        <pubDate>Tue, 12 Mar 2019 00:00:00 +0800</pubDate>
-        <link>http://localhost:4000/2019/03/Office-software/</link>
-        <guid isPermaLink="true">http://localhost:4000/2019/03/Office-software/</guid>
-        
-        <category>computer science</category>
-        
-        <category>tool</category>
-        
-        <category>office</category>
-        
-        <category>blog</category>
-        
-        
-        <category>computer science</category>
-        
-        <category>tool</category>
-        
-        <category>office</category>
-        
-      </item>
-    
-      <item>
-        <title>How to use the ubuntu for GPU server</title>
-        <description>&lt;h2 id=&quot;窗口操作&quot;&gt;窗口操作：&lt;/h2&gt;
-&lt;p&gt;创建窗口： screen -S xxx (screen’s name)
-激活窗口： screen -r xxx (screen’s name)
-查看窗口序列： screen -ls
-退出窗口： Ctrl + A + D
-kill窗口：&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;screen -S screenname -X quit&lt;/li&gt;
-  &lt;li&gt;screen -S yourname -&amp;gt; 新建一个叫yourname的session&lt;/li&gt;
-  &lt;li&gt;screen -ls -&amp;gt; 列出当前所有的session&lt;/li&gt;
-  &lt;li&gt;screen -r yourname -&amp;gt; 回到yourname这个session&lt;/li&gt;
-  &lt;li&gt;screen -d yourname -&amp;gt; 远程detach某个session&lt;/li&gt;
-  &lt;li&gt;screen -d -r yourname -&amp;gt; 结束当前session并回到yourname这个session&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;常用文件操作指令&quot;&gt;常用文件操作指令：&lt;/h2&gt;
-&lt;p&gt;显示当前目录下的文件列表：ls
-显示当前目录下的隐藏文件列表：ls -a
-拷贝文件夹：  cp -r 文件夹 目标路径
-拷贝文件夹：  cp 文件 目标路径
-删除文件： rm 文件
-删除文件夹：&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;rm -r 文件夹&lt;/li&gt;
-  &lt;li&gt;rm -rf 文件夹&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;新建文件夹：mkdir 文件夹名
-移动文件：mv
-显示当前路径：pwd
-显示文件大小： du -sh *
-显示问价夹大小：du -sh */&lt;/p&gt;
-
-&lt;p&gt;如何修改文件为可执行状态：chmod 777 文件名&lt;/p&gt;
-
-&lt;p&gt;查询GPU状态: nvidia-smi&lt;/p&gt;
-
-&lt;p&gt;查看内存和gpu消耗情况：nvidia-smi
-查看文件大小 du –sh 文件夹   或者 du -sh *      sudo du -h –max-depth=1 xxxx    du -h  –max-depth=1
-百分比： df
-编译： make  make -j8
-清空编译：make clean&lt;/p&gt;
-
-&lt;p&gt;定位文件名，直接gf，即可直接打开另外一个文件。&lt;/p&gt;
-
-&lt;p&gt;查找文件：locate filename
-查找文件：&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;查找当前目录下的指定的core文件 find . -name “core”&lt;/li&gt;
-  &lt;li&gt;查找根目录下的指定的core文件 find / -name “core”&lt;/li&gt;
-  &lt;li&gt;查找根目录下的指定的大小core文件 find / -name “core” - size +1024c&lt;/li&gt;
-  &lt;li&gt;查找文件中是否含有指定的字符 “10.71.110.89” find / -name “*.tar.gz” - type f -exec rm -rf {} /;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;vim常用快捷键&quot;&gt;vim常用快捷键&lt;/h2&gt;
-&lt;ul&gt;
-  &lt;li&gt;打开文件：vim 文件名&lt;/li&gt;
-  &lt;li&gt;进入编辑模式：i&lt;/li&gt;
-  &lt;li&gt;编辑文件：Esc ：wq&lt;/li&gt;
-  &lt;li&gt;退出文件： Esc :q&lt;/li&gt;
-  &lt;li&gt;退出文件，不编辑： Esc :q!&lt;/li&gt;
-  &lt;li&gt;h 每次按下光标就会向左移动&lt;/li&gt;
-  &lt;li&gt;l 每次按下光标就会向右移动&lt;/li&gt;
-  &lt;li&gt;j 每次按下光标就会向下移动&lt;/li&gt;
-  &lt;li&gt;k 每次按下光标就会向上移动&lt;/li&gt;
-  &lt;li&gt;dd 删除一行&lt;/li&gt;
-  &lt;li&gt;de 删除到空格前的词&lt;/li&gt;
-  &lt;li&gt;dw 删除知道空格的词&lt;/li&gt;
-  &lt;li&gt;gg 光标到行文件首&lt;/li&gt;
-  &lt;li&gt;G 光标到文件尾&lt;/li&gt;
-  &lt;li&gt;:!command 用于执行一个外部命令 command&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;ubuntu终端常用命令&quot;&gt;ubuntu终端常用命令&lt;/h2&gt;
-&lt;ul&gt;
-  &lt;li&gt;ctrl + l - 清屏&lt;/li&gt;
-  &lt;li&gt;ctrl + c - 终止命令&lt;/li&gt;
-  &lt;li&gt;ctrl + d - 退出 shell,好像也可以表示EOF&lt;/li&gt;
-  &lt;li&gt;ctrl + z - 将当前进程置于后台，fg还原。&lt;/li&gt;
-  &lt;li&gt;ctrl + r - 从命令历史中找&lt;/li&gt;
-  &lt;li&gt;ctrl + a - 光标移到行首&lt;/li&gt;
-  &lt;li&gt;ctrl + e - 光标移到行尾&lt;/li&gt;
-  &lt;li&gt;ctrl + u - 清除光标到行首的字符&lt;/li&gt;
-  &lt;li&gt;ctrl + w - 清除光标之前一个单词&lt;/li&gt;
-  &lt;li&gt;ctrl + k - 清除光标到行尾的字符&lt;/li&gt;
-  &lt;li&gt;ctrl + t - 交换光标前两个字符&lt;/li&gt;
-  &lt;li&gt;ctrl + y - 粘贴前一ctrl+u类命令删除的字符&lt;/li&gt;
-  &lt;li&gt;ctrl + p - 上一条命令&lt;/li&gt;
-  &lt;li&gt;ctrl + n - 下一条命令&lt;/li&gt;
-  &lt;li&gt;ctrl + v - 输入控制字符 如ctrl+v &lt;ENTER&gt; ,会输入^M&lt;/ENTER&gt;&lt;/li&gt;
-  &lt;li&gt;ctrl + f - 光标后移一个字符&lt;/li&gt;
-  &lt;li&gt;ctrl + b - 光标前移一个字符&lt;/li&gt;
-  &lt;li&gt;ctrl + h - 删除光标前一个字符&lt;/li&gt;
-  &lt;li&gt;N+&lt;ESC&gt;+f - 光标后移N个单词，N为1时可省略&lt;/ESC&gt;&lt;/li&gt;
-  &lt;li&gt;N+&lt;ESC&gt;+b - 光标前移N个单词，N为1时可省略&lt;/ESC&gt;&lt;/li&gt;
-  &lt;li&gt;ctrl + s - 挂起当前shell&lt;/li&gt;
-  &lt;li&gt;ctrl + q - 重新启用&lt;/li&gt;
-  &lt;li&gt;
-    &lt;ESC&gt;+d 从光标开始处删除到行尾。挂起的shell
-&lt;/ESC&gt;
-  &lt;/li&gt;
-  &lt;li&gt;!! - 上一条命令&lt;/li&gt;
-  &lt;li&gt;!-n - 倒数第N条历史命令&lt;/li&gt;
-  &lt;li&gt;!-n:p - 打印上一条命令（不执行）&lt;/li&gt;
-  &lt;li&gt;!?string?- 最新一条含有”string”的命令 # !-n:gs/str1/str2/ - 将倒数第N条命令的str1替换为str2,并执行（若不加g,则仅替换第一个）&lt;/li&gt;
-&lt;/ul&gt;
-
-</description>
-        <pubDate>Tue, 12 Mar 2019 00:00:00 +0800</pubDate>
-        <link>http://localhost:4000/2019/03/How-to-use-the-server/</link>
-        <guid isPermaLink="true">http://localhost:4000/2019/03/How-to-use-the-server/</guid>
-        
-        <category>computer science</category>
-        
-        <category>ubuntu</category>
-        
-        <category>command</category>
-        
-        <category>blog</category>
-        
-        
-        <category>computer science</category>
-        
-        <category>ubuntu</category>
-        
-        <category>command</category>
-        
-      </item>
-    
-      <item>
-        <title>beamer for powerpoint</title>
-        <description>&lt;h2 id=&quot;example-for-beamer&quot;&gt;example for beamer&lt;/h2&gt;
-&lt;div class=&quot;language-latex highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;\documentclass&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;beamer&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;\usepackage&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;[english]&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;babel&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;   &lt;span class=&quot;k&quot;&gt;\%&lt;/span&gt;如果去掉，中英混合会出错
-&lt;span class=&quot;k&quot;&gt;\usepackage&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;[noindent]&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;ctex&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;   &lt;span class=&quot;k&quot;&gt;\%&lt;/span&gt;可使用 &lt;span class=&quot;k&quot;&gt;\usepackage&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;CJK&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;\usepackage&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;beamerthemesplit&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;\%&lt;/span&gt; Or whatever. Note that the encoding and the font should match. If T1
-&lt;span class=&quot;k&quot;&gt;\%&lt;/span&gt; does not look nice, try deleting the line with the fontenc.
-&lt;span class=&quot;k&quot;&gt;\usepackage&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;[T1]&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;fontenc&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;\usepackage&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;times&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
- 
-&lt;span class=&quot;k&quot;&gt;\usetheme&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;Berkeley&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
- 
-&lt;span class=&quot;k&quot;&gt;\title&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;XXXX&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
- 
-&lt;span class=&quot;k&quot;&gt;\subtitle&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;XXXX&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
- 
-&lt;span class=&quot;k&quot;&gt;\author&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;Ofey&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
- 
-&lt;span class=&quot;k&quot;&gt;\institute&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-  School of Computer Science&lt;span class=&quot;k&quot;&gt;\\&lt;/span&gt;
-  Beijing Institute of Technology
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
- 
-&lt;span class=&quot;k&quot;&gt;\%&lt;/span&gt; This is only inserted into the PDF information catalog. Can be left out.
-&lt;span class=&quot;k&quot;&gt;\subject&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;OOO&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;\keywords&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;OXOX&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
- 
-&lt;span class=&quot;nt&quot;&gt;\begin{document}&lt;/span&gt;
- 
-&lt;span class=&quot;nt&quot;&gt;\begin{frame}&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;XXXX&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-A normal frame.
-&lt;span class=&quot;nt&quot;&gt;\end{frame}&lt;/span&gt;
- 
-&lt;span class=&quot;nt&quot;&gt;\end{document}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;上面代码，便可以生成一夜的slides了，在我机器上测试是木有问题的。beamer中的frame有点相当于powerpoint中的一叶，要是想新建几页，再多加加个frame吧，也可以写成&lt;/p&gt;
-
-&lt;div class=&quot;language-latex highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;\frame&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-  &lt;span class=&quot;k&quot;&gt;\frametitle&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;test&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-  A normal frame.
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;至于frame和整个slides也都有相应的subtitle可以设置，随便看下文档就ok。&lt;/p&gt;
-
-&lt;p&gt;多个作者多个单位
-有时，slides可能有多个作者，并且属于多个单位，会议论文作报告时，经常遇见此情况。如下代码解决&lt;/p&gt;
-
-&lt;div class=&quot;language-latex highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;\author&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;[Author, Another]&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;\%&lt;/span&gt; (optional, use only with lots of authors)
-&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;F.~Author&lt;span class=&quot;k&quot;&gt;\inst&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;1&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;\and&lt;/span&gt; S.~Another&lt;span class=&quot;k&quot;&gt;\inst&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;2&lt;span class=&quot;p&quot;&gt;}}&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;\%&lt;/span&gt; - Give the names in the same order as the appear in the paper.
-&lt;span class=&quot;k&quot;&gt;\%&lt;/span&gt; - Use the &lt;span class=&quot;k&quot;&gt;\inst&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;?&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; command only if the authors have different affiliation.
- 
-&lt;span class=&quot;k&quot;&gt;\institute&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;[Beijing Institute of Technology]&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;\%&lt;/span&gt; (optional, but mostly needed)
-&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-  &lt;span class=&quot;k&quot;&gt;\inst&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;1&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-  School of Computer Science&lt;span class=&quot;k&quot;&gt;\\&lt;/span&gt;
-  Beijing Institute of Technology
-  &lt;span class=&quot;k&quot;&gt;\and&lt;/span&gt;
-  &lt;span class=&quot;k&quot;&gt;\inst&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;2&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-  Department of Theoretical Philosophy&lt;span class=&quot;k&quot;&gt;\\&lt;/span&gt;
-  University of Elsewhere
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;\%&lt;/span&gt; - Use the &lt;span class=&quot;k&quot;&gt;\inst&lt;/span&gt; command only if there are several affiliations.
-&lt;span class=&quot;k&quot;&gt;\%&lt;/span&gt; - Keep it simple, no one is interested in your street address.
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;institute中写Email是可以直接识别出的，放心使用。至于经常出现的中括号可选项，用了乃就懂的～～&lt;/p&gt;
-
-&lt;p&gt;logo
-有时，要插入个校徽神马的，吐槽下学校官方竟然每个矢量校徽。。。
-导言区加：&lt;/p&gt;
-
-&lt;div class=&quot;language-latex highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;\%&lt;/span&gt; If you have a file called &quot;university-logo-filename.xxx&quot;, where xxx
-&lt;span class=&quot;k&quot;&gt;\%&lt;/span&gt; is a graphic format that can be processed by latex or pdflatex,
-&lt;span class=&quot;k&quot;&gt;\%&lt;/span&gt; resp., then you can add a logo as follows:
- 
-&lt;span class=&quot;k&quot;&gt;\%&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;\pgfdeclareimage&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;[height=0.5cm]&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;university-logo&lt;span class=&quot;p&quot;&gt;}{&lt;/span&gt;university-logo-filename&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;\%&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;\logo&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;\pgfuseimage&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;bitlogo&lt;span class=&quot;p&quot;&gt;}}&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;\logo&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;\includegraphics&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;[height=0.09\textwidth]&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;./pic/bitlogo.eps&lt;span class=&quot;p&quot;&gt;}}&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;\%&lt;/span&gt;这只是我的logo路径
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;目录(TOC)
-LATEX生成目录这类实在是拿手戏。最简单的：&lt;/p&gt;
-
-&lt;div class=&quot;language-latex highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nt&quot;&gt;\begin{frame}&lt;/span&gt;
-  &lt;span class=&quot;k&quot;&gt;\tableofcontents&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;\end{frame}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;有时，可能目录太多，想分成两栏，可以使用multicol包&lt;/p&gt;
-
-&lt;div class=&quot;language-latex highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;\%&lt;/span&gt; This environment allows switching between one and multicolumn format on the same page
-&lt;span class=&quot;k&quot;&gt;\usepackage&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;multicol&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
- 
-&lt;span class=&quot;nt&quot;&gt;\begin{frame}&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;Outline&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
- 
-  &lt;span class=&quot;nt&quot;&gt;\begin{multicols}&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;2&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;\tableofcontents&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;\%&lt;/span&gt; You might wish to add the option [pausesections]
-  &lt;span class=&quot;nt&quot;&gt;\end{multicols}&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;\end{frame}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;有时，可能不想显示subsection之类，亦或者只想限制指定的几个section，如下：&lt;/p&gt;
-
-&lt;div class=&quot;language-latex highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;\tableofcontents&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;[hidesubsections,sections={&amp;lt;1-4&amp;gt;}]&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;\%&lt;/span&gt;显示1-4section，不显示subsection
-&lt;span class=&quot;k&quot;&gt;\tableofcontents&lt;/span&gt;还有很多其他参数设置，详见文档。
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;若想在没个章节前显示下目录提示，可以如下代码：&lt;/p&gt;
-
-&lt;div class=&quot;language-latex highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;\AtBeginSection&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;[]&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; 
-  &lt;span class=&quot;nt&quot;&gt;\begin{frame}&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;\frametitle&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;Outline&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; 
-    &lt;span class=&quot;k&quot;&gt;\tableofcontents&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;[currentsection,hideothersubsections]&lt;/span&gt; 
-  &lt;span class=&quot;nt&quot;&gt;\end{frame}&lt;/span&gt; 
-  &lt;span class=&quot;k&quot;&gt;\addtocounter&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;framenumber&lt;span class=&quot;p&quot;&gt;}{&lt;/span&gt;-1&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;  &lt;span class=&quot;k&quot;&gt;\%&lt;/span&gt;目录页不计算页码
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;不过没发现如何获得当前section的数值，这样我就可以自动在每张前插入目录，且使当前目录为第一。
-当然，还可以做成一个个显示目录的动画效果，不过没啥实际意义- -！&lt;/p&gt;
-
-&lt;p&gt;slides中的链接
-有时想在slides中加入超链接，可以跳转到指定的页面，这个也是很easy的。
-给欲跳转到的frame加上label&lt;/p&gt;
-
-&lt;div class=&quot;language-latex highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;\frame&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;[label = XXX]&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-  &lt;span class=&quot;k&quot;&gt;\frametitle&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;OOO&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-  &lt;span class=&quot;k&quot;&gt;\framesubtitle&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;XXX&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-  OOXX
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;再在想加入超链接的地方加入：&lt;/p&gt;
-
-&lt;div class=&quot;language-latex highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;\hyperlink&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;XXX&lt;span class=&quot;p&quot;&gt;}{&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;\beamergotobutton&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;乃想显示的文本&lt;span class=&quot;p&quot;&gt;}}&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;\%\beamergotobutton&lt;/span&gt;可以选其他的按钮
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;显示时间+页数
-这个根据不同的主题不一样，比如Berkeley默认就木有，而CambridgeUS就是有的，可以自己在导言区加入：&lt;/p&gt;
-
-&lt;div class=&quot;language-latex highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;\setbeamertemplate&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;footline&lt;span class=&quot;p&quot;&gt;}{&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;\%&lt;/span&gt;
-  &lt;span class=&quot;k&quot;&gt;\leavevmode\%&lt;/span&gt;
-  &lt;span class=&quot;k&quot;&gt;\hbox&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;\%&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;\begin{beamercolorbox}&lt;/span&gt;[wd=.333333&lt;span class=&quot;k&quot;&gt;\paperwidth&lt;/span&gt;,ht=2.25ex,dp=1ex,center]&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;author in head/foot&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;\%&lt;/span&gt;
-      &lt;span class=&quot;k&quot;&gt;\usebeamerfont&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;author in head/foot&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;\insertshortauthor&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;\end{beamercolorbox}&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;\%&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;\begin{beamercolorbox}&lt;/span&gt;[wd=.333333&lt;span class=&quot;k&quot;&gt;\paperwidth&lt;/span&gt;,ht=2.25ex,dp=1ex,center]&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;title in head/foot&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;\%&lt;/span&gt;
-      &lt;span class=&quot;k&quot;&gt;\usebeamerfont&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;title in head/foot&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;\insertshorttitle&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;\end{beamercolorbox}&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;\%&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;\begin{beamercolorbox}&lt;/span&gt;[wd=.333333&lt;span class=&quot;k&quot;&gt;\paperwidth&lt;/span&gt;,ht=2.25ex,dp=1ex,right]&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;date in head/foot&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;\%&lt;/span&gt;
-      &lt;span class=&quot;k&quot;&gt;\usebeamerfont&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;date in head/foot&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;\insertshortdate&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{}&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;\hspace*&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;2em&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-      &lt;span class=&quot;k&quot;&gt;\insertframenumber&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{}&lt;/span&gt; / &lt;span class=&quot;k&quot;&gt;\inserttotalframenumber\hspace*&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;2ex&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;\end{beamercolorbox}&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;\%&lt;/span&gt;
-  &lt;span class=&quot;k&quot;&gt;\vskip&lt;/span&gt;0pt&lt;span class=&quot;k&quot;&gt;\%&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;其实就是抄其他主题代码。。。&lt;/p&gt;
-
-&lt;p&gt;页脚显示文本
-有时希望在frame的左下角页脚能显示一些内容，并不是为了报告时如何，只是给其他途径看slides的人一点更详尽的解释、资料，但是又不想用脚注(脚注在beamer效果不咋的)。&lt;/p&gt;
-
-&lt;div class=&quot;language-latex highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;\%&lt;/span&gt; add text to beamer footline
- 
-&lt;span class=&quot;k&quot;&gt;\makeatletter&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;\%&lt;/span&gt; add a macro that saves its argument
-&lt;span class=&quot;k&quot;&gt;\newcommand&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;\footlineextra&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;[1]&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;\gdef\insertfootlineextra&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;#1&lt;span class=&quot;p&quot;&gt;}}&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;\newbox\footlineextrabox&lt;/span&gt;
- 
-&lt;span class=&quot;k&quot;&gt;\%&lt;/span&gt; add a beamer template that sets the saved argument in a box.
-&lt;span class=&quot;k&quot;&gt;\%&lt;/span&gt; The * means that the beamer font and color &quot;footline extra&quot; are automatically added. 
-&lt;span class=&quot;k&quot;&gt;\defbeamertemplate*&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;footline extra&lt;span class=&quot;p&quot;&gt;}{&lt;/span&gt;default&lt;span class=&quot;p&quot;&gt;}{&lt;/span&gt;
-  &lt;span class=&quot;nt&quot;&gt;\begin{beamercolorbox}&lt;/span&gt;[ht=2.25ex,dp=1ex,leftskip=&lt;span class=&quot;k&quot;&gt;\Gm&lt;/span&gt;@lmargin]&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;footline extra&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;\insertfootlineextra&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;\%&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;\par\vspace&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;2.5pt&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-  &lt;span class=&quot;nt&quot;&gt;\end{beamercolorbox}&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
- 
-&lt;span class=&quot;k&quot;&gt;\addtobeamertemplate&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;footline&lt;span class=&quot;p&quot;&gt;}{&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;\%&lt;/span&gt;
-  &lt;span class=&quot;k&quot;&gt;\%&lt;/span&gt; set the box with the extra footline material but make it add no vertical space
-  &lt;span class=&quot;k&quot;&gt;\setbox\footlineextrabox&lt;/span&gt;=&lt;span class=&quot;k&quot;&gt;\vbox&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;\usebeamertemplate*&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;footline extra&lt;span class=&quot;p&quot;&gt;}}&lt;/span&gt;
-  &lt;span class=&quot;k&quot;&gt;\vskip&lt;/span&gt; -&lt;span class=&quot;k&quot;&gt;\ht\footlineextrabox&lt;/span&gt;
-  &lt;span class=&quot;k&quot;&gt;\vskip&lt;/span&gt; -&lt;span class=&quot;k&quot;&gt;\dp\footlineextrabox&lt;/span&gt;
-  &lt;span class=&quot;k&quot;&gt;\box\footlineextrabox\%&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;{}&lt;/span&gt;
- 
-&lt;span class=&quot;k&quot;&gt;\%&lt;/span&gt; patch &lt;span class=&quot;nt&quot;&gt;\begin{frame}&lt;/span&gt; to reset the footline extra material
-&lt;span class=&quot;k&quot;&gt;\let\beamer&lt;/span&gt;@original@frame=&lt;span class=&quot;k&quot;&gt;\frame&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;\def\frame&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;\gdef\insertfootlineextra&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{}&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;\beamer&lt;/span&gt;@original@frame&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;\footlineextra&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{}&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;\makeatother&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;使用很简单：&lt;/p&gt;
-
-&lt;div class=&quot;language-latex highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;\footlineextra&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;XXXX&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;参考文献
-LATEX最爽的几点之一就是参考文献的管理使用啊，毕设论文得用doc的泪奔T.T
-一般用的比较多的是bibtex，首先，自己搞定bib文件，然后slides中加上一页来放引用文献&lt;/p&gt;
-
-&lt;div class=&quot;language-latex highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;\%&lt;/span&gt;一般的引用样式只是[1]类，paper中这样没啥，slides这样不够友好
-&lt;span class=&quot;k&quot;&gt;\%&lt;/span&gt;apalike：美国心理学学会期刊样式，显示作者名+年份
-&lt;span class=&quot;k&quot;&gt;\bibliographystyle&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;apalike&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;   
-&lt;span class=&quot;k&quot;&gt;\bibliography&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;XXX&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;   &lt;span class=&quot;k&quot;&gt;\%&lt;/span&gt;引用的XXX.bib文件
-此外，reference可能较多，slides一页一般都不够用，beamer是可以自动分成多页的，如下：
-
-&lt;span class=&quot;k&quot;&gt;\%&lt;/span&gt; If there are too many of them to fit on the frame, 
-&lt;span class=&quot;k&quot;&gt;\%&lt;/span&gt; you must manually split them among additional frames or use the allowframebreaks option.
-&lt;span class=&quot;nt&quot;&gt;\begin{frame}&lt;/span&gt;[allowframebreaks]&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;References&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; 
-  &lt;span class=&quot;k&quot;&gt;\scriptsize&lt;/span&gt;
-  &lt;span class=&quot;k&quot;&gt;\bibliographystyle&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;apalike&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-  &lt;span class=&quot;k&quot;&gt;\bibliography&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;XXX&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;\end{frame}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;引用，自然是\cite{}命令了&lt;/p&gt;
-
-&lt;p&gt;表格
-有时，需要画一些表格，可能比较复杂，比如可能需要合并几行，或者几列，下面一个示例：
-导言区加上&lt;/p&gt;
-
-&lt;div class=&quot;language-latex highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;\usepackage&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;multirow&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;\%&lt;/span&gt; The &lt;span class=&quot;k&quot;&gt;\cline&lt;/span&gt; command draws horizontal lines across the columns specified,
-ginning in column i and ending in column j, which are identified in the mandatory argument.
-&lt;span class=&quot;k&quot;&gt;\%&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;\cline&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;i-j&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-  &lt;span class=&quot;nt&quot;&gt;\begin{table}&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;\begin{tabular}&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;c|c|c|c&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-      &lt;span class=&quot;k&quot;&gt;\hline&lt;/span&gt;
-      &lt;span class=&quot;k&quot;&gt;\%&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;\multicolumn&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;2&lt;span class=&quot;p&quot;&gt;}{&lt;/span&gt;c&lt;span class=&quot;p&quot;&gt;}{&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;\backslashbox&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;Name&lt;span class=&quot;p&quot;&gt;}{&lt;/span&gt;Numer&lt;span class=&quot;p&quot;&gt;}}&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;&amp;amp;&lt;/span&gt;  &lt;span class=&quot;k&quot;&gt;\multicolumn&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;2&lt;span class=&quot;p&quot;&gt;}{&lt;/span&gt;c&lt;span class=&quot;p&quot;&gt;}{}&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;\\&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;\hline&lt;/span&gt;
-      &lt;span class=&quot;k&quot;&gt;\multirow&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;2&lt;span class=&quot;p&quot;&gt;}{&lt;/span&gt;*&lt;span class=&quot;p&quot;&gt;}{&lt;/span&gt;CleanEval&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;&amp;amp;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;\multirow&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;2&lt;span class=&quot;p&quot;&gt;}{&lt;/span&gt;*&lt;span class=&quot;p&quot;&gt;}{&lt;/span&gt;CleanEval-Eng&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;&amp;amp;&lt;/span&gt; training set &lt;span class=&quot;p&quot;&gt;&amp;amp;&lt;/span&gt; 60 &lt;span class=&quot;k&quot;&gt;\\&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;\cline&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;3-4&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; 
-      &lt;span class=&quot;k&quot;&gt;\multirow&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;2&lt;span class=&quot;p&quot;&gt;}{&lt;/span&gt;*&lt;span class=&quot;p&quot;&gt;}{}&lt;/span&gt;          &lt;span class=&quot;p&quot;&gt;&amp;amp;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;\multirow&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;2&lt;span class=&quot;p&quot;&gt;}{&lt;/span&gt;*&lt;span class=&quot;p&quot;&gt;}{}&lt;/span&gt;              &lt;span class=&quot;p&quot;&gt;&amp;amp;&lt;/span&gt; evaluation set &lt;span class=&quot;p&quot;&gt;&amp;amp;&lt;/span&gt;   864 &lt;span class=&quot;k&quot;&gt;\\&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;\hline&lt;/span&gt; 
- 
-      &lt;span class=&quot;k&quot;&gt;\multirow&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;6&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;*&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;CETD&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;&amp;amp;&lt;/span&gt; NYTimes      &lt;span class=&quot;p&quot;&gt;&amp;amp;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;\multicolumn&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;2&lt;span class=&quot;p&quot;&gt;}{&lt;/span&gt;c&lt;span class=&quot;p&quot;&gt;}{&lt;/span&gt;100&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;\\&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;\cline&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;2-4&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; 
-      &lt;span class=&quot;k&quot;&gt;\multirow&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;6&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;*&lt;span class=&quot;p&quot;&gt;{}&lt;/span&gt;     &lt;span class=&quot;p&quot;&gt;&amp;amp;&lt;/span&gt; Yahoo!       &lt;span class=&quot;p&quot;&gt;&amp;amp;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;\multicolumn&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;2&lt;span class=&quot;p&quot;&gt;}{&lt;/span&gt;c&lt;span class=&quot;p&quot;&gt;}{&lt;/span&gt;100&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;\\&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;\cline&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;2-4&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; 
-      &lt;span class=&quot;k&quot;&gt;\multirow&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;6&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;*&lt;span class=&quot;p&quot;&gt;{}&lt;/span&gt;     &lt;span class=&quot;p&quot;&gt;&amp;amp;&lt;/span&gt; Wikipedia    &lt;span class=&quot;p&quot;&gt;&amp;amp;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;\multicolumn&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;2&lt;span class=&quot;p&quot;&gt;}{&lt;/span&gt;c&lt;span class=&quot;p&quot;&gt;}{&lt;/span&gt;100&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;\\&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;\cline&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;2-4&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-      &lt;span class=&quot;k&quot;&gt;\multirow&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;6&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;*&lt;span class=&quot;p&quot;&gt;{}&lt;/span&gt;     &lt;span class=&quot;p&quot;&gt;&amp;amp;&lt;/span&gt; BBC          &lt;span class=&quot;p&quot;&gt;&amp;amp;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;\multicolumn&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;2&lt;span class=&quot;p&quot;&gt;}{&lt;/span&gt;c&lt;span class=&quot;p&quot;&gt;}{&lt;/span&gt;100&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;\\&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;\cline&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;2-4&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-      &lt;span class=&quot;k&quot;&gt;\multirow&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;6&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;*&lt;span class=&quot;p&quot;&gt;{}&lt;/span&gt;     &lt;span class=&quot;p&quot;&gt;&amp;amp;&lt;/span&gt; Ars Technica &lt;span class=&quot;p&quot;&gt;&amp;amp;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;\multicolumn&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;2&lt;span class=&quot;p&quot;&gt;}{&lt;/span&gt;c&lt;span class=&quot;p&quot;&gt;}{&lt;/span&gt;100&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;\\&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;\cline&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;2-4&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-      &lt;span class=&quot;k&quot;&gt;\multirow&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;6&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;*&lt;span class=&quot;p&quot;&gt;{}&lt;/span&gt;     &lt;span class=&quot;p&quot;&gt;&amp;amp;&lt;/span&gt; Chaos        &lt;span class=&quot;p&quot;&gt;&amp;amp;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;\multicolumn&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;2&lt;span class=&quot;p&quot;&gt;}{&lt;/span&gt;c&lt;span class=&quot;p&quot;&gt;}{&lt;/span&gt;200&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;\\&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;\hline&lt;/span&gt; 
-    &lt;span class=&quot;nt&quot;&gt;\end{tabular}&lt;/span&gt;
-  &lt;span class=&quot;nt&quot;&gt;\end{table}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;效果如图
-table 
-其中，\multirow{6}&lt;em&gt;{CETD} 6代表占用6行，CETD是其内容，其实下面的\multirow{6}&lt;/em&gt;{}是可以去掉的，只是为了代码排版更清晰
-\multicolumn{2}{c}{100}值合并两列，并且居中。
-\cline的解释见代码注释
-至于有时候可能会想要斜线的效果，不过latex中表格斜线分割看上去不舒服，还是不推荐，尤其科技论文中，文档直接明说不推荐
-更多设置，详见Tables in LaTeX: packages and methods&lt;/p&gt;
-
-&lt;p&gt;sidebar
-Berkeley主题中的sidebar默认显示所有的subsection，并且在显示对应的页时，高亮相应的section。对此可以作一些自定义。
-一般章节较多时，sidebar就很不友好了，显示不全，间距还大，别扭，只是取消显示subsection,一句话搞定&lt;/p&gt;
-
-&lt;div class=&quot;language-latex highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;\usetheme&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;[hideallsubsections]&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;Berkeley&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;一种更好的sidebar显示方式：&lt;/p&gt;
-
-&lt;div class=&quot;language-latex highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;\%&lt;/span&gt; By default, the current entry of the table of contents in the sidebar will be highlighted by using a more vibrant color.
-&lt;span class=&quot;k&quot;&gt;\%&lt;/span&gt; A good alternative is to highlight the current entry by using a different color for the background of the current point.
-&lt;span class=&quot;k&quot;&gt;\%&lt;/span&gt; The color theme sidebartab installs the appropriate colors
- 
-&lt;span class=&quot;k&quot;&gt;\usecolortheme&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;sidebartab&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;图表、算法编号
-beamer仿佛默认是不显示图标标号的默认值是Figure：XXX&lt;/p&gt;
-
-&lt;div class=&quot;language-latex highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;\%&lt;/span&gt; show fig and table number
-&lt;span class=&quot;k&quot;&gt;\setbeamertemplate&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;caption&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;[numbered]
-&lt;span class=&quot;k&quot;&gt;\%&lt;/span&gt; show theorems and example number
-&lt;span class=&quot;k&quot;&gt;\setbeamertemplate&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;theorems&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;[numbered]
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;字体大小
-beamer中某人的一些项目字体太大，比如样例example，可以在导言区自定义&lt;/p&gt;
-
-&lt;div class=&quot;language-latex highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;\setbeamerfont&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;example&lt;span class=&quot;p&quot;&gt;}{&lt;/span&gt;size=&lt;span class=&quot;k&quot;&gt;\tiny&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;\setbeamerfont&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;algorithm&lt;span class=&quot;p&quot;&gt;}{&lt;/span&gt;size=&lt;span class=&quot;k&quot;&gt;\scriptsize&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-Chaos
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;至于关于动画之类的，其实更多的涉及到的是LATEX的画图，扯起来就太多了，不扯了，直接照着各文档来吧。
-一般这些画图包都有各式各样的样例供参考&lt;/p&gt;
-</description>
-        <pubDate>Thu, 10 Jan 2019 00:00:00 +0800</pubDate>
-        <link>http://localhost:4000/2019/01/beamer/</link>
-        <guid isPermaLink="true">http://localhost:4000/2019/01/beamer/</guid>
-        
-        <category>computer science</category>
-        
-        <category>tool</category>
-        
-        <category>beamer</category>
-        
-        <category>blog</category>
-        
-        
-        <category>computer science</category>
-        
-        <category>tool</category>
-        
-        <category>beamer</category>
-        
-      </item>
-    
-      <item>
-        <title>yield for python</title>
-        <description>&lt;h2 id=&quot;a-example-of-code&quot;&gt;a example of code&lt;/h2&gt;
-&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;fun&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;():&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;range&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;20&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;x&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;yield&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;
-        &lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'good'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-
-&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;__name__&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'__main__'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;fun&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;__next__&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;__next__&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;x1&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;send&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;x2&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;send&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-    &lt;span class=&quot;nb&quot;&gt;next&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-    &lt;span class=&quot;nb&quot;&gt;next&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;x2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h2 id=&quot;results&quot;&gt;results&lt;/h2&gt;
-&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;good&lt;/span&gt; &lt;span class=&quot;bp&quot;&gt;None&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;good&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;5&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;good&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;good&lt;/span&gt; &lt;span class=&quot;bp&quot;&gt;None&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;good&lt;/span&gt; &lt;span class=&quot;bp&quot;&gt;None&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;4&lt;/span&gt;
-&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h2 id=&quot;description&quot;&gt;description&lt;/h2&gt;
-&lt;p&gt;&lt;a href=&quot;https://wiki.python.org/moin/Generators&quot;&gt;&lt;strong&gt;yield&lt;/strong&gt;&lt;/a&gt; generator functions allow you to declare a function that behaves like an iterator.&lt;/p&gt;
-</description>
-        <pubDate>Fri, 14 Dec 2018 00:00:00 +0800</pubDate>
-        <link>http://localhost:4000/2018/12/yield-for-python/</link>
-        <guid isPermaLink="true">http://localhost:4000/2018/12/yield-for-python/</guid>
-        
-        <category>computer science</category>
-        
-        <category>deep learning</category>
-        
-        <category>python</category>
-        
-        <category>blog</category>
-        
-        
-        <category>computer science</category>
-        
-        <category>deep learning</category>
-        
-        <category>python</category>
         
       </item>
     

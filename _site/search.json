@@ -1,6 +1,62 @@
 [
   
     {
+      "title"    : "Vim for latex",
+      "category" : "",
+      "tags"     : "computer science, vim, latex, blog",
+      "url"      : "/2019/05/Vim-for-LaTeX/",
+      "date"     : "2019-05-19 00:00:00 +0800"
+    } ,
+  
+    {
+      "title"    : "jupyter notebook theme",
+      "category" : "",
+      "tags"     : "computer science, python, jupyter notebook, blog",
+      "url"      : "/2019/05/jupyter-notebook-theme/",
+      "date"     : "2019-05-12 00:00:00 +0800"
+    } ,
+  
+    {
+      "title"    : "tensorflow share parameter",
+      "category" : "",
+      "tags"     : "computer science, deep learning, tensorflow, blog",
+      "url"      : "/2019/05/tensor-share-parameter/",
+      "date"     : "2019-05-08 00:00:00 +0800"
+    } ,
+  
+    {
+      "title"    : "tensorflow print",
+      "category" : "",
+      "tags"     : "computer science, deep learning, tensorflow, blog",
+      "url"      : "/2019/05/tf.print/",
+      "date"     : "2019-05-06 00:00:00 +0800"
+    } ,
+  
+    {
+      "title"    : "tensorflow and cuda version",
+      "category" : "",
+      "tags"     : "computer science, deep learning, tensorflow, blog",
+      "url"      : "/2019/05/tensorflow-and-cuda-version/",
+      "date"     : "2019-05-06 00:00:00 +0800"
+    } ,
+  
+    {
+      "title"    : "tensor shape",
+      "category" : "",
+      "tags"     : "computer science, deep learning, tensorflow, blog",
+      "url"      : "/2019/05/tensor-shape/",
+      "date"     : "2019-05-06 00:00:00 +0800"
+    } ,
+  
+    {
+      "title"    : "save log file for bash output",
+      "category" : "",
+      "tags"     : "computer science, ubuntu, bash, blog",
+      "url"      : "/2019/05/save-log/",
+      "date"     : "2019-05-05 00:00:00 +0800"
+    } ,
+  
+    {
       "title"    : "open for Python",
       "category" : "",
       "tags"     : "computer science, deep learning, python, blog",

@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <title>tensorflow and cuda version</title>
+  <meta name="description" content="tensorflow各个版本需要的CUDA版本以及Cudnn的对应关系相应的网址为：tensorflow install for linux and macOStensorflow install for windows">
+  <meta name="author" content="Mizuha Ki">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="tensorflow and cuda version">
+  <meta name="twitter:description" content="tensorflow各个版本需要的CUDA版本以及Cudnn的对应关系相应的网址为：tensorflow install for linux and macOStensorflow install for windows">
+  
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="tensorflow and cuda version">
+  <meta property="og:description" content="tensorflow各个版本需要的CUDA版本以及Cudnn的对应关系相应的网址为：tensorflow install for linux and macOStensorflow install for windows">
+  
+  <link rel="icon" type="image/png" href="/assets/images/favicon.png" />
+  <link href="/assets/images/favicon.png" rel="shortcut icon" type="image/png">
+  
+  <link rel="stylesheet" href="/css/main.css">
+  <link href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+
+  <link rel="canonical" href="http://localhost:4000/2019/05/tensorflow-and-cuda-version/">
+  <link rel="alternate" type="application/rss+xml" title="Mizuha Ki" href="http://localhost:4000/feed.xml">
+  
+  <meta name="google-site-verification" content="1-1ZlHoRvM0T2FqPbW2S-qLgYXN6rsn52kErlMPd_gw" />
+  
+</head>
+
+
+  <body>
+
+    <span class="mobile btn-mobile-menu">
+        <i class="fa fa-list btn-mobile-menu__icon"></i>
+        <i class="fa fa-angle-up btn-mobile-close__icon hidden"></i>
+    </span>
+    
+    <header class="panel-cover panel-cover--collapsed" style="background-image: url('/assets/images/background-cover.jpg')">
+  <div class="panel-main">
+
+    <div class="panel-main__inner panel-inverted">
+    <div class="panel-main__content">
+
+        <a href="/#blog" title="go Mizuha Ki's homepage" class="blog-button"><img src="/assets/images/avatar.jpg" width="80" alt="Mizuha Ki logo" class="panel-cover__logo logo" /></a>
+        <h1 class="panel-cover__title panel-title"><a href="/#blog" title="link to homepage for Mizuha Ki" class="blog-button">Mizuha Ki</a></h1>
+        
+        <hr class="panel-cover__divider" />
+        <p class="panel-cover__description">To be or not to be, that is a question.</p>
+        <hr class="panel-cover__divider panel-cover__divider--secondary" />
+        
+        
+        
+        <div class="navigation-wrapper">
+          <div>
+            <nav class="cover-navigation cover-navigation--primary">
+              <ul class="navigation">
+                <li class="navigation__item"><a href="/#blog" title="Visit blog" class="blog-button">Blog</a></li>
+                
+              </ul>
+            </nav>
+          </div>
+          
+          <div><nav class="cover-navigation navigation--social">
+  <ul class="navigation">
+
+  
+
+  
+  <!-- Github -->
+  <li class="navigation__item">
+          <a href="https://github.com/mizuhaki" title="@mizuhaki's github" target="_blank">
+      <i class='social fa fa-github'></i>
+      <span class="label">Github</span>
+    </a>
+  </li>
+  
+  
+  
+  <!-- Twitter -->
+  <li class="navigation__item">
+    <a href="http://twitter.com/mizuha_ki" title="@mizuha_ki" target="_blank">
+      <i class='social fa fa-twitter'></i>
+      <span class="label">Twitter</span>
+    </a>
+  </li>
+  
+
+  
+  <!-- Facebook -->
+  <li class="navigation__item">
+    <a href="http://facebook.com/mizuhaki1" title="@mizuhaki1" target="_blank">
+      <i class='social fa fa-facebook-square'></i>
+      <span class="label">Facebook</span>
+    </a>
+  </li>
+  
+
+  
+  <!-- Instagram -->
+  <li class="navigation__item">
+    <a href="http://instagram.com/mizuha_ki" title="@mizuha_ki" target="_blank">
+      <i class='social fa fa-instagram'></i>
+      <span class="label">Instagram</span>
+    </a>
+  </li>
+  
+
+  <!-- RSS -->
+  <li class="navigation__item">
+    <a href="/feed.xml" rel="author" title="RSS" target="_blank">
+      <i class='social fa fa-rss'></i>
+      <span class="label">RSS</span>
+    </a>
+  </li>
+
+  
+  <!-- Email -->
+  <li class="navigation__item">
+    <a href="mailto:xx@gmail.com" title="Contact me">
+      <i class='social fa fa-envelope'></i>
+      <span class="label">Email</span>
+    </a>
+  </li>
+  
+
+  </ul>
+</nav>
+</div>
+        </div>
+      </div>
+    </div>
+    
+    
+    <div class="panel-cover--overlay cover-disabled"></div>
+    
+  </div>
+</header>
+
+
+    <div class="content-wrapper">
+        <div class="content-wrapper__inner">
+            <article class="post-container post-container--single" itemscope itemtype="http://schema.org/BlogPosting">
+  <header class="post-header">
+    <div class="post-meta">
+      <time datetime="2019-05-06 00:00:00 +0800" itemprop="datePublished" class="post-meta__date date">2019-05-06</time> &#8226; <span class="post-meta__tags tags">computer science deep learning tensorflow blog</span>
+    </div>
+    <h1 class="post-title">tensorflow and cuda version</h1>
+  </header>
+
+  <section class="post">
+    <h2 id="tensorflow各个版本需要的cuda版本以及cudnn的对应关系">tensorflow各个版本需要的CUDA版本以及Cudnn的对应关系</h2>
+<p>相应的网址为：
+<a href="https://www.tensorflow.org/install/source#common_installation_problems">tensorflow install for linux and macOS</a>
+<a href="https://www.tensorflow.org/install/source_windows">tensorflow install for windows</a></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>版本</th>
+      <th>Python 版本</th>
+      <th>编译器</th>
+      <th>编译工具</th>
+      <th>cuDNN</th>
+      <th>CUDA</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>tensorflow_gpu-2.0.0-alpha0</td>
+      <td>2.7、3.3-3.6</td>
+      <td>GCC 4.8</td>
+      <td>Bazel 0.19.2</td>
+      <td>7.4.1以及更高版本</td>
+      <td>CUDA 10.0 (需要 410.x 或更高版本)</td>
+    </tr>
+    <tr>
+      <td>tensorflow_gpu-1.13.0</td>
+      <td>2.7、3.3-3.6</td>
+      <td>GCC 4.8</td>
+      <td>Bazel 0.19.2</td>
+      <td>7.4</td>
+      <td>10.0</td>
+    </tr>
+    <tr>
+      <td>tensorflow_gpu-1.12.0</td>
+      <td>2.7、3.3-3.6</td>
+      <td>GCC 4.8</td>
+      <td>Bazel 0.15.0</td>
+      <td>7</td>
+      <td>9</td>
+    </tr>
+    <tr>
+      <td>tensorflow_gpu-1.11.0</td>
+      <td>2.7、3.3-3.6</td>
+      <td>GCC 4.8</td>
+      <td>Bazel 0.15.0</td>
+      <td>7</td>
+      <td>9</td>
+    </tr>
+    <tr>
+      <td>tensorflow_gpu-1.10.0</td>
+      <td>2.7、3.3-3.6</td>
+      <td>GCC 4.8</td>
+      <td>Bazel 0.15.0</td>
+      <td>7</td>
+      <td>9</td>
+    </tr>
+    <tr>
+      <td>tensorflow_gpu-1.9.0</td>
+      <td>2.7、3.3-3.6</td>
+      <td>GCC 4.8</td>
+      <td>Bazel 0.11.0</td>
+      <td>7</td>
+      <td>9</td>
+    </tr>
+    <tr>
+      <td>tensorflow_gpu-1.8.0</td>
+      <td>2.7、3.3-3.6</td>
+      <td>GCC 4.8</td>
+      <td>Bazel 0.10.0</td>
+      <td>7</td>
+      <td>9</td>
+    </tr>
+    <tr>
+      <td>tensorflow_gpu-1.7.0</td>
+      <td>2.7、3.3-3.6</td>
+      <td>GCC 4.8</td>
+      <td>Bazel 0.9.0</td>
+      <td>7</td>
+      <td>9</td>
+    </tr>
+    <tr>
+      <td>tensorflow_gpu-1.6.0</td>
+      <td>2.7、3.3-3.6</td>
+      <td>GCC 4.8</td>
+      <td>Bazel 0.9.0</td>
+      <td>7</td>
+      <td>9</td>
+    </tr>
+    <tr>
+      <td>tensorflow_gpu-1.5.0</td>
+      <td>2.7、3.3-3.6</td>
+      <td>GCC 4.8</td>
+      <td>Bazel 0.8.0</td>
+      <td>7</td>
+      <td>9</td>
+    </tr>
+    <tr>
+      <td>tensorflow_gpu-1.4.0</td>
+      <td>2.7、3.3-3.6</td>
+      <td>GCC 4.8</td>
+      <td>Bazel 0.5.4</td>
+      <td>6</td>
+      <td>8</td>
+    </tr>
+    <tr>
+      <td>tensorflow_gpu-1.3.0</td>
+      <td>2.7、3.3-3.6</td>
+      <td>GCC 4.8</td>
+      <td>Bazel 0.4.5</td>
+      <td>6</td>
+      <td>8</td>
+    </tr>
+    <tr>
+      <td>tensorflow_gpu-1.2.0</td>
+      <td>2.7、3.3-3.6</td>
+      <td>GCC 4.8</td>
+      <td>Bazel 0.4.5</td>
+      <td>5.1</td>
+      <td>8</td>
+    </tr>
+    <tr>
+      <td>tensorflow_gpu-1.1.0</td>
+      <td>2.7、3.3-3.6</td>
+      <td>GCC 4.8</td>
+      <td>Bazel 0.4.2</td>
+      <td>5.1</td>
+      <td>8</td>
+    </tr>
+    <tr>
+      <td>tensorflow_gpu-1.0.0</td>
+      <td>2.7、3.3-3.6</td>
+      <td>GCC 4.8</td>
+      <td>Bazel 0.4.2</td>
+      <td>5.1</td>
+      <td>8</td>
+    </tr>
+  </tbody>
+</table>
+
+
+  </section>
+</article>
+
+<section class="read-more">
+   
+   
+   <div class="read-more-item">
+       <span class="read-more-item-dim">recent article</span>
+       <h2 class="post-list__post-title post-title"><a href="/2019/05/tf.print/" title="link to tensorflow print">tensorflow print</a></h2>
+       <p class="excerpt">tf.Print(input, data, message=None, first_n=None, summarize=None, name=None)最低要求两个输入，input和data，input是需要打印的变量的名字，data要求是一个list，里面包含要打印的内容。  message是需要输出的错误信息  first_n指只记录前n次  summarize是对每个tensor只打印的条目数量，如果是None，对于每个输入tensor只打印3个元素  name是op的名字a cod...&hellip;</p>
+       <div class="post-list__meta"><time datetime="2019-05-06 00:00:00 +0800" class="post-list__meta--date date">2019-05-06</time> &#8226; <span class="post-list__meta--tags tags">computer science deep learning tensorflow blog</span><a class="btn-border-small" href=/2019/05/tf.print/>read</a></div>
+   </div>
+   
+   
+   
+   
+   <div class="read-more-item">
+       <span class="read-more-item-dim">previous article</span>
+       <h2 class="post-list__post-title post-title"><a href="/2019/05/tensor-shape/" title="link to tensor shape">tensor shape</a></h2>
+       <p class="excerpt">tf.shape()import tensorflow as tfx = tf.constant([2,3,4,5])shape = tf.shape(x)with tf.Session() as sess:	print(sess.run(shape))tensor.get_shape().as_list()import tensorflow as tfx = tf.constant([2,3,4,5])shape1 = x.get_shape()shape2 = x.get_shape(...&hellip;</p>
+       <div class="post-list__meta"><time datetime="2019-05-06 00:00:00 +0800" class="post-list__meta--date date">2019-05-06</time> &#8226; <span class="post-list__meta--tags tags">computer science deep learning tensorflow blog</span><a class="btn-border-small" href=/2019/05/tensor-shape/>read</a></div>
+   </div>
+   
+</section>
+
+<section class="post-comments">
+  
+    <div id="disqus_thread"></div>
+    <script>
+    
+    var disqus_config = function () {
+        this.page.url = "http://localhost:4000/2019/05/tensorflow-and-cuda-version/";
+        this.page.identifier = "/2019/05/tensorflow-and-cuda-version/";
+    };
+
+    var disqus_shortname = 'mizuhaki';
+    
+    (function() { // DON'T EDIT BELOW THIS LINE
+        var d = document, s = d.createElement('script');
+        s.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+            (d.head || d.body).appendChild(s);
+        })();
+    </script>
+    <noscript>要查看<a href="http://disqus.com/?ref_noscript"> Disqus </a>评论，请启用 JavaScript</noscript>
+    
+  
+  
+  
+  
+</section>
+
+
+            <section class="footer">
+    <footer>
+    	<span class="footer__copyright">本站点采用<a href="http://creativecommons.org/licenses/by-nc-sa/4.0/">知识共享 署名-非商业性使用-相同方式共享 4.0 国际 许可协议</a></span>
+        <span class="footer__copyright">由 <a href="https://jekyllrb.com">Jekyll</a> 于 2019-05-19 生成，感谢 <a href="https://www.digitalocean.com/?refcode=30ed2d146762">Digital Ocean</a> 为本站提供稳定的 VPS 服务</span>
+        <span class="footer__copyright">本站由 <a href="http://github.com/MizuhaKi">@mizuhaki</a> 创建，采用 <a href="https://github.com/onevcat/vno-jekyll">Vno - Jekyll</a> 作为主题，您可以在 GitHub 找到<a href="https://github.com/onevcat/OneV-s-Den">本站源码</a> - &copy; 2019</span>
+    </footer>
+</section>
+
+        </div>
+    </div>
+    
+    <script type="text/javascript" src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+
+<script type="text/javascript" src="/js/main.js"></script>
+
+
+
+    
+  </body>
+
+</html>

@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <title>Vim for latex</title>
+  <meta name="description" content="最近 Vim 和 LaTex 用的都比较多，如果你也经常使用 Vim来编辑 LaTex 文档，不妨尝试一下。">
+  <meta name="author" content="Mizuha Ki">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Vim for latex">
+  <meta name="twitter:description" content="最近 Vim 和 LaTex 用的都比较多，如果你也经常使用 Vim来编辑 LaTex 文档，不妨尝试一下。">
+  
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Vim for latex">
+  <meta property="og:description" content="最近 Vim 和 LaTex 用的都比较多，如果你也经常使用 Vim来编辑 LaTex 文档，不妨尝试一下。">
+  
+  <link rel="icon" type="image/png" href="/assets/images/favicon.png" />
+  <link href="/assets/images/favicon.png" rel="shortcut icon" type="image/png">
+  
+  <link rel="stylesheet" href="/css/main.css">
+  <link href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+
+  <link rel="canonical" href="http://localhost:4000/2019/05/Vim-for-LaTeX/">
+  <link rel="alternate" type="application/rss+xml" title="Mizuha Ki" href="http://localhost:4000/feed.xml">
+  
+  <meta name="google-site-verification" content="1-1ZlHoRvM0T2FqPbW2S-qLgYXN6rsn52kErlMPd_gw" />
+  
+</head>
+
+
+  <body>
+
+    <span class="mobile btn-mobile-menu">
+        <i class="fa fa-list btn-mobile-menu__icon"></i>
+        <i class="fa fa-angle-up btn-mobile-close__icon hidden"></i>
+    </span>
+    
+    <header class="panel-cover panel-cover--collapsed" style="background-image: url('/assets/images/background-cover.jpg')">
+  <div class="panel-main">
+
+    <div class="panel-main__inner panel-inverted">
+    <div class="panel-main__content">
+
+        <a href="/#blog" title="go Mizuha Ki's homepage" class="blog-button"><img src="/assets/images/avatar.jpg" width="80" alt="Mizuha Ki logo" class="panel-cover__logo logo" /></a>
+        <h1 class="panel-cover__title panel-title"><a href="/#blog" title="link to homepage for Mizuha Ki" class="blog-button">Mizuha Ki</a></h1>
+        
+        <hr class="panel-cover__divider" />
+        <p class="panel-cover__description">To be or not to be, that is a question.</p>
+        <hr class="panel-cover__divider panel-cover__divider--secondary" />
+        
+        
+        
+        <div class="navigation-wrapper">
+          <div>
+            <nav class="cover-navigation cover-navigation--primary">
+              <ul class="navigation">
+                <li class="navigation__item"><a href="/#blog" title="Visit blog" class="blog-button">Blog</a></li>
+                
+              </ul>
+            </nav>
+          </div>
+          
+          <div><nav class="cover-navigation navigation--social">
+  <ul class="navigation">
+
+  
+
+  
+  <!-- Github -->
+  <li class="navigation__item">
+          <a href="https://github.com/mizuhaki" title="@mizuhaki's github" target="_blank">
+      <i class='social fa fa-github'></i>
+      <span class="label">Github</span>
+    </a>
+  </li>
+  
+  
+  
+  <!-- Twitter -->
+  <li class="navigation__item">
+    <a href="http://twitter.com/mizuha_ki" title="@mizuha_ki" target="_blank">
+      <i class='social fa fa-twitter'></i>
+      <span class="label">Twitter</span>
+    </a>
+  </li>
+  
+
+  
+  <!-- Facebook -->
+  <li class="navigation__item">
+    <a href="http://facebook.com/mizuhaki1" title="@mizuhaki1" target="_blank">
+      <i class='social fa fa-facebook-square'></i>
+      <span class="label">Facebook</span>
+    </a>
+  </li>
+  
+
+  
+  <!-- Instagram -->
+  <li class="navigation__item">
+    <a href="http://instagram.com/mizuha_ki" title="@mizuha_ki" target="_blank">
+      <i class='social fa fa-instagram'></i>
+      <span class="label">Instagram</span>
+    </a>
+  </li>
+  
+
+  <!-- RSS -->
+  <li class="navigation__item">
+    <a href="/feed.xml" rel="author" title="RSS" target="_blank">
+      <i class='social fa fa-rss'></i>
+      <span class="label">RSS</span>
+    </a>
+  </li>
+
+  
+  <!-- Email -->
+  <li class="navigation__item">
+    <a href="mailto:xx@gmail.com" title="Contact me">
+      <i class='social fa fa-envelope'></i>
+      <span class="label">Email</span>
+    </a>
+  </li>
+  
+
+  </ul>
+</nav>
+</div>
+        </div>
+      </div>
+    </div>
+    
+    
+    <div class="panel-cover--overlay cover-disabled"></div>
+    
+  </div>
+</header>
+
+
+    <div class="content-wrapper">
+        <div class="content-wrapper__inner">
+            <article class="post-container post-container--single" itemscope itemtype="http://schema.org/BlogPosting">
+  <header class="post-header">
+    <div class="post-meta">
+      <time datetime="2019-05-19 00:00:00 +0800" itemprop="datePublished" class="post-meta__date date">2019-05-19</time> &#8226; <span class="post-meta__tags tags">computer science vim latex blog</span>
+    </div>
+    <h1 class="post-title">Vim for latex</h1>
+  </header>
+
+  <section class="post">
+    <p>最近 Vim 和 LaTex 用的都比较多，如果你也经常使用 Vim来编辑 LaTex 文档，不妨尝试一下。</p>
+
+<h2 id="快捷键">快捷键</h2>
+<ol>
+  <li>= 自动格式化对齐样式，对于有代码洁癖强迫症的人来说绝对是福音。</li>
+  <li>gq家族 根据 textwidth 自动换行。gqgq: 换行当前段。gqap: 格式化整个段。{Visual}gq: 格式化选定的部分。对于每行字符数量不能超过 80 的人来说，又一个福音。最后你的文章会非常整齐，就像这样：
+    <div class="language-tex highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Vim (an acronym for Vi IMproved) is a text editor written by Bram Moolenaar and
+first released publicly in 1991. Based on the vi editor common to Unix-like
+systems, Vim is designed for use both from a command line interface and as a
+standalone application in a graphical user interface. Vim is free and open
+source software and is released under a license that includes some charityware
+clauses, encouraging users who enjoy the software to consider donating to
+children in Uganda. The license is compatible with the GNU General Public
+License.
+</code></pre></div>    </div>
+  </li>
+</ol>
+
+<h2 id="命令--vimrc">命令 &amp; .vimrc</h2>
+<ol>
+  <li>:set spell 经常写英文的人会用得到的，一不小心打错单词了，Vim 会在单词上加一个下划线提示。你还可以把你认为正确的特殊单词加到字典里面。</li>
+  <li>autocmd BufNewFile,BufRead *.tex set spell 把这句话加到 .vimrc 里面可以在打开 .tex 文件的时候自动进行拼写检查。</li>
+  <li>let g:tex_indent_items=0 估计大家都打开了换行时自动对齐的功能，但是有没有发现这样一个问题，在用 itemize 的时候，每一个 item 都会自动缩进两个，非常麻烦。如果你懒得搞的话，最后就变成了这个样子：
+    <div class="language-tex highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">\begin{itemize}</span>
+  <span class="k">\item</span> fist ...
+ <span class="k">\item</span> second ...
+   <span class="k">\item</span> third ...
+<span class="nt">\end{itemize}</span>
+</code></pre></div>    </div>
+    <p>如果在 .vimrc 里面加入 let g:tex_indent_items=0 一句话，自动缩进终于变得正常了。</p>
+  </li>
+</ol>
+
+<h2 id="插件">插件</h2>
+<ol>
+  <li>UltiSnips 无论是编辑 LaTex 文档还是写代码，UltiSnips 绝对是利器。他可以自动补全常用的代码结构。拿 Tex 举例，输入 item 就会出来：
+```tex
+item
+\begin{itemize}
+ \item
+\end{itemize}</li>
+</ol>
+
+<p>fig
+\begin{figure}[htpb]
+  \centering
+  \includegraphics[width=0.8\linewidth]{name.ext}
+  \caption{Name}
+  \label{fig:name}
+\end{figure}</p>
+
+<p>lp
+\left(contents\right)</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>还有非常多的自动补全，\begin{}…\end{} \section{}…。当然，你还可以编写自己的 snippets。用了这个插件，写东西的时候有一种畅快淋漓的感觉，再也不用纠结乱起八糟的命令了。可以看一下作者录制的四个 screencasts，了解 UltiSpips 更强大的功能。
+
+2. Align 用 [Align](https://github.com/vim-scripts/Align) 来对齐表格，又一个强迫症的福音。
+```tex
+\begin{tabular}{cccc}
+  a &amp; b &amp; c &amp; d \\
+  Ef &amp; long long &amp; ss &amp; a \\
+  test &amp; n &amp; long content &amp; small \\
+\end{tabular}
+" 选中表格内容，按 tt，就可以对齐了，豁然开朗。
+\begin{tabular}{cccc}
+  a    &amp; b         &amp; c            &amp; d     \\
+  Ef   &amp; long long &amp; ss           &amp; a     \\
+  test &amp; n         &amp; long content &amp; small \\
+\end{tabular}
+</code></pre></div></div>
+<ol>
+  <li>
+    <p><a href="https://github.com/scrooloose/syntastic">Syntastic</a>是语法检查的利器。对于 Tex 文档来说，你总不想到编译的时候才发现 &amp; 符号没有用转移字符 \&amp; 吧。Syntastic 会动态的检查 Tex 文档的语法，除了语法错误的提示，他还会有一些语法的建议。附一张官方的图，这是多么的方便啊！</p>
+  </li>
+  <li>
+    <p><a href="https://github.com/w0rp/ale">ale</a>(Asynchronous Lint Engine)是一款语法检查的插件，与syntastic类似，但有两个明显的优势，一个是语法检查是异步执行的，因此基本上不会出现卡顿的情况，另外一个是ale默认会使用所有检查工具并发的进行检查，但它只支持Vim 8.0以上的版本。
+```tex
+“异步语法检查
+Plug ‘w0rp/ale’</p>
+  </li>
+</ol>
+
+<p>” ale-setting }</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+## 其他
+还有一些不在强烈建议的列表当中，但是也非常的有用。比如说单词补全的插件：neocompletecache。或者直接从 markdown 转成 tex 文档，让你完全专注于写作: [pandoc](http://johnmacfarlane.net/pandoc/)。剩下的都是是看个人喜好了。
+
+Update: 还有一个非常重要的工具，latexmk，是 LaTex 的 Makefile。好像 tex-live 的包里面直接就带了。有了他，就可以左边开一个 Vim，右边放一个 PDF。然后在 Vim 中保存修改，右面 PDF 就会自动更新。想达到这样的效果，首先要建立一个配置文件 .latexmkrc，里面写上：
+```bash
+$pdf_previewer = "start evince %O %S";
+</code></pre></div></div>
+<p>这里是为了制定默认的 PDF 浏览器。设置完之后，只要运行 latexmk 命令就能自动监控 tex 文件的修改，然后重新编译。</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>latexmk <span class="nt">-pdf</span> <span class="nt">-pvc</span> xxx.tex      // 用 pdflatex 编译，同时打开 PDF 浏览，并监控修改
+latexmk <span class="nt">-xelatex</span> <span class="nt">-pvc</span> xxx.tex  // 用 xelatex 编译，同时打开 PDF 浏览，并监控修改
+latexmk <span class="nt">-c</span>     // 删除生成的中间文件
+</code></pre></div></div>
+
+  </section>
+</article>
+
+<section class="read-more">
+   
+   
+   
+   
+   <div class="read-more-item">
+       <span class="read-more-item-dim">previous article</span>
+       <h2 class="post-list__post-title post-title"><a href="/2019/05/jupyter-notebook-theme/" title="link to jupyter notebook theme">jupyter notebook theme</a></h2>
+       <p class="excerpt">修改 jupyter notebook 的主题，字体，字号pip install jupyterthemesjt -ljt -t oceans16 -f anonymous -fs 12 -cellw 90% -ofs 11 -dfs 11 -Ttheme  chesterish  grade3  gruvboxd  gruvboxl  monokai  oceans16  onedork  solarizedd  solarizedlSet Plotting Style (from wi...&hellip;</p>
+       <div class="post-list__meta"><time datetime="2019-05-12 00:00:00 +0800" class="post-list__meta--date date">2019-05-12</time> &#8226; <span class="post-list__meta--tags tags">computer science python jupyter notebook blog</span><a class="btn-border-small" href=/2019/05/jupyter-notebook-theme/>read</a></div>
+   </div>
+   
+</section>
+
+<section class="post-comments">
+  
+    <div id="disqus_thread"></div>
+    <script>
+    
+    var disqus_config = function () {
+        this.page.url = "http://localhost:4000/2019/05/Vim-for-LaTeX/";
+        this.page.identifier = "/2019/05/Vim-for-LaTeX/";
+    };
+
+    var disqus_shortname = 'mizuhaki';
+    
+    (function() { // DON'T EDIT BELOW THIS LINE
+        var d = document, s = d.createElement('script');
+        s.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+            (d.head || d.body).appendChild(s);
+        })();
+    </script>
+    <noscript>要查看<a href="http://disqus.com/?ref_noscript"> Disqus </a>评论，请启用 JavaScript</noscript>
+    
+  
+  
+  
+  
+</section>
+
+
+            <section class="footer">
+    <footer>
+    	<span class="footer__copyright">本站点采用<a href="http://creativecommons.org/licenses/by-nc-sa/4.0/">知识共享 署名-非商业性使用-相同方式共享 4.0 国际 许可协议</a></span>
+        <span class="footer__copyright">由 <a href="https://jekyllrb.com">Jekyll</a> 于 2019-05-19 生成，感谢 <a href="https://www.digitalocean.com/?refcode=30ed2d146762">Digital Ocean</a> 为本站提供稳定的 VPS 服务</span>
+        <span class="footer__copyright">本站由 <a href="http://github.com/MizuhaKi">@mizuhaki</a> 创建，采用 <a href="https://github.com/onevcat/vno-jekyll">Vno - Jekyll</a> 作为主题，您可以在 GitHub 找到<a href="https://github.com/onevcat/OneV-s-Den">本站源码</a> - &copy; 2019</span>
+    </footer>
+</section>
+
+        </div>
+    </div>
+    
+    <script type="text/javascript" src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+
+<script type="text/javascript" src="/js/main.js"></script>
+
+
+
+    
+  </body>
+
+</html>

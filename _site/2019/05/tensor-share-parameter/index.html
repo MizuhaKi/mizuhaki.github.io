@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <title>tensorflow share parameter</title>
+  <meta name="description" content="tf.Variable()定义变量tf.Variable(    initial_value=None,# 第一个参数是必填参数    trainable=True,    collections=None,    validate_shape=True,    caching_device=None,    n...">
+  <meta name="author" content="Mizuha Ki">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="tensorflow share parameter">
+  <meta name="twitter:description" content="tf.Variable()定义变量tf.Variable(    initial_value=None,# 第一个参数是必填参数    trainable=True,    collections=None,    validate_shape=True,    caching_device=None,    n...">
+  
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="tensorflow share parameter">
+  <meta property="og:description" content="tf.Variable()定义变量tf.Variable(    initial_value=None,# 第一个参数是必填参数    trainable=True,    collections=None,    validate_shape=True,    caching_device=None,    n...">
+  
+  <link rel="icon" type="image/png" href="/assets/images/favicon.png" />
+  <link href="/assets/images/favicon.png" rel="shortcut icon" type="image/png">
+  
+  <link rel="stylesheet" href="/css/main.css">
+  <link href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+
+  <link rel="canonical" href="http://localhost:4000/2019/05/tensor-share-parameter/">
+  <link rel="alternate" type="application/rss+xml" title="Mizuha Ki" href="http://localhost:4000/feed.xml">
+  
+  <meta name="google-site-verification" content="1-1ZlHoRvM0T2FqPbW2S-qLgYXN6rsn52kErlMPd_gw" />
+  
+</head>
+
+
+  <body>
+
+    <span class="mobile btn-mobile-menu">
+        <i class="fa fa-list btn-mobile-menu__icon"></i>
+        <i class="fa fa-angle-up btn-mobile-close__icon hidden"></i>
+    </span>
+    
+    <header class="panel-cover panel-cover--collapsed" style="background-image: url('/assets/images/background-cover.jpg')">
+  <div class="panel-main">
+
+    <div class="panel-main__inner panel-inverted">
+    <div class="panel-main__content">
+
+        <a href="/#blog" title="go Mizuha Ki's homepage" class="blog-button"><img src="/assets/images/avatar.jpg" width="80" alt="Mizuha Ki logo" class="panel-cover__logo logo" /></a>
+        <h1 class="panel-cover__title panel-title"><a href="/#blog" title="link to homepage for Mizuha Ki" class="blog-button">Mizuha Ki</a></h1>
+        
+        <hr class="panel-cover__divider" />
+        <p class="panel-cover__description">To be or not to be, that is a question.</p>
+        <hr class="panel-cover__divider panel-cover__divider--secondary" />
+        
+        
+        
+        <div class="navigation-wrapper">
+          <div>
+            <nav class="cover-navigation cover-navigation--primary">
+              <ul class="navigation">
+                <li class="navigation__item"><a href="/#blog" title="Visit blog" class="blog-button">Blog</a></li>
+                
+              </ul>
+            </nav>
+          </div>
+          
+          <div><nav class="cover-navigation navigation--social">
+  <ul class="navigation">
+
+  
+
+  
+  <!-- Github -->
+  <li class="navigation__item">
+          <a href="https://github.com/mizuhaki" title="@mizuhaki's github" target="_blank">
+      <i class='social fa fa-github'></i>
+      <span class="label">Github</span>
+    </a>
+  </li>
+  
+  
+  
+  <!-- Twitter -->
+  <li class="navigation__item">
+    <a href="http://twitter.com/mizuha_ki" title="@mizuha_ki" target="_blank">
+      <i class='social fa fa-twitter'></i>
+      <span class="label">Twitter</span>
+    </a>
+  </li>
+  
+
+  
+  <!-- Facebook -->
+  <li class="navigation__item">
+    <a href="http://facebook.com/mizuhaki1" title="@mizuhaki1" target="_blank">
+      <i class='social fa fa-facebook-square'></i>
+      <span class="label">Facebook</span>
+    </a>
+  </li>
+  
+
+  
+  <!-- Instagram -->
+  <li class="navigation__item">
+    <a href="http://instagram.com/mizuha_ki" title="@mizuha_ki" target="_blank">
+      <i class='social fa fa-instagram'></i>
+      <span class="label">Instagram</span>
+    </a>
+  </li>
+  
+
+  <!-- RSS -->
+  <li class="navigation__item">
+    <a href="/feed.xml" rel="author" title="RSS" target="_blank">
+      <i class='social fa fa-rss'></i>
+      <span class="label">RSS</span>
+    </a>
+  </li>
+
+  
+  <!-- Email -->
+  <li class="navigation__item">
+    <a href="mailto:xx@gmail.com" title="Contact me">
+      <i class='social fa fa-envelope'></i>
+      <span class="label">Email</span>
+    </a>
+  </li>
+  
+
+  </ul>
+</nav>
+</div>
+        </div>
+      </div>
+    </div>
+    
+    
+    <div class="panel-cover--overlay cover-disabled"></div>
+    
+  </div>
+</header>
+
+
+    <div class="content-wrapper">
+        <div class="content-wrapper__inner">
+            <article class="post-container post-container--single" itemscope itemtype="http://schema.org/BlogPosting">
+  <header class="post-header">
+    <div class="post-meta">
+      <time datetime="2019-05-08 00:00:00 +0800" itemprop="datePublished" class="post-meta__date date">2019-05-08</time> &#8226; <span class="post-meta__tags tags">computer science deep learning tensorflow blog</span>
+    </div>
+    <h1 class="post-title">tensorflow share parameter</h1>
+  </header>
+
+  <section class="post">
+    <h2 id="tfvariable定义变量">tf.Variable()定义变量</h2>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">tf</span><span class="o">.</span><span class="n">Variable</span><span class="p">(</span>
+    <span class="n">initial_value</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span><span class="c1"># 第一个参数是必填参数
+</span>    <span class="n">trainable</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span>
+    <span class="n">collections</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span>
+    <span class="n">validate_shape</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span>
+    <span class="n">caching_device</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span>
+    <span class="n">name</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span>
+    <span class="n">variable_def</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span>
+    <span class="n">dtype</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span>
+    <span class="n">expected_shape</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span>
+    <span class="n">import_scope</span><span class="o">=</span><span class="bp">None</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p><a href="https://www.tensorflow.org/api_docs/python/tf/Variable">tf.Variable()</a>定义图的变量</p>
+
+<ul>
+  <li>initial_value：变量的初始值，以下会有一个总结</li>
+  <li>trainable：bool类型，如果为True，会把它加入到GraphKeys.TRAINABLE_VARIABLES，才能对它使用Optimizer</li>
+  <li>collections：是一个list类型，指定该图变量的类型、默认为[GraphKeys.GLOBAL_VARIABLES]</li>
+  <li>validate_shape：bool类型，如果为False，则不进行类型和维度检查</li>
+  <li>name：是string类型，变量的名称，如果没有指定则系统会自动分配一个唯一的值（可选参数）</li>
+</ul>
+
+<h2 id="tfvariable的初始化">tf.Variable()的初始化</h2>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">## random tensor
+</span><span class="n">tf</span><span class="o">.</span><span class="n">random_normal</span><span class="p">(</span><span class="n">shape</span><span class="p">,</span> <span class="n">mean</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">stddev</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">tf</span><span class="o">.</span><span class="n">float32</span><span class="p">,</span> <span class="n">seed</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="bp">None</span><span class="p">)</span>
+<span class="n">tf</span><span class="o">.</span><span class="n">truncated_normal</span><span class="p">(</span><span class="n">shape</span><span class="p">,</span> <span class="n">mean</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">stddev</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">tf</span><span class="o">.</span><span class="n">float32</span><span class="p">,</span> <span class="n">seed</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="bp">None</span><span class="p">)</span>
+<span class="n">tf</span><span class="o">.</span><span class="n">random_uniform</span><span class="p">(</span><span class="n">shape</span><span class="p">,</span> <span class="n">minval</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">maxval</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">tf</span><span class="o">.</span><span class="n">float32</span><span class="p">,</span> <span class="n">seed</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="bp">None</span><span class="p">)</span>
+<span class="n">tf</span><span class="o">.</span><span class="n">random_shuffle</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="n">seed</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="bp">None</span><span class="p">)</span>
+<span class="n">tf</span><span class="o">.</span><span class="n">random_crop</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="n">size</span><span class="p">,</span> <span class="n">seed</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="bp">None</span><span class="p">)</span>
+<span class="n">tf</span><span class="o">.</span><span class="n">multinomial</span><span class="p">(</span><span class="n">logits</span><span class="p">,</span> <span class="n">num_samples</span><span class="p">,</span> <span class="n">seed</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="bp">None</span><span class="p">)</span>
+<span class="n">tf</span><span class="o">.</span><span class="n">random_gamma</span><span class="p">(</span><span class="n">shape</span><span class="p">,</span> <span class="n">alpha</span><span class="p">,</span> <span class="n">beta</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">tf</span><span class="o">.</span><span class="n">float32</span><span class="p">,</span> <span class="n">seed</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="bp">None</span><span class="p">)</span>
+<span class="n">tf</span><span class="o">.</span><span class="n">set_random_seed</span><span class="p">(</span><span class="n">seed</span><span class="p">)</span>
+
+<span class="c1">## constant value Tensor
+</span><span class="n">tf</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">shape</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">tf</span><span class="o">.</span><span class="n">float32</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="bp">None</span><span class="p">)</span>
+<span class="n">tf</span><span class="o">.</span><span class="n">zeros_like</span><span class="p">(</span><span class="n">tensor</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="bp">None</span><span class="p">)</span>
+<span class="n">tf</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="n">shape</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">tf</span><span class="o">.</span><span class="n">float32</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="bp">None</span><span class="p">)</span>
+<span class="n">tf</span><span class="o">.</span><span class="n">ones_like</span><span class="p">(</span><span class="n">tensor</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="bp">None</span><span class="p">)</span>
+<span class="n">tf</span><span class="o">.</span><span class="n">fill</span><span class="p">(</span><span class="n">dims</span><span class="p">,</span> <span class="n">value</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="bp">None</span><span class="p">)</span>
+<span class="n">tf</span><span class="o">.</span><span class="n">constant</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">shape</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s">'Const'</span><span class="p">)</span>
+</code></pre></div></div>
+
+<h2 id="tfget_variable">tf.get_variable()</h2>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">tf</span><span class="o">.</span><span class="n">get_variable</span><span class="p">(</span>
+    <span class="n">name</span><span class="p">,</span>   <span class="c1">#name是一个必填参数，与之前见过的函数不一样！！！！
+</span>    <span class="n">shape</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span>
+    <span class="n">dtype</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span>
+    <span class="n">initializer</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span>
+    <span class="n">regularizer</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span>
+    <span class="n">trainable</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span>
+    <span class="n">collections</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span>
+    <span class="n">caching_device</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span>
+    <span class="n">partitioner</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span>
+    <span class="n">validate_shape</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span>
+    <span class="n">use_resource</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span>
+    <span class="n">custom_getter</span><span class="o">=</span><span class="bp">None</span>
+<span class="p">)</span>
+</code></pre></div></div>
+<p><a href="https://www.tensorflow.org/api_docs/python/tf/get_variable">tf.get_variable()</a>定义图的变量
+ - name：新变量或现有变量的名称，这个参数是必须的，函数会根据变量名称去创建或者获取变量。</p>
+<ul>
+  <li>shape：新变量或现有变量的形状或者维度。</li>
+  <li>dtype：新变量或现有变量的类型（默认为 DT_FLOAT）。</li>
+  <li>initializer：创建变量的初始化器，初始化变量。初始化的方式在下面会有一个归纳</li>
+  <li>regularizer：一个函数（张量 - &gt;张量或无）；将其应用于新创建的变量的结果将被添加到集合 tf.GraphKeys.REGULARIZATION_LOSSES 中，并可用于正则化。</li>
+  <li>trainable：如果为 True，还将变量添加到图形集合：GraphKeys.TRAINABLE_VARIABLES。</li>
+  <li>collections：要将变量添加到其中的图形集合键的列表。默认为 [GraphKeys.LOCAL_VARIABLES]。</li>
+  <li>partitioner：（可选）可调用性，它接受要创建的变量的完全定义的 TensorShape 和 dtype，并且返回每个坐标轴的分区列表（当前只能对一个坐标轴进行分区）</li>
+  <li>validate_shape：如果为假，则允许使用未知形状的值（也就是shape=[],方括号里面不填任何东西，包括空格）初始化变量。如果为真，则默认情况下，initial_value 的形状必须是已知的。</li>
+  <li>use_resource：如果为假，则创建一个常规变量。如果为真，则创建一个实验性的 ResourceVariable，而不是具有明确定义的语义。默认为假（稍后将更改为真）。</li>
+</ul>
+
+<h2 id="tfget_variable的初始化">tf.get_variable()的初始化</h2>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">tf</span><span class="o">.</span><span class="n">constant_initializer</span> <span class="c1">#常量初始化函数
+</span><span class="n">tf</span><span class="o">.</span><span class="n">random_normal_initializer</span>  <span class="c1">#正态分布
+</span><span class="n">tf</span><span class="o">.</span><span class="n">truncated_normal_initializer</span>  <span class="c1">#截取的正态分布
+</span><span class="n">tf</span><span class="o">.</span><span class="n">random_uniform_initializer</span>  <span class="c1">#均匀分布
+</span><span class="n">tf</span><span class="o">.</span><span class="n">zeros_initializer</span>  <span class="c1">#全部是0
+</span><span class="n">tf</span><span class="o">.</span><span class="n">ones_initializer</span>  <span class="c1">#全是1
+</span><span class="n">tf</span><span class="o">.</span><span class="n">uniform_unit_scaling_initializer</span>  <span class="c1">##满足均匀分布，但不影响输出数量级的随机值
+</span>
+<span class="c1">## example
+</span>
+<span class="kn">import</span> <span class="nn">tensorflow</span> <span class="k">as</span> <span class="n">tf</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="n">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+<span class="n">a1</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">get_variable</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s">'a1'</span><span class="p">,</span> <span class="n">shape</span><span class="o">=</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">],</span> <span class="n">initializer</span><span class="o">=</span><span class="n">tf</span><span class="o">.</span><span class="n">random_normal_initializer</span><span class="p">(</span><span class="n">mean</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">stddev</span><span class="o">=</span><span class="mi">1</span><span class="p">))</span>
+<span class="n">a2</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">get_variable</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s">'a2'</span><span class="p">,</span> <span class="n">shape</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">initializer</span><span class="o">=</span><span class="n">tf</span><span class="o">.</span><span class="n">constant_initializer</span><span class="p">(</span><span class="mi">1</span><span class="p">))</span>
+<span class="n">a3</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">get_variable</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s">'a3'</span><span class="p">,</span> <span class="n">shape</span><span class="o">=</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">],</span> <span class="n">initializer</span><span class="o">=</span><span class="n">tf</span><span class="o">.</span><span class="n">ones_initializer</span><span class="p">())</span>
+ 
+<span class="k">with</span> <span class="n">tf</span><span class="o">.</span><span class="n">Session</span><span class="p">()</span> <span class="k">as</span> <span class="n">sess</span><span class="p">:</span>
+	<span class="n">sess</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">initialize_all_variables</span><span class="p">())</span>
+	<span class="k">print</span> <span class="n">sess</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">a1</span><span class="p">)</span>
+	<span class="k">print</span> <span class="n">sess</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">a2</span><span class="p">)</span>
+	<span class="k">print</span> <span class="n">sess</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">a3</span><span class="p">)</span>
+</code></pre></div></div>
+
+<h2 id="tfvariable_scope">tf.variable_scope()</h2>
+<p>嵌套的作用域附加名字所用的规则和文件目录的规则很类似：</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">with</span> <span class="n">tf</span><span class="o">.</span><span class="n">variable_scope</span><span class="p">(</span><span class="s">"foo"</span><span class="p">):</span>
+    <span class="k">with</span> <span class="n">tf</span><span class="o">.</span><span class="n">variable_scope</span><span class="p">(</span><span class="s">"bar"</span><span class="p">):</span>
+        <span class="n">v</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">get_variable</span><span class="p">(</span><span class="s">"v"</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+<span class="k">assert</span> <span class="n">v</span><span class="o">.</span><span class="n">name</span> <span class="o">==</span> <span class="s">"foo/bar/v:0"</span>
+</code></pre></div></div>
+<p>当前变量作用域可以用tf.get_variable_scope()里面不需要参数进行检索并且reuse 标签可以通过调用tf.get_variable_scope().reuse_variables()里面也不需要参数设置为True .设置方法在上面有举例。注意你不能设置reuse标签为False。即使你不能直接设置 reuse 为 False ,但是你可以输入一个重用变量作用域,然后就释放掉,就成为非重用的变量.当打开一个变量作用域时,使用reuse=True 作为参数是可以的.但也要注意，同一个原因，reuse 参数是不可继承.所以当你打开一个重用变量作用域，那么所有的子作用域也将会被重用.</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">with</span> <span class="n">tf</span><span class="o">.</span><span class="n">variable_scope</span><span class="p">(</span><span class="s">"root"</span><span class="p">):</span>
+    <span class="c1"># At start, the scope is not reusing.
+</span>    <span class="k">assert</span> <span class="n">tf</span><span class="o">.</span><span class="n">get_variable_scope</span><span class="p">()</span><span class="o">.</span><span class="n">reuse</span> <span class="o">==</span> <span class="bp">False</span>
+    <span class="k">with</span> <span class="n">tf</span><span class="o">.</span><span class="n">variable_scope</span><span class="p">(</span><span class="s">"foo"</span><span class="p">):</span>
+        <span class="c1"># Opened a sub-scope, still not reusing.
+</span>        <span class="k">assert</span> <span class="n">tf</span><span class="o">.</span><span class="n">get_variable_scope</span><span class="p">()</span><span class="o">.</span><span class="n">reuse</span> <span class="o">==</span> <span class="bp">False</span>
+    <span class="k">with</span> <span class="n">tf</span><span class="o">.</span><span class="n">variable_scope</span><span class="p">(</span><span class="s">"foo"</span><span class="p">,</span> <span class="n">reuse</span><span class="o">=</span><span class="bp">True</span><span class="p">):</span> <span class="err">这里打开共享</span>
+        <span class="c1"># Explicitly opened a reusing scope.
+</span>        <span class="k">assert</span> <span class="n">tf</span><span class="o">.</span><span class="n">get_variable_scope</span><span class="p">()</span><span class="o">.</span><span class="n">reuse</span> <span class="o">==</span> <span class="bp">True</span>
+        <span class="k">with</span> <span class="n">tf</span><span class="o">.</span><span class="n">variable_scope</span><span class="p">(</span><span class="s">"bar"</span><span class="p">):</span>
+            <span class="c1"># Now sub-scope inherits the reuse flag.
+</span>            <span class="k">assert</span> <span class="n">tf</span><span class="o">.</span><span class="n">get_variable_scope</span><span class="p">()</span><span class="o">.</span><span class="n">reuse</span> <span class="o">==</span> <span class="bp">True</span>
+    <span class="c1"># Exited the reusing scope, back to a non-reusing one.
+</span>    <span class="k">assert</span> <span class="n">tf</span><span class="o">.</span><span class="n">get_variable_scope</span><span class="p">()</span><span class="o">.</span><span class="n">reuse</span> <span class="o">==</span> <span class="bp">False</span>
+</code></pre></div></div>
+
+<h2 id="description">description</h2>
+<h3 id="name">name</h3>
+<p>使用tf.Variable时，如果检测到命名冲突，系统会自己处理。使用tf.get_variable()时，系统不会处理冲突，而会报错。实际上由于tf.Variable() 每次都在创建新对象，所有reuse=True 和它并没有什么关系。对于get_variable()，来说，在某个作用域下如果已经有创建的变量对象，同时要满足标签reuse=True ，就把那个对象返回（也就是共享）没有创建变量；如果没有存在想要创建的变量对象的话，同时标签reuse=False(默认），就创建一个新的（这个时候才创建新对象）。</p>
+<h4 id="variable可以创建两个name相同都为w_1的变量">variable可以创建两个name相同（都为w_1）的变量</h4>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">tensorflow</span> <span class="k">as</span> <span class="n">tf</span>
+<span class="n">w_1</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">Variable</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="n">name</span><span class="o">=</span><span class="s">"w_1"</span><span class="p">)</span>
+<span class="n">w_2</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">Variable</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">name</span><span class="o">=</span><span class="s">"w_1"</span><span class="p">)</span>
+<span class="k">print</span> <span class="n">w_1</span><span class="o">.</span><span class="n">name</span>
+<span class="k">print</span> <span class="n">w_2</span><span class="o">.</span><span class="n">name</span>
+<span class="c1">#输出实际上创建了两个不同的变量
+#w_1:0
+#w_1_1:0
+</span></code></pre></div></div>
+<h4 id="get_variable在同一个作用域下这个作用域是默认的不能创建两个name相同都为w_1的变量">get_variable在同一个作用域下（这个作用域是默认的）不能创建两个name相同（都为w_1）的变量</h4>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">tensorflow</span> <span class="k">as</span> <span class="n">tf</span>
+<span class="n">w_1</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">get_variable</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s">"w_1"</span><span class="p">,</span><span class="n">initializer</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">w_2</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">get_variable</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s">"w_1"</span><span class="p">,</span><span class="n">initializer</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="c1">#下面是错误信息
+#ValueError: Variable w_1 already exists, disallowed. Did
+#you mean to set reuse=True in VarScope?
+</span></code></pre></div></div>
+
+<h3 id="reuse">reuse</h3>
+<p>tf.get_variable()它的工作方式根据当前的变量域（Variable Scope）的reuse属性变化而变化，我们可以通过tf.get_variable_scope().reuse来查看这个属性，它默认是False。</p>
+<h4 id="变量的实际名称作用域name的字符窜">变量的实际名称=作用域+name的字符窜</h4>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">with</span> <span class="n">tf</span><span class="o">.</span><span class="n">variable_scope</span><span class="p">(</span><span class="s">"foo"</span><span class="p">):</span> <span class="c1"># reuse默认是False
+</span>    <span class="n">v</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">get_variable</span><span class="p">(</span><span class="s">"v"</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+<span class="k">assert</span> <span class="n">v</span><span class="o">.</span><span class="n">name</span> <span class="o">==</span> <span class="s">"foo/v:0"</span>
+</code></pre></div></div>
+<h4 id="tfget_variable_scopereuse--true时作用域是为重用变量所设置">tf.get_variable_scope().reuse == True时，作用域是为重用变量所设置</h4>
+<p>这种情况下，调用就会搜索一个已经存在的变量，他的全称和当前变量的作用域名+所提供的名字是否相等.如果不存在相应的变量，就会抛出ValueError 错误.如果变量找到了，就返回这个变量.</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">with</span> <span class="n">tf</span><span class="o">.</span><span class="n">variable_scope</span><span class="p">(</span><span class="s">"foo"</span><span class="p">):</span>
+    <span class="n">v</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">get_variable</span><span class="p">(</span><span class="s">"v"</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+<span class="k">with</span> <span class="n">tf</span><span class="o">.</span><span class="n">variable_scope</span><span class="p">(</span><span class="s">"foo"</span><span class="p">,</span> <span class="n">reuse</span><span class="o">=</span><span class="bp">True</span><span class="p">):</span>
+    <span class="n">v1</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">get_variable</span><span class="p">(</span><span class="s">"v"</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+<span class="k">assert</span> <span class="n">v1</span> <span class="o">==</span> <span class="n">v</span> 
+<span class="c1">## 输出可以知道
+</span><span class="n">v1</span><span class="o">.</span><span class="n">name</span><span class="o">==</span><span class="n">v</span><span class="o">.</span><span class="n">name</span><span class="o">==</span><span class="s">'foo/v:0'</span>
+</code></pre></div></div>
+
+
+  </section>
+</article>
+
+<section class="read-more">
+   
+   
+   <div class="read-more-item">
+       <span class="read-more-item-dim">recent article</span>
+       <h2 class="post-list__post-title post-title"><a href="/2019/05/jupyter-notebook-theme/" title="link to jupyter notebook theme">jupyter notebook theme</a></h2>
+       <p class="excerpt">修改 jupyter notebook 的主题，字体，字号pip install jupyterthemesjt -ljt -t oceans16 -f anonymous -fs 12 -cellw 90% -ofs 11 -dfs 11 -Ttheme  chesterish  grade3  gruvboxd  gruvboxl  monokai  oceans16  onedork  solarizedd  solarizedlSet Plotting Style (from wi...&hellip;</p>
+       <div class="post-list__meta"><time datetime="2019-05-12 00:00:00 +0800" class="post-list__meta--date date">2019-05-12</time> &#8226; <span class="post-list__meta--tags tags">computer science python jupyter notebook blog</span><a class="btn-border-small" href=/2019/05/jupyter-notebook-theme/>read</a></div>
+   </div>
+   
+   
+   
+   
+   <div class="read-more-item">
+       <span class="read-more-item-dim">previous article</span>
+       <h2 class="post-list__post-title post-title"><a href="/2019/05/tf.print/" title="link to tensorflow print">tensorflow print</a></h2>
+       <p class="excerpt">tf.Print(input, data, message=None, first_n=None, summarize=None, name=None)最低要求两个输入，input和data，input是需要打印的变量的名字，data要求是一个list，里面包含要打印的内容。  message是需要输出的错误信息  first_n指只记录前n次  summarize是对每个tensor只打印的条目数量，如果是None，对于每个输入tensor只打印3个元素  name是op的名字a cod...&hellip;</p>
+       <div class="post-list__meta"><time datetime="2019-05-06 00:00:00 +0800" class="post-list__meta--date date">2019-05-06</time> &#8226; <span class="post-list__meta--tags tags">computer science deep learning tensorflow blog</span><a class="btn-border-small" href=/2019/05/tf.print/>read</a></div>
+   </div>
+   
+</section>
+
+<section class="post-comments">
+  
+    <div id="disqus_thread"></div>
+    <script>
+    
+    var disqus_config = function () {
+        this.page.url = "http://localhost:4000/2019/05/tensor-share-parameter/";
+        this.page.identifier = "/2019/05/tensor-share-parameter/";
+    };
+
+    var disqus_shortname = 'mizuhaki';
+    
+    (function() { // DON'T EDIT BELOW THIS LINE
+        var d = document, s = d.createElement('script');
+        s.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+            (d.head || d.body).appendChild(s);
+        })();
+    </script>
+    <noscript>要查看<a href="http://disqus.com/?ref_noscript"> Disqus </a>评论，请启用 JavaScript</noscript>
+    
+  
+  
+  
+  
+</section>
+
+
+            <section class="footer">
+    <footer>
+    	<span class="footer__copyright">本站点采用<a href="http://creativecommons.org/licenses/by-nc-sa/4.0/">知识共享 署名-非商业性使用-相同方式共享 4.0 国际 许可协议</a></span>
+        <span class="footer__copyright">由 <a href="https://jekyllrb.com">Jekyll</a> 于 2019-05-19 生成，感谢 <a href="https://www.digitalocean.com/?refcode=30ed2d146762">Digital Ocean</a> 为本站提供稳定的 VPS 服务</span>
+        <span class="footer__copyright">本站由 <a href="http://github.com/MizuhaKi">@mizuhaki</a> 创建，采用 <a href="https://github.com/onevcat/vno-jekyll">Vno - Jekyll</a> 作为主题，您可以在 GitHub 找到<a href="https://github.com/onevcat/OneV-s-Den">本站源码</a> - &copy; 2019</span>
+    </footer>
+</section>
+
+        </div>
+    </div>
+    
+    <script type="text/javascript" src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+
+<script type="text/javascript" src="/js/main.js"></script>
+
+
+
+    
+  </body>
+
+</html>
