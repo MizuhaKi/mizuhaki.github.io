@@ -81,7 +81,7 @@ lp
 3. [Syntastic](https://github.com/scrooloose/syntastic)是语法检查的利器。对于 Tex 文档来说，你总不想到编译的时候才发现 & 符号没有用转移字符 \& 吧。Syntastic 会动态的检查 Tex 文档的语法，除了语法错误的提示，他还会有一些语法的建议。附一张官方的图，这是多么的方便啊！ 
 
 4. [ale](https://github.com/w0rp/ale)(Asynchronous Lint Engine)是一款语法检查的插件，与syntastic类似，但有两个明显的优势，一个是语法检查是异步执行的，因此基本上不会出现卡顿的情况，另外一个是ale默认会使用所有检查工具并发的进行检查，但它只支持Vim 8.0以上的版本。
-```tex
+```bash
 "异步语法检查
 Plug 'w0rp/ale'
 
@@ -112,10 +112,7 @@ let g:ale_linters = {
 \   'c': ['clang'],
 \   'python': ['pylint'],
 \}
-" }}}
 ```
-
-
 
 ## 其他
 还有一些不在强烈建议的列表当中，但是也非常的有用。比如说单词补全的插件：neocompletecache。或者直接从 markdown 转成 tex 文档，让你完全专注于写作: [pandoc](http://johnmacfarlane.net/pandoc/)。剩下的都是是看个人喜好了。
