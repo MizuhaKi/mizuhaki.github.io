@@ -15,6 +15,7 @@ tags:
 ---
 
 ## Bash Shell Reference
+
 command | description | example
 :--: | :---: | :---: 
 ls | list files in a directory | ls
