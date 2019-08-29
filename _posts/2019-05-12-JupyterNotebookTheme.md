@@ -72,6 +72,7 @@ jtplot.reset()
 ```
 
 ## Monospace Fonts (code cells)
+
 \-f arg | Monospace Font
 :---: | :---:
 anka | Anka/Coder
@@ -104,6 +105,7 @@ ptmono | PT Mono
 ubuntu | Ubuntu Mono
 
 ## Sans-Serif Fonts
+
 \-nf/\-tf arg | Sans-Serif Font
 :---: | :---:
 opensans | Open Sans
@@ -115,6 +117,7 @@ robotosans | Roboto
 sourcesans | Source Sans Pro
 
 ## Serif Fonts
+
 \-nf/\-tf arg | Serif Font
 :---: | :---:
 loraserif | Lora
