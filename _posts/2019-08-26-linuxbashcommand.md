@@ -43,4 +43,10 @@ vim, emacs | a complicated text editer (recommended) | vim test.py
 echo | like println for the shell | echo "Hello"
 awk | a full-featured text processing language | awk '{print $0}' /etc/passwd
 
+## frequently used command
 
+command | desctiption
+:---: | :---:
+ls -l\|grep "^-"\| wc -l | count the number of the file under the local directory
+ls -lR\|grep "^-"\| wc -l | count the number of the file containing the subdirectory under the local directory
+ls -l\|grep "^d"\| wc -l | count the number of the directory
