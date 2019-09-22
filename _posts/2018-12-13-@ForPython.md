@@ -46,11 +46,14 @@ output =  9
 
 ## description
 An @ symbol at the beginning of a line is used for class, function and method decorators.
+
 Read more here:
 [PEP 318: Decorators](http://www.python.org/dev/peps/pep-0318/)
 [Python Decorators](http://wiki.python.org/moin/PythonDecorators)
+
 The most common Python decorators you will run into are:
 [@property](http://docs.python.org/library/functions.html#property)
 [@classmethod](http://docs.python.org/library/functions.html#classmethod)
 [@staticmethod](http://docs.python.org/library/functions.html#staticmethod)
+
 If you see an @ in the middle of a line, that is a different thing, matrix multiplication.
