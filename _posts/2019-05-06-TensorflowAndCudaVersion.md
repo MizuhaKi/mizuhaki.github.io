@@ -22,6 +22,7 @@ tags:
 版本 | Python 版本 | 编译器 | 编译工具 | cuDNN | CUDA
 --- | --- | --- | --- | --- |---
 tensorflow_gpu-2.0.0-alpha0 | 2.7、3.3-3.6 | GCC 4.8 | Bazel 0.19.2 | 7.4.1以及更高版本 | CUDA 10.0 (需要 410.x 或更高版本)
+tensorflow_gpu-1.14.0 | 2.7、3.3-3.6 | GCC 4.8 | Bazel 0.24.1 | 7.4 | 10.0
 tensorflow_gpu-1.13.0 | 2.7、3.3-3.6 | GCC 4.8 | Bazel 0.19.2 | 7.4 | 10.0
 tensorflow_gpu-1.12.0 | 2.7、3.3-3.6 | GCC 4.8 | Bazel 0.15.0 | 7 | 9
 tensorflow_gpu-1.11.0 | 2.7、3.3-3.6 | GCC 4.8 | Bazel 0.15.0 | 7 | 9
