@@ -19,6 +19,7 @@ Here is a list of some basic Git commands to get you going with Git.
 For more detail, check out the  [Atlassian Git Tutorials](https://www.atlassian.com/git)  for a visual introduction to Git commands and workflows, including examples.
 
 ## commands
+
 Git task | Notes | Git commands |
 :--: |:--: |:--: 
 Tell Git who you are | Configure the author name and email address to be used with your commits.  <br>Note that Git strips some characters (for example trailing periods) from user.name | git config --global user.name "Sam Smith"   <br>git config --global user.email sam@example.com
