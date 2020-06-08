@@ -51,3 +51,12 @@ Undo local changes | If you mess up, you can replace the changes in your working
 | | Instead, to drop all your local changes and commits, fetch the latest history from the server and point your local master branch at it, do this: | git fetch origin <br>git reset --hard origin/master
 Search	| Search the working directory for foo(): | git grep "foo()"
 
+## git push
+```bash
+git init
+git add .
+git commit -m 'description'
+git remote add origin https://xxx
+git push -u origin master
+(git pull --rebase origin master)
+```
