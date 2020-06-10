@@ -28,6 +28,9 @@ conda deactivate
 conda remove -n environment --all
 conda env export -n environment > environment.yml
 conda env create -n environment -f environment.yml
+conda config --show
+conda config --remove-key channels
+conda config --show-sources
 ```
 ## Tsinghua Source 
 ```bash
