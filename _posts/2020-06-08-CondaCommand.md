@@ -31,6 +31,8 @@ conda env create -n environment -f environment.yml
 conda config --show
 conda config --remove-key channels
 conda config --show-sources
+conda clean -p
+conda clean -y --all
 ```
 ## Tsinghua Source 
 ```bash
