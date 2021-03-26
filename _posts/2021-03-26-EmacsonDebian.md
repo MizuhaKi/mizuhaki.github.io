@@ -16,7 +16,7 @@ tags:
 
 
 ## Introduction 
-- A txt editor for debian system.
+- A txt [editor](https://www.emacswiki.org/emacs/EmacsSnapshotAndDebian) for debian system.
 
 ## Command
 ```bash
