@@ -24,11 +24,11 @@ SPC f e d | 快速打开配置文件 .spacemacs
 SPC f e R |	重新执行初始化过程 用于修改~/.spacemacs后
 SPC f s	  | 保存一个buffer
 SPC f R   | 重命名当前文件
+SPC f f	| 使用helm 来查找文件
+SPC f L	| 使用 helm-locate 来在当前系统中查找文件
+SPC f S	 |    保存所有打开的buffer
+SPC z x | 	修改字体大小
 
-SPC f f	     使用helm 来查找文件
-SPC f L	     使用 helm-locate 来在当前系统中查找文件
-SPC f S	     保存所有打开的buffer
-SPC z x 		修改字体大小
 C-u			向上滚动
 SPC f f			查找文件
 SPC f r			最近打开的文件列表
