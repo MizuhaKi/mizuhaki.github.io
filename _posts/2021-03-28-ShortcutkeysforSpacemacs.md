@@ -18,6 +18,7 @@ tags:
 ## Command
 
 key	 | description
+--- | ---
 SPC h SPC | 调出所有帮助文档
 SPC f e d | 快速打开配置文件 .spacemacs
 SPC f e R |	重新执行初始化过程 用于修改~/.spacemacs后
