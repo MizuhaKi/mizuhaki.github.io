@@ -79,7 +79,7 @@ torch.Size([2, 2, 1, 2])
 
 ### size and view
 - [size](https://pytorch.org/docs/stable/tensors.html?highlight=size#torch.Tensor.size): Returns the size of the self tensor. The returned value is a subclass of tuple.
-- [view](https://pytorch.org/docs/stable/tensors.html?highlight=view#torch.Tensor.view):Returns a new tensor with the same data as the self tensor but of a different shape.
+- [view](https://pytorch.org/docs/stable/tensors.html?highlight=view#torch.Tensor.view): Returns a new tensor with the same data as the self tensor but of a different shape.
 
 ### example
 ```bash
